@@ -1,0 +1,112 @@
+/* 
+ * RESET ULTRA AGRESIVO PARA NAVBAR - GASTRONOME
+ * Este archivo fuerza la consistencia de navbar y elimina TODAS las interferencias
+ */
+
+/* NIVEL 1: Neutraliza cualquier font-size global */
+.navbar,
+.navbar *,
+.navbar-brand,
+.navbar-nav,
+.navbar-nav *,
+.navbar-toggler,
+.navbar-collapse,
+.navbar-text {
+    font-size: initial !important;
+}
+
+/* NIVEL 2: Fuerza tamaños específicos con especificidad máxima */
+.navbar-nav .nav-link,
+.navbar-nav .nav-link *,
+.navbar-nav li,
+.navbar-nav li *,
+.navbar .nav-link,
+.navbar .nav-link *,
+.navbar-nav .dropdown-item,
+nav.navbar .nav-link,
+nav.navbar .nav-link * {
+    font-size: 1rem !important;
+    line-height: 1.5 !important;
+    font-weight: 500 !important;
+    font-family: inherit !important;
+}
+
+/* NIVEL 3: Reset móvil con múltiples selectores para máxima cobertura */
+@media (max-width: 600px) {
+    .navbar-nav .nav-link,
+    .navbar-nav .nav-link *,
+    .navbar-nav li,
+    .navbar-nav li *,
+    .navbar .nav-link,
+    .navbar .nav-link *,
+    .navbar-nav .dropdown-item,
+    nav.navbar .nav-link,
+    nav.navbar .nav-link *,
+    .navbar-nav a,
+    .navbar-nav a * {
+        font-size: 1.35rem !important;
+        line-height: 1.4 !important;
+        font-weight: 600 !important;
+        font-family: inherit !important;
+    }
+}
+
+/* NIVEL 4: Anula clamp() y funciones CSS con declaraciones específicas */
+.navbar-nav .nav-link {
+    font-size: 1rem !important;
+}
+
+@media (max-width: 600px) {
+    .navbar-nav .nav-link {
+        font-size: 1.35rem !important;
+    }
+}
+
+/* NIVEL 5: Protege navbar-brand de interferencias */
+.navbar-brand,
+.navbar-brand * {
+    font-size: 1.25rem !important;
+}
+
+@media (max-width: 600px) {
+    .navbar-brand,
+    .navbar-brand * {
+        font-size: 1.25rem !important;
+    }
+}
+
+/* NIVEL 6: Estados especiales y focus */
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link:focus,
+.navbar-nav .nav-link:active,
+.navbar-nav .nav-link[aria-expanded="true"],
+.navbar-nav .nav-link[aria-expanded="false"] {
+    font-size: inherit !important;
+    line-height: inherit !important;
+}
+
+/* NIVEL 7: Protección contra selectores globales como h1, h2, h3, footer, etc. */
+.navbar h1,
+.navbar h2, 
+.navbar h3,
+.navbar h4,
+.navbar h5,
+.navbar h6,
+.navbar p,
+.navbar span,
+.navbar div,
+.navbar a {
+    font-size: inherit !important;
+    line-height: inherit !important;
+}
+
+/* NIVEL 8: Fuerza específica para mobile dropdown */
+@media (max-width: 600px) {
+    .navbar-collapse .navbar-nav .nav-link,
+    .navbar-collapse .navbar-nav .nav-link *,
+    .navbar-collapse .nav-link,
+    .navbar-collapse .nav-link * {
+        font-size: 1.35rem !important;
+        line-height: 1.4 !important;
+    }
+}

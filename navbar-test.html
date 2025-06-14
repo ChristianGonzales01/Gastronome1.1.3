@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar Test - Gastronome</title>
+    
+    <!-- Bootstrap 5.3.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" 
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="navbar-mobile.css">
+    <link rel="stylesheet" href="navbar-reset.css">
+    
+    <style>
+        body {
+            padding-top: 80px;
+            font-family: Arial, sans-serif;
+        }
+        .test-section {
+            padding: 20px;
+            margin: 20px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .test-info {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .status {
+            font-weight: bold;
+        }
+        .status.success {
+            color: #28a745;
+        }
+        .status.error {
+            color: #dc3545;
+        }
+        .navbar-brand img {
+            height: 40px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="Icono/LOGO.png" alt="Gastronome Logo">
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Nosotros.html">Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Servicios.html">Servicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="PortafolioMinimal.html">Portafolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Contacto.html">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Navbar Test Page</h1>
+        
+        <div class="test-info">
+            <h3>Test Instructions:</h3>
+            <ol>
+                <li><strong>Desktop Test:</strong> On desktop view, verify navbar font size is consistent across all pages</li>
+                <li><strong>Mobile Test:</strong> Switch to mobile view (resize browser or use dev tools)</li>
+                <li><strong>Dropdown Test:</strong> Click the hamburger menu to open dropdown</li>
+                <li><strong>Close Test:</strong> Click a nav link or outside the menu to close it</li>
+                <li><strong>Navigation Test:</strong> Navigate between pages and check font consistency</li>
+            </ol>
+        </div>
+
+        <div class="test-section">
+            <h3>Current Navbar Font Size Check</h3>
+            <p>Use browser dev tools to inspect <code>.navbar-nav .nav-link</code> elements:</p>
+            <ul>
+                <li><strong>Desktop (>600px):</strong> Should be <code>1rem</code></li>
+                <li><strong>Mobile (≤600px):</strong> Should be <code>1.35rem</code></li>
+            </ul>
+            <button onclick="checkFontSizes()" class="btn btn-primary">Check Font Sizes</button>
+            <div id="fontSizeResults" class="mt-3"></div>
+        </div>
+
+        <div class="test-section">
+            <h3>Bootstrap Version Check</h3>
+            <p>Bootstrap version should be 5.3.3 across all pages.</p>
+            <button onclick="checkBootstrapVersion()" class="btn btn-primary">Check Bootstrap Version</button>
+            <div id="bootstrapResults" class="mt-3"></div>
+        </div>
+
+        <div class="test-section">
+            <h3>Dropdown Functionality Test</h3>
+            <p>Test the mobile dropdown menu functionality:</p>
+            <button onclick="testDropdown()" class="btn btn-primary">Test Dropdown</button>
+            <div id="dropdownResults" class="mt-3"></div>
+        </div>        <div class="test-section">
+            <h3>Cross-Page Comparison Test</h3>
+            <p>Compare navbar font sizes across different pages:</p>
+            <div class="d-flex gap-2 flex-wrap mb-3">
+                <button onclick="compareWithPage('index.html')" class="btn btn-outline-primary">Compare with Index</button>
+                <button onclick="compareWithPage('Servicios.html')" class="btn btn-outline-primary">Compare with Servicios</button>
+                <button onclick="compareWithPage('Contacto.html')" class="btn btn-outline-primary">Compare with Contacto</button>
+            </div>
+            <div id="comparisonResults" class="mt-3"></div>
+        </div>
+
+        <div class="test-section">
+            <h3>Quick Navigation Test</h3>
+            <p>Navigate quickly between pages to test consistency:</p>
+            <div class="d-flex gap-2 flex-wrap">
+                <a href="index.html" class="btn btn-outline-primary">Home</a>
+                <a href="Nosotros.html" class="btn btn-outline-primary">Nosotros</a>
+                <a href="Servicios.html" class="btn btn-outline-primary">Servicios</a>
+                <a href="PortafolioMinimal.html" class="btn btn-outline-primary">Portafolio</a>
+                <a href="Contacto.html" class="btn btn-outline-primary">Contacto</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5.3.3 JavaScript -->
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <script>
+        // Add event listeners after DOM loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add click handler to all nav links to close mobile menu
+            document.querySelectorAll('.navbar-nav .nav-link').forEach(function(link) {
+                link.addEventListener('click', function() {
+                    var navbarCollapse = document.getElementById('navbarNav');
+                    if (navbarCollapse && navbarCollapse.classList.contains('show')) {
+                        var collapse = new bootstrap.Collapse(navbarCollapse);
+                        collapse.hide();
+                    }
+                });
+            });
+
+            // Auto-close mobile menu when clicking outside
+            document.addEventListener('click', function(event) {
+                var navbar = document.querySelector('.navbar-collapse');
+                var toggler = document.querySelector('.navbar-toggler');
+                
+                if (navbar && navbar.classList.contains('show') && 
+                    !navbar.contains(event.target) && 
+                    !toggler.contains(event.target)) {
+                    var collapse = new bootstrap.Collapse(navbar);
+                    collapse.hide();
+                }
+            });
+        });
+
+        function checkFontSizes() {
+            const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+            const results = document.getElementById('fontSizeResults');
+            
+            if (navLinks.length === 0) {
+                results.innerHTML = '<div class="status error">❌ No nav links found</div>';
+                return;
+            }
+
+            const firstLink = navLinks[0];
+            const computedStyle = window.getComputedStyle(firstLink);
+            const fontSize = computedStyle.fontSize;
+            const screenWidth = window.innerWidth;
+            
+            let expectedSize = screenWidth <= 600 ? '1.35rem' : '1rem';
+            let expectedPx = screenWidth <= 600 ? '21.6px' : '16px';
+            
+            let status = fontSize === expectedPx ? 'success' : 'error';
+            let icon = status === 'success' ? '✅' : '❌';
+            
+            results.innerHTML = `
+                <div class="status ${status}">
+                    ${icon} Font Size: ${fontSize}<br>
+                    Expected: ${expectedPx} (${expectedSize})<br>
+                    Screen Width: ${screenWidth}px<br>
+                    Mobile Mode: ${screenWidth <= 600 ? 'Yes' : 'No'}
+                </div>
+            `;
+        }
+
+        function checkBootstrapVersion() {
+            const results = document.getElementById('bootstrapResults');
+            
+            // Check if Bootstrap 5 classes are available
+            const hasBootstrap5 = typeof bootstrap !== 'undefined';
+            const hasCollapse = hasBootstrap5 && typeof bootstrap.Collapse !== 'undefined';
+            
+            // Check for Bootstrap CSS link
+            const bootstrapCSS = document.querySelector('link[href*="bootstrap"]');
+            const cssVersion = bootstrapCSS ? bootstrapCSS.href.match(/bootstrap@([\d.]+)/) : null;
+            
+            let status = hasBootstrap5 && hasCollapse ? 'success' : 'error';
+            let icon = status === 'success' ? '✅' : '❌';
+            
+            results.innerHTML = `
+                <div class="status ${status}">
+                    ${icon} Bootstrap 5 Available: ${hasBootstrap5}<br>
+                    Collapse Component: ${hasCollapse}<br>
+                    CSS Version: ${cssVersion ? cssVersion[1] : 'Not found'}<br>
+                    Expected: 5.3.3
+                </div>
+            `;
+        }        function testDropdown() {
+            const results = document.getElementById('dropdownResults');
+            const navbarCollapse = document.getElementById('navbarNav');
+            const toggler = document.querySelector('.navbar-toggler');
+            
+            if (!navbarCollapse || !toggler) {
+                results.innerHTML = '<div class="status error">❌ Navbar elements not found</div>';
+                return;
+            }
+
+            try {
+                // Test opening
+                const collapse = new bootstrap.Collapse(navbarCollapse);
+                collapse.show();
+                
+                setTimeout(() => {
+                    const isOpen = navbarCollapse.classList.contains('show');
+                    
+                    // Test closing
+                    collapse.hide();
+                    
+                    setTimeout(() => {
+                        const isClosed = !navbarCollapse.classList.contains('show');
+                        
+                        let status = isOpen && isClosed ? 'success' : 'error';
+                        let icon = status === 'success' ? '✅' : '❌';
+                        
+                        results.innerHTML = `
+                            <div class="status ${status}">
+                                ${icon} Dropdown Test:<br>
+                                Opening: ${isOpen ? 'Success' : 'Failed'}<br>
+                                Closing: ${isClosed ? 'Success' : 'Failed'}<br>
+                                Bootstrap Collapse: Available
+                            </div>
+                        `;
+                    }, 500);
+                }, 500);
+                
+            } catch (error) {
+                results.innerHTML = `<div class="status error">❌ Error: ${error.message}</div>`;
+            }
+        }
+
+        function compareWithPage(pageName) {
+            const results = document.getElementById('comparisonResults');
+            const currentNavLinks = document.querySelectorAll('.navbar-nav .nav-link');
+            
+            if (currentNavLinks.length === 0) {
+                results.innerHTML = '<div class="status error">❌ No nav links found on current page</div>';
+                return;
+            }
+
+            const currentFontSize = window.getComputedStyle(currentNavLinks[0]).fontSize;
+            const currentScreenWidth = window.innerWidth;
+            const currentExpected = currentScreenWidth <= 600 ? '21.6px' : '16px';
+            
+            // Create iframe to load the other page and compare
+            const iframe = document.createElement('iframe');
+            iframe.style.display = 'none';
+            iframe.src = pageName;
+            document.body.appendChild(iframe);
+            
+            iframe.onload = function() {
+                try {
+                    const iframeNavLinks = iframe.contentDocument.querySelectorAll('.navbar-nav .nav-link');
+                    if (iframeNavLinks.length === 0) {
+                        results.innerHTML = `<div class="status error">❌ No nav links found on ${pageName}</div>`;
+                        document.body.removeChild(iframe);
+                        return;
+                    }
+                    
+                    const otherFontSize = iframe.contentWindow.getComputedStyle(iframeNavLinks[0]).fontSize;
+                    const isMatch = currentFontSize === otherFontSize;
+                    const status = isMatch ? 'success' : 'error';
+                    const icon = isMatch ? '✅' : '❌';
+                    
+                    results.innerHTML = `
+                        <div class="status ${status}">
+                            ${icon} Comparison with ${pageName}:<br>
+                            Current page font size: ${currentFontSize}<br>
+                            ${pageName} font size: ${otherFontSize}<br>
+                            Expected: ${currentExpected}<br>
+                            Match: ${isMatch ? 'Yes' : 'No'}<br>
+                            Screen Width: ${currentScreenWidth}px
+                        </div>
+                    `;
+                    
+                    document.body.removeChild(iframe);
+                } catch (error) {
+                    results.innerHTML = `<div class="status error">❌ Error comparing with ${pageName}: ${error.message}</div>`;
+                    document.body.removeChild(iframe);
+                }
+            };
+            
+            iframe.onerror = function() {
+                results.innerHTML = `<div class="status error">❌ Failed to load ${pageName}</div>`;
+                document.body.removeChild(iframe);
+            };
+        }
+    </script>
+</body>
+</html>

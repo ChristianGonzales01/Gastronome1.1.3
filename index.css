@@ -1,0 +1,1195 @@
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fff;
+  color: #000;
+  scroll-behavior: smooth;
+}
+
+h2 {
+  font-weight: bold;
+}
+
+section img {
+  object-fit: cover;
+}
+
+header {
+  background-color: #000000;
+  color: #ffffff;
+  text-align: center;
+  padding: 100px 20px;
+}
+
+header .btn {
+  background-color: #ffffff;
+  color: #000000;
+  padding: 10px 25px;
+  border: 2px solid #ffffff;
+  border-radius: 5px;
+  text-decoration: none;
+  margin-top: 20px;
+  display: inline-block;
+  font-size: 16px;
+  transition: background-color 0.15s, color 0.15s;
+}
+
+header .btn:hover {
+  background-color: #000000;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+}
+
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: auto;
+  padding: 40px 0;
+}
+
+section {
+  padding: 40px 0;
+}
+h2 {
+  color: #000000;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: bold;
+} /* Corregir título "¿Qué hacemos?" para que sea blanco en sección con fondo negro */
+section[style*="background:#111"] h2,
+section[style*="background: #111"] h2,
+.services-title {
+  color: #ffffff !important;
+}
+
+/* Específico para PC/desktop */
+@media (min-width: 992px) {
+  section[style*="background:#111"] h2,
+  section[style*="background: #111"] h2,
+  .services-title {
+    color: #ffffff !important;
+  }
+}
+
+ul {
+  list-style-type: square;
+  padding-left: 20px;
+}
+
+.galeria {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.galeria img {
+  width: 300px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 500px;
+  margin: auto;
+}
+
+input,
+textarea {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #000000;
+  border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  color: #000000;
+}
+
+button {
+  background-color: #000000;
+  color: #ffffff;
+  border: none;
+  padding: 12px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: background-color 0.15s;
+}
+
+button:hover {
+  background-color: #333333;
+}
+
+footer {
+  text-align: center;
+  background-color: #000000;
+  color: white;
+  padding: 20px;
+}
+@media (max-width: 900px) {
+  .container,
+  section,
+  header {
+    padding: 20px 5vw !important;
+    width: 100% !important;
+  }
+  .galeria img,
+  .card-img-top {
+    width: 100% !important;
+    min-width: 0;
+  }
+  /* Navbar styles removed - now handled by navbar-mobile.css */
+  .row {
+    flex-direction: column !important;
+  }
+}
+@media (max-width: 600px) {
+  html,
+  body {
+    font-size: 18px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: 100vw !important;
+    overflow-x: hidden !important;
+  }
+  h1:not(.hero-title),
+  h2:not(.services-title),
+  h3,
+  .main-title,
+  .portfolio-section-title,
+  .subtitle {
+    font-size: 1.25rem !important;
+    line-height: 1.2 !important;
+    margin-left: 2vw !important;
+    margin-right: 2vw !important;
+  }
+  .main-title,
+  .portfolio-section-title {
+    font-size: 1.5rem !important;
+    margin-top: 1.2rem !important;
+    margin-bottom: 0.8rem !important;
+  }
+  .subtitle {
+    font-size: 1.1rem !important;
+    margin-bottom: 1.2rem !important;
+  }
+  .features-list,
+  .portfolio-preview,
+  .portfolio-cards,
+  section,
+  .portfolio-section-bg {
+    gap: 0.7rem !important;
+    margin: 1.1rem 0 !important;
+    padding: 0 !important;
+  }
+  .portfolio-card,
+  .portfolio-img {
+    width: 96vw !important;
+    min-width: 0 !important;
+    max-width: 98vw !important;
+    margin-left: 2vw !important;
+    margin-right: 2vw !important;
+    padding: 0.7rem 0.5rem !important;
+    box-sizing: border-box !important;
+  }
+  .portfolio-card-title,
+  .portfolio-card-desc {
+    font-size: 1.08rem !important;
+    padding-left: 0.5vw !important;
+    padding-right: 0.5vw !important;
+  }
+  .portfolio-card-tags {
+    gap: 0.3rem !important;
+    margin-bottom: 0.3rem !important;
+  }
+  .portfolio-card-tag {
+    font-size: 0.98rem !important;
+    padding: 0.18rem 0.7rem !important;
+  }
+  .portfolio-card-link {
+    font-size: 1.08rem !important;
+    padding: 0.4rem 1.1rem !important;
+    margin-top: 0.4rem !important;
+    margin-bottom: 0.2rem !important;
+  }
+  /* Navbar styles removed - now handled by navbar-mobile.css */
+  .portfolio-card,
+  .portfolio-img,
+  .portfolio-section-bg,
+  .features-list,
+  .portfolio-preview {
+    border-radius: 12px !important;
+  }
+  section,
+  .portfolio-section-bg {
+    padding-left: 2vw !important;
+    padding-right: 2vw !important;
+  }
+  footer,
+  .footer-content {
+    padding-left: 2vw !important;
+    padding-right: 2vw !important;
+    font-size: 1rem !important;
+  }
+  /* Reduce espacio entre secciones */
+  main,
+  body,
+  html {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+  }
+  /* Ajuste para que nada choque con las orillas */
+  * {
+    box-sizing: border-box !important;
+  }
+} /* Animaciones y efectos extra */
+.card,
+.servicio {
+  transition: transform 0.1s, box-shadow 0.1s;
+}
+.card:hover,
+.servicio:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 8px 32px #0002;
+}
+.btn,
+button {
+  box-shadow: 0 2px 8px #0001;
+}
+.btn:hover,
+button:hover {
+  box-shadow: 0 4px 16px #0002;
+}
+
+/* Mobile styles for hero section and titles */
+@media (max-width: 768px) {
+  /* Make "Bienvenido a Gastronome" title GIGANTIC on mobile - minimalista */
+  .hero-title,
+  h1[style*="clamp(3rem, 8vw, 4.5rem)"] {
+    font-size: clamp(28rem, 70vw, 50rem) !important;
+    line-height: 0.8 !important;
+    margin-bottom: 2rem !important;
+    font-weight: 900 !important;
+    text-shadow: 0 6px 12px rgba(0, 0, 0, 0.4) !important;
+    letter-spacing: -0.05em !important;
+    text-align: center !important;
+    transform: none !important;
+  }
+
+  /* Palabra "Gastronome" con espaciado especial */
+  .hero-title span,
+  h1 span[style*="color: #01a54b"] {
+    color: #01a54b !important;
+    background: none !important;
+    text-shadow: 0 6px 12px rgba(1, 165, 75, 0.4) !important;
+    letter-spacing: 0.15em !important;
+    font-size: 1.1em !important;
+    display: block !important;
+    margin-top: 1rem !important;
+    text-align: center !important;
+    animation: pulse 2s ease-in-out infinite !important;
+  }
+
+  /* Make slogan smaller on mobile */
+  .hero-subtitle,
+  p[style*="clamp(1.3rem, 4vw, 1.5rem)"] {
+    font-size: clamp(1rem, 3vw, 1.2rem) !important;
+    line-height: 1.4 !important;
+    margin-bottom: 2rem !important;
+  }
+  /* Ensure "¿Qué hacemos?" title is white on mobile */
+  section[style*="background: #111"] h2,
+  section[style*="background:#111"] h2,
+  .services-title,
+  h2[style*="font-size: 2rem"] {
+    color: #ffffff !important;
+    font-size: 2.2rem !important;
+    margin-bottom: 2rem !important;
+  }
+
+  /* Remove any potential interfering elements or overlays */
+  .hero-overlay,
+  .title-overlay {
+    display: none !important;
+  }
+
+  /* Ensure text is visible and not blocked */
+  .hero-section,
+  section[style*="background: #111"] {
+    position: relative !important;
+    z-index: 1 !important;
+  }
+}
+
+/* Additional mobile styles for smaller screens */
+@media (max-width: 480px) {
+  /* Even BIGGER title on very small screens - minimalista */
+  .hero-title,
+  h1[style*="clamp(3rem, 4.5rem)"] {
+    font-size: clamp(32rem, 75vw, 55rem) !important;
+    line-height: 0.75 !important;
+    font-weight: 900 !important;
+    text-shadow: 0 8px 16px rgba(0, 0, 0, 0.5) !important;
+    letter-spacing: -0.08em !important;
+    transform: none !important;
+  }
+
+  /* Palabra "Gastronome" aún más destacada en móviles pequeños */
+  .hero-title span,
+  h1 span[style*="color: #01a54b"] {
+    color: #01a54b !important;
+    background: none !important;
+    text-shadow: 0 8px 16px rgba(1, 165, 75, 0.5) !important;
+    letter-spacing: 0.2em !important;
+    font-size: 1.15em !important;
+    display: block !important;
+    margin-top: 0.8rem !important;
+  }
+
+  /* Smaller slogan on very small screens */
+  .hero-subtitle,
+  p[style*="clamp(1.3rem, 4vw, 1.5rem)"] {
+    font-size: clamp(0.9rem, 2.5vw, 1.1rem) !important;
+  }
+  /* Adjust "¿Qué hacemos?" for very small screens */
+  section[style*="background: #111"] h2,
+  section[style*="background:#111"] h2,
+  .services-title,
+  h2[style*="font-size: 2rem"] {
+    font-size: 1.8rem !important;
+  }
+}
+
+/* Eliminar aceleración global de animaciones */
+.card,
+.servicio {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Mejorar transiciones específicas para dinamismo */
+.reveal-element.revealed {
+  transition-duration: 0.8s !important;
+}
+
+.animate-in {
+  animation-duration: 1s !important;
+  transition-duration: 0.8s !important;
+}
+
+/* Mejorar transiciones de tarjetas */
+.card,
+.servicio {
+  transition: transform 0.4s ease-out, box-shadow 0.4s ease-out;
+}
+
+/* Estilos minimalistas para el título principal en móvil */
+@media (max-width: 767px) {
+  /* Título principal con diseño minimalista y limpio */
+  .hero-title,
+  h1[style*="clamp(3rem, 4.5rem)"] {
+    color: #ffffff !important;
+    background: none !important;
+    -webkit-background-clip: initial !important;
+    -webkit-text-fill-color: initial !important;
+    background-clip: initial !important;
+    filter: none !important;
+    position: relative;
+    z-index: 10;
+  }
+
+  /* Mejorar la palabra "Gastronome" con diseño minimalista */
+  .hero-title span[style*="color: #01a54b"],
+  h1 span[style*="color: #01a54b"] {
+    color: #01a54b !important;
+    background: none !important;
+    -webkit-background-clip: initial !important;
+    -webkit-text-fill-color: initial !important;
+    background-clip: initial !important;
+    filter: none !important;
+    position: relative !important;
+  }
+
+  /* Espaciado limpio y minimalista para el hero */
+  header {
+    padding: 60px 20px 80px 20px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    min-height: 100vh !important;
+    position: relative !important;
+    overflow: hidden !important;
+  }
+}
+
+/* Animaciones suaves y naturales */
+.animate-in {
+  animation-duration: 1.2s !important;
+  transition-duration: 1s !important;
+}
+
+.reveal-element.revealed {
+  transition-duration: 1s !important;
+}
+
+/* Mejorar botones en móvil */
+@media (max-width: 767px) {
+  .btn,
+  button {
+    padding: 15px 30px !important;
+    font-size: 1.1rem !important;
+    font-weight: 600 !important;
+    border-radius: 8px !important;
+    transition: all 0.4s ease !important;
+  }
+
+  .btn:hover,
+  button:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2) !important;
+  }
+}
+
+/* Animaciones adicionales para elementos que aparecen */
+@keyframes slideInFromBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(50px) scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes fadeInScale {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Aplicar animaciones suaves y naturales a secciones */
+section {
+  animation: slideInFromBottom 1.2s ease-out;
+}
+
+/* Mejorar efectos hover en móvil */
+@media (max-width: 767px) {
+  .card:active,
+  .servicio:active {
+    transform: translateY(-12px) scale(1.05) !important;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3) !important;
+    transition: all 0.5s ease-out !important;
+  }
+
+  /* Mejorar subtítulo */
+  .hero-subtitle {
+    font-size: clamp(1.4rem, 4.5vw, 1.8rem) !important;
+    font-weight: 400 !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+    margin-bottom: 3rem !important;
+    opacity: 0.95 !important;
+    color: #ffffff !important;
+    max-width: 90% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  /* Eliminar efectos de paralaje complejos */
+  header::before {
+    display: none !important;
+  }
+
+  header > * {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+/* Estilos minimalistas para título principal */
+@media (max-width: 768px) {
+  /* Título GIGANTE y minimalista en móvil */
+  .hero-title,
+  h1[style*="clamp"] {
+    font-size: clamp(16rem, 45vw, 28rem) !important;
+    line-height: 0.75 !important;
+    font-weight: 900 !important;
+    letter-spacing: -0.08em !important;
+    text-align: center !important;
+    color: #ffffff !important;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.4) !important;
+    width: 95% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding: 0 2.5% !important;
+    background: none !important;
+    transform: none !important;
+  }
+
+  /* Palabra "Gastronome" minimalista */
+  .hero-title span,
+  h1 span[style*="color: #01a54b"] {
+    color: #01a54b !important;
+    background: none !important;
+    text-shadow: 0 4px 8px rgba(1, 165, 75, 0.4) !important;
+  }
+
+  /* Subtítulo minimalista */
+  .hero-subtitle,
+  p[style*="clamp"] {
+    font-size: clamp(1.2rem, 4vw, 1.6rem) !important;
+    color: #ffffff !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+    width: 90% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  /* Header optimizado para móvil */
+  header {
+    padding: 40px 5px 60px 5px !important;
+    min-height: 100vh !important;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Título AÚN MÁS GRANDE en móviles pequeños */
+  .hero-title,
+  h1[style*="clamp"] {
+    font-size: clamp(18rem, 50vw, 32rem) !important;
+    line-height: 0.7 !important;
+    letter-spacing: -0.1em !important;
+    width: 98% !important;
+    padding: 0 1% !important;
+  }
+
+  header {
+    padding: 30px 2px 50px 2px !important;
+  }
+}
+
+/* Eliminar efectos de brillo en móvil */
+@media (max-width: 768px) {
+  .hero-title::before,
+  h1::before {
+    display: none !important;
+  }
+}
+
+/* Estilos minimalistas para PC también */
+@media (min-width: 769px) {
+  .hero-title,
+  h1[style*="clamp"] {
+    color: #ffffff !important;
+    background: none !important;
+    transform: none !important;
+  }
+
+  .hero-title span,
+  .hero-title span[style*="color"],
+  h1 span[style*="color"] {
+    color: #01a54b !important;
+    background: none !important;
+    display: block !important;
+    text-align: center !important;
+    letter-spacing: 0.1em !important;
+    margin-top: 0.5rem !important;
+  }
+}
+
+/* ELEMENTOS MINIMALISTAS CORREGIDOS PARA .hero-section */
+@media (max-width: 768px) {
+  /* Sección hero pegada a la navbar en móvil */
+  .hero-section {
+    min-height: 100vh !important;
+    padding: 0px 0 80px 0 !important;
+    margin-top: 0 !important;
+  }
+
+  /* Círculos */
+  .hero-section .circle-2 {
+    position: absolute;
+    top: 12%;
+    right: 7%;
+    width: 20px;
+    height: 20px;
+    border: 1px solid rgba(1, 165, 75, 0.3);
+    border-radius: 50%;
+    animation: fadeInScale 2s ease-out 2.3s both;
+  }
+
+  /* Rectángulos */
+  .hero-section .rect-1 {
+    position: absolute;
+    bottom: 15%;
+    left: 8%;
+    width: 25px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.3);
+    animation: slideInLeft 1.5s ease-out 1.8s both;
+  }
+
+  .hero-section .rect-2 {
+    position: absolute;
+    bottom: 12%;
+    left: 10%;
+    width: 15px;
+    height: 1px;
+    background: rgba(1, 165, 75, 0.4);
+    animation: slideInLeft 1.5s ease-out 2.1s both;
+  }
+
+  /* Puntos flotantes */
+  .hero-section .dot-1 {
+    position: absolute;
+    top: 30%;
+    left: 12%;
+    width: 3px;
+    height: 3px;
+    background: rgba(1, 165, 75, 0.5);
+    border-radius: 50%;
+    animation: floatDot 4s ease-in-out infinite, fadeIn 1s ease-out 2.5s both;
+  }
+
+  .hero-section .dot-2 {
+    position: absolute;
+    top: 65%;
+    right: 20%;
+    width: 2px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    animation: floatDot 5s ease-in-out infinite reverse,
+      fadeIn 1s ease-out 3s both;
+  }
+
+  .hero-section .dot-3 {
+    position: absolute;
+    top: 45%;
+    right: 8%;
+    width: 4px;
+    height: 4px;
+    background: rgba(1, 165, 75, 0.3);
+    border-radius: 50%;
+    animation: floatDot 6s ease-in-out infinite, fadeIn 1s ease-out 2.8s both;
+  }
+
+  /* Marco */
+  .hero-section .frame-corner {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  .hero-section .frame-tl {
+    top: 30px;
+    left: 30px;
+    border-right: none;
+    border-bottom: none;
+    animation: drawBorder 1.5s ease-out 3.2s both;
+  }
+
+  .hero-section .frame-br {
+    bottom: 30px;
+    right: 30px;
+    border-left: none;
+    border-top: none;
+    animation: drawBorder 1.5s ease-out 3.5s both;
+  }
+}
+
+/* Elementos para PC */
+@media (min-width: 769px) {
+  .hero-section {
+    min-height: 100vh !important;
+    padding: 120px 0 100px 0 !important;
+  }
+
+  .hero-section .circle-group {
+    position: absolute;
+    top: 15%;
+    right: 10%;
+    width: 60px;
+    height: 60px;
+  }
+
+  .hero-section .circle-group .circle-1 {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border: 1px solid rgba(1, 165, 75, 0.2);
+    border-radius: 50%;
+    animation: fadeInScale 2s ease-out 2s both;
+  }
+
+  .hero-section .circle-group .circle-2 {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 30px;
+    height: 30px;
+    border: 1px solid rgba(1, 165, 75, 0.4);
+    border-radius: 50%;
+    animation: fadeInScale 2s ease-out 2.5s both;
+  }
+
+  .hero-section .asymmetric-lines {
+    position: absolute;
+    bottom: 20%;
+    left: 15%;
+    width: 100px;
+    height: 40px;
+  }
+
+  .hero-section .line-short {
+    position: absolute;
+    width: 40px;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.2);
+    animation: slideInLeft 1.5s ease-out 2.8s both;
+  }
+
+  .hero-section .line-medium {
+    position: absolute;
+    top: 10px;
+    width: 60px;
+    height: 1px;
+    background: rgba(1, 165, 75, 0.3);
+    animation: slideInLeft 1.5s ease-out 3.1s both;
+  }
+
+  .hero-section .line-long {
+    position: absolute;
+    top: 20px;
+    width: 80px;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.15);
+    animation: slideInLeft 1.5s ease-out 3.4s both;
+  }
+
+  /* Elementos adicionales para PC */
+  .hero-section .rect-1 {
+    position: absolute;
+    bottom: 25%;
+    right: 12%;
+    width: 35px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.2);
+    animation: slideInLeft 1.5s ease-out 2.2s both;
+  }
+
+  .hero-section .rect-2 {
+    position: absolute;
+    bottom: 22%;
+    right: 15%;
+    width: 20px;
+    height: 1px;
+    background: rgba(1, 165, 75, 0.3);
+    animation: slideInLeft 1.5s ease-out 2.5s both;
+  }
+
+  .hero-section .dot-1 {
+    position: absolute;
+    top: 25%;
+    left: 8%;
+    width: 4px;
+    height: 4px;
+    background: rgba(1, 165, 75, 0.4);
+    border-radius: 50%;
+    animation: floatDot 4s ease-in-out infinite, fadeIn 1s ease-out 3s both;
+  }
+
+  .hero-section .dot-2 {
+    position: absolute;
+    top: 70%;
+    right: 25%;
+    width: 3px;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    animation: floatDot 5s ease-in-out infinite reverse,
+      fadeIn 1s ease-out 3.5s both;
+  }
+
+  .hero-section .dot-3 {
+    position: absolute;
+    top: 40%;
+    right: 5%;
+    width: 5px;
+    height: 5px;
+    background: rgba(1, 165, 75, 0.2);
+    border-radius: 50%;
+    animation: floatDot 6s ease-in-out infinite, fadeIn 1s ease-out 4s both;
+  }
+
+  .hero-section .frame-corner {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .hero-section .frame-tl {
+    top: 40px;
+    left: 40px;
+    border-right: none;
+    border-bottom: none;
+    animation: drawBorder 1.5s ease-out 4.2s both;
+  }
+
+  .hero-section .frame-br {
+    bottom: 40px;
+    right: 40px;
+    border-left: none;
+    border-top: none;
+    animation: drawBorder 1.5s ease-out 4.5s both;
+  }
+}
+
+/* Animaciones adicionales */
+@keyframes slideInDiagonal {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%) rotate(-2deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) rotate(-2deg);
+  }
+}
+
+@keyframes fadeInScale {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes drawBorder {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Elementos flotantes minimalistas adicionales */
+@media (max-width: 768px) {
+  /* Círculo decorativo sutil */
+  .hero-section::before {
+    content: "";
+    position: absolute;
+    top: 20%;
+    right: 10%;
+    width: 4px;
+    height: 4px;
+    background: rgba(1, 165, 75, 0.3);
+    border-radius: 50%;
+    animation: floatDot 4s ease-in-out infinite;
+  }
+
+  /* Segundo círculo */
+  .hero-section::after {
+    content: "";
+    position: absolute;
+    top: 70%;
+    left: 15%;
+    width: 3px;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    animation: floatDot 5s ease-in-out infinite reverse;
+  }
+}
+
+/* Eliminar espacios en blanco entre navbar y hero section en móvil */
+@media (max-width: 768px) {
+  /* Resetear márgenes y padding que puedan crear espacios */
+  body {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Asegurar que no haya espacio arriba de la hero section */
+  .hero-section {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+
+  /* Si hay un contenedor padre, también resetear */
+  main,
+  .main-content {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+
+  /* Título más centrado verticalmente */
+  .hero-title,
+  h1[style*="clamp"] {
+    margin-top: 0 !important;
+    padding-top: 20px !important;
+  }
+}
+
+/* Para móviles muy pequeños */
+@media (max-width: 480px) {
+  .hero-section {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+  }
+
+  .hero-title,
+  h1[style*="clamp"] {
+    padding-top: 15px !important;
+  }
+}
+
+/* Estilos específicos para destacar "Gastronome" en móvil */
+@media (max-width: 768px) {
+  /* Asegurar que "Gastronome" se vea destacado */
+  .hero-title span[style*="color"],
+  .hero-title span[style*="letter-spacing"],
+  h1 span[style*="color"] {
+    color: #01a54b !important;
+    letter-spacing: 0.15em !important;
+    display: block !important;
+    text-align: center !important;
+    margin-top: 1rem !important;
+    font-size: 1.1em !important;
+    text-shadow: 0 6px 12px rgba(1, 165, 75, 0.4) !important;
+    background: none !important;
+    animation: pulse 2s ease-in-out infinite !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title span[style*="color"],
+  .hero-title span[style*="letter-spacing"],
+  h1 span[style*="color"] {
+    letter-spacing: 0.2em !important;
+    margin-top: 1.2rem !important;
+    font-size: 1.15em !important;
+    text-shadow: 0 8px 16px rgba(1, 165, 75, 0.5) !important;
+  }
+}
+
+/* Animación sutil para "Gastronome" */
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.9;
+  }
+}
+
+/* Igualar estilos de botones */
+.main-about-btn:hover,
+.main-contact-btn:hover {
+  background: #fff !important;
+  color: #111 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* TÍTULO PRINCIPAL SIN INTERFERENCIAS DE ANIMACIONES */
+.hero-title-main {
+  opacity: 1 !important;
+  animation: none !important;
+  animation-play-state: unset !important;
+}
+
+/* Estilos MASIVOS para móvil sin interferencias */
+@media (max-width: 768px) {
+  .hero-title-main,
+  .hero-title,
+  h1.hero-title-main {
+    font-size: clamp(28rem, 70vw, 50rem) !important;
+    line-height: 0.8 !important;
+    margin-bottom: 2rem !important;
+    font-weight: 900 !important;
+    text-shadow: 0 6px 12px rgba(0, 0, 0, 0.4) !important;
+    letter-spacing: -0.05em !important;
+    text-align: center !important;
+    transform: none !important;
+    color: #ffffff !important;
+    background: none !important;
+    opacity: 1 !important;
+    animation: none !important;
+  }
+
+  /* Centrar "Gastronome" a la izquierda */
+  .hero-title-main span,
+  .hero-title span {
+    color: #01a54b !important;
+    background: none !important;
+    text-shadow: 0 6px 12px rgba(1, 165, 75, 0.4) !important;
+    letter-spacing: 0.15em !important;
+    font-size: 1.1em !important;
+    display: block !important;
+    margin-top: 1rem !important;
+    text-align: center !important;
+    margin-left: -1rem !important;
+    position: relative !important;
+    left: -0.5rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title-main,
+  .hero-title,
+  h1.hero-title-main {
+    font-size: clamp(32rem, 75vw, 55rem) !important;
+    line-height: 0.75 !important;
+    text-shadow: 0 8px 16px rgba(0, 0, 0, 0.5) !important;
+    letter-spacing: -0.08em !important;
+  }
+
+  .hero-title-main span,
+  .hero-title span {
+    letter-spacing: 0.2em !important;
+    margin-top: 1.2rem !important;
+    font-size: 1.15em !important;
+    text-shadow: 0 8px 16px rgba(1, 165, 75, 0.5) !important;
+    margin-left: -1.5rem !important;
+    left: -0.8rem !important;
+  }
+}
+
+/* Para PC también centrar mejor */
+@media (min-width: 769px) {
+  .hero-title span,
+  h1 span[style*="color: #01a54b"] {
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: 100% !important;
+  }
+}
+
+/* Solo centrar Gastronome en PC y hacer título más grande en móvil */
+@media (min-width: 769px) {
+  .hero-title span,
+  h1 span[style*="color: #01a54b"] {
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: 100% !important;
+    display: block !important;
+    position: relative !important;
+    left: -0.8rem !important;
+    transform: none !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-title,
+  h1[style*="clamp"] {
+    font-size: clamp(40rem, 85vw, 65rem) !important;
+    line-height: 0.75 !important;
+    text-shadow: 0 8px 16px rgba(0, 0, 0, 0.5) !important;
+  }
+
+  .hero-title span,
+  h1 span[style*="color: #01a54b"] {
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: 100% !important;
+    display: block !important;
+    position: relative !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title,
+  h1[style*="clamp"] {
+    font-size: clamp(50rem, 95vw, 80rem) !important;
+    line-height: 0.7 !important;
+    text-shadow: 0 10px 20px rgba(0, 0, 0, 0.6) !important;
+  }
+}
+
+/* Navbar estilos eliminados - ahora se usan los de navbar-shared.css */
+
+/* TÍTULO GIGANTE EN MÓVIL - SIN INTERFERENCIAS */
+@media (max-width: 768px) {
+  .hero-section h1,
+  section h1,
+  h1.hero-title,
+  .page-anim-text.hero-title {
+    font-size: clamp(40rem, 85vw, 65rem) !important;
+    line-height: 0.75 !important;
+    text-shadow: 0 8px 16px rgba(0, 0, 0, 0.5) !important;
+    font-weight: 900 !important;
+    color: #ffffff !important;
+    margin-bottom: 2rem !important;
+    text-align: center !important;
+    letter-spacing: -0.02em !important;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section h1,
+  section h1,
+  h1.hero-title,
+  .page-anim-text.hero-title {
+    font-size: clamp(50rem, 95vw, 80rem) !important;
+    line-height: 0.7 !important;
+    text-shadow: 0 10px 20px rgba(0, 0, 0, 0.6) !important;
+    letter-spacing: -0.03em !important;
+  }
+}
+
+/* Asegurar que el navbar-toggler-icon use las líneas estándar */
+.navbar-toggler-icon {
+  width: 24px !important;
+  height: 24px !important;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%2301a54b' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2.5' d='m4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: contain !important;
+}

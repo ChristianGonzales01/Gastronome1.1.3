@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test de Fuentes - Gastronome</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        .test-section {
+            border: 2px solid #01a54b;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+            background: #f9f9f9;
+        }
+        .font-sample {
+            margin: 10px 0;
+            padding: 10px;
+            background: white;
+            border-radius: 6px;
+            border-left: 4px solid #01a54b;
+        }
+        .navbar-sample {
+            background: #fff;
+            border: 1px solid #eee;
+            padding: 10px 20px;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+        .mobile-note {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            padding: 10px;
+            border-radius: 6px;
+            color: #856404;
+            margin: 10px 0;
+        }
+        @media (max-width: 600px) {
+            .navbar-sample {
+                font-size: 1.35rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>🧪 Test de Consistencia de Fuentes - Gastronome</h1>
+    
+    <div class="mobile-note">
+        <strong>📱 Instrucciones para móvil:</strong><br>
+        1. Abre este archivo en móvil<br>
+        2. Navega a index.html y observa el tamaño de fuente del navbar<br>
+        3. Ve a PortafolioMinimal.html<br>
+        4. Regresa a index.html<br>
+        5. Verifica que el tamaño se mantenga igual
+    </div>
+
+    <div class="test-section">
+        <h2>🔤 Tamaños de Fuente Esperados</h2>
+        
+        <div class="font-sample">
+            <strong>PC Navbar:</strong> 
+            <span style="font-size: 1rem;">Enlaces de navegación (1rem)</span>
+        </div>
+        
+        <div class="font-sample">
+            <strong>Mobile Navbar:</strong> 
+            <span style="font-size: 1.35rem;">Enlaces de navegación (1.35rem)</span>
+        </div>
+        
+        <div class="font-sample">
+            <strong>Texto base HTML:</strong> 
+            <span style="font-size: clamp(15px, 1.2vw + 1.2vh, 22px);">Escalado responsivo con clamp()</span>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>⚙️ Configuración Unificada Bootstrap</h2>
+        <p><strong>✅ Todos los archivos HTML ahora usan:</strong></p>
+        <ul>
+            <li>Bootstrap 5.3.3 (CSS y JS)</li>
+            <li>navbar-mobile.css unificado</li>
+            <li>Scripts de navegación consistentes</li>
+            <li>Mismos breakpoints móviles (600px)</li>
+        </ul>
+    </div>
+
+    <div class="test-section">
+        <h2>🔗 Enlaces de Prueba</h2>
+        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+            <a href="index.html" style="background: #01a54b; color: white; padding: 10px 15px; text-decoration: none; border-radius: 6px;">Index</a>
+            <a href="Servicios.html" style="background: #01a54b; color: white; padding: 10px 15px; text-decoration: none; border-radius: 6px;">Servicios</a>
+            <a href="Contacto.html" style="background: #01a54b; color: white; padding: 10px 15px; text-decoration: none; border-radius: 6px;">Contacto</a>
+            <a href="Nosotros.html" style="background: #01a54b; color: white; padding: 10px 15px; text-decoration: none; border-radius: 6px;">Nosotros</a>
+            <a href="PortafolioMinimal.html" style="background: #01a54b; color: white; padding: 10px 15px; text-decoration: none; border-radius: 6px;">Portafolio</a>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>🐛 Problema Solucionado</h2>
+        <p><strong>Causa del problema:</strong> Conflicto entre Bootstrap 4.5.2 y Bootstrap 5.3.3</p>
+        <p><strong>Solución aplicada:</strong></p>
+        <ol>
+            <li>Unificado Bootstrap 5.3.3 en todos los archivos</li>
+            <li>Eliminado jQuery y Popper.js innecesarios</li>
+            <li>Actualizado JavaScript para Bootstrap 5</li>
+            <li>Centralizado estilos de navbar en navbar-mobile.css</li>
+        </ol>
+    </div>
+    
+    <script>
+        // Mostrar información del dispositivo
+        document.addEventListener('DOMContentLoaded', function() {
+            const info = document.createElement('div');
+            info.className = 'test-section';
+            info.innerHTML = `
+                <h2>📊 Información del Dispositivo</h2>
+                <p><strong>Ancho de pantalla:</strong> ${window.innerWidth}px</p>
+                <p><strong>Alto de pantalla:</strong> ${window.innerHeight}px</p>
+                <p><strong>User Agent:</strong> ${navigator.userAgent}</p>
+                <p><strong>Es móvil:</strong> ${window.innerWidth <= 600 ? 'Sí' : 'No'}</p>
+            `;
+            document.body.appendChild(info);
+        });
+        
+        // Monitor de cambios de tamaño
+        window.addEventListener('resize', function() {
+            console.log('Tamaño cambiado:', window.innerWidth + 'x' + window.innerHeight);
+        });
+    </script>
+</body>
+</html>

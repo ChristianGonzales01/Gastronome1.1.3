@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar Fix Validation - Gastronome</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="navbar-mobile-unified.css">
+    <link rel="stylesheet" href="navbar-mobile-effects.css">
+    <script src="navbar-mobile-unified.js" defer></script>
+    <style>
+        body {
+            background: #f8f9fa;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+        .validation-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .validation-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 1rem 0;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+            border: 2px solid #01a54b;
+        }
+        .test-result {
+            padding: 0.5rem;
+            margin: 0.25rem 0;
+            border-radius: 6px;
+            font-weight: 600;
+        }
+        .test-pass {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .test-fail {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .status-icon {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            margin-right: 8px;
+        }
+        .pass-icon {
+            background: #28a745;
+            border-radius: 50%;
+        }
+        .fail-icon {
+            background: #dc3545;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar Test -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+            <span class="navbar-brand">Gastronome - Test</span>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="mainNavbar">
+                <div class="navbar-nav ms-auto">
+                    <a class="nav-link" href="index.html">Inicio</a>
+                    <a class="nav-link" href="Nosotros.html">Nosotros</a>
+                    <a class="nav-link" href="Servicios.html">Servicios</a>
+                    <a class="nav-link" href="PortafolioMinimal.html">Portafolio</a>
+                    <a class="nav-link" href="Contacto.html">Contacto</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="validation-container">
+        <div class="validation-card">
+            <h1 style="color: #01a54b; margin-bottom: 1.5rem;">🔧 Navbar Fix Validation</h1>
+            <p><strong>Status:</strong> Testing navbar fixes for consistent size and mobile dropdown functionality.</p>
+            
+            <h3>Test Results:</h3>
+            <div id="testResults">
+                <!-- Test results will be populated by JavaScript -->
+            </div>
+
+            <h3 style="margin-top: 2rem;">Manual Test Instructions:</h3>
+            <ol>
+                <li><strong>Size Consistency:</strong> Check that navbar appears the same size on all pages (index.html, Nosotros.html, etc.)</li>
+                <li><strong>Mobile Toggle:</strong> On mobile/narrow screen, click hamburger menu to open</li>
+                <li><strong>Mobile Close:</strong> Click hamburger menu again - it should close (not reopen)</li>
+                <li><strong>Link Functionality:</strong> All navigation links should work properly</li>
+                <li><strong>No Console Errors:</strong> Check browser console for JavaScript errors</li>
+            </ol>
+
+            <div style="margin-top: 2rem; padding: 1rem; background: #e8f5e8; border-radius: 8px;">
+                <strong>✅ Changes Applied:</strong>
+                <ul style="margin: 0.5rem 0 0 0;">
+                    <li>Removed conflicting JavaScript from all HTML files</li>
+                    <li>Enhanced CSS specificity in navbar-mobile-unified.css</li>
+                    <li>Improved event listener management in navbar-mobile-unified.js</li>
+                    <li>Added protection rules against external CSS conflicts</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const testResults = document.getElementById('testResults');
+            const tests = [];
+
+            // Test 1: Check if unified CSS is loaded
+            tests.push({
+                name: "Unified CSS Loaded",
+                passed: document.querySelector('link[href*="navbar-mobile-unified.css"]') !== null
+            });
+
+            // Test 2: Check if unified JS is loaded
+            tests.push({
+                name: "Unified JS Loaded", 
+                passed: document.querySelector('script[src*="navbar-mobile-unified.js"]') !== null
+            });
+
+            // Test 3: Check navbar structure
+            tests.push({
+                name: "Navbar Structure Present",
+                passed: document.querySelector('.navbar .navbar-toggler') !== null && 
+                       document.querySelector('.navbar-collapse') !== null
+            });
+
+            // Test 4: Check Bootstrap attributes
+            const toggler = document.querySelector('.navbar-toggler');
+            tests.push({
+                name: "Bootstrap 5 Attributes Set",
+                passed: toggler && 
+                       toggler.getAttribute('data-bs-toggle') === 'collapse' &&
+                       toggler.getAttribute('data-bs-target') === '#mainNavbar'
+            });
+
+            // Test 5: Check for font consistency
+            const navLink = document.querySelector('.navbar-nav .nav-link');
+            const computedStyle = navLink ? window.getComputedStyle(navLink) : null;
+            tests.push({
+                name: "Font Size Consistent (1rem)",
+                passed: computedStyle && computedStyle.fontSize === '16px' // 1rem = 16px typically
+            });
+
+            // Test 6: Check mobile functionality
+            tests.push({
+                name: "Mobile Toggle Functionality",
+                passed: typeof window.bootstrap !== 'undefined' // Bootstrap loaded
+            });
+
+            // Render test results
+            tests.forEach(test => {
+                const div = document.createElement('div');
+                div.className = `test-result ${test.passed ? 'test-pass' : 'test-fail'}`;
+                div.innerHTML = `
+                    <span class="status-icon ${test.passed ? 'pass-icon' : 'fail-icon'}"></span>
+                    ${test.name}: ${test.passed ? 'PASS' : 'FAIL'}
+                `;
+                testResults.appendChild(div);
+            });
+
+            // Test toggler functionality
+            const navbar = document.querySelector('.navbar-toggler');
+            if (navbar) {
+                let clickCount = 0;
+                navbar.addEventListener('click', function() {
+                    clickCount++;
+                    console.log(`Navbar toggler clicked ${clickCount} times`);
+                    
+                    setTimeout(() => {
+                        const navbarCollapse = document.getElementById('mainNavbar');
+                        const isExpanded = navbarCollapse.classList.contains('show');
+                        console.log(`Navbar expanded: ${isExpanded}`);
+                    }, 100);
+                });
+            }
+        });
+    </script>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

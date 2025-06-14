@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test de Cambios - Gastronome</title>
+    
+    <!-- Bootstrap 5.3.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="navbar-mobile-unified.css">
+    <link rel="stylesheet" href="navbar-mobile-effects.css">
+    
+    <!-- JavaScript -->
+    <script src="navbar-mobile-unified.js" defer></script>
+    
+    <style>
+        body {
+            padding-top: 80px;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+        .test-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .test-section {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 4px solid #01a54b;
+        }
+        /* Simular el comportamiento móvil del index.html */
+        @media (max-width: 600px) {
+            section[style*="¿Qué hacemos?"] > div > div {
+                background: transparent !important;
+                color: #fff !important;
+                border: 2px solid #fff !important;
+            }
+            section[style*="¿Qué hacemos?"] > div > div h3,
+            section[style*="¿Qué hacemos?"] > div > div p {
+                color: #fff !important;
+            }
+            
+            section[style*="¿Qué hacemos?"] h2 {
+                font-size: 1.5rem !important;
+                line-height: 1.2 !important;
+                margin-bottom: 1.5rem !important;
+                padding: 0 1rem !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar Test -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+            <span class="navbar-brand">Gastronome - Test Cambios</span>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="mainNavbar">
+                <div class="navbar-nav ms-auto">
+                    <a class="nav-link HOME_ACTIVE" href="index.html">Inicio</a>
+                    <a class="nav-link NOSOTROS_ACTIVE" href="Nosotros.html">Nosotros</a>
+                    <a class="nav-link SERVICIOS_ACTIVE" href="Servicios.html">Servicios</a>
+                    <a class="nav-link PORTAFOLIO_ACTIVE" href="PortafolioMinimal.html">Portafolio</a>
+                    <a class="nav-link CONTACTO_ACTIVE" href="Contacto.html">Contacto</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="test-container">
+        <div class="test-section">
+            <h1 style="color: #01a54b; margin-bottom: 1.5rem;">🧪 Test de Cambios Realizados</h1>
+            
+            <h3>1. ✅ Navbar Dropdown Fix</h3>
+            <p><strong>Estado:</strong> Implementado uso de Bootstrap 5 API para cerrar/abrir el dropdown</p>
+            <p><strong>Test:</strong> En móvil, haz clic en el botón hamburguesa para abrir, luego:</p>
+            <ul>
+                <li>Haz clic en un enlace → Debe cerrarse</li>
+                <li>Haz clic fuera del menú → Debe cerrarse</li>
+                <li>Haz clic en hamburguesa de nuevo → Debe cerrarse</li>
+            </ul>
+            
+            <h3>2. ✅ Texto Blanco en Móvil</h3>
+            <p><strong>Estado:</strong> CSS aplicado para cambiar texto a blanco en sección "¿Qué hacemos?"</p>
+            <p><strong>Test:</strong> Ve a la página principal y cambia a vista móvil</p>
+            
+            <h3>3. ✅ Título Ajustado</h3>
+            <p><strong>Estado:</strong> Título de "¿Qué hacemos?" ajustado para resoluciones pequeñas</p>
+            <p><strong>Test:</strong> Ve a la página principal en móvil y verifica que el título quepa bien</p>
+            
+            <div style="margin: 20px 0; padding: 15px; background: #e9ecef; border-radius: 5px;">
+                <strong>📱 Para probar en móvil:</strong>
+                <ol>
+                    <li>Abre las herramientas de desarrollador (F12)</li>
+                    <li>Activa la vista de dispositivo móvil</li>
+                    <li>Cambia el ancho a ≤600px</li>
+                    <li>Prueba la funcionalidad</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- Simular sección "¿Qué hacemos?" para prueba -->
+        <section style="background:#111; color:#fff; text-align:center; padding:60px 0; margin-top: 40px;">
+            <h2 style="font-size:2rem; font-weight:700; margin-bottom:2rem;">¿Qué hacemos?</h2>
+            <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:2.5rem; max-width:900px; margin:0 auto;">
+                <div style="flex:1 1 220px; min-width:220px; background:#fff; color:#111; border-radius:12px; padding:2rem 1.2rem; margin:0 0.5rem; border:2px solid #111;">
+                    <h3 style="font-size:1.2rem; font-weight:700;">Páginas Web</h3>
+                    <p style="font-size:1rem;">Realizamos sitios modernos, rápidos y responsivos para restaurantes.</p>
+                </div>
+                <div style="flex:1 1 220px; min-width:220px; background:#fff; color:#111; border-radius:12px; padding:2rem 1.2rem; margin:0 0.5rem; border:2px solid #111;">
+                    <h3 style="font-size:1.2rem; font-weight:700;">Menús Digitales</h3>
+                    <p style="font-size:1rem;">Elaboramos menús interactivos QR fáciles de actualizar y compartir.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="test-section">
+            <p><strong>🔗 Enlaces de navegación para probar:</strong></p>
+            <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px;">
+                <a href="index.html" style="padding: 8px 16px; background: #01a54b; color: white; text-decoration: none; border-radius: 4px;">Index</a>
+                <a href="Servicios.html" style="padding: 8px 16px; background: #01a54b; color: white; text-decoration: none; border-radius: 4px;">Servicios</a>
+                <a href="Contacto.html" style="padding: 8px 16px; background: #01a54b; color: white; text-decoration: none; border-radius: 4px;">Contacto</a>
+                <a href="Nosotros.html" style="padding: 8px 16px; background: #01a54b; color: white; text-decoration: none; border-radius: 4px;">Nosotros</a>
+                <a href="PortafolioMinimal.html" style="padding: 8px 16px; background: #01a54b; color: white; text-decoration: none; border-radius: 4px;">Portafolio</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5.3.3 JS -->
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Debug info
+        console.log('🧪 Test page loaded');
+        console.log('Bootstrap version:', typeof bootstrap !== 'undefined' ? '5.3.3 loaded' : 'Not loaded');
+        
+        // Test mobile detection
+        function isMobile() {
+            return window.innerWidth <= 600;
+        }
+        
+        window.addEventListener('resize', function() {
+            console.log('Screen width:', window.innerWidth, 'Mobile:', isMobile());
+        });
+        
+        // Log initial state
+        console.log('Initial screen width:', window.innerWidth, 'Mobile:', isMobile());
+    </script>
+</body>
+</html>

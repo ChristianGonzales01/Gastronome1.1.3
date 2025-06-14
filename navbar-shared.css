@@ -1,0 +1,151 @@
+/* 
+ * NAVBAR COMPARTIDO - GASTRONOME
+ * Este archivo asegura que TODAS las páginas tengan la navbar EXACTAMENTE IGUAL
+ * Debe ser incluido en todas las páginas después de Bootstrap
+ */
+
+/* ESTILOS GLOBALES NAVBAR */
+.navbar {
+  background: #fff !important;
+  border-bottom: 1px solid #eee !important;
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1030 !important;
+  font-family: "Segoe UI", Arial, sans-serif !important;
+  border-radius: 0 0 18px 18px !important;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* NAVBAR BRAND */
+.navbar-brand {
+  font-weight: bold !important;
+  color: #000 !important;
+  text-decoration: none !important;
+  font-family: "Segoe UI", Arial, sans-serif !important;
+}
+
+.navbar-brand:hover {
+  color: #01a54b !important;
+}
+
+/* NAVBAR TOGGLE BUTTON */
+.navbar-toggler {
+  border: none !important;
+  padding: 0.25rem 0.5rem !important;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none !important;
+}
+
+/* NAVBAR NAV */
+.navbar-nav {
+  align-items: center !important;
+}
+
+.navbar-nav .nav-link {
+  color: #333 !important;
+  font-weight: 500 !important;
+  text-decoration: none !important;
+  transition: color 0.3s ease !important;
+  font-family: "Segoe UI", Arial, sans-serif !important;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #01a54b !important;
+}
+
+.navbar-nav .nav-link.active {
+  color: #01a54b !important;
+  font-weight: 600 !important;
+}
+
+/* ESTILOS MÓVIL */
+@media (max-width: 991px) {
+  .navbar {
+    padding: 0.3rem 3vw !important;
+  }
+
+  .navbar-brand {
+    font-size: 1.1rem !important;
+  }
+
+  .navbar-collapse {
+    background: #fff !important;
+    border-radius: 0 0 18px 18px !important;
+    margin-top: 0.3rem !important;
+    padding: 1rem 0.8rem !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  .navbar-nav {
+    text-align: center !important;
+  }
+
+  .navbar-nav .nav-link {
+    padding: 0.5rem 1rem !important;
+    font-size: 0.9rem !important;
+    border-bottom: 1px solid #f8f9fa !important;
+  }
+
+  .navbar-nav .nav-link:last-child {
+    border-bottom: none !important;
+  }
+}
+
+/* ESTILOS PC - MÁXIMA ESPECIFICIDAD ABSOLUTA */
+@media (min-width: 992px) {
+  .navbar.navbar-expand-lg,
+  nav.navbar.navbar-expand-lg,
+  .navbar-light.navbar-expand-lg {
+    padding: 0.2rem 1vw !important;
+    min-height: 40px !important;
+    height: auto !important;
+    background: #fff !important;
+    border-bottom: 1px solid #eee !important;
+  }
+
+  .navbar-brand.navbar-brand,
+  nav.navbar .navbar-brand.navbar-brand,
+  span.navbar-brand {
+    font-size: 0.95rem !important;
+    padding: 0.15rem 0 !important;
+    margin: 0 !important;
+    font-weight: bold !important;
+  }
+
+  .navbar-nav.navbar-nav,
+  nav.navbar .navbar-nav.navbar-nav {
+    margin-left: auto !important;
+  }
+
+  .navbar-nav .nav-link.nav-link,
+  nav.navbar .navbar-nav .nav-link.nav-link,
+  .navbar-nav a.nav-link {
+    padding: 0.25rem 0.5rem !important;
+    font-size: 0.8rem !important;
+    margin: 0 0.02rem !important;
+    border-radius: 3px !important;
+    font-weight: 500 !important;
+  }
+
+  .navbar-nav .nav-link:hover.nav-link,
+  nav.navbar .navbar-nav .nav-link:hover.nav-link {
+    background-color: rgba(1, 165, 75, 0.1) !important;
+  }
+
+  .container-fluid.container-fluid,
+  nav.navbar .container-fluid.container-fluid {
+    padding: 0 0.3rem !important;
+  }
+}
+
+/* CONTAINER FLUID */
+.navbar .container-fluid {
+  padding: 0 !important;
+}
+
+/* RESET DE ESTILOS QUE PUEDAN INTERFERIR */
+.navbar * {
+  box-sizing: border-box !important;
+}

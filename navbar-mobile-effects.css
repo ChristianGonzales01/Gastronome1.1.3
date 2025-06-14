@@ -1,0 +1,188 @@
+/* 
+ * NAVBAR MÓVIL EFECTOS - GASTRONOME
+ * Animaciones y efectos adicionales para la experiencia móvil
+ */
+
+/* SOLO APLICAR EN MÓVIL */
+@media (max-width: 991px) {
+    
+    /* ANIMACIONES SUAVES PARA EL DROPDOWN */
+    .navbar-collapse {
+        opacity: 0 !important;
+        transform: translateY(-15px) scale(0.95) !important;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    }
+    
+    .navbar-collapse.show {
+        opacity: 1 !important;
+        transform: translateY(0) scale(1) !important;
+    }
+    
+    .navbar-collapse.collapsing {
+        opacity: 0.8 !important;
+        transform: translateY(-8px) scale(0.98) !important;
+    }
+    
+    /* ANIMACIÓN STAGGERED PARA LOS LINKS */
+    .navbar-nav .nav-link {
+        opacity: 0 !important;
+        transform: translateX(-20px) !important;
+        transition: all 0.3s ease !important;
+    }
+    
+    .navbar-collapse.show .navbar-nav .nav-link {
+        opacity: 1 !important;
+        transform: translateX(0) !important;
+    }
+    
+    /* DELAYS ESCALONADOS PARA LOS LINKS */
+    .navbar-collapse.show .navbar-nav .nav-link:nth-child(1) {
+        transition-delay: 0.1s !important;
+    }
+    
+    .navbar-collapse.show .navbar-nav .nav-link:nth-child(2) {
+        transition-delay: 0.15s !important;
+    }
+    
+    .navbar-collapse.show .navbar-nav .nav-link:nth-child(3) {
+        transition-delay: 0.2s !important;
+    }
+    
+    .navbar-collapse.show .navbar-nav .nav-link:nth-child(4) {
+        transition-delay: 0.25s !important;
+    }
+    
+    .navbar-collapse.show .navbar-nav .nav-link:nth-child(5) {
+        transition-delay: 0.3s !important;
+    }
+    
+    /* EFECTOS EN EL BOTÓN TOGGLER */
+    .navbar-toggler {
+        position: relative !important;
+        overflow: hidden !important;
+    }
+    
+    .navbar-toggler:hover {
+        transform: scale(1.05) !important;
+        border-color: #01a54b !important;
+        box-shadow: 0 4px 12px rgba(1, 165, 75, 0.2) !important;
+    }
+    
+    /* RIPPLE EFFECT PARA EL TOGGLER */
+    .navbar-toggler::before {
+        content: '' !important;
+        position: absolute !important;
+        top: 50% !important;
+        left: 50% !important;
+        width: 0 !important;
+        height: 0 !important;
+        background: rgba(1, 165, 75, 0.1) !important;
+        border-radius: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        transition: all 0.3s ease !important;
+    }
+    
+    .navbar-toggler:active::before {
+        width: 100px !important;
+        height: 100px !important;
+    }
+    
+    /* RIPPLE EFFECT PARA LOS LINKS */
+    .navbar-nav .nav-link {
+        position: relative !important;
+        overflow: hidden !important;
+    }
+    
+    .navbar-nav .nav-link::before {
+        content: '' !important;
+        position: absolute !important;
+        top: 50% !important;
+        left: 50% !important;
+        width: 0 !important;
+        height: 0 !important;
+        background: rgba(1, 165, 75, 0.1) !important;
+        border-radius: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        transition: all 0.3s ease !important;
+        z-index: 0 !important;
+    }
+    
+    .navbar-nav .nav-link:active::before {
+        width: 200px !important;
+        height: 200px !important;
+    }
+    
+    /* ASEGURAR QUE EL TEXTO ESTÉ ENCIMA DEL RIPPLE */
+    .navbar-nav .nav-link {
+        position: relative !important;
+        z-index: 1 !important;
+    }
+    
+    /* MICRO-INTERACCIONES */
+    .navbar-nav .nav-link:active {
+        transform: translateX(3px) scale(0.98) !important;
+    }
+    
+    /* PREVENIR SELECCIÓN DE TEXTO */
+    .navbar-toggler,
+    .navbar-nav .nav-link {
+        -webkit-user-select: none !important;
+        -moz-user-select: none !important;
+        -ms-user-select: none !important;
+        user-select: none !important;
+        -webkit-tap-highlight-color: transparent !important;
+    }
+    
+    /* OPTIMIZAR PARA TOUCH */
+    .navbar-nav .nav-link {
+        min-height: 44px !important;
+        display: flex !important;
+        align-items: center !important;
+        touch-action: manipulation !important;
+    }
+    
+    /* BACKDROP SUTIL PARA EL MENÚ */
+    .navbar-collapse.show::after {
+        content: '' !important;
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        background: rgba(0, 0, 0, 0.1) !important;
+        z-index: -1 !important;
+        opacity: 0 !important;
+        animation: fadeInBackdrop 0.3s ease forwards !important;
+    }
+    
+    @keyframes fadeInBackdrop {
+        to {
+            opacity: 1 !important;
+        }
+    }
+    
+    /* SMOOTH SCROLL AL CERRAR EL MENÚ */
+    .navbar-collapse.hiding {
+        opacity: 0 !important;
+        transform: translateY(-10px) scale(0.95) !important;
+        transition: all 0.3s ease !important;
+    }
+}
+
+/* AJUSTES PARA PANTALLAS MUY PEQUEÑAS */
+@media (max-width: 480px) {
+    .navbar-nav .nav-link {
+        padding: 0.7em 0.9em !important;
+        font-size: 0.95rem !important;
+    }
+    
+    .navbar-toggler {
+        width: 48px !important;
+        height: 48px !important;
+    }
+    
+    .navbar-toggler-icon {
+        width: 32px !important;
+        height: 32px !important;
+    }
+}

@@ -1,0 +1,1732 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contacto | Gastronome</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="navbar-shared.css" />
+    <link rel="stylesheet" href="navbar-mobile-unified.css" />
+    <link rel="stylesheet" href="navbar-mobile-effects.css" />
+    <script src="navbar-mobile-unified.js" defer></script>
+    <style>
+      body {
+        background: #fff;
+        color: #111;
+        font-family: "Segoe UI", Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        max-width: 500px;
+        margin: 60px auto 0 auto;
+        padding: 40px 30px;
+        border: 2px solid #111;
+        border-radius: 24px;
+        background: #fff;
+      }
+      h1 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        letter-spacing: -2px;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+      }
+      input,
+      textarea {
+        padding: 0.8rem;
+        border: 2px solid #111;
+        border-radius: 16px;
+        font-size: 1rem;
+        background: #fff;
+        color: #111;
+      }
+      button {
+        background: #fff;
+        color: #111;
+        border: 2px solid #111;
+        padding: 0.7rem 2rem;
+        font-size: 1rem;
+        font-weight: 600;
+        border-radius: 16px;
+        cursor: pointer;
+        transition: background 0.2s, color 0.2s;
+      }
+      button:hover {
+        background: #111;
+        color: #fff;
+      }
+      /* Animación de entrada para textos (slideInLeft) igual a index.html */
+      @keyframes slideInLeft {
+        0% {
+          opacity: 0;
+          transform: translateX(-60px);
+        }
+        60% {
+          opacity: 1;
+          transform: translateX(8px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+      .page-anim-text {
+        opacity: 0;
+        animation: slideInLeft 1.1s cubic-bezier(0.4, 1.6, 0.6, 1) forwards;
+        animation-play-state: paused;
+      }
+      .page-anim-text.animated {
+        animation-play-state: running !important;
+      }
+      @media (max-width: 600px) {
+        .page-anim-text,
+        .modal-anim-text {
+          opacity: 0;
+        }
+      }
+      .page-anim-text.delay-1 {
+        animation-delay: 0.08s;
+      }
+      .page-anim-text.delay-2 {
+        animation-delay: 0.22s;
+      }
+      .page-anim-text.delay-3 {
+        animation-delay: 0.36s;
+      }
+      .page-anim-text.delay-4 {
+        animation-delay: 0.5s;
+      } /* Redondea esquinas del formulario y de los inputs igual a index.html */
+      .container {
+        border-radius: 24px !important;
+        box-shadow: 0 2px 12px #0001 !important;
+      }
+      form,
+      .container form {
+        border-radius: 24px !important;
+        background: #fff !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+      }
+      input,
+      textarea {
+        border-radius: 16px !important;
+        border: 2px solid #111 !important;
+        background: #fff !important;
+        color: #111 !important;
+        box-shadow: none !important;
+        font-size: 1rem !important;
+        padding: 0.8rem !important;
+        margin-bottom: 0.5rem !important;
+        transition: border-color 0.32s cubic-bezier(0.4, 1.6, 0.6, 1),
+          box-shadow 0.32s cubic-bezier(0.4, 1.6, 0.6, 1);
+      }
+      @media (max-width: 600px) {
+        .container {
+          border-radius: 20px !important;
+          padding: 10px 2vw 10px 2vw !important;
+        }
+        form,
+        .container form {
+          border-radius: 20px !important;
+        }
+        input,
+        textarea {
+          border-radius: 14px !important;
+          font-size: 0.95rem !important;
+          padding: 0.6rem !important;
+        }
+      }
+      /* Cuadros de redes sociales igual tamaño y border-radius que el formulario */
+      .container.contact-cards {
+        border-radius: 24px !important;
+        box-shadow: 0 2px 12px #0001 !important;
+        min-width: 0 !important;
+        max-width: 600px !important;
+        width: 100% !important;
+        padding: 40px 20px 24px 20px !important;
+        margin: 24px auto 48px auto !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+      }
+      .contact-cards a {
+        border-radius: 20px !important;
+        min-width: 180px !important;
+        max-width: 240px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        margin: 0.5rem 0 !important;
+        padding: 1.2rem 0.7rem !important;
+      }
+      @media (max-width: 600px) {
+        .container.contact-cards {
+          border-radius: 20px !important;
+          padding: 20px 4vw 20px 4vw !important;
+          min-width: 0 !important;
+          max-width: 96vw !important;
+          margin: 20px auto 40px auto !important;
+        }
+        .contact-cards a {
+          border-radius: 16px !important;
+          min-width: 42vw !important;
+          max-width: 42vw !important;
+          width: 42vw !important;
+          margin: 0.4rem 0.2rem !important;
+          padding: 1rem 0.4rem !important;
+        }
+        /* Grid layout para las tarjetas en móvil */
+        .container.contact-cards > div[style*="display:flex"] {
+          display: grid !important;
+          grid-template-columns: 1fr 1fr !important;
+          gap: 0.8rem !important;
+          width: 100% !important;
+          margin-bottom: 1.5rem !important;
+        }
+      }
+
+      /* --- ANIMACIÓN DE HOVER EN TODOS LOS CONTORNOS CON BORDE NEGRO --- */
+      [style*="border: 2px solid #111"],
+      [style*="border:2px solid #111"],
+      [style*="border:2.5px solid #111"],
+      [style*="border: 2.5px solid #111"],
+      .servicio,
+      .contact-cards a,
+      .nueva-seccion,
+      .container,
+      footer,
+      .faq-section,
+      .faq-item,
+      input,
+      textarea {
+        transition: border-color 0.38s cubic-bezier(0.4, 1.6, 0.6, 1),
+          box-shadow 0.38s cubic-bezier(0.4, 1.6, 0.6, 1), background 0.38s,
+          color 0.38s, transform 0.38s cubic-bezier(0.4, 1.6, 0.6, 1);
+      }
+      [style*="border: 2px solid #111"]:hover,
+      [style*="border:2px solid #111"]:hover,
+      [style*="border:2.5px solid #111"]:hover,
+      [style*="border: 2.5px solid #111"]:hover,
+      .servicio:hover,
+      .contact-cards a:hover,
+      .nueva-seccion:hover,
+      .container:hover,
+      footer:hover,
+      .faq-section:hover,
+      .faq-item:hover,
+      input:hover,
+      textarea:hover,
+      input:focus,
+      textarea:focus {
+        border-color: #01a54b !important;
+        box-shadow: 0 8px 32px #01a54b55 !important;
+      }
+
+      /* Contorno negro por defecto, animación y contorno verde suave al hover para TODOS los elementos con borde */
+      *:not(input):not(textarea):not(body):not(html) {
+        transition: border-color 0.32s cubic-bezier(0.4, 1.6, 0.6, 1),
+          box-shadow 0.32s cubic-bezier(0.4, 1.6, 0.6, 1), background 0.32s,
+          color 0.32s, transform 0.32s cubic-bezier(0.4, 1.6, 0.6, 1);
+      } /* Ilumina de verde cualquier contorno al hover si tiene borde negro, incluidos inputs y textarea */
+      input,
+      textarea {
+        border: 2px solid #111;
+        border-radius: 16px;
+        transition: border-color 0.32s cubic-bezier(0.4, 1.6, 0.6, 1),
+          box-shadow 0.32s cubic-bezier(0.4, 1.6, 0.6, 1);
+      }
+      input:focus,
+      textarea:focus,
+      input:hover,
+      textarea:hover {
+        border-color: #01a54b;
+        box-shadow: 0 0 0 2px #01a54b33;
+      }
+
+      /* Ilumina de verde cualquier contorno al hover si tiene borde negro */
+      [style*="border: 2px solid #111"],
+      [style*="border:2px solid #111"],
+      [style*="border:2.5px solid #111"],
+      [style*="border: 2.5px solid #111"] {
+        transition: border-color 0.32s cubic-bezier(0.4, 1.6, 0.6, 1),
+          box-shadow 0.32s cubic-bezier(0.4, 1.6, 0.6, 1), background 0.32s,
+          color 0.32s, transform 0.32s cubic-bezier(0.4, 1.6, 0.6, 1);
+      }
+      [style*="border: 2px solid #111"]:hover,
+      [style*="border:2px solid #111"]:hover,
+      [style*="border:2.5px solid #111"]:hover,
+      [style*="border: 2.5px solid #111"]:hover {
+        border-color: #01a54b !important;
+        box-shadow: 0 8px 32px #01a54b55 !important;
+      }
+
+      /* --- ANIMACIÓN DE REDES SOCIALES DESDE CERO, IGUAL A PORTAFOLIO --- */
+      .contact-cards a {
+        all: unset;
+        box-sizing: border-box;
+        border: 2.5px solid #111 !important; /* contorno negro visible y grueso */
+        background: #fff !important;
+        color: #111 !important;
+        border-radius: 20px !important;
+        box-shadow: 0 2px 12px #0001 !important;
+        min-width: 180px !important;
+        max-width: 240px !important;
+        word-break: break-word !important;
+        font-weight: 700 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 0.7rem !important;
+        padding: 1.2rem 0.7rem !important;
+        text-align: center !important;
+        text-decoration: none !important;
+        cursor: pointer !important;
+        transition: box-shadow 0.38s cubic-bezier(0.4, 1.6, 0.6, 1),
+          border-color 0.38s cubic-bezier(0.4, 1.6, 0.6, 1),
+          transform 0.38s cubic-bezier(0.4, 1.6, 0.6, 1), background 0.38s,
+          color 0.38s !important;
+        position: relative !important;
+        z-index: 1 !important;
+        outline: 0 !important;
+      }
+      .contact-cards a:hover,
+      .contact-cards a:focus {
+        border: 2.5px solid #01a54b !important; /* contorno verde en hover */
+        background: #fff !important;
+        color: #01a54b !important;
+        box-shadow: 0 8px 32px #01a54b55 !important;
+        transform: translateY(-8px) scale(1.04) rotate(-1deg) !important;
+        outline: 0 !important;
+      }
+      .contact-cards a span,
+      .contact-cards a svg {
+        color: #01a54b !important;
+        stroke: #01a54b !important;
+        fill: none !important;
+        font-weight: 700 !important;
+        transition: color 0.2s, stroke 0.2s !important;
+      }
+      .contact-cards a span:last-child {
+        color: #222 !important;
+        font-size: 1rem !important;
+        font-weight: 700 !important;
+      }
+      .contact-cards a:hover span,
+      .contact-cards a:hover svg,
+      .contact-cards a:focus span,
+      .contact-cards a:focus svg {
+        color: #01a54b !important;
+        stroke: #01a54b !important;
+      } /* Botón WhatsApp: animación igual a .portfolio-card-link de PortafolioMinimal */
+      button,
+      .contact-btn {
+        border: 2px solid #111;
+        color: #01a54b;
+        background: #fff;
+        font-weight: 700;
+        border-radius: 16px;
+        transition: background 0.2s, color 0.2s,
+          border-color 0.35s cubic-bezier(0.4, 1.6, 0.6, 1),
+          box-shadow 0.35s cubic-bezier(0.4, 1.6, 0.6, 1),
+          transform 0.35s cubic-bezier(0.4, 1.6, 0.6, 1);
+        box-shadow: 0 2px 12px #0001;
+        position: relative;
+        z-index: 1;
+      }
+      button:hover,
+      button:focus,
+      .contact-btn:hover,
+      .contact-btn:focus {
+        background: #fff;
+        color: #01a54b;
+        border-color: #01a54b;
+        box-shadow: 0 8px 32px #01a54b55;
+        transform: translateY(-8px) scale(1.04) rotate(-1deg);
+        outline: none;
+      } /* Animación al recuadro general de redes sociales */
+      .contact-cards {
+        border: 2.5px solid #111;
+        box-shadow: 0 2px 12px #0001;
+        border-radius: 24px;
+        background: #fff;
+        transition: box-shadow 0.35s cubic-bezier(0.4, 1.6, 0.6, 1),
+          border-color 0.35s cubic-bezier(0.4, 1.6, 0.6, 1),
+          transform 0.35s cubic-bezier(0.4, 1.6, 0.6, 1);
+      }
+      .contact-cards:hover,
+      .contact-cards:focus-within {
+        border-color: #01a54b;
+        box-shadow: 0 8px 32px #01a54b55;
+        transform: translateX(10px) scale(1.01);
+      } /* Estilos para la sección de FAQ */
+      .faq-section {
+        max-width: 900px;
+        margin: 60px auto;
+        background: #fff;
+        border-radius: 24px;
+        box-shadow: 0 2px 24px #0001;
+        padding: 38px 18px 28px 18px;
+        position: relative;
+        overflow: hidden;
+      }
+      .faq-section h2 {
+        text-align: center;
+        font-size: 2.2rem;
+        font-weight: 900;
+        margin-bottom: 2.5rem;
+        color: #00bb7a;
+        letter-spacing: 1px;
+      }
+      .faq-item {
+        border-bottom: 1px solid #111;
+        padding: 18px 0;
+        cursor: pointer;
+        background: none;
+      }
+      .faq-item:last-child {
+        border-bottom: none;
+      }
+      .faq-q {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 1.18rem;
+        font-weight: 600;
+        color: #111;
+      }
+      .faq-q span {
+        font-size: 1.5rem;
+        color: #111;
+        font-weight: 700;
+        transition: transform 0.3s;
+      }
+      .faq-a {
+        display: none;
+        color: #222;
+        font-size: 1.05rem;
+        margin-top: 0.7rem;
+        opacity: 0;
+        max-height: 0;
+        transition: opacity 0.4s, max-height 0.4s;
+      }
+      .faq-item.open .faq-a {
+        display: block;
+        opacity: 1;
+        max-height: 200px;
+        animation: fadeInFaq 0.4s;
+      }
+      @keyframes fadeInFaq {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+      /* Figuras decorativas solo blanco y negro */
+      .decorative-figure {
+        position: absolute;
+        border-radius: 50%;
+        opacity: 0.13;
+        z-index: 0;
+      }
+      .figure-1 {
+        top: -60px;
+        left: -60px;
+        width: 160px;
+        height: 160px;
+        background: linear-gradient(135deg, #111 80%, #fff 100%);
+      }
+      .figure-2 {
+        bottom: -50px;
+        right: -50px;
+        width: 120px;
+        height: 120px;
+        background: linear-gradient(135deg, #fff 60%, #111 100%);
+      }
+      .figure-3 {
+        top: 30%;
+        left: 80%;
+        width: 60px;
+        height: 60px;
+        background: #111;
+        opacity: 0.18;
+      }
+      .figure-4 {
+        bottom: 20%;
+        left: 10%;
+        width: 32px;
+        height: 32px;
+        background: #fff;
+        border: 2px solid #111;
+      }
+      .figure-5 {
+        top: 60%;
+        left: 60%;
+        width: 80px;
+        height: 18px;
+        background: linear-gradient(90deg, #111 0%, #fff 100%);
+        border-radius: 8px;
+      }
+      .faq-section {
+        border: 2px solid #111;
+      }
+      .faq-item.open .faq-q span {
+        transform: rotate(45deg);
+      }
+      /* Tarjetas contacto blanco y negro */
+      .contact-cards a {
+        border: 2px solid #111 !important;
+        background: #fff !important;
+        color: #111 !important;
+        box-shadow: 0 2px 12px #0001 !important;
+        min-width: 200px !important;
+        max-width: 240px !important;
+        word-break: break-word;
+        font-weight: 700 !important;
+      }
+      .contact-cards a span,
+      .contact-cards a svg {
+        color: #111 !important;
+        stroke: #111 !important;
+        fill: none !important;
+        font-weight: 700 !important;
+      }
+      .contact-cards a span:last-child {
+        font-size: 1rem !important;
+        font-weight: 700 !important;
+        color: #222 !important;
+      }
+      .contact-cards a:hover {
+        background: #111 !important;
+        color: #fff !important;
+        border: 2px solid #111 !important;
+      }
+      /* Eliminar reglas viejas que afectan el hover de .contact-cards a */
+      .contact-cards a:hover,
+      .contact-cards a:focus {
+        border-color: #01a54b !important;
+        background: #fff !important;
+        color: #01a54b !important;
+        box-shadow: 0 8px 32px #01a54b55 !important;
+        transform: translateY(-8px) scale(1.04) rotate(-1deg) !important;
+        outline: none !important;
+      }
+      /* Eliminar reglas viejas que ponen fondo negro o color blanco en hover */
+      .contact-cards a:hover span,
+      .contact-cards a:hover svg,
+      .contact-cards a:focus span,
+      .contact-cards a:focus svg {
+        color: #01a54b !important;
+        stroke: #01a54b !important;
+      }
+
+      /* Eliminar reglas viejas duplicadas */
+      .contact-cards a[style],
+      .contact-cards a *[style] {
+        background: unset !important;
+        color: unset !important;
+        border: unset !important;
+      }
+
+      h1.page-anim-text,
+      h1[style*="color"] {
+        color: #111 !important;
+      } /* Elimina cualquier estilo previo que afecte el borde de las contact-cards y fuerza el contorno negro siempre visible */
+      .contact-cards a,
+      .contact-cards a[style] {
+        border: 2.5px solid #111 !important;
+        box-shadow: 0 2px 12px #0001 !important;
+        background: #fff !important;
+        color: #111 !important;
+        border-radius: 20px !important;
+        transition: box-shadow 0.38s cubic-bezier(0.4, 1.6, 0.6, 1),
+          border-color 0.38s cubic-bezier(0.4, 1.6, 0.6, 1),
+          transform 0.38s cubic-bezier(0.4, 1.6, 0.6, 1), background 0.38s,
+          color 0.38s !important;
+        outline: 0 !important;
+      }
+      .contact-cards a:hover,
+      .contact-cards a:focus,
+      .contact-cards a[style]:hover,
+      .contact-cards a[style]:focus {
+        border: 2.5px solid #01a54b !important;
+        background: #fff !important;
+        color: #01a54b !important;
+        box-shadow: 0 8px 32px #01a54b55 !important;
+        transform: translateY(-8px) scale(1.04) rotate(-1deg) !important;
+        outline: 0 !important;
+      } /* Figuras decorativas congruentes con Servicios.html */
+      .figura-serv {
+        position: absolute;
+        border-radius: 50%;
+        opacity: 0.1;
+        z-index: 0;
+      }
+      .figura-1 {
+        top: -40px;
+        left: -40px;
+        width: 110px;
+        height: 110px;
+        background: linear-gradient(135deg, #111 80%, #fff 100%);
+      }
+      .figura-2 {
+        bottom: -30px;
+        right: -30px;
+        width: 70px;
+        height: 70px;
+        background: linear-gradient(135deg, #fff 60%, #111 100%);
+      }
+      .figura-3 {
+        top: 60%;
+        left: 80%;
+        width: 38px;
+        height: 38px;
+        background: #111;
+        opacity: 0.13;
+      }
+      .figura-4 {
+        bottom: 18%;
+        left: 8%;
+        width: 22px;
+        height: 22px;
+        background: #fff;
+        border: 2px solid #111;
+      }
+      .figura-5 {
+        top: 80%;
+        left: 60%;
+        width: 60px;
+        height: 14px;
+        background: linear-gradient(90deg, #111 0%, #fff 100%);
+        border-radius: 8px;
+      }
+      .figura-6 {
+        top: 10%;
+        right: 20%;
+        width: 40px;
+        height: 40px;
+        background: #111;
+        opacity: 0.08;
+        border-radius: 50%;
+        position: absolute;
+        z-index: 0;
+      }
+      .figura-7 {
+        bottom: 10%;
+        left: 25%;
+        width: 30px;
+        height: 30px;
+        background: #fff;
+        border: 2px solid #111;
+        opacity: 0.12;
+        border-radius: 50%;
+        position: absolute;
+        z-index: 0;
+      }
+      .figura-8 {
+        top: 50%;
+        left: 50%;
+        width: 18px;
+        height: 18px;
+        background: #111;
+        opacity: 0.1;
+        border-radius: 50%;
+        position: absolute;
+        z-index: 0;
+      } /* --- ANIMACIONES MÓVIL OPTIMIZADAS COMO NOSOTROS.HTML --- */
+      /* Sistema de animación suave optimizado para móvil - RESTORED */
+      .reveal-element {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      }
+      .reveal-element.revealed {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Animación secuencial para tarjetas de redes sociales */
+      .contact-cards .reveal-element:nth-child(1) {
+        transition-delay: 0.1s;
+      }
+      .contact-cards .reveal-element:nth-child(2) {
+        transition-delay: 0.2s;
+      }
+      .contact-cards .reveal-element:nth-child(3) {
+        transition-delay: 0.3s;
+      }
+      .contact-cards .reveal-element:nth-child(4) {
+        transition-delay: 0.4s;
+      }
+      .contact-cards .reveal-element:nth-child(5) {
+        transition-delay: 0.5s;
+      }
+
+      @media (max-width: 600px) {
+        /* Critical mobile scroll fix - Enhanced */
+        html {
+          overflow-y: scroll !important;
+          overflow-x: hidden !important;
+          -webkit-overflow-scrolling: touch !important;
+          scroll-behavior: smooth !important;
+          height: 100% !important;
+          position: relative !important;
+          max-width: 100vw !important;
+        }
+        body {
+          overflow-y: scroll !important;
+          overflow-x: hidden !important;
+          -webkit-overflow-scrolling: touch !important;
+          touch-action: pan-y !important;
+          position: relative !important;
+          height: auto !important;
+          min-height: 100vh !important;
+          transform: none !important;
+          backface-visibility: visible !important;
+          padding: 0 !important;
+          margin: 0 !important;
+          background: #fff !important;
+          color: #111 !important;
+          font-family: "Segoe UI", Arial, sans-serif !important;
+          max-width: 100vw !important;
+        }
+        /* Ensure all containers allow scrolling */
+        .container,
+        main,
+        section {
+          overflow: visible !important;
+          height: auto !important;
+          min-height: auto !important;
+          position: relative !important;
+          transform: none !important;
+        }
+        /* Fix for fixed/absolute positioned elements that might interfere */
+        .navbar {
+          position: sticky !important;
+          top: 0 !important;
+          z-index: 1000 !important;
+          transform: none !important;
+        }
+        /* Ensure proper layering */
+        * {
+          -webkit-transform: translateZ(0) !important;
+          transform: translateZ(0) !important;
+          -webkit-backface-visibility: hidden !important;
+          backface-visibility: hidden !important;
+        }
+
+        .container {
+          max-width: 94vw !important;
+          width: 94vw !important;
+          min-width: 0 !important;
+          margin: 8px auto 0 auto !important;
+          padding: 15px 4vw 15px 4vw !important;
+          border-radius: 20px !important;
+          box-shadow: 0 1px 6px #0001 !important;
+          border-width: 1px !important;
+          /* Ajuste para que el formulario nunca se corte */
+          display: flex !important;
+          flex-direction: column !important;
+          align-items: stretch !important;
+          justify-content: flex-start !important;
+          min-height: unset !important;
+          height: auto !important;
+        }
+        .container h1 {
+          font-size: 1.3rem !important;
+          margin-bottom: 0.8rem !important;
+          letter-spacing: 0.02em !important;
+        }
+        form {
+          gap: 0.5rem !important;
+        }
+        input,
+        textarea {
+          font-size: 0.95rem !important;
+          padding: 0.6rem !important;
+          border-radius: 14px !important;
+        }
+        button {
+          font-size: 0.95rem !important;
+          padding: 0.6rem 1rem !important;
+          border-radius: 14px !important;
+        }
+        #whatsappMsg {
+          font-size: 0.9rem !important;
+          margin-top: 1rem !important;
+        }
+        .container.contact-cards {
+          padding: 20px 4vw 20px 4vw !important;
+          border-radius: 20px !important;
+          min-height: 200px !important;
+          margin: 20px auto 40px auto !important;
+          max-width: 94vw !important;
+          width: 94vw !important;
+        }
+        .contact-cards a {
+          min-width: 42vw !important;
+          max-width: 42vw !important;
+          width: 42vw !important;
+          padding: 1rem 0.4rem !important;
+          border-radius: 16px !important;
+          gap: 0.5rem !important;
+        }
+        .contact-cards a span {
+          font-size: 0.9rem !important;
+        }
+        .contact-cards a span svg,
+        .contact-cards a svg {
+          width: 16px !important;
+          height: 16px !important;
+        }
+        .contact-cards a span:last-child {
+          font-size: 0.7rem !important;
+        }
+        .contact-cards a span:nth-child(3) {
+          font-size: 0.65rem !important;
+        }
+
+        /* Reveal animations optimized for mobile */
+        .reveal-element {
+          opacity: 0;
+          transform: translateY(15px);
+          transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+        .reveal-element.revealed {
+          opacity: 1;
+          transform: translateY(0);
+        }
+
+        /* Optimized transforms for mobile performance */
+        .container,
+        .contact-cards {
+          will-change: transform, opacity;
+          -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+          transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+        }
+
+        /* Mobile performance optimizations */
+        .page-anim-text {
+          animation-play-state: running !important;
+          opacity: 1 !important;
+        }
+
+        /* Esconde figuras decorativas en móvil */
+        .figura-serv,
+        .figura-1,
+        .figura-2,
+        .figura-3,
+        .figura-4,
+        .figura-5,
+        .figura-6,
+        .figura-7,
+        .figura-8 {
+          display: none !important;
+        }
+      }
+      @media (max-width: 400px) {
+        .container.contact-cards {
+          padding: 15px 3vw 15px 3vw !important;
+          border-radius: 18px !important;
+          min-height: 180px !important;
+        }
+        .contact-cards a {
+          min-width: 40vw !important;
+          max-width: 40vw !important;
+          width: 40vw !important;
+          padding: 0.8rem 0.3rem !important;
+          border-radius: 14px !important;
+          gap: 0.3rem !important;
+        }
+        .contact-cards a span {
+          font-size: 0.8rem !important;
+        }
+        .contact-cards a span svg,
+        .contact-cards a svg {
+          width: 14px !important;
+          height: 14px !important;
+        }
+        .contact-cards a span:last-child {
+          font-size: 0.6rem !important;
+        }
+        .contact-cards a span:nth-child(3) {
+          font-size: 0.55rem !important;
+        }
+      }
+
+      html,
+      body {
+        overflow-x: hidden !important;
+        width: 100vw !important;
+        max-width: 100vw !important;
+        box-sizing: border-box !important;
+      }
+      .container.contact-cards {
+        overflow-x: hidden !important;
+        min-width: 320px;
+        max-width: 600px;
+        width: 100%;
+        box-sizing: border-box;
+      }
+      /* Quita la barra lateral (scrollbar) del módulo de redes sociales */
+      .container.contact-cards {
+        overflow-y: hidden !important;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar Unificado -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container-fluid">
+        <span class="navbar-brand">Gastronome</span>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mainNavbar"
+          aria-controls="mainNavbar"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNavbar">
+          <div class="navbar-nav ms-auto">
+            <a class="nav-link HOME_ACTIVE" href="index.html">Inicio</a>
+            <a class="nav-link NOSOTROS_ACTIVE" href="Nosotros.html"
+              >Nosotros</a
+            >
+            <a class="nav-link SERVICIOS_ACTIVE" href="Servicios.html"
+              >Servicios</a
+            >
+            <a class="nav-link PORTAFOLIO_ACTIVE" href="PortafolioMinimal.html"
+              >Portafolio</a
+            >
+            <a class="nav-link CONTACTO_ACTIVE" href="Contacto.html"
+              >Contacto</a
+            >
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div
+      class="container reveal-element"
+      style="
+        max-width: 500px;
+        margin: 60px auto 0 auto;
+        padding: 40px 30px;
+        border: 2px solid #111;
+        border-radius: 24px;
+        background: #fff;
+      "
+    >
+      <h1
+        class="page-anim-text delay-1"
+        style="
+          color: #01a54b;
+          font-size: 2.7rem;
+          font-weight: 900;
+          letter-spacing: 0.04em;
+          text-align: center;
+        "
+      >
+        Contacto
+      </h1>
+      <form id="contactForm" class="page-anim-text delay-2">
+        <input id="nombre" type="text" placeholder="Nombre" required />
+        <input
+          id="correo"
+          type="email"
+          placeholder="Correo electrónico"
+          required
+        />
+        <textarea
+          id="mensaje"
+          rows="5"
+          placeholder="¿En qué podemos ayudarte?"
+          required
+        ></textarea>
+        <button type="submit" class="page-anim-text delay-3">
+          Enviar por WhatsApp
+        </button>
+      </form>
+      <div
+        id="whatsappMsg"
+        style="
+          display: none;
+          margin-top: 1.5rem;
+          color: #28a745;
+          text-align: center;
+          font-weight: 600;
+        "
+      >
+        Redirigiendo a WhatsApp...
+      </div>
+    </div>
+    <div
+      class="container contact-cards page-anim-text delay-3 reveal-element"
+      style="
+        max-width: 600px;
+        min-width: 320px;
+        width: 100%;
+        margin: 24px auto 48px auto;
+        padding: 48px 4px 0 4px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        min-height: 370px;
+      "
+    >
+      <!-- Figuras decorativas de fondo -->
+      <div
+        class="figura-serv figura-1"
+        style="
+          top: -40px;
+          left: -40px;
+          width: 110px;
+          height: 110px;
+          background: linear-gradient(135deg, #111 80%, #fff 100%);
+          position: absolute;
+          border-radius: 50%;
+          opacity: 0.1;
+          z-index: 0;
+        "
+      ></div>
+      <div
+        class="figura-serv figura-2"
+        style="
+          bottom: -30px;
+          right: -30px;
+          width: 70px;
+          height: 70px;
+          background: linear-gradient(135deg, #fff 60%, #111 100%);
+          position: absolute;
+          border-radius: 50%;
+          opacity: 0.1;
+          z-index: 0;
+        "
+      ></div>
+      <div
+        class="figura-serv figura-3"
+        style="
+          top: 60%;
+          left: 80%;
+          width: 38px;
+          height: 38px;
+          background: #111;
+          position: absolute;
+          border-radius: 50%;
+          opacity: 0.13;
+          z-index: 0;
+        "
+      ></div>
+      <div
+        class="figura-serv figura-4"
+        style="
+          bottom: 18%;
+          left: 8%;
+          width: 22px;
+          height: 22px;
+          background: #fff;
+          border: 2px solid #111;
+          position: absolute;
+          border-radius: 50%;
+          opacity: 0.12;
+          z-index: 0;
+        "
+      ></div>
+      <div
+        class="figura-serv figura-5"
+        style="
+          top: 80%;
+          left: 60%;
+          width: 60px;
+          height: 14px;
+          background: linear-gradient(90deg, #111 0%, #fff 100%);
+          border-radius: 8px;
+          position: absolute;
+          opacity: 0.1;
+          z-index: 0;
+        "
+      ></div>
+      <div
+        class="figura-serv figura-6"
+        style="
+          top: 10%;
+          right: 20%;
+          width: 40px;
+          height: 40px;
+          background: #111;
+          position: absolute;
+          border-radius: 50%;
+          opacity: 0.08;
+          z-index: 0;
+        "
+      ></div>
+      <div
+        class="figura-serv figura-7"
+        style="
+          bottom: 10%;
+          left: 25%;
+          width: 30px;
+          height: 30px;
+          background: #fff;
+          border: 2px solid #111;
+          position: absolute;
+          border-radius: 50%;
+          opacity: 0.12;
+          z-index: 0;
+        "
+      ></div>
+      <div
+        class="figura-serv figura-8"
+        style="
+          top: 50%;
+          left: 50%;
+          width: 18px;
+          height: 18px;
+          background: #111;
+          position: absolute;
+          border-radius: 50%;
+          opacity: 0.1;
+          z-index: 0;
+        "
+      ></div>
+      <!-- Figuras extra para toda la pantalla -->
+      <div
+        class="figura-serv"
+        style="
+          top: 5%;
+          left: 70%;
+          width: 32px;
+          height: 32px;
+          background: #01a54b;
+          position: absolute;
+          border-radius: 50%;
+          opacity: 0.09;
+          z-index: 0;
+        "
+      ></div>
+      <div
+        class="figura-serv"
+        style="
+          top: 85%;
+          left: 10%;
+          width: 44px;
+          height: 44px;
+          background: #fff;
+          border: 2px solid #111;
+          position: absolute;
+          border-radius: 50%;
+          opacity: 0.11;
+          z-index: 0;
+        "
+      ></div>
+      <div
+        class="figura-serv"
+        style="
+          top: 30%;
+          left: 15%;
+          width: 26px;
+          height: 26px;
+          background: #111;
+          position: absolute;
+          border-radius: 50%;
+          opacity: 0.08;
+          z-index: 0;
+        "
+      ></div>
+      <div
+        class="figura-serv"
+        style="
+          top: 75%;
+          right: 12%;
+          width: 36px;
+          height: 36px;
+          background: linear-gradient(135deg, #fff 60%, #111 100%);
+          position: absolute;
+          border-radius: 50%;
+          opacity: 0.1;
+          z-index: 0;
+        "
+      ></div>
+      <div
+        class="figura-serv"
+        style="
+          top: 40%;
+          right: 5%;
+          width: 22px;
+          height: 22px;
+          background: #fff;
+          border: 2px solid #111;
+          position: absolute;
+          border-radius: 50%;
+          opacity: 0.13;
+          z-index: 0;
+        "
+      ></div>
+      <div
+        class="figura-serv"
+        style="
+          top: 15%;
+          left: 40%;
+          width: 18px;
+          height: 18px;
+          background: #01a54b;
+          position: absolute;
+          border-radius: 50%;
+          opacity: 0.1;
+          z-index: 0;
+        "
+      ></div>
+      <div
+        class="figura-serv"
+        style="
+          top: 90%;
+          left: 80%;
+          width: 28px;
+          height: 28px;
+          background: #111;
+          position: absolute;
+          border-radius: 50%;
+          opacity: 0.09;
+          z-index: 0;
+        "
+      ></div>
+      <div
+        class="figura-serv"
+        style="
+          top: 55%;
+          left: 25%;
+          width: 20px;
+          height: 20px;
+          background: #fff;
+          border: 2px solid #111;
+          position: absolute;
+          border-radius: 50%;
+          opacity: 0.1;
+          z-index: 0;
+        "
+      ></div>
+      <div
+        class="reveal-element"
+        style="
+          display: flex;
+          flex-wrap: wrap;
+          gap: 1.2rem;
+          justify-content: center;
+          align-items: center;
+          margin-bottom: 2.5rem;
+          position: relative;
+          z-index: 1;
+        "
+      >
+        <a
+          href="mailto:gastronome899@gmail.com"
+          target="_blank"
+          class="social-link-email reveal-element"
+          style="
+            flex: 1 1 180px;
+            background: #fff;
+            border: 2px solid #111;
+            border-radius: 20px;
+            padding: 1.2rem 0.7rem;
+            text-align: center;
+            text-decoration: none;
+            transition: box-shadow 0.2s, border 0.2s;
+            box-shadow: 0 2px 8px #0001;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.7rem;
+            max-width: 240px;
+          "
+        >
+          <span
+            style="
+              font-size: 1.1rem;
+              color: #111;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            "
+          >
+            <!-- Email SVG -->
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#111"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <rect x="3" y="5" width="18" height="14" rx="3" />
+              <polyline points="3 7 12 13 21 7" />
+            </svg>
+          </span>
+          <span style="font-weight: 700; color: #111; font-size: 0.85rem"
+            >Email</span
+          >
+          <span style="color: #444; font-size: 0.7rem"
+            >gastronome899@gmail.com</span
+          >
+        </a>
+        <a
+          href="https://wa.me/524491383086"
+          target="_blank"
+          class="reveal-element"
+          style="
+            flex: 1 1 180px;
+            min-width: 140px;
+            background: #fff;
+            border: 2px solid #111;
+            border-radius: 20px;
+            padding: 1.2rem 0.7rem;
+            text-align: center;
+            text-decoration: none;
+            transition: box-shadow 0.2s, border 0.2s;
+            box-shadow: 0 2px 8px #0001;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.7rem;
+            max-width: 240px;
+          "
+        >
+          <span
+            style="
+              font-size: 1.1rem;
+              color: #111;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            "
+          >
+            <!-- WhatsApp SVG -->
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#111"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M21 20.3A16.88 16.88 0 0 1 12 22C6.48 22 2 17.52 2 12.01A9.99 9.99 0 0 1 12 2c5.52 0 10 4.48 10 10.01 0 2.13-.67 4.1-1.81 5.73l.81 3.26-3.26-.7z"
+              />
+              <path
+                d="M16.2 17.2c-1.2.4-2.5.6-3.8.6-4.42 0-8-3.58-8-8 0-4.42 3.58-8 8-8s8 3.58 8 8c0 1.3-.2 2.6-.6 3.8l-1.1-1.1c-.2-.2-.5-.2-.7 0l-2.1 2.1c-.2.2-.2.5 0 .7l1.1 1.1z"
+              />
+            </svg>
+          </span>
+          <span style="font-weight: 700; color: #111; font-size: 0.85rem"
+            >WhatsApp</span
+          >
+          <span style="color: #444; font-size: 0.7rem">+52 449 138 3086</span>
+        </a>
+        <a
+          href="https://instagram.com/gastronomeDevs"
+          target="_blank"
+          class="reveal-element"
+          style="
+            flex: 1 1 180px;
+            min-width: 140px;
+            background: #fff;
+            border: 2px solid #111;
+            border-radius: 20px;
+            padding: 1.2rem 0.7rem;
+            text-align: center;
+            text-decoration: none;
+            transition: box-shadow 0.2s, border 0.2s;
+            box-shadow: 0 2px 8px #0001;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.7rem;
+            max-width: 240px;
+          "
+        >
+          <span
+            style="
+              font-size: 1.1rem;
+              color: #111;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            "
+          >
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#111"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <rect x="3" y="3" width="18" height="18" rx="5" />
+              <circle cx="12" cy="12" r="4" />
+              <circle cx="17" cy="7" r="1" />
+            </svg>
+          </span>
+          <span style="font-weight: 700; color: #111; font-size: 0.85rem"
+            >Instagram</span
+          >
+          <span style="color: #444; font-size: 0.7rem">@gastronomeDevs</span>
+        </a>
+        <a
+          href="https://facebook.com/"
+          target="_blank"
+          class="reveal-element"
+          style="
+            flex: 1 1 180px;
+            min-width: 140px;
+            background: #fff;
+            border: 2px solid #111;
+            border-radius: 20px;
+            padding: 1.2rem 0.7rem;
+            text-align: center;
+            text-decoration: none;
+            transition: box-shadow 0.2s, border 0.2s;
+            box-shadow: 0 2px 8px #0001;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.7rem;
+            max-width: 240px;
+          "
+        >
+          <span
+            style="
+              font-size: 1.1rem;
+              color: #111;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            "
+          >
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#111"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+              />
+            </svg>
+          </span>
+          <span style="font-weight: 700; color: #111; font-size: 0.85rem"
+            >Facebook</span
+          >
+          <span style="color: #444; font-size: 0.7rem">/gastronome</span>
+        </a>
+      </div>
+    </div>
+    <!-- FOOTER ESTILO INDEX.HTML -->
+    <footer
+      class="reveal-element"
+      style="
+        background: #111;
+        color: #fff;
+        text-align: center;
+        padding: 2rem 0 1rem 0;
+        font-size: 1.1rem;
+        letter-spacing: 0.04em;
+        margin-top: 0;
+      "
+    >
+      <div style="margin-bottom: 0.5rem">
+        &copy; 2025 Gastronome. Todos los derechos reservados.
+      </div>
+      <div style="font-size: 0.95rem; color: #bbb">
+        Sitio desarrollado por el equipo Gastronome | contacto@gastronome.com
+      </div>
+      <div
+        style="
+          margin-top: 1.2rem;
+          display: flex;
+          justify-content: center;
+          gap: 1.5rem;
+          align-items: center;
+        "
+      >
+        <a
+          href="mailto:gastronome899@gmail.com"
+          target="_blank"
+          aria-label="Email"
+          style="
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+          "
+        >
+          <svg
+            width="28"
+            height="28"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#fff"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <rect x="3" y="5" width="18" height="14" rx="3" />
+            <polyline points="3 7 12 13 21 7" />
+          </svg>
+        </a>
+        <a
+          href="https://wa.me/524491383086"
+          target="_blank"
+          aria-label="WhatsApp"
+          style="
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+          "
+        >
+          <svg
+            width="28"
+            height="28"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#fff"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path
+              d="M21 20.3A16.88 16.88 0 0 1 12 22C6.48 22 2 17.52 2 12.01A9.99 9.99 0 0 1 12 2c5.52 0 10 4.48 10 10.01 0 2.13-.67 4.1-1.81 5.73l.81 3.26-3.26-.7z"
+            />
+            <path
+              d="M16.2 17.2c-1.2.4-2.5.6-3.8.6-4.42 0-8-3.58-8-8 0-4.42 3.58-8 8-8s8 3.58 8 8c0 1.3-.2 2.6-.6 3.8l-1.1-1.1c-.2-.2-.5-.2-.7 0l-2.1 2.1c-.2.2-.2.5 0 .7l1.1 1.1z"
+            />
+          </svg>
+        </a>
+        <a
+          href="https://instagram.com/gastronomeDevs"
+          target="_blank"
+          aria-label="Instagram"
+          style="
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+          "
+        >
+          <svg
+            width="28"
+            height="28"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#fff"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <rect x="3" y="3" width="18" height="18" rx="5" />
+            <circle cx="12" cy="12" r="4" />
+            <circle cx="17" cy="7" r="1" />
+          </svg>
+        </a>
+        <a
+          href="https://facebook.com/"
+          target="_blank"
+          aria-label="Facebook"
+          style="
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+          "
+        >
+          <svg
+            width="28"
+            height="28"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#fff"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path
+              d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+            />
+          </svg>
+        </a>
+      </div>
+    </footer>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    ></script>
+    <script>
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          var nombre = document.getElementById("nombre").value;
+          var correo = document.getElementById("correo").value;
+          var mensaje = document.getElementById("mensaje").value;
+          var texto = `Hola, soy ${nombre}. Mi correo es ${correo}.\n${mensaje}\nVengo de la web de Gastronome, me interesa digitalizar mi restaurante.`;
+          var url = `https://wa.me/524491383086?text=${encodeURIComponent(
+            texto
+          )}`;
+          document.getElementById("whatsappMsg").style.display = "block";
+          setTimeout(function () {
+            window.open(url, "_blank");
+          }, 500);
+        });
+      // Detecta la página y activa la clase 'active' en el link correspondiente
+      (function () {
+        var path = window.location.pathname.toLowerCase();
+        if (path.includes("index.html"))
+          document.querySelector(".HOME_ACTIVE").classList.add("active");
+        else if (path.includes("nosotros.html"))
+          document.querySelector(".NOSOTROS_ACTIVE").classList.add("active");
+        else if (path.includes("servicios.html"))
+          document.querySelector(".SERVICIOS_ACTIVE").classList.add("active");
+        else if (path.includes("portafoliominimal.html"))
+          document.querySelector(".PORTAFOLIO_ACTIVE").classList.add("active");
+        else if (path.includes("contacto.html"))
+          document.querySelector(".CONTACTO_ACTIVE").classList.add("active");
+      })(); // Refuerzo: cerrar menú móvil al hacer click en un link (mejor UX móvil)
+      document
+        .querySelectorAll(".navbar-nav .nav-link")
+        .forEach(function (link) {
+          link.addEventListener("click", function () {
+            var navbarCollapse = document.getElementById("mainNavbar");
+            if (
+              window.innerWidth <= 768 &&
+              navbarCollapse.classList.contains("show")
+            ) {
+              var collapse = new bootstrap.Collapse(navbarCollapse);
+              collapse.hide();
+            }
+          });
+        });
+
+      // Sistema de animación gradual optimizado para móvil - RESTORED & OPTIMIZED
+      document.addEventListener("DOMContentLoaded", function () {
+        function revealElements() {
+          var elements = document.querySelectorAll(".reveal-element");
+          var windowHeight = window.innerHeight;
+          var isMobile = window.innerWidth <= 600;
+
+          // En móvil usar trigger más bajo para que aparezcan antes
+          var triggerHeight = isMobile
+            ? windowHeight * 0.9
+            : windowHeight * 0.85;
+
+          elements.forEach(function (el, index) {
+            var position = el.getBoundingClientRect().top;
+            var isFooter = el.tagName === "FOOTER";
+            var isContactCard = el.closest(".contact-cards");
+
+            if (
+              position < triggerHeight &&
+              !el.classList.contains("revealed")
+            ) {
+              if (isMobile) {
+                // En móvil: delay más corto para mejor performance
+                var delay = isContactCard ? index * 15 : index * 25; // Más rápido para tarjetas sociales
+                setTimeout(function () {
+                  el.classList.add("revealed");
+                }, delay);
+              } else {
+                // Desktop: delay normal con diferenciación para tarjetas sociales
+                var delay = isContactCard ? index * 30 : index * 50;
+                setTimeout(function () {
+                  el.classList.add("revealed");
+                }, delay);
+              }
+            }
+          });
+        }
+
+        revealElements();
+
+        // En móvil, usar throttling más agresivo
+        if (window.innerWidth <= 600) {
+          var throttleTimer = false;
+          window.addEventListener("scroll", function () {
+            if (throttleTimer) return;
+            throttleTimer = true;
+            setTimeout(function () {
+              revealElements();
+              throttleTimer = false;
+            }, 32); // ~30fps en lugar de 60fps
+          });
+        } else {
+          // Desktop: scroll normal
+          window.addEventListener("scroll", revealElements);
+        }
+      });
+
+      // CRITICAL: Force proper scroll behavior on mobile
+      if (window.innerWidth <= 600) {
+        // Permitir smooth scrolling en móvil para mejor experiencia
+        document.documentElement.style.scrollBehavior = "smooth";
+        document.body.style.scrollBehavior = "smooth";
+
+        // Asegurar que no haya elementos fixed que interfieran
+        var fixedElements = document.querySelectorAll("*");
+        fixedElements.forEach(function (el) {
+          var computedStyle = window.getComputedStyle(el);
+          if (computedStyle.position === "fixed" && el.id !== "scrollTopBtn") {
+            el.style.transform = "none";
+          }
+        });
+      }
+
+      // Animación fluida en móvil: dispara la animación al cargar el DOM SOLO si no está ya animada
+      document.addEventListener("DOMContentLoaded", function () {
+        var anims = document.querySelectorAll(".page-anim-text");
+        setTimeout(function () {
+          anims.forEach(function (el) {
+            if (!el.classList.contains("animated")) {
+              el.classList.add("animated");
+            }
+          });
+        }, 10);
+      });
+    </script>
+  </body>
+</html>

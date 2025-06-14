@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar Validation Test - Gastronome</title>
+    
+    <!-- Bootstrap 5.3.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Unified Navbar CSS -->
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="navbar-mobile-unified.css">
+    <link rel="stylesheet" href="navbar-mobile-effects.css">
+    
+    <!-- Unified Navbar JS -->
+    <script src="navbar-mobile-unified.js" defer></script>
+    
+    <style>
+        body {
+            padding-top: 80px;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+        .test-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .test-section {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 4px solid #01a54b;
+        }
+        .success { color: #28a745; font-weight: bold; }
+        .error { color: #dc3545; font-weight: bold; }
+        .warning { color: #ffc107; font-weight: bold; }
+        .test-result {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+        .page-nav {
+            display: flex;
+            gap: 10px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        .page-nav a {
+            padding: 8px 16px;
+            background: #01a54b;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+        .page-nav a:hover {
+            background: #018a40;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Unified Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+            <span class="navbar-brand">Gastronome</span>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="mainNavbar">
+                <div class="navbar-nav ms-auto">
+                    <a class="nav-link HOME_ACTIVE" href="index.html">Inicio</a>
+                    <a class="nav-link NOSOTROS_ACTIVE" href="Nosotros.html">Nosotros</a>
+                    <a class="nav-link SERVICIOS_ACTIVE" href="Servicios.html">Servicios</a>
+                    <a class="nav-link PORTAFOLIO_ACTIVE" href="PortafolioMinimal.html">Portafolio</a>
+                    <a class="nav-link CONTACTO_ACTIVE" href="Contacto.html">Contacto</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="test-container">
+        <h1>🔍 Navbar Unified System - Validation Test</h1>
+        <p>This page validates that the unified navbar system is working correctly across all devices and browsers.</p>
+
+        <!-- Quick Navigation -->
+        <div class="test-section">
+            <h3>🚀 Quick Page Navigation</h3>
+            <p>Test navbar consistency across all pages:</p>
+            <div class="page-nav">
+                <a href="index.html">Home</a>
+                <a href="Nosotros.html">Nosotros</a>
+                <a href="Servicios.html">Servicios</a>
+                <a href="PortafolioMinimal.html">Portafolio</a>
+                <a href="Contacto.html">Contacto</a>
+            </div>
+        </div>
+
+        <!-- Font Size Test -->
+        <div class="test-section">
+            <h3>📏 Font Size Consistency Test</h3>
+            <p>Current navbar font sizes:</p>
+            <button onclick="testFontSizes()" class="btn btn-primary mb-3">Run Font Size Test</button>
+            <div id="fontTestResults"></div>
+        </div>
+
+        <!-- Mobile Dropdown Test -->
+        <div class="test-section">
+            <h3>📱 Mobile Dropdown Test</h3>
+            <p>Test mobile menu functionality:</p>
+            <button onclick="testMobileDropdown()" class="btn btn-primary mb-3">Test Mobile Menu</button>
+            <div id="mobileTestResults"></div>
+        </div>
+
+        <!-- CSS Files Verification -->
+        <div class="test-section">
+            <h3>📄 CSS Files Verification</h3>
+            <p>Verify that all required CSS files are loaded:</p>
+            <button onclick="testCSSFiles()" class="btn btn-primary mb-3">Check CSS Files</button>
+            <div id="cssTestResults"></div>
+        </div>
+
+        <!-- Bootstrap Integration Test -->
+        <div class="test-section">
+            <h3>🥾 Bootstrap Integration Test</h3>
+            <p>Verify Bootstrap 5.3.3 integration:</p>
+            <button onclick="testBootstrap()" class="btn btn-primary mb-3">Test Bootstrap</button>
+            <div id="bootstrapTestResults"></div>
+        </div>
+
+        <!-- JavaScript Functionality Test -->
+        <div class="test-section">
+            <h3>⚡ JavaScript Functionality Test</h3>
+            <p>Test navbar JavaScript functionality:</p>
+            <button onclick="testJavaScript()" class="btn btn-primary mb-3">Test JavaScript</button>
+            <div id="jsTestResults"></div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5.3.3 JavaScript -->
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        function displayResult(elementId, message, type = 'success') {
+            const element = document.getElementById(elementId);
+            const className = type === 'success' ? 'success' : type === 'error' ? 'error' : 'warning';
+            const icon = type === 'success' ? '✅' : type === 'error' ? '❌' : '⚠️';
+            element.innerHTML = `<div class="test-result ${className}">${icon} ${message}</div>`;
+        }
+
+        function testFontSizes() {
+            const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+            
+            if (navLinks.length === 0) {
+                displayResult('fontTestResults', 'No nav links found', 'error');
+                return;
+            }
+
+            const firstLink = navLinks[0];
+            const computedStyle = window.getComputedStyle(firstLink);
+            const fontSize = computedStyle.fontSize;
+            const screenWidth = window.innerWidth;
+            
+            let expectedSize, testResult, isMobile = screenWidth <= 991;
+            
+            if (isMobile) {
+                expectedSize = '16px'; // 1rem = 16px
+                testResult = fontSize === expectedSize;
+            } else {
+                expectedSize = '16px'; // 1rem = 16px  
+                testResult = fontSize === expectedSize;
+            }
+
+            const message = `
+                Screen Width: ${screenWidth}px<br>
+                Device: ${isMobile ? 'Mobile' : 'Desktop'}<br>
+                Current Font Size: ${fontSize}<br>
+                Expected Font Size: ${expectedSize}<br>
+                Status: ${testResult ? 'PASSED' : 'FAILED'}
+            `;
+
+            displayResult('fontTestResults', message, testResult ? 'success' : 'error');
+        }
+
+        function testMobileDropdown() {
+            const toggler = document.querySelector('.navbar-toggler');
+            const collapse = document.getElementById('mainNavbar');
+            
+            if (!toggler || !collapse) {
+                displayResult('mobileTestResults', 'Navbar elements not found', 'error');
+                return;
+            }
+
+            try {
+                // Test opening
+                toggler.click();
+                
+                setTimeout(() => {
+                    const isOpen = collapse.classList.contains('show');
+                    
+                    // Test closing
+                    toggler.click();
+                    
+                    setTimeout(() => {
+                        const isClosed = !collapse.classList.contains('show');
+                        
+                        const message = `
+                            Opening Test: ${isOpen ? 'PASSED' : 'FAILED'}<br>
+                            Closing Test: ${isClosed ? 'PASSED' : 'FAILED'}<br>
+                            Overall: ${isOpen && isClosed ? 'SUCCESS' : 'FAILED'}
+                        `;
+                        
+                        displayResult('mobileTestResults', message, isOpen && isClosed ? 'success' : 'error');
+                    }, 500);
+                }, 500);
+                
+            } catch (error) {
+                displayResult('mobileTestResults', `Error: ${error.message}`, 'error');
+            }
+        }
+
+        function testCSSFiles() {
+            const requiredFiles = [
+                'navbar-mobile-unified.css',
+                'navbar-mobile-effects.css'
+            ];
+            
+            const links = document.querySelectorAll('link[rel="stylesheet"]');
+            const loadedFiles = Array.from(links).map(link => {
+                const href = link.getAttribute('href');
+                return href ? href.split('/').pop() : '';
+            });
+            
+            let results = [];
+            requiredFiles.forEach(file => {
+                const loaded = loadedFiles.some(loadedFile => loadedFile.includes(file));
+                results.push(`${file}: ${loaded ? 'LOADED' : 'MISSING'}`);
+            });
+            
+            const allLoaded = requiredFiles.every(file => 
+                loadedFiles.some(loadedFile => loadedFile.includes(file))
+            );
+            
+            const message = results.join('<br>') + `<br><br>Overall: ${allLoaded ? 'SUCCESS' : 'FAILED'}`;
+            displayResult('cssTestResults', message, allLoaded ? 'success' : 'error');
+        }
+
+        function testBootstrap() {
+            try {
+                const hasBootstrap = typeof bootstrap !== 'undefined';
+                const hasCollapse = hasBootstrap && typeof bootstrap.Collapse !== 'undefined';
+                
+                const message = `
+                    Bootstrap Available: ${hasBootstrap ? 'YES' : 'NO'}<br>
+                    Bootstrap Collapse: ${hasCollapse ? 'YES' : 'NO'}<br>
+                    Bootstrap Version: ${hasBootstrap ? '5.3.3' : 'N/A'}<br>
+                    Status: ${hasBootstrap && hasCollapse ? 'SUCCESS' : 'FAILED'}
+                `;
+                
+                displayResult('bootstrapTestResults', message, hasBootstrap && hasCollapse ? 'success' : 'error');
+            } catch (error) {
+                displayResult('bootstrapTestResults', `Error: ${error.message}`, 'error');
+            }
+        }
+
+        function testJavaScript() {
+            const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+            const currentPath = window.location.pathname.toLowerCase();
+            
+            // Test active link detection
+            let activeLinks = 0;
+            navLinks.forEach(link => {
+                if (link.classList.contains('active')) {
+                    activeLinks++;
+                }
+            });
+            
+            // Test click-to-close functionality
+            const toggler = document.querySelector('.navbar-toggler');
+            const hasToggler = !!toggler;
+            const hasClickListeners = hasToggler && toggler.onclick !== null;
+            
+            const message = `
+                Nav Links Found: ${navLinks.length}<br>
+                Active Links: ${activeLinks}<br>
+                Current Path: ${currentPath}<br>
+                Toggler Present: ${hasToggler ? 'YES' : 'NO'}<br>
+                JS Functions: ${typeof activateCurrentPage !== 'undefined' ? 'LOADED' : 'MISSING'}<br>
+                Status: ${navLinks.length > 0 && hasToggler ? 'SUCCESS' : 'NEEDS_CHECK'}
+            `;
+            
+            displayResult('jsTestResults', message, navLinks.length > 0 && hasToggler ? 'success' : 'warning');
+        }
+
+        // Auto-run basic tests on load
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(() => {
+                testFontSizes();
+                testCSSFiles();
+                testBootstrap();
+                testJavaScript();
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

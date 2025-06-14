@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Servicios | Gastronome</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="navbar-shared.css" />
+    <link rel="stylesheet" href="navbar-mobile-unified.css" />
+    <link rel="stylesheet" href="navbar-mobile-effects.css" />
+    <script src="navbar-mobile-unified.js" defer></script>
+    <style>
+      body {
+        background: #fff;
+        color: #111;
+        font-family: "Segoe UI", Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        max-width: 900px;
+        margin: 60px auto 0 auto;
+        padding: 40px 30px;
+        box-shadow: 0 2px 16px #0001;
+        border-radius: 24px;
+        overflow: visible; /* Permite que las animaciones se vean completas */
+        position: relative;
+      }
+      h1 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        letter-spacing: -2px;
+        text-align: center;
+      }
+      .servicios-lista {
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 1.2rem;
+        margin-top: 2rem;
+        justify-content: center;
+        padding: 2rem 1rem; /* Espaciado para evitar recorte en animaciones */
+      }
+      .servicio {
+        flex: 1 1 220px;
+        border: 2px solid #111;
+        border-radius: 20px;
+        padding: 1.5rem 1rem 1.5rem 1rem;
+        background: #fff;
+        transition: box-shadow 0.25s, border 0.25s, transform 0.25s,
+          background 0.25s, color 0.25s;
+        box-shadow: 0 2px 16px #0001;
+        position: relative;
+        min-width: 180px;
+        max-width: 260px;
+        margin: 1.5rem 0.8rem; /* Margen horizontal para evitar recorte */
+        z-index: 1;
+      }
+      .servicio:hover {
+        box-shadow: 0 8px 32px #01a54b55;
+        border-color: #01a54b;
+        background: #f6fff9;
+        color: #01a54b;
+        transform: translateY(-8px) scale(1.04) rotate(-1deg);
+        z-index: 10; /* Z-index alto para que aparezca por encima */
+      }
+      .servicio:hover .servicio-icon svg {
+        stroke: #01a54b;
+        filter: drop-shadow(0 2px 8px #01a54b44);
+      }
+      .servicio h2 {
+        font-size: 1.18rem;
+        margin-bottom: 1rem;
+        font-weight: 800;
+        letter-spacing: 0.01em;
+        color: #111;
+        transition: color 0.25s;
+      }
+      .servicio:hover h2 {
+        color: #01a54b;
+      }
+      .servicio p {
+        font-size: 1.05rem;
+        color: #333;
+        margin-bottom: 1.1rem;
+      }
+      .servicio ul {
+        padding-left: 1.1rem;
+        margin-bottom: 0;
+      }
+      .servicio li {
+        font-size: 0.98rem;
+        color: #444;
+        margin-bottom: 0.4rem;
+      }
+      .servicio-icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 1.1rem;
+      }
+      .servicio-icon svg {
+        width: 38px;
+        height: 38px;
+        stroke: #111;
+        stroke-width: 2.2;
+      }
+      /* Figuras decorativas congruentes con Servicios.html */
+      .figura-serv {
+        position: absolute;
+        border-radius: 50%;
+        opacity: 0.1;
+        z-index: 0;
+      }
+      .figura-1 {
+        top: -40px;
+        left: -40px;
+        width: 110px;
+        height: 110px;
+        background: linear-gradient(135deg, #111 80%, #fff 100%);
+      }
+      .figura-2 {
+        bottom: -30px;
+        right: -30px;
+        width: 70px;
+        height: 70px;
+        background: linear-gradient(135deg, #fff 60%, #111 100%);
+      }
+      .figura-3 {
+        top: 60%;
+        left: 80%;
+        width: 38px;
+        height: 38px;
+        background: #111;
+        opacity: 0.13;
+      }
+      .figura-4 {
+        bottom: 18%;
+        left: 8%;
+        width: 22px;
+        height: 22px;
+        background: #fff;
+        border: 2px solid #111;
+      }
+      .figura-5 {
+        top: 80%;
+        left: 60%;
+        width: 60px;
+        height: 14px;
+        background: linear-gradient(90deg, #111 0%, #fff 100%);
+        border-radius: 8px;
+      }
+      .figura-6 {
+        top: 10%;
+        right: 20%;
+        width: 40px;
+        height: 40px;
+        background: #111;
+        opacity: 0.08;
+        border-radius: 50%;
+        position: absolute;
+        z-index: 0;
+      }
+      .figura-7 {
+        bottom: 10%;
+        left: 25%;
+        width: 30px;
+        height: 30px;
+        background: #fff;
+        border: 2px solid #111;
+        opacity: 0.12;
+        border-radius: 50%;
+        position: absolute;
+        z-index: 0;
+      }
+      .figura-8 {
+        top: 50%;
+        left: 50%;
+        width: 18px;
+        height: 18px;
+        background: #111;
+        opacity: 0.1;
+        border-radius: 50%;
+        position: absolute;
+        z-index: 0;
+      }
+      .nueva-seccion {
+        margin: 3.5rem auto 0 auto;
+        max-width: 700px;
+        background: #f8f8f8;
+        border-radius: 24px;
+        border: 2px solid #111;
+        padding: 2.2rem 1.5rem;
+        box-shadow: 0 2px 16px #0001;
+        position: relative;
+        z-index: 2;
+        text-align: center;
+      }
+      .nueva-seccion h2 {
+        font-size: 1.25rem;
+        font-weight: 800;
+        margin-bottom: 1.1rem;
+      }
+      .nueva-seccion p {
+        font-size: 1.05rem;
+        color: #222;
+        margin-bottom: 1.2rem;
+      }
+      .nueva-seccion a {
+        display: inline-block;
+        background: transparent;
+        color: #111;
+        border-radius: 6px;
+        padding: 0.7rem 2.2rem;
+        font-weight: 700;
+        text-decoration: none;
+        border: 2px solid #01a54b;
+        transition: background 0.2s, color 0.2s, border 0.2s, box-shadow 0.2s,
+          transform 0.2s;
+        box-shadow: 0 2px 8px #01a54b22;
+      }
+      .nueva-seccion a:hover {
+        background: #fff;
+        color: #111;
+        border-color: #01a54b !important;
+        box-shadow: 0 0 0 2px #01a54b55;
+      }
+
+      footer {
+        position: static;
+        left: unset;
+        bottom: unset;
+        width: 100%;
+        background: #111;
+        color: #fff;
+        text-align: center;
+        padding: 2rem 0 1rem 0;
+        font-size: 1.1rem;
+        letter-spacing: 0.04em;
+        margin-top: 3rem;
+        z-index: 10;
+      }
+      .footer-content {
+        max-width: 100vw;
+      }
+      @media (max-width: 900px) {
+        .servicios-lista {
+          flex-direction: column;
+          gap: 1.2rem;
+          padding: 1rem 0.5rem; /* Reducir padding en pantallas medianas */
+        }
+        .container {
+          padding: 20px 10px !important;
+        }
+        h1 {
+          font-size: 2rem !important;
+        }
+        .servicio {
+          margin: 0.8rem auto; /* Centrar y reducir margen */
+        }
+      }
+      @media (max-width: 600px) {
+        .container {
+          padding: 10px 2vw !important;
+        }
+        h1 {
+          text-align: center !important;
+          width: 100%;
+          display: block;
+        }
+        h2 {
+          text-align: center !important;
+          width: 100%;
+          display: block;
+        }
+        .servicios-lista {
+          flex-wrap: wrap !important;
+          flex-direction: row !important;
+          justify-content: center !important;
+          gap: 0.5rem !important;
+        }
+        .servicio {
+          flex: 0 1 44vw !important;
+          min-width: 120px !important;
+          max-width: 44vw !important;
+          margin-left: 0 !important;
+          margin-right: 0 !important;
+          margin-bottom: 0.5rem !important;
+          font-size: 0.89rem !important;
+          padding: 0.6rem 1.1rem 0.6rem 1.1rem !important;
+          box-sizing: border-box !important;
+        }
+        .servicio h2 {
+          font-size: 0.98rem !important;
+          margin-bottom: 0.6rem !important;
+        }
+        .servicio p {
+          font-size: 0.82rem !important;
+          margin-bottom: 0.7rem !important;
+        }
+        .servicio li {
+          font-size: 0.78rem !important;
+          margin-bottom: 0.25rem !important;
+        }
+        .servicio ul {
+          padding-left: 0.7rem !important;
+        }
+        .servicios-lista .servicio:nth-child(3) {
+          flex-basis: 92vw !important;
+          max-width: 92vw !important;
+          margin-left: auto !important;
+          margin-right: auto !important;
+          display: block !important;
+        }
+        .nueva-seccion {
+          padding: 1.1rem 12vw !important;
+          border-radius: 18px !important;
+          max-width: 320px !important;
+          margin-left: auto !important;
+          margin-right: auto !important;
+        }
+        .nueva-seccion h2 {
+          font-size: 0.98rem !important;
+          margin-bottom: 0.6rem !important;
+        }
+        .nueva-seccion p {
+          font-size: 0.82rem !important;
+          margin-bottom: 0.7rem !important;
+        }
+        .nueva-seccion a {
+          font-size: 0.85rem !important;
+          padding: 0.4rem 1.1rem !important;
+          border-radius: 5px !important;
+        }
+      }
+      @media (max-width: 400px) {
+        .container {
+          padding: 4px 0.5vw !important;
+        }
+        .servicio {
+          min-width: 90px !important;
+          max-width: 44vw !important;
+          font-size: 0.82rem !important;
+          padding: 0.35rem 0.7rem 0.35rem 0.7rem !important;
+        }
+        .servicio h2 {
+          font-size: 0.85rem !important;
+        }
+        .servicio p {
+          font-size: 0.72rem !important;
+        }
+        .servicio li {
+          font-size: 0.68rem !important;
+        }
+        .servicios-lista .servicio:nth-child(3) {
+          flex-basis: 96vw !important;
+          max-width: 96vw !important;
+        }
+        .nueva-seccion {
+          padding: 0.7rem 4vw !important;
+          border-radius: 18px !important;
+          max-width: 94vw !important;
+          margin-left: auto !important;
+          margin-right: auto !important;
+        }
+      }
+      @media (min-width: 901px) {
+        /* Asegurar espacio suficiente para animaciones en pantallas grandes */
+        .servicios-lista {
+          padding: 3rem 1.5rem; /* Más espaciado en desktop */
+        }
+        .servicio {
+          margin: 2rem 1rem; /* Más margen para evitar recorte */
+        }
+      }
+      @media (min-width: 600px) {
+        h1,
+        h2 {
+          text-align: center !important;
+          width: 100%;
+          display: block;
+        }
+      }
+
+      /* --- ANIMACIÓN DE ENTRADA PARA TODOS LOS TEXTOS PRINCIPALES IGUAL A PORTAFOLIO --- */
+      @keyframes slideInLeft {
+        0% {
+          opacity: 0;
+          transform: translateX(-60px);
+        }
+        60% {
+          opacity: 1;
+          transform: translateX(8px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+      .page-anim-text {
+        opacity: 0;
+        animation: slideInLeft 1.1s cubic-bezier(0.4, 1.6, 0.6, 1) forwards;
+        animation-play-state: paused;
+      }
+      .page-anim-text.animated {
+        animation-play-state: running !important;
+      }
+      .page-anim-text.delay-1 {
+        animation-delay: 0.08s;
+      }
+      .page-anim-text.delay-2 {
+        animation-delay: 0.22s;
+      }
+      .page-anim-text.delay-3 {
+        animation-delay: 0.36s;
+      }
+
+      /* --- SISTEMA DE ANIMACIONES MÓVIL OPTIMIZADAS SIMPLIFICADO --- */
+      .reveal-element {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      }
+      .reveal-element.revealed {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      @media (max-width: 600px) {
+        /* Critical mobile scroll fix - Enhanced */
+        html {
+          overflow-y: scroll !important;
+          overflow-x: hidden !important;
+          -webkit-overflow-scrolling: touch !important;
+          scroll-behavior: smooth !important;
+          height: 100% !important;
+          position: relative !important;
+          max-width: 100vw !important;
+        }
+        body {
+          overflow-y: scroll !important;
+          overflow-x: hidden !important;
+          -webkit-overflow-scrolling: touch !important;
+          touch-action: pan-y !important;
+          position: relative !important;
+          height: auto !important;
+          min-height: 100vh !important;
+          transform: none !important;
+          backface-visibility: visible !important;
+          padding: 0 !important;
+          margin: 0 !important;
+          background: #fff !important;
+          color: #111 !important;
+          font-family: "Segoe UI", Arial, sans-serif !important;
+          max-width: 100vw !important;
+        }
+
+        /* Ensure all containers allow scrolling */
+        .container,
+        main,
+        section {
+          overflow: visible !important;
+          height: auto !important;
+          min-height: auto !important;
+          position: relative !important;
+          transform: none !important;
+        }
+
+        /* Reveal animations optimized for mobile */
+        .reveal-element {
+          opacity: 0;
+          transform: translateY(15px);
+          transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+          will-change: opacity, transform;
+        }
+        .reveal-element.revealed {
+          opacity: 1;
+          transform: translateY(0);
+        }
+
+        /* Mobile performance optimizations */
+        .page-anim-text {
+          animation-play-state: running !important;
+          opacity: 1 !important;
+        }
+
+        /* Esconde figuras decorativas en móvil */
+        .figura-serv,
+        .figura-1,
+        .figura-2,
+        .figura-3,
+        .figura-4,
+        .figura-5,
+        .figura-6,
+        .figura-7,
+        .figura-8 {
+          display: none !important;
+        }
+      }
+
+      /* --- ANIMACIÓN DE HOVER EN TODOS LOS CONTORNOS CON BORDE NEGRO --- */
+      [style*="border: 2px solid #111"],
+      [style*="border:2px solid #111"],
+      [style*="border:2.5px solid #111"],
+      [style*="border: 2.5px solid #111"],
+      .contact-cards a,
+      .nueva-seccion,
+      .container,
+      footer,
+      .faq-section,
+      .faq-item,
+      input,
+      textarea {
+        transition: border-color 0.38s cubic-bezier(0.4, 1.6, 0.6, 1),
+          box-shadow 0.38s cubic-bezier(0.4, 1.6, 0.6, 1), background 0.38s,
+          color 0.38s;
+      }
+
+      /* --- ANIMACIÓN DE HOVER SOLO EN .servicio, IGUAL A PORTAFOLIO --- */
+      .servicio {
+        transition: box-shadow 0.35s cubic-bezier(0.4, 1.6, 0.6, 1),
+          border-color 0.35s cubic-bezier(0.4, 1.6, 0.6, 1),
+          transform 0.35s cubic-bezier(0.4, 1.6, 0.6, 1), background 0.35s,
+          color 0.35s;
+        will-change: transform, box-shadow, border-color, background, color;
+      }
+      .servicio:hover {
+        box-shadow: 0 8px 32px #01a54b55;
+        border-color: #01a54b;
+        background: #f6fff9;
+        color: #01a54b;
+        transform: translateY(-8px) scale(1.04) rotate(-1deg);
+        z-index: 10; /* Z-index alto para que aparezca por encima */
+      }
+
+      /* BOTÓN CONTÁCTANOS IGUAL A PORTAFOLIO */
+      .nueva-seccion a {
+        margin-top: 0.7rem;
+        background: #111;
+        color: #fff;
+        border-radius: 6px;
+        padding: 0.5rem 1.5rem;
+        font-weight: 700;
+        text-decoration: none;
+        border: 2px solid #111;
+        transition: background 0.2s, color 0.2s, border-color 0.2s,
+          box-shadow 0.2s;
+        display: inline-block;
+      }
+      .nueva-seccion a:hover {
+        background: #fff;
+        color: #111;
+        border-color: #01a54b !important;
+        box-shadow: 0 0 0 2px #01a54b55;
+      }
+
+      /* Elimina cualquier transición, will-change o backface-visibility previa en .servicio * para evitar conflicto */
+      .servicio * {
+        transition: none !important;
+        will-change: unset !important;
+        backface-visibility: unset !important;
+      }
+
+      /* Quitar movimiento en hover de .nueva-seccion y footer */
+      .nueva-seccion:hover,
+      footer:hover {
+        border-color: #01a54b !important;
+        box-shadow: 0 8px 32px #01a54b55 !important;
+        transform: none !important;
+      }
+
+      /* Elimina cualquier transición previa que cause conflicto o borrosidad en .servicio */
+      .servicio {
+        transition: box-shadow 0.38s cubic-bezier(0.4, 1.6, 0.6, 1),
+          border-color 0.38s cubic-bezier(0.4, 1.6, 0.6, 1),
+          transform 0.38s cubic-bezier(0.4, 1.6, 0.6, 1), background 0.38s,
+          color 0.38s;
+        backface-visibility: visible !important;
+        will-change: auto !important;
+      }
+      .servicio * {
+        backface-visibility: visible !important;
+        will-change: auto !important;
+      }
+      /* Botón scroll to top */
+      #scrollTopBtn {
+        display: none;
+        position: fixed;
+        bottom: 32px;
+        right: 32px;
+        z-index: 9999;
+        background: transparent;
+        color: #01a54b;
+        border: none;
+        border-radius: 50%;
+        width: 68px;
+        height: 68px;
+        box-shadow: none;
+        font-size: 2.1rem;
+        font-weight: bold;
+        cursor: pointer;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.2s, color 0.2s;
+        outline: none;
+      }
+      #scrollTopBtn svg {
+        display: block;
+        margin: auto;
+        width: 38px;
+        height: 38px;
+      }
+      #scrollTopBtn:hover {
+        background: #01a54b22;
+        color: #01a54b;
+      }
+
+      /* --- Eliminar scroll horizontal solo en pantallas grandes (min-width: 992px) sin afectar diseño de módulos --- */
+      @media (min-width: 992px) {
+        html,
+        body {
+          overflow-x: hidden !important;
+          max-width: 100vw !important;
+        }
+        /* Ajuste seguro: previene desbordes sin tocar .servicio ni .container */
+        .navbar,
+        .navbar-collapse,
+        .navbar-nav,
+        .servicios-lista,
+        footer,
+        .footer-content {
+          max-width: 100vw !important;
+          overflow-x: hidden !important;
+          box-sizing: border-box !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar Unificado -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container-fluid">
+        <span class="navbar-brand">Gastronome</span>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mainNavbar"
+          aria-controls="mainNavbar"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNavbar">
+          <div class="navbar-nav ms-auto">
+            <a class="nav-link HOME_ACTIVE" href="index.html">Inicio</a>
+            <a class="nav-link NOSOTROS_ACTIVE" href="Nosotros.html"
+              >Nosotros</a
+            >
+            <a class="nav-link SERVICIOS_ACTIVE" href="Servicios.html"
+              >Servicios</a
+            >
+            <a class="nav-link PORTAFOLIO_ACTIVE" href="PortafolioMinimal.html"
+              >Portafolio</a
+            >
+            <a class="nav-link CONTACTO_ACTIVE" href="Contacto.html"
+              >Contacto</a
+            >
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="container reveal-element">
+      <h1 class="page-anim-text delay-1">Nuestros Servicios</h1>
+      <div class="servicios-lista reveal-element">
+        <div class="servicio reveal-element">
+          <div class="servicio-icon">
+            <!-- Menú SVG -->
+            <svg fill="none" viewBox="0 0 24 24">
+              <rect x="3" y="5" width="18" height="14" rx="4" />
+              <line x1="7" y1="9" x2="17" y2="9" />
+              <line x1="7" y1="13" x2="17" y2="13" />
+            </svg>
+          </div>
+          <h2>Desarrollo de Menús Digitales</h2>
+          <p>
+            Diseñamos menús interactivos, visuales y fáciles de actualizar para
+            restaurantes modernos.
+          </p>
+          <ul>
+            <li>Menús QR y PDF personalizados</li>
+            <li>Actualización instantánea</li>
+            <li>Integración con redes sociales</li>
+          </ul>
+        </div>
+        <div class="servicio reveal-element">
+          <div class="servicio-icon">
+            <!-- Web SVG -->
+            <svg fill="none" viewBox="0 0 24 24">
+              <rect x="3" y="5" width="18" height="14" rx="4" />
+              <circle cx="12" cy="12" r="3.5" />
+            </svg>
+          </div>
+          <h2>Páginas Web para Restaurantes</h2>
+          <p>
+            Webs minimalistas, responsivas y optimizadas para destacar tu marca
+            y atraer más clientes.
+          </p>
+          <ul>
+            <li>Diseño a medida y branding</li>
+            <li>Optimización SEO y Google Maps</li>
+            <li>Galería de fotos y menú online</li>
+          </ul>
+        </div>
+        <div class="servicio reveal-element">
+          <div class="servicio-icon">
+            <!-- Reservas SVG -->
+            <svg fill="none" viewBox="0 0 24 24">
+              <rect x="4" y="4" width="16" height="16" rx="4" />
+              <path d="M8 10h8M8 14h5" />
+            </svg>
+          </div>
+          <h2>Integración de Reservas y Pedidos</h2>
+          <p>
+            Soluciones para reservas online y pedidos a domicilio, integradas de
+            forma elegante y simple.
+          </p>
+          <ul>
+            <li>Reservas en tiempo real</li>
+            <li>Pedidos para llevar y delivery</li>
+            <li>Notificaciones automáticas</li>
+          </ul>
+        </div>
+      </div>
+      <div
+        style="margin-top: 2.5rem; text-align: center"
+        class="reveal-element"
+      >
+        <h2 style="font-size: 1.3rem; font-weight: 800">
+          ¿Tienes una idea especial?
+        </h2>
+        <p style="font-size: 1.08rem; color: #222">
+          ¡Cuéntanos tu proyecto y lo hacemos realidad! Ofrecemos asesoría
+          gratuita y propuestas personalizadas.
+        </p>
+      </div>
+      <div class="nueva-seccion reveal-element">
+        <h2>¿Buscas otro tipo de plan o solución?</h2>
+        <p>
+          Si necesitas un servicio diferente, un paquete personalizado o tienes
+          una idea especial para tu restaurante, ¡escríbenos! Nos adaptamos a
+          tus necesidades.
+        </p>
+        <a href="Contacto.html"
+          >Contáctanos y recibe una propuesta a tu medida</a
+        >
+      </div>
+      <!-- Figuras decorativas para congruencia visual -->
+      <div class="figura-serv figura-1"></div>
+      <div class="figura-serv figura-2"></div>
+      <div class="figura-serv figura-3"></div>
+      <div class="figura-serv figura-4"></div>
+      <div class="figura-serv figura-5"></div>
+      <div class="figura-serv figura-6"></div>
+      <div class="figura-serv figura-7"></div>
+      <div class="figura-serv figura-8"></div>
+    </div>
+    <!-- FOOTER ESTILO INDEX.HTML -->
+    <footer
+      class="reveal-element"
+      style="
+        background: #111;
+        color: #fff;
+        text-align: center;
+        padding: 2rem 0 1rem 0;
+        font-size: 1.1rem;
+        letter-spacing: 0.04em;
+        margin-top: 0;
+      "
+    >
+      <div style="margin-bottom: 0.5rem">
+        &copy; 2025 Gastronome. Todos los derechos reservados.
+      </div>
+      <div style="font-size: 0.95rem; color: #bbb">
+        Sitio desarrollado por el equipo Gastronome | contacto@gastronome.com
+      </div>
+      <div
+        style="
+          margin-top: 1.2rem;
+          display: flex;
+          justify-content: center;
+          gap: 1.5rem;
+          align-items: center;
+        "
+      >
+        <a
+          href="mailto:gastronome899@gmail.com"
+          target="_blank"
+          aria-label="Email"
+          style="
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+          "
+        >
+          <svg
+            width="28"
+            height="28"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#fff"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <rect x="3" y="5" width="18" height="14" rx="3" />
+            <polyline points="3 7 12 13 21 7" />
+          </svg>
+        </a>
+        <a
+          href="https://wa.me/524491383086"
+          target="_blank"
+          aria-label="WhatsApp"
+          style="
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+          "
+        >
+          <svg
+            width="28"
+            height="28"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#fff"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path
+              d="M21 20.3A16.88 16.88 0 0 1 12 22C6.48 22 2 17.52 2 12.01A9.99 9.99 0 0 1 12 2c5.52 0 10 4.48 10 10.01 0 2.13-.67 4.1-1.81 5.73l.81 3.26-3.26-.7z"
+            />
+            <path
+              d="M16.2 17.2c-1.2.4-2.5.6-3.8.6-4.42 0-8-3.58-8-8 0-4.42 3.58-8 8-8s8 3.58 8 8c0 1.3-.2 2.6-.6 3.8l-1.1-1.1c-.2-.2-.5-.2-.7 0l-2.1 2.1c-.2.2-.2.5 0 .7l1.1 1.1z"
+            />
+          </svg>
+        </a>
+        <a
+          href="https://instagram.com/gastronomeDevs"
+          target="_blank"
+          aria-label="Instagram"
+          style="
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+          "
+        >
+          <svg
+            width="28"
+            height="28"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#fff"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <rect x="3" y="3" width="18" height="18" rx="5" />
+            <circle cx="12" cy="12" r="4" />
+            <circle cx="17" cy="7" r="1" />
+          </svg>
+        </a>
+        <a
+          href="https://facebook.com/"
+          target="_blank"
+          aria-label="Facebook"
+          style="
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+          "
+        >
+          <svg
+            width="28"
+            height="28"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#fff"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path
+              d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+            />
+          </svg>
+        </a>
+      </div>
+    </footer>
+    <button id="scrollTopBtn" title="Volver arriba" aria-label="Volver arriba">
+      <svg
+        width="38"
+        height="38"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="#01a54b"
+        stroke-width="3.2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <polyline points="6 14 12 8 18 14" />
+      </svg>
+    </button>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    ></script>
+    <script>
+      // Detecta la página y activa la clase 'active' en el link correspondiente
+      (function () {
+        var path = window.location.pathname.toLowerCase();
+        if (path.includes("index.html"))
+          document.querySelector(".HOME_ACTIVE").classList.add("active");
+        else if (path.includes("nosotros.html"))
+          document.querySelector(".NOSOTROS_ACTIVE").classList.add("active");
+        else if (path.includes("servicios.html"))
+          document.querySelector(".SERVICIOS_ACTIVE").classList.add("active");
+        else if (path.includes("portafoliominimal.html"))
+          document.querySelector(".PORTAFOLIO_ACTIVE").classList.add("active");
+        else if (path.includes("contacto.html"))
+          document.querySelector(".CONTACTO_ACTIVE").classList.add("active");
+      })();
+      // Refuerzo: cerrar menú móvil al hacer click en un link (mejor UX móvil)
+      document
+        .querySelectorAll(".navbar-nav .nav-link")
+        .forEach(function (link) {
+          link.addEventListener("click", function () {
+            var navbarCollapse = document.getElementById("mainNavbar");
+            if (
+              window.innerWidth <= 768 &&
+              navbarCollapse.classList.contains("show")
+            ) {
+              var collapse = new bootstrap.Collapse(navbarCollapse);
+              collapse.hide();
+            }
+          });
+        });
+
+      // Sistema de animación exacto como Nosotros.html - SIMPLIFICADO
+      document.addEventListener("DOMContentLoaded", function () {
+        function revealElements() {
+          var elements = document.querySelectorAll(".reveal-element");
+          var windowHeight = window.innerHeight;
+          var isMobile = window.innerWidth <= 600;
+
+          // En móvil usar trigger más bajo para que aparezcan antes
+          var triggerHeight = isMobile
+            ? windowHeight * 0.9
+            : windowHeight * 0.85;
+
+          elements.forEach(function (el, index) {
+            var position = el.getBoundingClientRect().top;
+
+            if (
+              position < triggerHeight &&
+              !el.classList.contains("revealed")
+            ) {
+              if (isMobile) {
+                // En móvil: delay más corto para mejor performance
+                setTimeout(function () {
+                  el.classList.add("revealed");
+                }, index * 25); // 25ms en lugar de 50ms
+              } else {
+                // Desktop: delay normal
+                setTimeout(function () {
+                  el.classList.add("revealed");
+                }, index * 50);
+              }
+            }
+          });
+        }
+
+        revealElements();
+
+        // En móvil, usar throttling más agresivo
+        if (window.innerWidth <= 600) {
+          var throttleTimer = false;
+          window.addEventListener("scroll", function () {
+            if (throttleTimer) return;
+            throttleTimer = true;
+            setTimeout(function () {
+              revealElements();
+              throttleTimer = false;
+            }, 32); // ~30fps en lugar de 60fps
+          });
+        } else {
+          // Desktop: scroll normal
+          window.addEventListener("scroll", revealElements);
+        }
+      });
+
+      // Mostrar/ocultar botón de volver arriba
+      const scrollBtn = document.getElementById("scrollTopBtn");
+      window.addEventListener("scroll", function () {
+        if (window.scrollY > 180) scrollBtn.style.display = "flex";
+        else scrollBtn.style.display = "none";
+      });
+
+      // En móvil, usar scroll con animación suave para mejor UX
+      scrollBtn.onclick = function () {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      };
+
+      // CRITICAL: Force proper scroll behavior on mobile
+      if (window.innerWidth <= 600) {
+        // Permitir smooth scrolling en móvil para mejor experiencia
+        document.documentElement.style.scrollBehavior = "smooth";
+        document.body.style.scrollBehavior = "smooth";
+
+        // Asegurar que no haya elementos fixed que interfieran
+        var fixedElements = document.querySelectorAll("*");
+        fixedElements.forEach(function (el) {
+          var computedStyle = window.getComputedStyle(el);
+          if (computedStyle.position === "fixed" && el.id !== "scrollTopBtn") {
+            el.style.transform = "none";
+          }
+        });
+      }
+
+      // Animación fluida page-anim-text en móvil (sistema separado)
+      document.addEventListener("DOMContentLoaded", function () {
+        var anims = document.querySelectorAll(".page-anim-text");
+        setTimeout(function () {
+          anims.forEach(function (el) {
+            if (!el.classList.contains("animated")) {
+              el.classList.add("animated");
+            }
+          });
+        }, 10);
+      });
+    </script>
+  </body>
+</html>

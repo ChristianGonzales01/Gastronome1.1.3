@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Directo - Sin Conflictos</title>
+    
+    <!-- Bootstrap 5.3.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+        body {
+            padding-top: 70px;
+        }
+        
+        /* CSS para los cambios solicitados */
+        @media (max-width: 600px) {
+            /* CAMBIO 1: Texto blanco en móvil */
+            .que-hacemos-tarjeta {
+                background: transparent !important;
+                color: #fff !important;
+                border: 2px solid #fff !important;
+            }
+            
+            /* CAMBIO 2: Título más pequeño en móvil */
+            .que-hacemos-titulo {
+                font-size: 1.5rem !important;
+                padding: 0 1rem !important;
+            }
+            
+            /* Indicador visual de móvil */
+            .mobile-indicator {
+                background: #ff0000 !important;
+                color: white !important;
+                padding: 10px !important;
+                text-align: center !important;
+                font-weight: bold !important;
+            }
+        }
+        
+        .mobile-indicator {
+            background: #28a745;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        .test-section {
+            padding: 20px;
+            margin: 20px;
+            border: 2px solid #007bff;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <!-- CAMBIO 3: Navbar con funcionamiento correcto -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container-fluid">
+            <span class="navbar-brand">Gastronome - Test Directo</span>
+            
+            <button class="navbar-toggler" type="button" id="navbarToggler">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto">
+                    <a class="nav-link" href="#seccion1">Sección 1</a>
+                    <a class="nav-link" href="#seccion2">Sección 2</a>
+                    <a class="nav-link" href="#seccion3">Sección 3</a>
+                    <a class="nav-link" href="index.html">Index Real</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="mobile-indicator">
+        MÓVIL (≤600px): ROJO | DESKTOP (>600px): VERDE
+    </div>
+
+    <div class="container">
+        <div class="test-section">
+            <h1>🎯 Test Directo de los 3 Cambios</h1>
+            <p>Este test usa JavaScript simple y CSS directo para evitar conflictos.</p>
+        </div>
+
+        <!-- Test de los cambios 1 y 2 -->
+        <section id="seccion1" style="background:#111; color:#fff; text-align:center; padding:40px 20px;">
+            <h2 class="que-hacemos-titulo" style="font-size:2rem; font-weight:700; margin-bottom:2rem;">¿Qué hacemos?</h2>
+            <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:2rem; max-width:800px; margin:0 auto;">
+                <div class="que-hacemos-tarjeta" style="flex:1 1 200px; min-width:200px; background:#fff; color:#111; border-radius:12px; padding:1.5rem; border:2px solid #111;">
+                    <h3 style="font-size:1.2rem; font-weight:700; margin-bottom:1rem;">Páginas Web</h3>
+                    <p style="font-size:1rem;">Sitios modernos y responsivos para restaurantes.</p>
+                </div>
+                <div class="que-hacemos-tarjeta" style="flex:1 1 200px; min-width:200px; background:#fff; color:#111; border-radius:12px; padding:1.5rem; border:2px solid #111;">
+                    <h3 style="font-size:1.2rem; font-weight:700; margin-bottom:1rem;">Menús Digitales</h3>
+                    <p style="font-size:1rem;">Menús interactivos QR fáciles de actualizar.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="test-section">
+            <h2>📱 Estado del Test</h2>
+            <p><strong>Ancho de pantalla:</strong> <span id="screenWidth"></span>px</p>
+            <p><strong>Es móvil:</strong> <span id="isMobile"></span></p>
+            <p><strong>Estado navbar:</strong> <span id="navbarState">Cerrada</span></p>
+            
+            <h3>✅ Checklist</h3>
+            <ul>
+                <li id="check1">❓ Título "¿Qué hacemos?" más pequeño en móvil</li>
+                <li id="check2">❓ Texto de tarjetas blanco en móvil</li>
+                <li id="check3">❓ Navbar se cierra al hacer clic en enlaces</li>
+            </ul>
+        </div>
+
+        <div class="test-section">
+            <h2>🔗 Enlaces de prueba</h2>
+            <a href="index.html" class="btn btn-primary">Ir a Index.html Real</a>
+            <button onclick="testNavbar()" class="btn btn-secondary">Test Manual Navbar</button>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5.3.3 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        let navbarOpen = false;
+        
+        function updateStatus() {
+            const width = window.innerWidth;
+            const isMobile = width <= 600;
+            
+            document.getElementById('screenWidth').textContent = width;
+            document.getElementById('isMobile').textContent = isMobile ? 'SÍ' : 'NO';
+            
+            // Verificar cambios
+            if (isMobile) {
+                document.getElementById('check1').innerHTML = '✅ Título más pequeño (1.5rem)';
+                document.getElementById('check2').innerHTML = '✅ Texto blanco en tarjetas';
+            } else {
+                document.getElementById('check1').innerHTML = '⭕ Cambio solo en móvil (2rem)';
+                document.getElementById('check2').innerHTML = '⭕ Cambio solo en móvil (texto negro)';
+            }
+        }
+        
+        function testNavbar() {
+            const collapse = document.getElementById('navbarCollapse');
+            if (navbarOpen) {
+                collapse.classList.remove('show');
+                navbarOpen = false;
+                document.getElementById('navbarState').textContent = 'Cerrada';
+                document.getElementById('check3').innerHTML = '✅ Navbar se cerró correctamente';
+            } else {
+                collapse.classList.add('show');
+                navbarOpen = true;
+                document.getElementById('navbarState').textContent = 'Abierta';
+            }
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            updateStatus();
+            
+            // JAVASCRIPT SIMPLE PARA NAVBAR
+            const toggler = document.getElementById('navbarToggler');
+            const collapse = document.getElementById('navbarCollapse');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            // Toggle navbar
+            toggler.addEventListener('click', function() {
+                testNavbar();
+            });
+            
+            // Cerrar al hacer clic en enlaces
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    if (window.innerWidth <= 991 && navbarOpen) {
+                        console.log('Link clickeado, cerrando navbar...');
+                        setTimeout(() => {
+                            collapse.classList.remove('show');
+                            navbarOpen = false;
+                            document.getElementById('navbarState').textContent = 'Cerrada';
+                            document.getElementById('check3').innerHTML = '✅ Navbar se cerró al hacer clic en enlace';
+                        }, 100);
+                    }
+                });
+            });
+            
+            // Cerrar al hacer clic fuera
+            document.addEventListener('click', function(e) {
+                const navbar = document.querySelector('.navbar');
+                if (window.innerWidth <= 991 && navbarOpen && !navbar.contains(e.target)) {
+                    collapse.classList.remove('show');
+                    navbarOpen = false;
+                    document.getElementById('navbarState').textContent = 'Cerrada';
+                    document.getElementById('check3').innerHTML = '✅ Navbar se cerró al hacer clic fuera';
+                }
+            });
+            
+            // Actualizar estado al cambiar tamaño
+            window.addEventListener('resize', updateStatus);
+        });
+    </script>
+</body>
+</html>

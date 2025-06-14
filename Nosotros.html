@@ -1,0 +1,2557 @@
+<!-- Pantalla minimalista para Gastronome -->
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no"
+    />
+    <title>Nosotros | Gastronome</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="navbar-shared.css" />
+    <link rel="stylesheet" href="navbar-mobile-unified.css" />
+    <link rel="stylesheet" href="navbar-mobile-effects.css" />
+    <script src="navbar-mobile-unified.js" defer></script>
+    <style>
+      html,
+      body {
+        max-width: 100vw;
+        overflow-x: hidden;
+      } /* Critical mobile scroll fix - Enhanced */
+      @media (max-width: 600px) {
+        html {
+          overflow-y: scroll !important;
+          overflow-x: hidden !important;
+          -webkit-overflow-scrolling: touch !important;
+          scroll-behavior: smooth !important;
+          height: 100% !important;
+          position: relative !important;
+        }
+        body {
+          overflow-y: scroll !important;
+          overflow-x: hidden !important;
+          -webkit-overflow-scrolling: touch !important;
+          touch-action: pan-y !important;
+          position: relative !important;
+          height: auto !important;
+          min-height: 100vh !important;
+          transform: none !important;
+          backface-visibility: visible !important;
+        }
+        /* Ensure all containers allow scrolling */
+        .container,
+        main,
+        section {
+          overflow: visible !important;
+          height: auto !important;
+          min-height: auto !important;
+          position: relative !important;
+          transform: none !important;
+        }
+        /* Fix for fixed/absolute positioned elements that might interfere */
+        .navbar {
+          position: sticky !important;
+          top: 0 !important;
+          z-index: 1000 !important;
+          transform: none !important;
+        }
+        /* Ensure proper layering */
+        * {
+          -webkit-transform: translateZ(0) !important;
+          transform: translateZ(0) !important;
+          -webkit-backface-visibility: hidden !important;
+          backface-visibility: hidden !important;
+        }
+      }
+
+      body {
+        box-sizing: border-box;
+      }
+      body {
+        background: #fff;
+        color: #111;
+        font-family: "Segoe UI", Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        max-width: 900px;
+        margin: 60px auto 0 auto;
+        padding: 40px 30px;
+        border: 2px solid #111;
+        border-radius: 18px;
+        background: #fff;
+        box-sizing: border-box;
+        position: relative;
+        z-index: 2;
+      }
+      h1 {
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        letter-spacing: -2px;
+      }
+      p {
+        font-size: 1.2rem;
+        line-height: 1.7;
+        margin-bottom: 2rem;
+      }
+      .btns {
+        display: flex;
+        gap: 1rem;
+      }
+      .btn {
+        background: #fff;
+        color: #111;
+        border: 2px solid #111;
+        padding: 0.7rem 2rem;
+        font-size: 1rem;
+        font-weight: 600;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background 0.2s, color 0.2s;
+      }
+      .btn:hover {
+        background: #111;
+        color: #fff;
+      }
+      .img-right {
+        float: right;
+        width: 320px;
+        margin-left: 40px;
+        border-radius: 18px;
+        filter: grayscale(100%) contrast(1.1);
+      }
+      @media (max-width: 900px) {
+        .container {
+          flex-direction: column !important;
+          padding: 20px !important;
+        }
+        section .container {
+          gap: 24px !important;
+        }
+        .row {
+          gap: 1.2rem !important;
+        }
+        .btn {
+          font-size: 1rem !important;
+          padding: 10px 18px !important;
+        }
+      }
+      @media (max-width: 600px) {
+        html,
+        body {
+          max-width: 100vw !important;
+          overflow-x: hidden !important;
+          overflow-y: scroll !important;
+          height: auto !important;
+          min-height: 100vh !important;
+          touch-action: pan-y !important;
+          -webkit-overflow-scrolling: touch !important;
+          position: relative !important;
+          transform: none !important;
+        }
+        body {
+          padding: 0 !important;
+          margin: 0 !important;
+          background: #fff !important;
+          color: #111 !important;
+          font-family: "Segoe UI", Arial, sans-serif !important;
+          position: relative !important;
+          backface-visibility: visible !important;
+        }
+        .container {
+          max-width: 100vw !important;
+          padding: 18px 6vw 18px 6vw !important;
+          border-radius: 14px !important;
+          margin: 24px auto 0 auto !important;
+          box-shadow: 0 2px 12px #0001 !important;
+          border: 2px solid #eee !important;
+        }
+        h1,
+        h2,
+        h3 {
+          font-size: 1.35rem !important;
+          font-weight: 800 !important;
+          text-align: center !important;
+          margin-bottom: 1.1rem !important;
+          letter-spacing: 0.04em !important;
+        }
+        p,
+        ul,
+        li {
+          font-size: 1rem !important;
+          color: #222 !important;
+          text-align: center !important;
+          margin-bottom: 1.1rem !important;
+          line-height: 1.6 !important;
+        }
+        .btn,
+        .btn-sobre,
+        .btn-ver-servicios {
+          display: block !important;
+          margin: 0.7rem auto 1.2rem auto !important;
+          font-size: 1rem !important;
+          padding: 0.6rem 1.5rem !important;
+          border-radius: 8px !important;
+          min-width: 120px !important;
+          max-width: 90vw !important;
+          text-align: center !important;
+        }
+        .img-right,
+        img,
+        .container img,
+        .row img,
+        .sobre-logo-grande img {
+          display: block !important;
+          margin: 0.7rem auto 1.2rem auto !important;
+          max-width: 90vw !important;
+          width: 100% !important;
+          height: auto !important;
+          object-fit: contain !important;
+          border-radius: 14px !important;
+          box-shadow: 0 2px 12px #0001 !important;
+        }
+
+        /* Esconde figuras decorativas en móvil */
+        .figura-serv,
+        .figura-1,
+        .figura-2,
+        .figura-3,
+        .figura-4,
+        .figura-5,
+        .figura-6,
+        .figura-7,
+        .figura-8 {
+          display: none !important;
+        }
+
+        /* Ocultar secciones "¿Qué hacemos?" y "Detrás del Diseño" en móvil */
+        section[style*="background:#181818"][style*="color:#fff"][style*="padding:60px 0 40px 0"],
+        section[style*="background:#fff"][style*="color:#111"][style*="padding:24px 0 10px 0"] {
+          display: none !important;
+        }
+      }
+      .sobre-gastronome-nuevo {
+        margin-bottom: 0;
+      }
+      .btn-sobre {
+        background: #fff !important;
+        color: #111 !important;
+        border-radius: 8px;
+        padding: 1.1rem 2.8rem;
+        font-weight: 800;
+        font-size: 1.25rem;
+        text-decoration: none;
+        border: 2px solid #111;
+        box-shadow: 0 2px 12px #00bb7a22;
+        transition: background 0.2s, color 0.2s, border-color 0.2s;
+        letter-spacing: 0.03em;
+      }
+      .btn-sobre:hover {
+        background: #fff !important;
+        color: #111 !important;
+        border: 2px solid #01a54b !important;
+        box-shadow: 0 0 0 2px #01a54b55;
+      }
+      .btn-ver-servicios {
+        background: #111 !important;
+        color: #fff !important;
+        border: 2px solid #111 !important;
+      }
+      .btn-ver-servicios:hover {
+        background: #fff !important;
+        color: #111 !important;
+        border: 2px solid #01a54b !important;
+        box-shadow: 0 0 0 2px #01a54b55;
+      }
+      .sobre-card-flex {
+        max-width: 900px;
+        margin: 60px auto 40px auto;
+        border-radius: 32px;
+        box-shadow: 0 2px 12px #0001;
+        border: 3.5px solid #111;
+        padding: 48px 36px 40px 36px;
+        display: flex;
+        gap: 2.5rem;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        position: relative;
+        z-index: 1;
+        transition: border-color 0.38s cubic-bezier(0.4, 1.6, 0.6, 1),
+          box-shadow 0.38s cubic-bezier(0.4, 1.6, 0.6, 1), background 0.38s,
+          color 0.38s, transform 0.38s cubic-bezier(0.4, 1.6, 0.6, 1);
+      }
+      .sobre-card-flex:hover,
+      .sobre-card-flex:focus-within {
+        border-color: #01a54b !important;
+        box-shadow: 0 8px 32px #01a54b33 !important;
+      }
+      /* Botón scroll to top */
+      #scrollTopBtn {
+        display: none;
+        position: fixed;
+        bottom: 32px;
+        right: 32px;
+        z-index: 9999;
+        background: transparent;
+        color: #01a54b;
+        border: none;
+        border-radius: 50%;
+        width: 68px;
+        height: 68px;
+        box-shadow: none;
+        font-size: 2.1rem;
+        font-weight: bold;
+        cursor: pointer;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.2s, color 0.2s;
+        outline: none;
+      }
+      #scrollTopBtn svg {
+        display: block;
+        margin: auto;
+        width: 38px;
+        height: 38px;
+      }
+      #scrollTopBtn:hover {
+        background: #01a54b22;
+        color: #01a54b;
+      } /* Sistema de animación suave optimizado para móvil - RESTORED */
+      .reveal-element {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      }
+      .reveal-element.revealed {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      @media (max-width: 600px) {
+        .reveal-element {
+          opacity: 0;
+          transform: translateY(15px);
+          transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+        .reveal-element.revealed {
+          opacity: 1;
+          transform: translateY(0);
+        } /* Optimized smooth scrolling for mobile */
+        * {
+          scroll-behavior: smooth !important;
+        } /* Optimized transforms for mobile performance */
+        .container,
+        .movil-block,
+        .movil-testimonios {
+          will-change: transform, opacity;
+          -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+          transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+        }
+
+        /* Footer aparece instantáneamente en móvil */
+        footer.reveal-element {
+          transition: opacity 0.05s ease-out, transform 0.05s ease-out;
+        }
+
+        /* Imagen de nuestro equipo centrada en móvil */
+        section[style*="background:#111"] img[alt="Nuestro equipo"] {
+          margin-left: auto !important;
+          margin-right: auto !important;
+          display: block !important;
+          text-align: center !important;
+        }
+
+        /* Contenedor de la imagen de nuestro equipo centrado */
+        section[style*="background:#111"]
+          .reveal-element[style*="text-align:right"] {
+          text-align: center !important;
+          justify-content: center !important;
+          margin-right: 0 !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar Unificado -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container-fluid">
+        <span class="navbar-brand">Gastronome</span>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mainNavbar"
+          aria-controls="mainNavbar"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNavbar">
+          <div class="navbar-nav ms-auto">
+            <a class="nav-link HOME_ACTIVE" href="index.html">Inicio</a>
+            <a class="nav-link NOSOTROS_ACTIVE" href="Nosotros.html"
+              >Nosotros</a
+            >
+            <a class="nav-link SERVICIOS_ACTIVE" href="Servicios.html"
+              >Servicios</a
+            >
+            <a class="nav-link PORTAFOLIO_ACTIVE" href="PortafolioMinimal.html"
+              >Portafolio</a
+            >
+            <a class="nav-link CONTACTO_ACTIVE" href="Contacto.html"
+              >Contacto</a
+            >
+          </div>
+        </div>
+      </div>
+    </nav>
+    <script>
+      // Refuerzo: cerrar menú móvil al hacer click en un link (mejor UX móvil)
+      document
+        .querySelectorAll(".navbar-nav .nav-link")
+        .forEach(function (link) {
+          link.addEventListener("click", function () {
+            var navbarCollapse = document.getElementById("mainNavbar");
+            if (
+              window.innerWidth <= 768 &&
+              navbarCollapse.classList.contains("show")
+            ) {
+              var collapse = new bootstrap.Collapse(navbarCollapse);
+              collapse.hide();
+            }
+          });
+        });
+      // Activar link actual
+      (function () {
+        var path = window.location.pathname.toLowerCase();
+        if (path.includes("index.html"))
+          document.querySelector(".HOME_ACTIVE").classList.add("active");
+        else if (path.includes("nosotros.html"))
+          document.querySelector(".NOSOTROS_ACTIVE").classList.add("active");
+        else if (path.includes("servicios.html"))
+          document.querySelector(".SERVICIOS_ACTIVE").classList.add("active");
+        else if (
+          path.includes("portafoliominimal.html") ||
+          path.includes("portafolio.html")
+        )
+          document.querySelector(".PORTAFOLIO_ACTIVE").classList.add("active");
+        else if (path.includes("contacto.html"))
+          document.querySelector(".CONTACTO_ACTIVE").classList.add("active");
+      })();
+    </script>
+    <!-- NUEVO DISEÑO SOBRE GASTRONOME (TEXTO IZQUIERDA, LOGO DERECHA, LOGO MÁS GRANDE Y FUERA DEL CUADRO) -->
+    <section
+      style="
+        background: #fff;
+        padding: 0;
+        min-height: 420px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      "
+    >
+      <div
+        class="sobre-card-flex reveal-element"
+        style="
+          max-width: 900px;
+          margin: 60px auto 40px auto;
+          border-radius: 32px;
+          box-shadow: 0 2px 12px #0001;
+          border: 3.5px solid #111;
+          padding: 48px 36px 40px 36px;
+          display: flex;
+          gap: 2.5rem;
+          align-items: center;
+          justify-content: center;
+          flex-wrap: wrap;
+          position: relative;
+          z-index: 1;
+        "
+      >
+        <div
+          class="sobre-texto"
+          style="flex: 1 1 320px; min-width: 240px; text-align: left"
+        >
+          <h1
+            class="reveal-element"
+            style="
+              font-size: 2.7rem;
+              font-weight: 900;
+              margin-bottom: 1.2rem;
+              letter-spacing: 0.01em;
+              color: #111;
+            "
+          >
+            Sobre Gastronome
+          </h1>
+          <p
+            class="reveal-element"
+            style="
+              font-size: 1.22rem;
+              color: #222;
+              line-height: 1.7;
+              margin-bottom: 2.2rem;
+              font-weight: 500;
+            "
+          >
+            En Gastronome nos especializamos en el desarrollo web para
+            restaurantes, creando menús digitales y páginas modernas,
+            funcionales y atractivas. Nuestro enfoque es
+            <span style="color: #111; font-weight: 700">minimalista</span>,
+            elegante y eficiente, ayudando a negocios gastronómicos a destacar
+            en el mundo digital.<br /><br />Creamos experiencias digitales que
+            conectan a los comensales con tu cocina, optimizando la presencia
+            online de tu restaurante.
+          </p>
+          <a
+            href="Servicios.html"
+            class="btn btn-sobre btn-ver-servicios reveal-element"
+            >Ver Servicios</a
+          >
+        </div>
+        <div
+          class="sobre-logo-grande reveal-element"
+          style="
+            flex: 0 0 220px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          "
+        >
+          <img
+            src="./Fotos_Gas/logo.webp"
+            alt="Logo Gastronome"
+            style="
+              width: 200px;
+              height: 200px;
+              object-fit: cover;
+              border-radius: 28px;
+              box-shadow: 0 0 0 8px #000, 0 2px 24px #0002;
+              border: none;
+              background: #fff;
+            "
+          />
+        </div>
+      </div>
+    </section>
+    <style>
+      @media (max-width: 1100px) {
+        .sobre-card-flex {
+          flex-direction: column !important;
+          gap: 1.5rem !important;
+        }
+        .sobre-logo-grande {
+          justify-content: flex-start !important;
+          margin: 2rem 0 0 0;
+        }
+      }
+      @media (max-width: 700px) {
+        .sobre-card-flex {
+          padding: 28px 8vw 28px 8vw !important;
+          margin: 20px auto 20px auto !important;
+        }
+        .sobre-card-flex h1 {
+          font-size: 2rem !important;
+        }
+        .sobre-card-flex p {
+          font-size: 1.05rem !important;
+        }
+        .sobre-logo-grande img {
+          width: 140px !important;
+          height: 140px !important;
+          border-radius: 18px !important;
+        }
+      }
+      @media (max-width: 600px) {
+        /* No borders/contornos chocando con otras secciones */
+        .container {
+          border-width: 0 !important;
+          margin-top: 18px !important;
+          margin-bottom: 18px !important;
+          border-radius: 18px !important;
+          box-shadow: 0 2px 12px #0001 !important;
+          background: #fff !important;
+        }
+        section[style*="background:#111"] .container {
+          border-width: 0 !important;
+          margin: 20px auto !important;
+          max-width: calc(100vw - 8vw) !important;
+          width: calc(100vw - 8vw) !important;
+          border-radius: 22px !important;
+          box-shadow: 0 2px 16px #0002 !important;
+          background: #181818 !important;
+          padding: 20px 3vw 20px 3vw !important;
+          box-sizing: border-box !important;
+          overflow: hidden !important;
+        }
+        /* Botón de nuestro equipo: texto negro, fondo blanco, alto contraste, más grande */
+        section[style*="background:#111"] .btn,
+        section[style*="background:#111"] .btn-sobre {
+          margin: 1.2rem auto 0.7rem auto !important;
+          font-size: 1.15rem !important;
+          padding: 1rem 1.5rem !important;
+          border-radius: 14px !important;
+          min-width: 140px !important;
+          max-width: 95vw !important;
+          text-align: center !important;
+          font-weight: 900 !important;
+          background: #fff !important;
+          color: #111 !important;
+          border: 2px solid #01a54b !important;
+          box-shadow: 0 2px 12px #01a54b22 !important;
+          letter-spacing: 0.02em;
+        }
+        section[style*="background:#111"] .btn:hover,
+        section[style*="background:#111"] .btn-sobre:hover {
+          background: #01a54b !important;
+          color: #fff !important;
+          border: 2px solid #01a54b !important;
+        }
+        /* Imagen de nuestro equipo: más grande, sin borde blanco, redonda */
+        section[style*="background:#111"] img[alt="Nuestro equipo"] {
+          display: block !important;
+          margin: 1.5rem auto 0.7rem auto !important;
+          max-width: 270px !important;
+          width: 90vw !important;
+          height: 210px !important;
+          object-fit: cover !important;
+          border-radius: 32px !important;
+          box-shadow: 0 4px 24px #01a54b33 !important;
+          border: none !important;
+          background: none !important;
+        } /* Sección Nuestra Filosofía: menos espacio arriba, título más grande */
+        section[style*="background:#fff;"][style*="padding:60px 0 40px 0;"] {
+          padding: 12px 0 16px 0 !important;
+        }
+
+        /* Sección Nuestro equipo: padding reducido para evitar sobrepasar */
+        section[style*="background:#111"][style*="padding:40px 0 30px 0"] {
+          padding: 16px 0 16px 0 !important;
+        }
+        section[style*="background:#fff;"][style*="padding:60px 0 40px 0;"] h2 {
+          font-size: 1.8rem !important;
+          font-weight: 900 !important;
+          margin-bottom: 0.8rem !important;
+          margin-top: 0.2rem !important;
+          text-align: center !important;
+          letter-spacing: 0.04em !important;
+        }
+
+        /* Imagen de Nuestra Filosofía más compacta */
+        section[style*="background:#fff;"][style*="padding:60px 0 40px 0;"]
+          img {
+          width: 100% !important;
+          max-width: 280px !important;
+          height: 140px !important;
+          object-fit: cover !important;
+          margin: 0.5rem auto 0.8rem auto !important;
+          border-radius: 12px !important;
+        }
+        /* Sección Menús Digitales: recuadro más grande y cubre todo el ancho */
+        section[style*="background:#181818"] .container {
+          max-width: 100vw !important;
+          width: 100vw !important;
+          padding: 18px 0 18px 0 !important;
+          border-radius: 18px !important;
+          box-shadow: 0 2px 16px #0002 !important;
+          background: #181818 !important;
+          margin: 0 !important;
+        }
+        section[style*="background:#181818"] .row {
+          width: 100vw !important;
+          margin: 0 !important;
+          padding: 0 0.5rem !important;
+          gap: 1.2rem !important;
+          flex-wrap: wrap !important;
+          justify-content: center !important;
+        }
+        section[style*="background:#181818"] .row > div {
+          min-width: 90vw !important;
+          max-width: 98vw !important;
+          flex: 1 1 98vw !important;
+          margin: 0.5rem auto !important;
+        }
+        section[style*="background:#181818"] .row img {
+          width: 100% !important;
+          max-width: 100% !important;
+          height: 140px !important;
+          object-fit: cover !important;
+          border-radius: 14px !important;
+        }
+      }
+      @media (max-width: 600px) {
+        /* Nuestro equipo: texto blanco (excepto botón), imagen centrada */
+        section[style*="background:#111"] .container > div,
+        section[style*="background:#111"] .container p,
+        section[style*="background:#111"]
+          .container
+          div[style*="font-size:2.2rem"],
+        section[style*="background:#111"] .container h2,
+        section[style*="background:#111"] .container h1 {
+          color: #fff !important;
+          text-align: center !important;
+        }
+        section[style*="background:#111"] .container {
+          justify-content: center !important;
+          align-items: center !important;
+        }
+        section[style*="background:#111"] .container .page-anim-text.delay-3 {
+          display: flex !important;
+          justify-content: center !important;
+          align-items: center !important;
+          margin-right: 0 !important;
+        }
+        section[style*="background:#111"] img[alt="Nuestro equipo"] {
+          margin-left: auto !important;
+          margin-right: auto !important;
+        }
+        /* Sección ¿Qué hacemos?: menos separación arriba, título más grande y centrado, módulos centrados, scroll horizontal */
+        section[style*="background:#181818"] {
+          padding-top: 24px !important;
+        }
+        section[style*="background:#181818"] h2 {
+          font-size: 2.3rem !important;
+          text-align: center !important;
+          margin-bottom: 1.5rem !important;
+        }
+        section[style*="background:#181818"] .container {
+          align-items: center !important;
+          justify-content: center !important;
+        }
+        section[style*="background:#181818"] .row {
+          flex-wrap: nowrap !important;
+          flex-direction: row !important;
+          gap: 0.5rem !important;
+          overflow-x: auto !important;
+          justify-content: flex-start !important;
+          width: 100vw !important;
+          margin: 0 !important;
+          padding: 0 0.5rem !important;
+          scroll-snap-type: x mandatory;
+        }
+        section[style*="background:#181818"] .row > div {
+          min-width: 90vw !important;
+          max-width: 98vw !important;
+          flex: 0 0 98vw !important;
+          margin: 0.5rem 0.3rem 0.5rem 0.3rem !important;
+          scroll-snap-align: center;
+          display: flex !important;
+          justify-content: center !important;
+        }
+        /* Detrás del Diseño: solo un módulo visible, scroll horizontal */
+        section[style*="background:#fff;"][style*="padding:24px 0 10px 0;"]
+          .row {
+          flex-wrap: nowrap !important;
+          flex-direction: row !important;
+          gap: 0.5rem !important;
+          overflow-x: auto !important;
+          justify-content: flex-start !important;
+          width: 100vw !important;
+          margin: 0 !important;
+          padding: 0 0.5rem !important;
+          scroll-snap-type: x mandatory;
+        }
+        section[style*="background:#fff;"][style*="padding:24px 0 10px 0;"]
+          .row
+          > div {
+          min-width: 90vw !important;
+          max-width: 98vw !important;
+          flex: 0 0 98vw !important;
+          margin: 0.5rem 0.3rem 0.5rem 0.3rem !important;
+          scroll-snap-align: center;
+          display: flex !important;
+          justify-content: center !important;
+        }
+        section[style*="background:#fff;"][style*="padding:24px 0 10px 0;"]
+          .row
+          > div
+          > div {
+          margin: 0 auto !important;
+        }
+      }
+    </style>
+    <!-- FIN NUEVO DISEÑO SOBRE GASTRONOME -->
+    <!-- HERO PRINCIPAL ORDENADO Y MODERNO -->
+    <section
+      style="
+        background: #111;
+        color: #fff;
+        padding: 40px 0 30px 0;
+        position: relative;
+        overflow: hidden;
+      "
+    >
+      <div
+        class="container reveal-element"
+        style="
+          max-width: 900px;
+          margin: 0 auto;
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+          gap: 28px;
+          background: none;
+          min-height: unset;
+          padding-right: 0;
+        "
+      >
+        <div style="flex: 1 1 320px; min-width: 220px">
+          <div
+            class="reveal-element"
+            style="
+              font-size: 2.2rem;
+              font-weight: 900;
+              line-height: 1.1;
+              letter-spacing: -0.03em;
+              text-transform: uppercase;
+              margin-bottom: 1rem;
+            "
+          >
+            Nuestro equipo
+          </div>
+          <p
+            class="reveal-element"
+            style="font-size: 1.05rem; color: #eee; margin-bottom: 1.5rem"
+          >
+            Somos un equipo apasionado por la tecnología, el diseño y la
+            gastronomía. Combinamos creatividad y experiencia para ofrecer
+            soluciones digitales simples, útiles y atractivas para
+            restaurantes.<br /><br />Nos enfocamos en el trato cercano, la
+            atención al detalle y el compromiso con cada proyecto, buscando
+            siempre aportar valor real a cada negocio que confía en nosotros.
+          </p>
+          <a href="Contacto.html" class="btn btn-sobre reveal-element"
+            >Contáctanos</a
+          >
+        </div>
+        <div
+          class="reveal-element"
+          style="
+            flex: 1 1 340px;
+            min-width: 200px;
+            text-align: right;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            margin-right: -48px;
+          "
+        >
+          <img
+            src="Fotos_Gas/nuestro-equipo.webp"
+            srcset="
+              Fotos_Gas/nuestro-equipo.webp  600w,
+              Fotos_Gas/nuestro-equipo.webp 1200w
+            "
+            sizes="(max-width:600px) 90vw, 320px"
+            alt="Nuestro equipo"
+            loading="lazy"
+            style="
+              width: 100%;
+              max-width: 420px;
+              border-radius: 22px;
+              object-fit: cover;
+              min-height: 200px;
+              box-shadow: 0 4px 32px #0003;
+              margin-right: 0;
+            "
+          />
+        </div>
+      </div>
+      <!-- Figuras decorativas minimalistas -->
+      <div
+        style="
+          position: absolute;
+          top: -40px;
+          left: -40px;
+          width: 90px;
+          height: 90px;
+          border-radius: 50%;
+          background: #fff;
+          opacity: 0.08;
+          z-index: 0;
+        "
+      ></div>
+      <div
+        style="
+          position: absolute;
+          bottom: -30px;
+          right: 10%;
+          width: 60px;
+          height: 60px;
+          border-radius: 50%;
+          background: #fff;
+          opacity: 0.1;
+          z-index: 0;
+        "
+      ></div>
+    </section>
+
+    <!-- FILOSOFÍA Y VALORES (BLANCO) -->
+    <section style="background: #fff; color: #111; padding: 60px 0 40px 0">
+      <div
+        class="container reveal-element"
+        style="
+          max-width: 1100px;
+          margin: 0 auto;
+          padding: 0;
+          border: none;
+          border-radius: 0;
+          background: none;
+          box-shadow: none;
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+          gap: 40px;
+          justify-content: center;
+        "
+      >
+        <div
+          class="reveal-element"
+          style="flex: 1 1 380px; min-width: 270px; text-align: center"
+        >
+          <img
+            src="./Fotos_Gas/nuestra-filosofia.webp"
+            alt="Filosofía Gastronome"
+            style="
+              width: 100%;
+              max-width: 340px;
+              border-radius: 16px;
+              object-fit: cover;
+              min-height: 180px;
+              box-shadow: 0 2px 16px #0001;
+            "
+          />
+        </div>
+        <div class="reveal-element" style="flex: 1 1 380px; min-width: 270px">
+          <h2
+            class="reveal-element"
+            style="
+              font-size: 2.1rem;
+              font-weight: 800;
+              margin-bottom: 1.2rem;
+              text-align: center;
+            "
+          >
+            Nuestra Filosofía
+          </h2>
+          <p
+            class="reveal-element"
+            style="font-size: 1.18rem; line-height: 1.7; text-align: justify"
+          >
+            Cada restaurante tiene una historia única. Nuestra misión es
+            ayudarte a contarla con herramientas digitales modernas, diseño
+            minimalista y soporte personalizado. Fusionamos gastronomía y
+            tecnología para que tu marca destaque.
+          </p>
+          <ul
+            style="
+              font-size: 1.08rem;
+              line-height: 1.7;
+              margin: 1.2rem 0 0 0;
+              padding-left: 1.2rem;
+              text-align: left;
+              display: inline-block;
+            "
+          >
+            <li class="reveal-element">
+              Experiencia en el sector gastronómico y digital
+            </li>
+            <li class="reveal-element">Diseño 100% responsivo y minimalista</li>
+            <li class="reveal-element">Soporte personalizado y rápido</li>
+            <li class="reveal-element">
+              Integración con redes sociales y reservas
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICIOS DESTACADOS (NEGRO) -->
+    <section
+      style="
+        background: #181818;
+        color: #fff;
+        padding: 60px 0 40px 0;
+        position: relative;
+        overflow: hidden;
+      "
+    >
+      <div
+        class="container reveal-element"
+        style="
+          max-width: 1100px;
+          margin: 0 auto;
+          padding: 0;
+          border: none;
+          border-radius: 0;
+          background: none;
+          box-shadow: none;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+        "
+      >
+        <h2
+          class="reveal-element"
+          style="
+            font-size: 2.1rem;
+            font-weight: 800;
+            margin-bottom: 2.2rem;
+            text-align: center;
+            color: #fff;
+          "
+        >
+          ¿Qué hacemos?
+        </h2>
+        <div
+          class="row justify-content-center"
+          style="
+            gap: 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            margin: 0;
+            justify-content: center;
+            align-items: stretch;
+            width: 100%;
+          "
+        >
+          <div
+            class="col-md-6 col-12 mb-4 mb-md-0 reveal-element"
+            style="
+              flex: 1 1 340px;
+              min-width: 240px;
+              max-width: 420px;
+              margin: 0;
+              display: flex;
+              justify-content: center;
+              align-items: stretch;
+            "
+          >
+            <div
+              style="
+                background: #fff;
+                border-radius: 14px;
+                padding: 1.1rem 1.1rem 0.7rem 1.1rem;
+                text-align: center;
+                box-shadow: 0 2px 12px #0002;
+                border: none;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                margin: 0;
+              "
+            >
+              <img
+                src="./Fotos_Gas/menu-digital.webp"
+                alt="Menús Digitales"
+                class="reveal-element"
+                style="
+                  width: 110px;
+                  max-width: 90%;
+                  border-radius: 12px;
+                  margin-bottom: 0.7rem;
+                  margin-top: 0.1rem;
+                  box-shadow: 0 1px 6px #0001;
+                "
+              />
+              <h3
+                class="reveal-element"
+                style="
+                  font-size: 1.13rem;
+                  font-weight: 700;
+                  color: #111;
+                  margin-bottom: 0.4rem;
+                "
+              >
+                Menús Digitales
+              </h3>
+              <p
+                class="reveal-element"
+                style="
+                  font-size: 0.98rem;
+                  color: #444;
+                  line-height: 1.5;
+                  margin-bottom: 0;
+                "
+              >
+                Se crean menús QR con algunos modelos 3D, fáciles de actualizar
+                y visualmente atractivos.
+              </p>
+            </div>
+          </div>
+          <div
+            class="col-md-6 col-12 reveal-element"
+            style="
+              flex: 1 1 340px;
+              min-width: 240px;
+              max-width: 420px;
+              margin: 0;
+              display: flex;
+              justify-content: center;
+              align-items: stretch;
+            "
+          >
+            <div
+              style="
+                background: #fff;
+                border-radius: 14px;
+                padding: 1.1rem 1.1rem 0.7rem 1.1rem;
+                text-align: center;
+                box-shadow: 0 2px 12px #0002;
+                border: none;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                margin: 0;
+              "
+            >
+              <img
+                src="./Fotos_Gas/pagina-web.webp"
+                alt="Página Web"
+                class="reveal-element"
+                style="
+                  width: 110px;
+                  max-width: 90%;
+                  border-radius: 12px;
+                  margin-bottom: 0.7rem;
+                  margin-top: 0.1rem;
+                  box-shadow: 0 1px 6px #0001;
+                "
+              />
+              <h3
+                class="reveal-element"
+                style="
+                  font-size: 1.13rem;
+                  font-weight: 700;
+                  color: #111;
+                  margin-bottom: 0.4rem;
+                "
+              >
+                Página Web
+              </h3>
+              <p
+                class="reveal-element"
+                style="
+                  font-size: 0.98rem;
+                  color: #444;
+                  line-height: 1.5;
+                  margin-bottom: 0;
+                "
+              >
+                Desarrollamos páginas web modernas, funcionales y personalizadas
+                para tu restaurante. Incluimos secciones como reservaciones,
+                galeria, direccion, entre muchas otras mas.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Figuras decorativas minimalistas -->
+      <div
+        style="
+          position: absolute;
+          top: -30px;
+          right: 8%;
+          width: 60px;
+          height: 60px;
+          border-radius: 50%;
+          background: #fff;
+          opacity: 0.07;
+          z-index: 0;
+        "
+      ></div>
+      <div
+        style="
+          position: absolute;
+          bottom: -35px;
+          left: 12%;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          background: #fff;
+          opacity: 0.1;
+          z-index: 0;
+        "
+      ></div>
+    </section>
+
+    <!-- HISTORIAS DE ÉXITO (BLANCO) -->
+    <section style="background: #fff; color: #111; padding: 24px 0 10px 0">
+      <div
+        class="container reveal-element"
+        style="
+          max-width: 1100px;
+          margin: 0 auto;
+          border: none;
+          border-radius: 0;
+          background: none;
+          box-shadow: none;
+          padding: 0;
+        "
+      >
+        <h2
+          class="reveal-element"
+          style="
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 1.2rem;
+            text-align: center;
+          "
+        >
+          Detrás del Diseño
+        </h2>
+        <div
+          class="row justify-content-center"
+          style="
+            gap: 2rem;
+            display: flex;
+            flex-wrap: nowrap;
+            flex-direction: row;
+            margin: 0;
+            justify-content: center;
+            align-items: stretch;
+            width: 100%;
+          "
+        >
+          <div
+            class="col-md-4 col-12 mb-4 mb-md-0 reveal-element"
+            style="
+              flex: 1 1 0;
+              min-width: 260px;
+              max-width: 340px;
+              margin: 0;
+              display: flex;
+            "
+          >
+            <div
+              style="
+                background: #f8f8f8;
+                border-radius: 14px;
+                overflow: hidden;
+                box-shadow: 0 2px 12px #0001;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+              "
+            >
+              <img
+                src="./Fotos_Gas/detras-diseño1.webp"
+                alt="Sitios limpios y visuales"
+                class="reveal-element"
+                style="
+                  width: 100%;
+                  height: 110px;
+                  object-fit: cover;
+                  object-position: center 35%;
+                  image-rendering: auto;
+                "
+              />
+              <div style="padding: 1.2rem">
+                <div
+                  class="reveal-element"
+                  style="
+                    font-weight: 700;
+                    font-size: 1.05rem;
+                    margin-bottom: 0.5rem;
+                  "
+                >
+                  Sitios limpios y visuales
+                </div>
+                <div
+                  class="reveal-element"
+                  style="font-size: 0.95rem; color: #444"
+                >
+                  Creamos páginas que transmiten orden, claridad y atractivo
+                  visual, facilitando la navegación y destacando la esencia de
+                  cada restaurante.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="col-md-4 col-12 mb-4 mb-md-0 reveal-element"
+            style="
+              flex: 1 1 0;
+              min-width: 260px;
+              max-width: 340px;
+              margin: 0;
+              display: flex;
+            "
+          >
+            <div
+              style="
+                background: #f8f8f8;
+                border-radius: 14px;
+                overflow: hidden;
+                box-shadow: 0 2px 12px #0001;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+              "
+            >
+              <img
+                src="./Fotos_Gas/detras-diseño2.webp"
+                alt="Adaptados a cualquier pantalla"
+                class="reveal-element"
+                style="
+                  width: 100%;
+                  height: 110px;
+                  object-fit: cover;
+                  object-position: center 35%;
+                  margin-top: 5px;
+                  margin-bottom: 0.2rem;
+                  image-rendering: auto;
+                "
+              />
+              <div style="padding: 1.2rem">
+                <div
+                  class="reveal-element"
+                  style="
+                    font-weight: 700;
+                    font-size: 1.05rem;
+                    margin-bottom: 0.5rem;
+                  "
+                >
+                  Adaptados a cualquier pantalla
+                </div>
+                <div
+                  class="reveal-element"
+                  style="font-size: 0.95rem; color: #444"
+                >
+                  Nuestros diseños se ven perfectos en celulares, tablets y
+                  computadoras, garantizando una experiencia óptima para todos
+                  los usuarios.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="col-md-4 col-12 reveal-element"
+            style="
+              flex: 1 1 0;
+              min-width: 260px;
+              max-width: 340px;
+              margin: 0;
+              display: flex;
+            "
+          >
+            <div
+              style="
+                background: #f8f8f8;
+                border-radius: 14px;
+                overflow: hidden;
+                box-shadow: 0 2px 12px #0001;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+              "
+            >
+              <img
+                src="./Fotos_Gas/detras-diseño3.webp"
+                alt="Experiencias visuales en 3D"
+                class="reveal-element"
+                style="
+                  width: 100%;
+                  height: 110px;
+                  object-fit: cover;
+                  object-position: center 35%;
+                  image-rendering: auto;
+                "
+              />
+              <div style="padding: 1.2rem">
+                <div
+                  class="reveal-element"
+                  style="
+                    font-weight: 700;
+                    font-size: 1.05rem;
+                    margin-bottom: 0.5rem;
+                  "
+                >
+                  Experiencias visuales en 3D
+                </div>
+                <div
+                  class="reveal-element"
+                  style="font-size: 0.95rem; color: #444"
+                >
+                  Incluimos modelos 3D en los platillos especiales del menú
+                  digital, brindando una experiencia interactiva y moderna para
+                  tus clientes.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- CONTENIDO PRINCIPAL MÓVIL SIMPLE -->
+    <div id="main-mobile-content-wrapper">
+      <div class="movil-block reveal-element">
+        <h2 class="reveal-element">Sobre Gastronome</h2>
+        <div class="content-text reveal-element">
+          <p class="reveal-element">
+            Nos especializamos en el desarrollo web para restaurantes, creando
+            menús digitales y páginas modernas, funcionales y atractivas.
+            Nuestro enfoque es <b>minimalista</b>, elegante y eficiente,
+            ayudando a negocios gastronómicos a destacar en el mundo digital.
+          </p>
+        </div>
+        <div class="content-image reveal-element">
+          <img
+            src="./Fotos_Gas/logo.webp"
+            alt="Logo Gastronome"
+            class="reveal-element"
+          />
+        </div>
+      </div>
+      <div class="movil-block reveal-element">
+        <h2 class="reveal-element">¿Qué hacemos?</h2>
+        <div class="content-text reveal-element">
+          <p class="reveal-element">
+            Creamos menús QR con modelos 3D, fáciles de actualizar y visualmente
+            atractivos. También desarrollamos páginas web modernas y
+            personalizadas para tu restaurante.
+          </p>
+        </div>
+        <div class="content-image reveal-element">
+          <img
+            src="./Fotos_Gas/menu-digital.webp"
+            alt="Menús Digitales"
+            class="reveal-element"
+          />
+        </div>
+      </div>
+      <div class="movil-block reveal-element">
+        <h2 class="reveal-element">Inspiración Gastronómica</h2>
+        <div class="content-text reveal-element">
+          <p class="reveal-element">
+            Cada plato cuenta una historia. Nos inspira la pasión de los chefs y
+            la creatividad de cada restaurante. Diseñamos soluciones digitales
+            que reflejan la esencia única de tu cocina y tu equipo.
+          </p>
+        </div>
+        <div class="content-image reveal-element">
+          <img
+            src="./Fotos_Gas/Programando_1.webp"
+            alt="Inspiración Gastronómica"
+            class="reveal-element"
+          />
+        </div>
+      </div>
+      <div class="movil-testimonios reveal-element">
+        <h2 class="reveal-element">Lo que opinan de nosotros</h2>
+        <div class="testi reveal-element">
+          <img
+            src="./Fotos_Gas/platillos-especiales.webp"
+            alt="Testimonio 1"
+            class="reveal-element"
+          />
+          Excelente servicio, el menú digital es súper fácil de usar y mis
+          clientes lo aman.
+          <span class="reveal-element">- Chef Mariana, Bistro Verde</span>
+        </div>
+        <div class="testi reveal-element">
+          <img
+            src="./Fotos_Gas/Programando_6.webp"
+            alt="Testimonio 2"
+            class="reveal-element"
+          />
+          El diseño de la web es moderno y elegante, justo lo que buscaba para
+          mi restaurante.
+          <span class="reveal-element">- Luis R., Parrilla Norte</span>
+        </div>
+      </div>
+    </div>
+    <!-- FOOTER ESTILO INDEX.HTML -->
+    <footer
+      class="reveal-element"
+      style="
+        background: #111;
+        color: #fff;
+        text-align: center;
+        padding: 2rem 0 1rem 0;
+        font-size: 1.1rem;
+        letter-spacing: 0.04em;
+        margin-top: 0;
+      "
+    >
+      <div class="reveal-element" style="margin-bottom: 0.5rem">
+        &copy; 2025 Gastronome. Todos los derechos reservados.
+      </div>
+      <div class="reveal-element" style="font-size: 0.95rem; color: #bbb">
+        Sitio desarrollado por el equipo Gastronome | contacto@gastronome.com
+      </div>
+      <div
+        class="reveal-element footer-social-desktop"
+        style="
+          margin-top: 1.2rem;
+          display: flex;
+          justify-content: center;
+          gap: 1.5rem;
+          align-items: center;
+        "
+      >
+        <a
+          href="mailto:gastronome899@gmail.com"
+          target="_blank"
+          aria-label="Email"
+          style="
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+          "
+        >
+          <svg
+            width="28"
+            height="28"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#fff"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <rect x="3" y="5" width="18" height="14" rx="3" />
+            <polyline points="3 7 12 13 21 7" />
+          </svg>
+        </a>
+        <a
+          href="https://wa.me/524491383086"
+          target="_blank"
+          aria-label="WhatsApp"
+          style="
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+          "
+        >
+          <svg
+            width="28"
+            height="28"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#fff"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path
+              d="M21 20.3A16.88 16.88 0 0 1 12 22C6.48 22 2 17.52 2 12.01A9.99 9.99 0 0 1 12 2c5.52 0 10 4.48 10 10.01 0 2.13-.67 4.1-1.81 5.73l.81 3.26-3.26-.7z"
+            />
+            <path
+              d="M16.2 17.2c-1.2.4-2.5.6-3.8.6-4.42 0-8-3.58-8-8 0-4.42 3.58-8 8-8s8 3.58 8 8c0 1.3-.2 2.6-.6 3.8l-1.1-1.1c-.2-.2-.5-.2-.7 0l-2.1 2.1c-.2.2-.2.5 0 .7l1.1 1.1z"
+            />
+          </svg>
+        </a>
+        <a
+          href="https://instagram.com/gastronomeDevs"
+          target="_blank"
+          aria-label="Instagram"
+          style="
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+          "
+        >
+          <svg
+            width="28"
+            height="28"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#fff"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <rect x="3" y="3" width="18" height="18" rx="5" />
+            <circle cx="12" cy="12" r="4" />
+            <circle cx="17" cy="7" r="1" />
+          </svg>
+        </a>
+        <a
+          href="https://facebook.com/"
+          target="_blank"
+          aria-label="Facebook"
+          style="
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+          "
+        >
+          <svg
+            width="28"
+            height="28"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#fff"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path
+              d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+            />
+          </svg>
+        </a>
+      </div>
+      <!-- Redes sociales para móvil: horizontal como index.html -->
+      <div
+        class="reveal-element footer-social-mobile"
+        style="
+          margin-top: 1.2rem;
+          justify-content: center;
+          gap: 1.5rem;
+          align-items: center;
+        "
+      >
+        <a
+          href="mailto:gastronome899@gmail.com"
+          target="_blank"
+          aria-label="Email"
+          style="
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+          "
+        >
+          <svg
+            width="28"
+            height="28"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#fff"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <rect x="3" y="5" width="18" height="14" rx="3" />
+            <polyline points="3 7 12 13 21 7" />
+          </svg>
+        </a>
+        <a
+          href="https://wa.me/524491383086"
+          target="_blank"
+          aria-label="WhatsApp"
+          style="
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+          "
+        >
+          <svg
+            width="28"
+            height="28"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#fff"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path
+              d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"
+            />
+          </svg>
+        </a>
+        <a
+          href="https://instagram.com/gastronomeDevs"
+          target="_blank"
+          aria-label="Instagram"
+          style="
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+          "
+        >
+          <svg
+            width="28"
+            height="28"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#fff"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+            <path d="m16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+          </svg>
+        </a>
+        <a
+          href="https://facebook.com/"
+          target="_blank"
+          aria-label="Facebook"
+          style="
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+          "
+        >
+          <svg
+            width="28"
+            height="28"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#fff"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path
+              d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+            />
+          </svg>
+        </a>
+      </div>
+    </footer>
+
+    <button id="scrollTopBtn" title="Volver arriba" aria-label="Volver arriba">
+      <svg
+        width="38"
+        height="38"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="#01a54b"
+        stroke-width="3.2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <polyline points="6 14 12 8 18 14" />
+      </svg>
+    </button>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    ></script>
+    <script>
+      // Sistema de animación gradual optimizado para móvil - RESTORED & OPTIMIZED
+      document.addEventListener("DOMContentLoaded", function () {
+        function revealElements() {
+          var elements = document.querySelectorAll(".reveal-element");
+          var windowHeight = window.innerHeight;
+          var isMobile = window.innerWidth <= 600;
+
+          // En móvil usar trigger más bajo para que aparezcan antes
+          var triggerHeight = isMobile
+            ? windowHeight * 0.9
+            : windowHeight * 0.85;
+
+          elements.forEach(function (el, index) {
+            var position = el.getBoundingClientRect().top;
+            var isFooter = el.tagName === "FOOTER";
+
+            if (
+              position < triggerHeight &&
+              !el.classList.contains("revealed")
+            ) {
+              if (isMobile) {
+                // En móvil: delay más corto para mejor performance
+                setTimeout(function () {
+                  el.classList.add("revealed");
+                }, index * 25); // 25ms en lugar de 50ms
+              } else {
+                // Desktop: delay normal
+                setTimeout(function () {
+                  el.classList.add("revealed");
+                }, index * 50);
+              }
+            }
+          });
+        }
+
+        revealElements();
+
+        // En móvil, usar throttling más agresivo
+        if (window.innerWidth <= 600) {
+          var throttleTimer = false;
+          window.addEventListener("scroll", function () {
+            if (throttleTimer) return;
+            throttleTimer = true;
+            setTimeout(function () {
+              revealElements();
+              throttleTimer = false;
+            }, 32); // ~30fps en lugar de 60fps
+          });
+        } else {
+          // Desktop: scroll normal
+          window.addEventListener("scroll", revealElements);
+        }
+      }); // Mostrar/ocultar botón de volver arriba
+      const scrollBtn = document.getElementById("scrollTopBtn");
+      window.addEventListener("scroll", function () {
+        if (window.scrollY > 180) scrollBtn.style.display = "flex";
+        else scrollBtn.style.display = "none";
+      });
+      // En móvil, usar scroll con animación suave para mejor UX
+      scrollBtn.onclick = function () {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      }; // CRITICAL: Force proper scroll behavior on mobile
+      if (window.innerWidth <= 600) {
+        // Permitir smooth scrolling en móvil para mejor experiencia
+        document.documentElement.style.scrollBehavior = "smooth";
+        document.body.style.scrollBehavior = "smooth";
+
+        // Asegurar que no haya elementos fixed que interfieran
+        var fixedElements = document.querySelectorAll("*");
+        fixedElements.forEach(function (el) {
+          var computedStyle = window.getComputedStyle(el);
+          if (computedStyle.position === "fixed" && el.id !== "scrollTopBtn") {
+            el.style.position = "sticky";
+          }
+        });
+      } // Refuerzo: cerrar menú móvil al hacer click en un link (mejor UX móvil)
+      document
+        .querySelectorAll(".navbar-nav .nav-link")
+        .forEach(function (link) {
+          link.addEventListener("click", function () {
+            var navbarCollapse = document.getElementById("mainNavbar");
+            if (
+              window.innerWidth <= 768 &&
+              navbarCollapse.classList.contains("show")
+            ) {
+              var collapse = new bootstrap.Collapse(navbarCollapse);
+              collapse.hide();
+            }
+          });
+        });
+    </script>
+    <!-- Figuras decorativas para congruencia visual -->
+    <div class="figura-serv figura-1"></div>
+    <div class="figura-serv figura-2"></div>
+    <div class="figura-serv figura-3"></div>
+    <div class="figura-serv figura-4"></div>
+    <div class="figura-serv figura-5"></div>
+    <div class="figura-serv figura-6"></div>
+    <div class="figura-serv figura-7"></div>
+    <div class="figura-serv figura-8"></div>
+    <style>
+      /* Figuras decorativas congruentes con Servicios.html */
+      .figura-serv {
+        position: absolute;
+        border-radius: 50%;
+        opacity: 0.1;
+        z-index: 0;
+      }
+      .figura-1 {
+        top: -40px;
+        left: -40px;
+        width: 110px;
+        height: 110px;
+        background: linear-gradient(135deg, #111 80%, #fff 100%);
+      }
+      .figura-2 {
+        bottom: -30px;
+        right: -30px;
+        width: 70px;
+        height: 70px;
+        background: linear-gradient(135deg, #fff 60%, #111 100%);
+      }
+      .figura-3 {
+        top: 60%;
+        left: 80%;
+        width: 38px;
+        height: 38px;
+        background: #111;
+        opacity: 0.13;
+      }
+      .figura-4 {
+        bottom: 18%;
+        left: 8%;
+        width: 22px;
+        height: 22px;
+        background: #fff;
+        border: 2px solid #111;
+      }
+      .figura-5 {
+        top: 80%;
+        left: 60%;
+        width: 60px;
+        height: 14px;
+        background: linear-gradient(90deg, #111 0%, #fff 100%);
+        border-radius: 8px;
+      }
+      .figura-6 {
+        top: 10%;
+        right: 20%;
+        width: 40px;
+        height: 40px;
+        background: #111;
+        opacity: 0.08;
+        border-radius: 50%;
+        position: absolute;
+        z-index: 0;
+      }
+      .figura-7 {
+        bottom: 10%;
+        left: 25%;
+        width: 30px;
+        height: 30px;
+        background: #fff;
+        border: 2px solid #111;
+        opacity: 0.12;
+        border-radius: 50%;
+        position: absolute;
+        z-index: 0;
+      }
+      .figura-8 {
+        top: 50%;
+        left: 50%;
+        width: 18px;
+        height: 18px;
+        background: #111;
+        opacity: 0.1;
+        border-radius: 50%;
+        position: absolute;
+        z-index: 0;
+      }
+      /* Cambios para modo teléfono */
+      @media (max-width: 600px) {
+        /* Botón Nuestro equipo: texto negro, fondo blanco, alto contraste */
+        section[style*="background:#111"] .btn,
+        section[style*="background:#111"] .btn-sobre {
+          margin: 1.2rem auto 0.7rem auto !important;
+          font-size: 1.15rem !important;
+          padding: 1rem 1.5rem !important;
+          border-radius: 14px !important;
+          min-width: 140px !important;
+          max-width: 95vw !important;
+          text-align: center !important;
+          font-weight: 900 !important;
+          background: #fff !important;
+          color: #111 !important;
+          border: 2px solid #01a54b !important;
+          box-shadow: 0 2px 12px #01a54b22 !important;
+          letter-spacing: 0.02em;
+        }
+        section[style*="background:#111"] .btn:hover,
+        section[style*="background:#111"] .btn-sobre:hover {
+          background: #01a54b !important;
+          color: #fff !important;
+          border: 2px solid #01a54b !important;
+        }
+        /* Imagen Nuestro equipo: más grande y bordes redondeados */
+        section[style*="background:#111"] img[alt="Nuestro equipo"] {
+          display: block !important;
+          margin: 1.5rem auto 0.7rem auto !important;
+          max-width: 270px !important;
+          width: 90vw !important;
+          height: 210px !important;
+          object-fit: cover !important;
+          border-radius: 32px !important;
+          box-shadow: 0 4px 24px #01a54b33 !important;
+          border: none !important;
+          background: none !important;
+        } /* Nuestra Filosofía: imagen debajo del texto */
+        section[style*="background:#fff;"][style*="padding:60px 0 40px 0;"]
+          .container {
+          flex-direction: column-reverse !important;
+          gap: 0 !important;
+          align-items: center !important;
+          border: 2px solid #01a54b !important;
+          border-radius: 16px !important;
+          padding: 1rem 1rem 0.8rem 1rem !important;
+          margin: 0.5rem auto 0.8rem auto !important;
+          box-shadow: 0 2px 16px #01a54b22 !important;
+          max-width: calc(100vw - 8vw) !important;
+          width: calc(100vw - 8vw) !important;
+          box-sizing: border-box !important;
+        }
+        /* ¿Qué hacemos?: solo un módulo visible, scroll horizontal */
+        section[style*="background:#181818"] .row {
+          flex-wrap: nowrap !important;
+          flex-direction: row !important;
+          gap: 0.5rem !important;
+          overflow-x: auto !important;
+          justify-content: flex-start !important;
+          width: 100vw !important;
+          margin: 0 !important;
+          padding: 0 0.5rem !important;
+          scroll-snap-type: x mandatory;
+        }
+        section[style*="background:#181818"] .row > div {
+          min-width: 90vw !important;
+          max-width: 98vw !important;
+          flex: 0 0 98vw !important;
+          margin: 0.5rem 0.3rem 0.5rem 0.3rem !important;
+          scroll-snap-align: start;
+        }
+        /* Detrás del Diseño: imágenes cuadradas y más pequeñas */
+        section[style*="background:#fff;"][style*="padding:24px 0 10px 0;"]
+          .row
+          img {
+          width: 70px !important;
+          height: 70px !important;
+          max-width: 70px !important;
+          max-height: 70px !important;
+          object-fit: cover !important;
+          border-radius: 10px !important;
+          margin: 0.5rem auto 0.5rem auto !important;
+          display: block !important;
+        }
+      }
+      @media (max-width: 600px) {
+        /* ¿Qué hacemos? y Detrás del Diseño: tarjetas más pequeñas y centradas, imágenes cuadradas y del mismo tamaño */
+        section[style*="background:#181818"] .row > div,
+        section[style*="background:#fff; "][style*="padding:24px 0 10px 0;"]
+          .row
+          > div {
+          min-width: 80vw !important;
+          max-width: 80vw !important;
+          flex: 0 0 80vw !important;
+          margin: 0.5rem 10vw 0.5rem 10vw !important;
+          padding: 0 !important;
+        }
+        /* Imágenes cuadradas y del mismo tamaño en ambas secciones */
+        section[style*="background:#181818"] .row img,
+        section[style*="background:#fff; "][style*="padding:24px 0 10px 0;"]
+          .row
+          img {
+          width: 90px !important;
+          height: 90px !important;
+          max-width: 90px !important;
+          max-height: 90px !important;
+          object-fit: cover !important;
+          border-radius: 14px !important;
+          margin: 0.5rem auto 0.7rem auto !important;
+          display: block !important;
+        }
+        /* Título de ¿Qué hacemos? a la izquierda */
+        section[style*="background:#181818"] .row > div > div h3 {
+          text-align: left !important;
+          margin-left: 0.5rem !important;
+        }
+        /* Título de Detrás del Diseño más grande */
+        section[style*="background:#fff; "][style*="padding:24px 0 10px 0;"]
+          h2 {
+          font-size: 2.2rem !important;
+          text-align: center !important;
+          margin-bottom: 1.5rem !important;
+          font-weight: 900 !important;
+        }
+      }
+      @media (max-width: 600px) {
+        /* Centrar tarjetas y títulos en ¿Qué hacemos? y Detrás del Diseño */
+        section[style*="background:#181818"] .row,
+        section[style*="background:#fff;"][style*="padding:24px 0 10px 0;"]
+          .row {
+          justify-content: center !important;
+        }
+        section[style*="background:#181818"] .row > div,
+        section[style*="background:#fff;"][style*="padding:24px 0 10px 0;"]
+          .row
+          > div {
+          margin-left: auto !important;
+          margin-right: auto !important;
+        }
+        section[style*="background:#181818"] h2 {
+          text-align: center !important;
+        }
+      }
+      @media (max-width: 600px) {
+        /* --- RESET Y AJUSTES PARA CENTRAR Y MEJORAR TARJETAS EN MÓVIL --- */
+        section[style*="background:#181818"] .row,
+        section[style*="background:#fff;"][style*="padding:24px 0 10px 0;"]
+          .row {
+          display: flex !important;
+          flex-direction: column !important;
+          align-items: center !important;
+          justify-content: center !important;
+          flex-wrap: nowrap !important;
+          gap: 1.2rem !important;
+          width: 100vw !important;
+          margin: 0 !important;
+          padding: 0 !important;
+          overflow-x: hidden !important;
+        }
+        section[style*="background:#181818"] .row > div,
+        section[style*="background:#fff;"][style*="padding:24px 0 10px 0;"]
+          .row
+          > div {
+          min-width: 92vw !important;
+          max-width: 92vw !important;
+          flex: 0 0 92vw !important;
+          margin: 0.7rem 0 0.7rem 0 !important;
+          display: flex !important;
+          justify-content: center !important;
+          align-items: stretch !important;
+        }
+        section[style*="background:#181818"] .row > div > div,
+        section[style*="background:#fff;"][style*="padding:24px 0 10px 0;"]
+          .row
+          > div
+          > div {
+          width: 100% !important;
+          background: #fff !important;
+          border-radius: 18px !important;
+          box-shadow: 0 2px 12px #0001 !important;
+          padding: 1.2rem 1.1rem 1.1rem 1.1rem !important;
+          display: flex !important;
+          flex-direction: column !important;
+          align-items: center !important;
+          text-align: center !important;
+        }
+        section[style*="background:#181818"] .row img,
+        section[style*="background:#fff;"][style*="padding:24px 0 10px 0;"]
+          .row
+          img {
+          width: 120px !important;
+          height: 120px !important;
+          max-width: 120px !important;
+          max-height: 120px !important;
+          object-fit: cover !important;
+          border-radius: 16px !important;
+          margin: 0 auto 1rem auto !important;
+          display: block !important;
+          box-shadow: 0 2px 12px #0001 !important;
+        }
+        section[style*="background:#181818"] .row > div > div h3,
+        section[style*="background:#fff;"][style*="padding:24px 0 10px 0;"]
+          .row
+          > div
+          > div
+          h3 {
+          font-size: 1.25rem !important;
+          font-weight: 800 !important;
+          margin: 0.7rem 0 0.5rem 0 !important;
+          text-align: center !important;
+        }
+        section[style*="background:#181818"] .row > div > div p,
+        section[style*="background:#fff;"][style*="padding:24px 0 10px 0;"]
+          .row
+          > div
+          > div
+          p {
+          font-size: 1.05rem !important;
+          color: #222 !important;
+          text-align: center !important;
+          margin-bottom: 0.5rem !important;
+        } /* Eliminar scroll horizontal y forzar una sola tarjeta por fila */
+        section[style*="background:#181818"] .row,
+        section[style*="background:#fff;"][style*="padding:24px 0 10px 0;"]
+          .row {
+          overflow-x: unset !important;
+          scroll-snap-type: none !important;
+        }
+
+        /* Redes sociales responsive footer */
+        .footer-social-desktop {
+          display: flex !important;
+        }
+        .footer-social-mobile {
+          display: none !important;
+        }
+      }
+      /* Redes sociales móvil - similar a Contacto.html */
+      @media (max-width: 600px) {
+        .footer-social-desktop {
+          display: none !important;
+        }
+        .footer-social-mobile {
+          display: flex !important;
+          justify-content: center !important;
+          gap: 1.5rem !important;
+          align-items: center !important;
+        }
+        .footer-social-mobile a {
+          display: inline-flex !important;
+          align-items: center !important;
+          justify-content: center !important;
+          width: 42px !important;
+          height: 42px !important;
+          background: rgba(255, 255, 255, 0.1) !important;
+          border-radius: 50% !important;
+          transition: all 0.3s ease !important;
+          border: 2px solid transparent !important;
+        }
+        .footer-social-mobile a:hover {
+          background: #01a54b !important;
+          border-color: #01a54b !important;
+          transform: translateY(-2px) !important;
+        }
+        .footer-social-mobile a:hover span,
+        .footer-social-mobile a:hover svg {
+          color: #fff !important;
+          stroke: #fff !important;
+        }
+        .footer-social-mobile svg {
+          stroke: #fff !important;
+          fill: none !important;
+        }
+        /* Footer con márgenes laterales en móvil */
+        footer {
+          padding: 2rem 4vw 1rem 4vw !important;
+          margin: 0 !important;
+        }
+
+        /* Asegurar visibilidad de redes sociales móviles */
+        .footer-social-mobile {
+          visibility: visible !important;
+          opacity: 1 !important;
+        }
+        /* Configuración texto izquierda, imagen derecha en móvil */
+        .movil-block {
+          display: grid !important;
+          grid-template-columns: 1fr !important;
+          grid-template-rows: auto 1fr !important;
+          gap: 1.2rem !important;
+          align-items: start !important;
+          margin: 0 15px 25px 15px !important;
+          border-radius: 18px !important;
+          background: #fff !important;
+          padding: 20px 15px 20px 15px !important;
+          position: relative !important;
+          z-index: 2 !important;
+          box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1) !important;
+          border: 2px solid #eee !important;
+        }
+
+        .movil-block h2 {
+          grid-column: 1 / -1 !important;
+          font-size: 1.6rem !important;
+          font-weight: 800 !important;
+          margin-bottom: 0.5rem !important;
+          letter-spacing: 0.02em !important;
+          color: #111 !important;
+          text-align: center !important;
+        }
+
+        /* Container para contenido (texto + imagen lado a lado) */
+        .movil-block .content-text,
+        .movil-block .content-image {
+          display: flex !important;
+          align-items: center !important;
+          justify-content: center !important;
+        }
+
+        /* Layout horizontal: texto izquierda, imagen derecha */
+        .movil-block {
+          grid-template-rows: auto auto !important;
+        }
+
+        .movil-block h2 + .content-text {
+          grid-row: 2 !important;
+          grid-column: 1 !important;
+        }
+
+        .movil-block .content-image {
+          grid-row: 2 !important;
+          grid-column: 2 !important;
+        }
+
+        /* Ajuste de grid para layout horizontal */
+        .movil-block {
+          grid-template-columns: 1.2fr 0.8fr !important;
+          grid-template-rows: auto 1fr !important;
+          gap: 1rem !important;
+          align-items: center !important;
+        }
+
+        .movil-block .content-text p {
+          font-size: 1rem !important;
+          color: #333 !important;
+          margin: 0 !important;
+          line-height: 1.5 !important;
+          text-align: left !important;
+          padding-right: 0.5rem !important;
+        }
+
+        .movil-block .content-image img {
+          width: 100% !important;
+          max-width: 120px !important;
+          height: auto !important;
+          object-fit: cover !important;
+          border-radius: 12px !important;
+          margin: 0 !important;
+          display: block !important;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+        }
+
+        /* Mantener compatibilidad con estructura antigua */
+        .movil-block img {
+          width: 100% !important;
+          max-width: 120px !important;
+          height: auto !important;
+          object-fit: cover !important;
+          border-radius: 12px !important;
+          margin: 0 !important;
+          display: block !important;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+          justify-self: center !important;
+        }
+
+        .movil-block p {
+          font-size: 1rem !important;
+          color: #333 !important;
+          margin: 0 !important;
+          line-height: 1.5 !important;
+          text-align: left !important;
+          align-self: center !important;
+        }
+
+        /* Testimonios también en grid 2x2 */
+        .movil-testimonios .testi {
+          display: grid !important;
+          grid-template-columns: auto 1fr !important;
+          gap: 0.8rem !important;
+          align-items: center !important;
+          background: #fff !important;
+          color: #333 !important;
+          border-radius: 12px !important;
+          padding: 1rem !important;
+          margin-bottom: 1rem !important;
+          font-size: 0.95rem !important;
+          text-align: left !important;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+        }
+
+        .movil-testimonios .testi img {
+          grid-column: 1 !important;
+          width: 50px !important;
+          height: 50px !important;
+          object-fit: cover !important;
+          border-radius: 50% !important;
+          margin: 0 !important;
+          border: 2px solid #01a54b !important;
+          box-shadow: 0 2px 8px rgba(1, 165, 75, 0.2) !important;
+        }
+
+        .movil-testimonios .testi span {
+          grid-column: 1 / -1 !important;
+          display: block !important;
+          font-size: 0.8rem !important;
+          color: #01a54b !important;
+          font-weight: 600 !important;
+          margin-top: 0.5rem !important;
+          letter-spacing: 0.02em !important;
+          text-align: center !important;
+        }
+      }
+    </style>
+    <!-- ESTILOS MÓVILES SIMPLES IGUAL A INDEX.HTML -->
+    <style>
+      @media (max-width: 600px) {
+        /* Contenedor móvil simple - optimizado para scroll */
+        #main-mobile-content-wrapper {
+          margin-top: 0 !important;
+          padding: 20px 0 40px 0 !important;
+          background: #fff;
+          height: auto !important;
+          min-height: auto !important;
+          position: relative;
+          z-index: 1;
+          overflow-y: visible !important;
+        }
+
+        /* Bloques móviles simples */
+        .movil-block {
+          margin: 0 15px 25px 15px !important;
+          border-radius: 18px !important;
+          background: #fff !important;
+          padding: 24px 20px 20px 20px !important;
+          position: relative;
+          z-index: 2;
+          box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1) !important;
+          border: 2px solid #eee;
+        }
+
+        .movil-block h2 {
+          font-size: 1.8rem !important;
+          font-weight: 800 !important;
+          margin-bottom: 1rem !important;
+          letter-spacing: 0.02em !important;
+          color: #111 !important;
+          text-align: center;
+        }
+
+        .movil-block p {
+          font-size: 1.1rem !important;
+          color: #333 !important;
+          margin-bottom: 1rem !important;
+          line-height: 1.6 !important;
+          text-align: center;
+        }
+
+        .movil-block img {
+          width: 85vw !important;
+          max-width: 250px !important;
+          height: auto !important;
+          object-fit: cover !important;
+          border-radius: 14px !important;
+          margin: 1rem auto 1.2rem auto !important;
+          display: block !important;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+        }
+
+        /* Testimonios simples */
+        .movil-testimonios {
+          background: #111 !important;
+          color: #fff !important;
+          margin: 25px 15px !important;
+          border-radius: 18px !important;
+          padding: 24px 20px 20px 20px !important;
+          position: relative;
+          box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2) !important;
+        }
+
+        .movil-testimonios h2 {
+          color: #ffffff !important;
+          font-size: 1.8rem !important;
+          font-weight: 800 !important;
+          margin-bottom: 1.2rem !important;
+          letter-spacing: 0.02em !important;
+          text-align: center;
+        }
+
+        .movil-testimonios .testi {
+          background: #fff !important;
+          color: #333 !important;
+          border-radius: 12px !important;
+          padding: 1.2rem 1rem 1rem 1rem !important;
+          margin-bottom: 1rem !important;
+          font-size: 1rem !important;
+          text-align: center;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+        }
+
+        .movil-testimonios .testi span {
+          display: block;
+          font-size: 0.9rem !important;
+          color: #01a54b !important;
+          font-weight: 600 !important;
+          margin-top: 0.5rem !important;
+          letter-spacing: 0.02em !important;
+        }
+
+        .movil-testimonios .testi img {
+          width: 60px !important;
+          height: 60px !important;
+          object-fit: cover !important;
+          border-radius: 50% !important;
+          margin-bottom: 0.5rem !important;
+          border: 2px solid #01a54b;
+          box-shadow: 0 2px 8px rgba(1, 165, 75, 0.2) !important;
+        }
+      }
+    </style>
+
+    <style>
+      @media (min-width: 701px) {
+        #main-mobile-content-wrapper,
+        #main-mobile-content-wrapper .movil-block,
+        #main-mobile-content-wrapper .movil-testimonios,
+        #main-mobile-content-wrapper .first-movil,
+        #main-mobile-content-wrapper .solo-movil {
+          display: none !important;
+          height: 0 !important;
+          max-height: 0 !important;
+          overflow: hidden !important;
+          opacity: 0 !important;
+          pointer-events: none !important;
+          position: absolute !important;
+          left: -99999px !important;
+          top: -99999px !important;
+          visibility: hidden !important;
+          z-index: -999 !important;
+          transition: none !important;
+        }
+      }
+      @media (max-width: 700px) {
+        #main-mobile-content-wrapper,
+        #main-mobile-content-wrapper .movil-block,
+        #main-mobile-content-wrapper .movil-testimonios {
+          display: block !important;
+          height: auto !important;
+          max-height: none !important;
+          overflow: visible !important;
+          opacity: 1 !important;
+          pointer-events: auto !important;
+          position: static !important;
+          left: auto !important;
+          top: auto !important;
+          visibility: visible !important;
+          z-index: auto !important;
+        }
+      }
+    </style>
+    <script>
+      (function () {
+        function ocultarMovilPC() {
+          if (window.innerWidth > 700) {
+            var el = document.getElementById("main-mobile-content-wrapper");
+            if (el) {
+              el.setAttribute("aria-hidden", "true");
+              el.style.display = "none";
+              el.style.visibility = "hidden";
+              el.style.opacity = "0";
+              el.style.height = "0";
+              el.style.position = "absolute";
+              el.style.left = "-99999px";
+              el.style.top = "-99999px";
+              el.style.pointerEvents = "none";
+              el.style.zIndex = "-999";
+            }
+          }
+        }
+        ocultarMovilPC();
+        window.addEventListener("resize", ocultarMovilPC);
+      })();
+    </script>
+    <noscript>
+      <style>
+        @media (min-width: 701px) {
+          #main-mobile-content-wrapper {
+            display: none !important;
+          }
+        }
+      </style>
+    </noscript>
+  </body>
+</html>

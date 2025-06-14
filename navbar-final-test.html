@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar Final Test - Gastronome</title>
+    
+    <!-- Bootstrap 5.3.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Unified Navbar CSS -->
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="navbar-mobile-unified.css">
+    <link rel="stylesheet" href="navbar-mobile-effects.css">
+    
+    <!-- Unified Navbar JS -->
+    <script src="navbar-mobile-unified.js" defer></script>
+    
+    <style>
+        body {
+            padding-top: 80px;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+        .test-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .test-section {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 4px solid #01a54b;
+        }
+        .success { color: #28a745; font-weight: bold; }
+        .error { color: #dc3545; font-weight: bold; }
+        .warning { color: #ffc107; font-weight: bold; }
+        .test-result {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+            font-family: monospace;
+            background: white;
+        }
+        .page-nav {
+            display: flex;
+            gap: 10px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        .page-nav a {
+            padding: 8px 16px;
+            background: #01a54b;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+        .page-nav a:hover {
+            background: #018a40;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar Test -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+            <span class="navbar-brand">Gastronome - Final Test</span>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="mainNavbar">
+                <div class="navbar-nav ms-auto">
+                    <a class="nav-link" href="index.html">Inicio</a>
+                    <a class="nav-link" href="Nosotros.html">Nosotros</a>
+                    <a class="nav-link" href="Servicios.html">Servicios</a>
+                    <a class="nav-link" href="PortafolioMinimal.html">Portafolio</a>
+                    <a class="nav-link" href="Contacto.html">Contacto</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="test-container">
+        <div class="test-section">
+            <h1 style="color: #01a54b; margin-bottom: 1.5rem;">🔧 Navbar Final Test</h1>
+            <p><strong>Status:</strong> Testing current navbar consistency after all fixes.</p>
+            
+            <div class="page-nav">
+                <a href="index.html">Index</a>
+                <a href="Servicios.html">Servicios</a>
+                <a href="Contacto.html">Contacto</a>
+                <a href="Nosotros.html">Nosotros</a>
+                <a href="PortafolioMinimal.html">Portafolio</a>
+            </div>
+            
+            <h3>Automatic Font Size Test:</h3>
+            <button onclick="runFontTest()" class="btn btn-primary mb-3">Test Current Font Sizes</button>
+            <div id="testResults"></div>
+
+            <h3 style="margin-top: 2rem;">Manual Test Instructions:</h3>
+            <ol>
+                <li><strong>Size Consistency:</strong> Navigate between all pages and verify navbar text size remains the same</li>
+                <li><strong>Mobile Test:</strong> Resize browser to mobile width (≤600px) and check consistency</li>
+                <li><strong>Desktop Test:</strong> Resize browser to desktop width (>600px) and verify sizes</li>
+                <li><strong>Mobile Dropdown:</strong> Test hamburger menu opens/closes correctly on mobile</li>
+            </ol>
+        </div>
+
+        <div class="test-section">
+            <h3>Expected Results:</h3>
+            <ul>
+                <li><strong>Desktop (>600px):</strong> .navbar-nav .nav-link should be 16px (1rem)</li>
+                <li><strong>Mobile (≤600px):</strong> .navbar-nav .nav-link should be 16px (1rem)</li>
+                <li><strong>Brand:</strong> .navbar-brand should be approximately 20.8px (1.3rem)</li>
+                <li><strong>Consistency:</strong> Same sizes across all pages</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5.3.3 JS -->
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        function displayResult(elementId, message, type) {
+            const element = document.getElementById(elementId);
+            const className = type === 'success' ? 'success' : type === 'error' ? 'error' : 'warning';
+            const icon = type === 'success' ? '✅' : type === 'error' ? '❌' : '⚠️';
+            element.innerHTML = `<div class="test-result ${className}">${icon} ${message}</div>`;
+        }
+
+        function runFontTest() {
+            const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+            const navBrand = document.querySelector('.navbar-brand');
+            
+            if (navLinks.length === 0) {
+                displayResult('testResults', 'No nav links found', 'error');
+                return;
+            }
+
+            const firstLink = navLinks[0];
+            const linkStyle = window.getComputedStyle(firstLink);
+            const brandStyle = window.getComputedStyle(navBrand);
+            
+            const linkFontSize = linkStyle.fontSize;
+            const brandFontSize = brandStyle.fontSize;
+            const screenWidth = window.innerWidth;
+            
+            let results = `
+                <strong>Current Test Results:</strong><br>
+                Screen Width: ${screenWidth}px<br>
+                Nav Link Font Size: ${linkFontSize}<br>
+                Nav Brand Font Size: ${brandFontSize}<br>
+                <br>
+                <strong>Analysis:</strong><br>
+            `;
+            
+            // Expected sizes
+            const expectedLinkSize = '16px'; // 1rem = 16px
+            const expectedBrandSize = '20.8px'; // 1.3rem = 20.8px
+            
+            let linkStatus = linkFontSize === expectedLinkSize ? 'success' : 'error';
+            let brandStatus = Math.abs(parseFloat(brandFontSize) - parseFloat(expectedBrandSize)) < 1 ? 'success' : 'warning';
+            
+            results += linkStatus === 'success' 
+                ? `✅ Nav links: ${linkFontSize} (Expected: ${expectedLinkSize})<br>`
+                : `❌ Nav links: ${linkFontSize} (Expected: ${expectedLinkSize})<br>`;
+            
+            results += brandStatus === 'success' 
+                ? `✅ Brand: ${brandFontSize} (Expected: ~${expectedBrandSize})<br>`
+                : `⚠️ Brand: ${brandFontSize} (Expected: ~${expectedBrandSize})<br>`;
+            
+            const overallStatus = linkStatus === 'success' && brandStatus !== 'error' ? 'success' : 'error';
+            
+            results += `<br><strong>Overall Status: ${overallStatus === 'success' ? '✅ PASS' : '❌ FAIL'}</strong>`;
+            
+            displayResult('testResults', results, overallStatus);
+        }
+
+        // Auto-run test on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(runFontTest, 1000);
+        });
+    </script>
+</body>
+</html>

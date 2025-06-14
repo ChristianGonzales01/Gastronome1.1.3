@@ -1,0 +1,2430 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portafolio Minimal | Gastronome</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="navbar-shared.css" />
+    <link rel="stylesheet" href="navbar-mobile-unified.css" />
+    <link rel="stylesheet" href="navbar-mobile-effects.css" />
+    <script src="navbar-mobile-unified.js" defer></script>
+    <style>
+      html,
+      body {
+        max-width: 100vw !important;
+        overflow-x: hidden !important;
+      }
+      @media (max-width: 600px) {
+        html,
+        body {
+          max-width: 100vw !important;
+          overflow-x: hidden !important;
+        }
+        main,
+        section,
+        .portfolio-preview,
+        .portfolio-cards,
+        .portfolio-section-bg,
+        .modal-content-info {
+          max-width: 100vw !important;
+          overflow-x: hidden !important;
+          box-sizing: border-box !important;
+        }
+      }
+      body {
+        background: #fff;
+        color: #111;
+        font-family: "Segoe UI", Arial, sans-serif;
+      }
+      .main-title {
+        text-align: center !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        display: block !important;
+        width: 100%;
+        font-size: 2.3rem !important;
+        font-weight: 900 !important;
+        letter-spacing: 0.04em;
+        line-height: 1.1;
+      }
+      .subtitle {
+        text-align: center;
+        color: #888;
+        font-size: 1.2rem;
+        margin-bottom: 2.5rem;
+      }
+      .features-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2rem;
+        margin: 2.5rem 0;
+      }
+      .feature {
+        min-width: 180px;
+        font-size: 1.1rem;
+        color: #222;
+        display: flex;
+        align-items: center;
+        gap: 0.7rem;
+      }
+      .feature:before {
+        content: "\2714";
+        color: #111;
+        font-weight: bold;
+      }
+      .portfolio-preview {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2rem;
+        margin: 2.5rem 0;
+      }
+      .portfolio-img,
+      .portfolio-card img {
+        width: 180px;
+        height: 180px;
+        object-fit: cover;
+        border-radius: 12px;
+        box-shadow: 0 2px 12px #0001;
+        cursor: pointer;
+        border: 2px solid #eee;
+        transition: box-shadow 0.35s cubic-bezier(0.4, 1.6, 0.6, 1),
+          border-color 0.35s cubic-bezier(0.4, 1.6, 0.6, 1),
+          transform 0.35s cubic-bezier(0.4, 1.6, 0.6, 1), background 0.35s,
+          color 0.35s;
+      }
+      .portfolio-img:hover,
+      .portfolio-card img:hover {
+        border-color: #01a54b;
+        box-shadow: 0 8px 32px #01a54b55;
+        background: #f6fff9;
+        transform: translateY(-8px) scale(1.04) rotate(-1deg);
+      }
+      .portfolio-card {
+        background: #fff;
+        border: 2px solid #111;
+        border-radius: 16px;
+        box-shadow: 0 2px 16px #0001;
+        max-width: 340px;
+        min-width: 260px;
+        flex: 1 1 300px;
+        padding: 2rem 1.2rem 1.5rem 1.2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transition: box-shadow 0.35s cubic-bezier(0.4, 1.6, 0.6, 1),
+          border-color 0.35s cubic-bezier(0.4, 1.6, 0.6, 1),
+          transform 0.35s cubic-bezier(0.4, 1.6, 0.6, 1), background 0.35s,
+          color 0.35s;
+        position: relative;
+      }
+      .portfolio-card:hover {
+        box-shadow: 0 8px 32px #01a54b55;
+        border-color: #01a54b;
+        background: #f6fff9;
+        color: #01a54b;
+        transform: translateY(-8px) scale(1.04) rotate(-1deg);
+      }
+      .portfolio-card-title {
+        font-size: 1.15rem;
+        font-weight: 700;
+        margin-bottom: 0.7rem;
+        color: #111;
+        text-align: center;
+      }
+      .portfolio-card-desc {
+        font-size: 1rem;
+        color: #444;
+        text-align: center;
+        margin-bottom: 0.7rem;
+      }
+      .portfolio-card-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        justify-content: center;
+        margin-bottom: 0.5rem;
+      }
+      .portfolio-card-tag {
+        background: #111;
+        color: #fff;
+        border-radius: 6px;
+        padding: 0.2rem 0.8rem;
+        font-size: 0.92rem;
+        font-weight: 600;
+        letter-spacing: 0.03em;
+      }
+      .portfolio-card-link {
+        margin-top: 0.7rem;
+        background: #111;
+        color: #fff;
+        border-radius: 6px;
+        padding: 0.5rem 1.5rem;
+        font-weight: 700;
+        text-decoration: none;
+        border: 2px solid #111;
+        transition: background 0.2s, color 0.2s;
+        display: inline-block;
+      }
+      .portfolio-card-link:hover {
+        background: #fff;
+        color: #111;
+        border-color: #01a54b !important;
+        box-shadow: 0 0 0 2px #01a54b55;
+      }
+      #modalProyecto {
+        display: none;
+        position: fixed;
+        z-index: 9999;
+        left: 0;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(20, 20, 20, 0.85);
+        align-items: center;
+        justify-content: center;
+      }
+      #modalProyecto.active {
+        display: flex;
+      }
+      #modalProyecto .modal-content-img {
+        background: #fff;
+        border-radius: 18px;
+        box-shadow: 0 4px 32px #0005;
+        padding: 2rem;
+        max-width: 90vw;
+        max-height: 90vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+      }
+      #modalProyecto img {
+        max-width: 1200px;
+        max-height: 90vh;
+        border-radius: 18px;
+        box-shadow: 0 2px 16px #0002;
+        margin-bottom: 1rem;
+        object-fit: contain;
+      }
+      #cerrarModalProyecto {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        background: #111;
+        color: #fff;
+        border: none;
+        border-radius: 50%;
+        width: 36px;
+        height: 36px;
+        font-size: 2rem;
+        font-weight: 700;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      footer {
+        background: #111;
+        color: #fff;
+        text-align: center;
+        padding: 2rem 0 1rem 0;
+        font-size: 1.1rem;
+        letter-spacing: 0.04em;
+        margin-top: 0;
+      }
+      .footer-content {
+        max-width: 100vw;
+      }
+      /* Animación para aparición de palabras en el modal */
+      @keyframes fadeInUp {
+        0% {
+          opacity: 0;
+          transform: translateY(32px);
+        }
+        100% {
+          opacity: 1;
+          transform: none;
+        }
+      }
+      .reveal-on-scroll {
+        opacity: 0;
+        transition: opacity 0.3s, transform 0.3s;
+      }
+      .reveal-on-scroll.visible {
+        animation: fadeInUp 0.7s cubic-bezier(0.4, 1.6, 0.6, 1) both;
+      }
+      @media (max-width: 600px) {
+        /* En móvil, los módulos (cards) también animan como los títulos pero con desplazamiento menor */
+        .reveal-on-scroll {
+          opacity: 0;
+          transition: opacity 0.3s, transform 0.3s;
+        }
+        .reveal-on-scroll.visible {
+          animation: fadeInUpMobile 0.65s cubic-bezier(0.4, 1.6, 0.6, 1) both;
+        }
+        @keyframes fadeInUpMobile {
+          0% {
+            opacity: 0;
+            transform: translateY(18px);
+          }
+          100% {
+            opacity: 1;
+            transform: none;
+          }
+        }
+      }
+      .carousel-inner .img-carrusel-articulo {
+        height: 220px;
+        max-width: 98vw;
+      }
+
+      .carousel-inner .img-carrusel-articulo.menu-digital-celular {
+        width: 100%;
+        max-width: 320px;
+        height: 500px;
+        object-fit: contain;
+        object-position: center;
+        border-radius: 14px;
+        margin: 0 auto;
+        cursor: pointer;
+        background: #fff;
+        display: block;
+      }
+      @media (max-width: 600px) {
+        .carousel-inner .img-carrusel-articulo.menu-digital-celular {
+          height: 340px;
+          max-width: 98vw;
+        }
+      }
+      /* Botón scroll to top */
+      #scrollTopBtn {
+        display: none;
+        position: fixed;
+        bottom: 32px;
+        right: 32px;
+        z-index: 9999;
+        background: transparent;
+        color: #01a54b;
+        border: none;
+        border-radius: 50%;
+        width: 68px;
+        height: 68px;
+        box-shadow: none;
+        font-size: 2.1rem;
+        font-weight: bold;
+        cursor: pointer;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.2s, color 0.2s;
+        outline: none;
+      }
+      #scrollTopBtn svg {
+        display: block;
+        margin: auto;
+        width: 38px;
+        height: 38px;
+      }
+      #scrollTopBtn:hover {
+        background: #01a54b22;
+        color: #01a54b;
+      }
+      /* Figuras decorativas congruentes con Servicios.html */
+      .figura-serv {
+        position: absolute;
+        border-radius: 50%;
+        opacity: 0.1;
+        z-index: 0;
+      }
+      .figura-1 {
+        top: -40px;
+        left: -40px;
+        width: 110px;
+        height: 110px;
+        background: linear-gradient(135deg, #111 80%, #fff 100%);
+      }
+      .figura-2 {
+        bottom: -30px;
+        right: -30px;
+        width: 70px;
+        height: 70px;
+        background: linear-gradient(135deg, #fff 60%, #111 100%);
+      }
+      .figura-3 {
+        top: 60%;
+        left: 80%;
+        width: 38px;
+        height: 38px;
+        background: #111;
+        opacity: 0.13;
+      }
+      .figura-4 {
+        bottom: 18%;
+        left: 8%;
+        width: 22px;
+        height: 22px;
+        background: #fff;
+        border: 2px solid #111;
+      }
+      .figura-5 {
+        top: 80%;
+        left: 60%;
+        width: 60px;
+        height: 14px;
+        background: linear-gradient(90deg, #111 0%, #fff 100%);
+        border-radius: 8px;
+      }
+      .figura-6 {
+        top: 10%;
+        right: 20%;
+        width: 40px;
+        height: 40px;
+        background: #111;
+        opacity: 0.08;
+        border-radius: 50%;
+        position: absolute;
+        z-index: 0;
+      }
+      .figura-7 {
+        bottom: 10%;
+        left: 25%;
+        width: 30px;
+        height: 30px;
+        background: #fff;
+        border: 2px solid #111;
+        opacity: 0.12;
+        border-radius: 50%;
+        position: absolute;
+        z-index: 0;
+      }
+      .figura-8 {
+        top: 50%;
+        left: 50%;
+        width: 18px;
+        height: 18px;
+        background: #111;
+        opacity: 0.1;
+        border-radius: 50%;
+        position: absolute;
+        z-index: 0;
+      }
+      .carousel-inner .img-carrusel-articulo {
+        width: 100%;
+        max-width: 350px;
+        height: 380px;
+        object-fit: contain;
+        object-position: center;
+        border-radius: 14px;
+        margin: 0 auto;
+        cursor: pointer;
+        background: #fff;
+        display: block;
+      }
+      @media (max-width: 600px) {
+        .carousel-inner .img-carrusel-articulo {
+          height: 220px;
+          max-width: 98vw;
+        }
+      }
+      /* --- Ajuste responsive para módulos tipo grid, manteniendo diseño de desktop en móvil --- */
+      @media (max-width: 900px) {
+        .portfolio-cards {
+          display: grid !important;
+          grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+          gap: 0.7rem !important;
+          align-items: stretch !important;
+          width: 100% !important;
+          margin: 0 auto !important;
+          padding: 0 !important;
+          box-sizing: border-box !important;
+        }
+        .portfolio-card {
+          width: 100% !important;
+          max-width: 100% !important;
+          min-width: 0 !important;
+          box-sizing: border-box !important;
+          padding: 0.5rem 0.2rem 1rem 0.2rem !important;
+          margin: 0 !important;
+        }
+        .portfolio-card img,
+        .portfolio-img {
+          width: 100% !important;
+          max-width: 100% !important;
+          height: auto !important;
+          aspect-ratio: 1/1 !important;
+          min-width: 0 !important;
+          margin: 0 auto !important;
+          object-fit: cover !important;
+          display: block !important;
+        }
+      }
+      @media (max-width: 600px) {
+        .portfolio-cards {
+          grid-template-columns: 1fr 1fr !important;
+          gap: 0.3rem !important;
+          width: 100% !important;
+          margin: 0 auto !important;
+          padding: 0 !important;
+        }
+        .portfolio-card {
+          max-width: 100% !important;
+          padding: 0.2rem 0.05rem 0.5rem 0.05rem !important;
+        }
+        .portfolio-card-title,
+        .portfolio-card-desc {
+          font-size: 0.85rem !important;
+        }
+        .portfolio-card-link {
+          font-size: 0.85rem !important;
+          padding: 0.2rem 0.4rem !important;
+        }
+      }
+      @media (max-width: 400px) {
+        .portfolio-card {
+          max-width: 100% !important;
+          padding: 0.1rem 0.01rem 0.3rem 0.01rem !important;
+        }
+      }
+      /* Modales: tamaño y padding seguro en móvil */
+      @media (max-width: 600px) {
+        .modal-content-info {
+          max-width: 98vw !important;
+          min-width: 0 !important;
+          padding: 1.2rem 0.5rem !important;
+          box-sizing: border-box !important;
+        }
+        #modalProyecto img,
+        #imgAmpliada {
+          max-width: 96vw !important;
+          max-height: 60vh !important;
+          height: auto !important;
+          border-radius: 10px !important;
+          padding: 4px !important;
+        }
+      }
+      @media (max-width: 400px) {
+        .modal-content-info {
+          padding: 0.2rem 0.01rem !important;
+          max-width: 99vw !important;
+          width: 99vw !important;
+          min-width: 0 !important;
+          max-height: 70vh !important;
+          border-radius: 6px !important;
+        }
+        #modalProyecto img,
+        #imgAmpliada {
+          max-width: 86vw !important;
+          max-height: 28vh !important;
+          border-radius: 4px !important;
+          padding: 0 !important;
+        }
+        #cerrarModalProyecto,
+        #cerrarImgAmpliada {
+          top: 1px !important;
+          right: 1px !important;
+          width: 18px !important;
+          height: 18px !important;
+          font-size: 0.8rem !important;
+        }
+        #infoModalTitulo {
+          font-size: 0.82rem !important;
+          margin-bottom: 0.3rem !important;
+        }
+        #infoModalDesc {
+          font-size: 0.7rem !important;
+          margin-bottom: 0.3rem !important;
+        }
+      }
+      @media (max-width: 340px) {
+        .modal-content-info {
+          padding: 0.1rem 0 !important;
+          max-width: 100vw !important;
+          width: 100vw !important;
+          max-height: 60vh !important;
+          border-radius: 3px !important;
+        }
+        #modalProyecto img,
+        #imgAmpliada {
+          max-width: 80vw !important;
+          max-height: 18vh !important;
+          border-radius: 2px !important;
+        }
+        #cerrarModalProyecto,
+        #cerrarImgAmpliada {
+          width: 14px !important;
+          height: 14px !important;
+          font-size: 0.6rem !important;
+        }
+        #infoModalTitulo {
+          font-size: 0.7rem !important;
+        }
+        #infoModalDesc {
+          font-size: 0.6rem !important;
+        }
+      }
+      /* --- Fin ajuste modales ultra-pequeños --- */
+      /* --- Alineación perfecta para los 3 módulos de Proyecto Menu --- */
+      .proyecto-menu-cards {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 2.5rem !important;
+        align-items: stretch !important;
+        justify-items: center !important;
+        width: 100% !important;
+        margin: 0 auto 3.7rem auto !important;
+        box-sizing: border-box !important;
+      }
+      .proyecto-menu-cards .portfolio-card {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        height: 100% !important;
+        min-height: 420px !important;
+        max-width: 340px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        padding: 2rem 1.2rem 1.5rem 1.2rem !important;
+      }
+      .proyecto-menu-cards .portfolio-card img {
+        width: 100% !important;
+        max-width: 220px !important;
+        height: 180px !important;
+        object-fit: contain !important;
+        margin-bottom: 1.1rem !important;
+        display: block !important;
+        border-radius: 12px !important;
+        box-shadow: 0 2px 12px #0001 !important;
+        border: 2px solid #eee !important;
+        background: #fff !important;
+      }
+      .proyecto-menu-cards .portfolio-card-title {
+        font-size: 1.15rem !important;
+        font-weight: 700 !important;
+        margin-bottom: 0.7rem !important;
+        color: #111 !important;
+        text-align: center !important;
+        min-height: 2.5em !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+      }
+      .proyecto-menu-cards .portfolio-card-desc {
+        font-size: 1rem !important;
+        color: #444 !important;
+        text-align: center !important;
+        margin-bottom: auto !important;
+        min-height: 3.5em !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+      }
+      .proyecto-menu-cards .portfolio-card-link {
+        margin-top: 1.2rem !important;
+        align-self: center !important;
+        width: auto !important;
+      }
+      @media (max-width: 900px) {
+        .proyecto-menu-cards {
+          grid-template-columns: 1fr !important;
+          gap: 1.2rem !important;
+        }
+        .proyecto-menu-cards .portfolio-card {
+          max-width: 98vw !important;
+          min-width: 0 !important;
+          width: 100% !important;
+          min-height: 0 !important;
+          padding: 1rem 0.5rem !important;
+        }
+        .proyecto-menu-cards .portfolio-card img {
+          max-width: 98vw !important;
+          height: 160px !important;
+        }
+      }
+      @media (max-width: 600px) {
+        .proyecto-menu-cards {
+          grid-template-columns: 1fr !important;
+          gap: 0.7rem !important;
+        }
+        .proyecto-menu-cards .portfolio-card {
+          max-width: 99vw !important;
+          padding: 0.7rem 0.2rem !important;
+        }
+        .proyecto-menu-cards .portfolio-card img {
+          max-width: 70vw !important;
+          width: 70vw !important;
+          max-height: 120px !important;
+          height: auto !important;
+          margin: 0 auto 0.7rem auto !important;
+          display: block !important;
+          border-radius: 14px !important;
+          box-shadow: 0 2px 8px #01a54b22 !important;
+          background: #fff !important;
+          padding: 0 !important;
+          object-fit: contain !important;
+        }
+        .proyecto-menu-cards .portfolio-card-title,
+        .proyecto-menu-cards .portfolio-card-desc {
+          font-size: 0.85rem !important;
+        }
+        .proyecto-menu-cards .portfolio-card-link {
+          font-size: 0.85rem !important;
+          padding: 0.2rem 0.4rem !important;
+        }
+      }
+      @media (max-width: 400px) {
+        .proyecto-menu-cards .portfolio-card {
+          max-width: 100% !important;
+          padding: 0.1rem 0.01rem 0.3rem 0.01rem !important;
+        }
+      }
+      /* --- Fin alineación Proyecto Menu --- */
+      /* --- Responsive horizontal para Proyectos Recientes (portfolio-preview) --- */
+      .portfolio-preview {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 1.2rem !important;
+        justify-items: center !important;
+        align-items: stretch !important;
+        width: 100% !important;
+        margin: 2.7rem 0 !important;
+        box-sizing: border-box !important;
+      }
+      .portfolio-preview .portfolio-card {
+        width: 100% !important;
+        max-width: 170px !important;
+        min-width: 0 !important;
+        margin: 0 !important;
+        box-sizing: border-box !important;
+      }
+      .portfolio-preview .portfolio-card:nth-child(3) img {
+        max-width: 100% !important;
+        width: 100% !important;
+        height: auto !important;
+        object-fit: contain !important;
+        display: block !important;
+        margin: 0 auto !important;
+        box-shadow: 0 2px 12px #0001 !important;
+        border-radius: 12px !important;
+      }
+      @media (max-width: 600px) {
+        .portfolio-preview {
+          grid-template-columns: repeat(2, 1fr) !important;
+          gap: 0.7rem !important;
+        }
+        .portfolio-preview .portfolio-card {
+          max-width: 140px !important;
+          padding: 0.5rem 0.2rem !important;
+        }
+      }
+      @media (max-width: 400px) {
+        .portfolio-preview {
+          grid-template-columns: repeat(2, 1fr) !important;
+          gap: 0.4rem !important;
+        }
+        .portfolio-preview .portfolio-card {
+          max-width: 120px !important;
+          padding: 0.3rem 0.1rem !important;
+        }
+      }
+      @media (min-width: 900px) {
+        .portfolio-preview {
+          display: flex !important;
+          flex-wrap: wrap !important;
+          gap: 2.5rem !important;
+          justify-content: center !important;
+          align-items: stretch !important;
+        }
+        .portfolio-preview .portfolio-card {
+          max-width: 320px !important;
+          width: 100% !important;
+          margin: 0 !important;
+          padding: 0 !important;
+        }
+      }
+      /* --- Fin ajuste Proyectos Recientes horizontal --- */
+      /* --- Modal emergente (cuadro y fondo) ultra-compacto para móviles pequeños (320x568) --- */
+      @media (max-width: 400px) {
+        #modalImgAmpliada,
+        #modalProyecto {
+          background: transparent !important;
+        }
+      }
+      @media (max-width: 340px) {
+        #modalImgAmpliada,
+        #modalProyecto {
+          background: transparent !important;
+        }
+      }
+      /* --- Fin: sin fondo oscuro modal en móvil pequeño --- */
+    </style>
+    <style>
+      /* --- Cambios ultra-agresivos para modal y carrusel en móvil --- */
+      @media (max-width: 600px) {
+        #modalProyecto .modal-content-info {
+          padding: 1.1rem 0.7rem 1.2rem 0.7rem !important;
+          border-radius: 14px !important;
+          max-width: 98vw !important;
+          min-width: unset !important;
+          width: 98vw !important;
+          box-sizing: border-box !important;
+        }
+        #infoModalDesc {
+          padding: 1.1rem 0.9rem 1.1rem 0.9rem !important;
+          margin: 0.5rem 0 0.5rem 0 !important;
+          background: #fff !important;
+          border-radius: 12px !important;
+          box-sizing: border-box !important;
+          font-size: 1rem !important;
+          color: #222 !important;
+          text-align: left !important;
+          width: 100% !important;
+          max-width: 100% !important;
+          overflow-wrap: break-word !important;
+        }
+        #infoModalCarrusel {
+          width: 100% !important;
+          max-width: 320px !important;
+          margin: 0 auto 1rem auto !important;
+        }
+        #modalProyecto .carousel-inner .img-carrusel-articulo {
+          max-width: 320px !important;
+          height: 180px !important;
+          min-height: 120px !important;
+          object-fit: contain !important;
+          border-radius: 10px !important;
+          margin: 0 auto !important;
+          background: #fff !important;
+          display: block !important;
+        }
+        #modalProyecto {
+          align-items: flex-start !important;
+          justify-content: center !important;
+          padding-top: 2.5vh !important;
+          padding-bottom: 2.5vh !important;
+          background: rgba(20, 20, 20, 0.85) !important;
+        }
+        #cerrarModalProyecto {
+          top: 8px !important;
+          right: 8px !important;
+          width: 32px !important;
+          height: 32px !important;
+          font-size: 1.5rem !important;
+        }
+        /* Esconde figuras decorativas en móvil */
+        .figura-serv,
+        .figura-1,
+        .figura-2,
+        .figura-3,
+        .figura-4,
+        .figura-5,
+        .figura-6,
+        .figura-7,
+        .figura-8 {
+          display: none !important;
+        }
+      }
+      @media (max-width: 400px) {
+        #modalProyecto .modal-content-info {
+          padding: 0.7rem 0.3rem 0.8rem 0.3rem !important;
+          border-radius: 10px !important;
+          max-width: 99vw !important;
+          width: 99vw !important;
+        }
+        #infoModalDesc {
+          padding: 0.7rem 0.4rem 0.7rem 0.4rem !important;
+          font-size: 0.95rem !important;
+          border-radius: 8px !important;
+        }
+        #infoModalCarrusel {
+          max-width: 99vw !important;
+        }
+        #modalProyecto .carousel-inner .img-carrusel-articulo {
+          max-width: 220px !important;
+          height: 120px !important;
+          border-radius: 8px !important;
+        }
+      }
+      @media (max-width: 340px) {
+        #modalProyecto .modal-content-info {
+          padding: 0.3rem 0.1rem 0.5rem 0.1rem !important;
+          border-radius: 7px !important;
+          max-width: 100vw !important;
+          width: 100vw !important;
+        }
+        #infoModalDesc {
+          padding: 0.3rem 0.1rem 0.3rem 0.1rem !important;
+          font-size: 0.9rem !important;
+          border-radius: 6px !important;
+        }
+        #infoModalCarrusel {
+          max-width: 100vw !important;
+        }
+        #modalProyecto .carousel-inner .img-carrusel-articulo {
+          max-width: 160px !important;
+          height: 90px !important;
+          border-radius: 6px !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar Unificado -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container-fluid">
+        <span class="navbar-brand">Gastronome</span>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mainNavbar"
+          aria-controls="mainNavbar"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNavbar">
+          <div class="navbar-nav ms-auto">
+            <a class="nav-link HOME_ACTIVE" href="index.html">Inicio</a>
+            <a class="nav-link NOSOTROS_ACTIVE" href="Nosotros.html"
+              >Nosotros</a
+            >
+            <a class="nav-link SERVICIOS_ACTIVE" href="Servicios.html"
+              >Servicios</a
+            >
+            <a class="nav-link PORTAFOLIO_ACTIVE" href="PortafolioMinimal.html"
+              >Portafolio</a
+            >
+            <a class="nav-link CONTACTO_ACTIVE" href="Contacto.html"
+              >Contacto</a
+            >
+          </div>
+        </div>
+      </div>
+    </nav>
+    <script>
+      // Refuerzo: cerrar menú móvil al hacer click en un link (mejor UX móvil)
+      document
+        .querySelectorAll(".navbar-nav .nav-link")
+        .forEach(function (link) {
+          link.addEventListener("click", function () {
+            var navbarCollapse = document.getElementById("mainNavbar");
+            if (
+              window.innerWidth <= 768 &&
+              navbarCollapse.classList.contains("show")
+            ) {
+              var collapse = new bootstrap.Collapse(navbarCollapse);
+              collapse.hide();
+            }
+          });
+        });
+    </script>
+    <main
+      style="
+        max-width: 1100px;
+        margin: 40px auto 0 auto;
+        padding: 40px 24px 0 24px;
+      "
+    >
+      <h1 class="main-title page-anim-text delay-1">Nuestro Portafolio</h1>
+      <div
+        class="subtitle page-anim-text delay-2"
+        style="
+          text-align: center;
+          color: #111;
+          font-size: 2.3rem;
+          margin-bottom: 2.7rem;
+          font-weight: 700;
+          letter-spacing: 0.04em;
+        "
+      >
+        Explora un poco sobre nuestro trabajo
+      </div>
+      <section
+        class="features-list page-anim-text delay-3"
+        style="
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 2.2rem;
+          margin: 2.7rem 0;
+        "
+      >
+        <div class="feature" style="font-size: 1.3rem">Responsive</div>
+        <div class="feature" style="font-size: 1.3rem">Page Builder</div>
+        <div class="feature" style="font-size: 1.3rem">
+          One Click Demo Install
+        </div>
+        <div class="feature" style="font-size: 1.3rem">Retina Ready</div>
+      </section>
+      <h2
+        class="portfolio-section-title page-anim-text"
+        style="
+          text-align: center;
+          font-size: 2.8rem;
+          font-weight: 900;
+          margin: 2.2rem 0 1.2rem 0;
+          letter-spacing: 0.04em;
+          color: #01a54b;
+          text-shadow: 0 2px 8px #01a54b22;
+        "
+      >
+        Proyectos Recientes
+      </h2>
+      <section
+        class="portfolio-preview"
+        style="
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 2.5rem;
+          margin: 2.7rem 0;
+        "
+      >
+        <img
+          src="Fotos_Gas/pagina-inicio.webp"
+          alt="Preview 1"
+          class="portfolio-img preview-carrusel-trigger"
+          style="
+            width: 240px;
+            height: 240px;
+            object-position: top;
+            object-fit: cover;
+          "
+          data-imgs='["Fotos_Gas/pagina-inicio.webp","Fotos_Gas/menu-inicio.webp","Fotos_Gas/pagina-completa.webp"]'
+        />
+        <img
+          src="Fotos_Gas/menu-inicio.webp"
+          alt="Preview 2"
+          class="portfolio-img preview-carrusel-trigger"
+          style="
+            width: 240px;
+            height: 240px;
+            object-position: top;
+            object-fit: cover;
+          "
+          data-imgs='["Fotos_Gas/menu-inicio.webp","Fotos_Gas/pagina-inicio.webp","Fotos_Gas/pagina-completa.webp"]'
+        />
+        <img
+          src="Fotos_Gas/pagina-completa.webp"
+          alt="Preview 3"
+          class="portfolio-img preview-carrusel-trigger"
+          style="
+            width: 240px;
+            height: 240px;
+            object-position: top;
+            object-fit: cover;
+          "
+          data-imgs='["Fotos_Gas/pagina-completa.webp","Fotos_Gas/pagina-inicio.webp","Fotos_Gas/menu-inicio.webp"]'
+        />
+      </section>
+      <h2
+        class="portfolio-section-title page-anim-text"
+        style="
+          text-align: center;
+          font-size: 2.7rem;
+          font-weight: 900;
+          margin: 3.7rem 0 2.2rem 0;
+          letter-spacing: 0.05em;
+          color: #111;
+        "
+      >
+        Nuestros Proyectos
+      </h2>
+      <section class="portfolio-section-bg">
+        <div
+          class="portfolio-cards"
+          style="
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2.5rem;
+            justify-content: center;
+            margin-bottom: 3.7rem;
+          "
+        >
+          <div class="portfolio-card">
+            <img
+              src="Fotos_Gas/pagina-inicio.webp"
+              alt="Página web Restaurant"
+              style="
+                object-position: top;
+                object-fit: cover;
+                width: 180px;
+                height: 180px;
+              "
+            />
+            <div class="portfolio-card-title">Página web Restaurant</div>
+            <div class="portfolio-card-desc">
+              Web responsiva para restaurante con menú digital, galería y
+              reservas.
+            </div>
+            <a href="#" class="portfolio-card-link">Ver Proyecto</a>
+          </div>
+          <div class="portfolio-card">
+            <img
+              src="Fotos_Gas/menu-digital/inicio-menu.webp"
+              srcset="
+                Fotos_Gas/menu-digital/inicio-menu.webp  600w,
+                Fotos_Gas/menu-digital/inicio-menu.webp 1200w
+              "
+              sizes="(max-width:600px) 90vw, 320px"
+              alt="Menu Digital"
+              loading="lazy"
+              style="
+                object-position: top;
+                object-fit: cover;
+                width: 180px;
+                height: 180px;
+              "
+            />
+            <div class="portfolio-card-title">Menu Digital</div>
+            <div class="portfolio-card-desc">
+              Sistema digital para mostrar el menú de tu restaurante de forma
+              interactiva y moderna.
+            </div>
+            <a href="#" class="portfolio-card-link">Ver Proyecto</a>
+          </div>
+        </div>
+      </section>
+      <h2
+        class="portfolio-section-title page-anim-text"
+        style="
+          text-align: center;
+          font-size: 2.5rem;
+          font-weight: 900;
+          margin: 3.7rem 0 2.2rem 0;
+          letter-spacing: 0.05em;
+          color: #111;
+        "
+      >
+        Proyecto Menu
+      </h2>
+      <section class="portfolio-section-bg">
+        <div
+          class="portfolio-cards proyecto-menu-cards"
+          style="
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2.5rem;
+            justify-content: center;
+            margin-bottom: 3.7rem;
+          "
+        >
+          <div class="portfolio-card">
+            <img
+              src="Fotos_Gas/menu-inicio.webp"
+              alt="Apatado a cualquier pantalla"
+              style="
+                object-fit: contain;
+                width: 100%;
+                max-width: 320px;
+                height: 220px;
+                background: #fff;
+                display: block;
+                border-radius: 12px;
+                box-shadow: 0 2px 12px #0001;
+                border: 2px solid #eee;
+                margin: 0 auto;
+              "
+            />
+            <div class="portfolio-card-title">Diseño Responsivo</div>
+            <div class="portfolio-card-desc">
+              El menú digital se adapta perfectamente a cualquier dispositivo.
+            </div>
+            <a href="#" class="portfolio-card-link">Ver Imagenes</a>
+          </div>
+          <div class="portfolio-card">
+            <img
+              src="Fotos_Gas/menu-digital/3d-completa.webp"
+              alt="Incluye modelos 3D"
+            />
+            <div class="portfolio-card-title">Incluye modelos 3D</div>
+            <div class="portfolio-card-desc">
+              Presenta platillos especiales con modelos 3D interactivos.
+            </div>
+            <a href="#" class="portfolio-card-link">Ver Modelos</a>
+          </div>
+          <div class="portfolio-card">
+            <img
+              src="Fotos_Gas/menu-digital/entrada-menu.webp"
+              alt="Interactivo y facil de usar"
+              style="
+                object-fit: contain;
+                width: 100%;
+                max-width: 320px;
+                height: 220px;
+                background: #fff;
+                display: block;
+                border-radius: 12px;
+                box-shadow: 0 2px 12px #0001;
+                border: 2px solid #eee;
+                margin: 0 auto;
+              "
+            />
+            <div class="portfolio-card-title">Intuitivo y Accesible</div>
+            <div class="portfolio-card-desc">
+              El menú es intuitivo, con navegación sencilla y opciones
+              interactivas que facilitan la consulta de información.
+            </div>
+            <a href="#" class="portfolio-card-link">Ver Imagenes</a>
+          </div>
+        </div>
+      </section>
+      <h2
+        class="portfolio-section-title page-anim-text"
+        style="
+          text-align: center;
+          font-size: 2.5rem;
+          font-weight: 900;
+          margin: 3.7rem 0 2.2rem 0;
+          letter-spacing: 0.05em;
+          color: #111;
+        "
+      >
+        Pagina web restaurante
+      </h2>
+      <section class="portfolio-section-bg">
+        <div
+          class="portfolio-cards"
+          style="
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2.5rem;
+            justify-content: center;
+            margin-bottom: 3.7rem;
+          "
+        >
+          <div class="portfolio-card">
+            <img
+              src="Fotos_Gas/pagina-web/Comidas.webp"
+              alt="Proyecto Pagina web restaurante PC"
+              style="
+                width: 100%;
+                max-width: 320px;
+                height: 220px;
+                object-fit: cover;
+                background: #fff;
+                display: block;
+                border-radius: 12px;
+                box-shadow: 0 2px 12px #0001;
+                border: 2px solid #eee;
+              "
+            />
+            <div class="portfolio-card-title">
+              Proyecto Pagina web restaurante
+            </div>
+            <div class="portfolio-card-desc">
+              Versión de escritorio, ideal para mostrar el contenido en pantalla
+              grande.
+            </div>
+            <a
+              href="#"
+              class="portfolio-card-link"
+              data-carrusel="pc-pagina-web"
+              data-titulo="Versión PC"
+              data-desc="Sitio web profesional para restaurante, accesible desde cualquier navegador en PC. Incluye menú digital, galería, contacto, reservaciones y atencion a el cliente via WhatsApp. Diseño moderno y visualmente atractivo para los restaurantes."
+              >Versión PC</a
+            >
+          </div>
+          <div class="portfolio-card">
+            <img
+              src="Fotos_Gas/pagina-web/Menu_calular.webp"
+              alt="Proyecto Pagina web restaurante Teléfono"
+              style="
+                width: 100%;
+                max-width: 140px;
+                height: 220px;
+                object-fit: contain;
+                background: #fff;
+                display: block;
+              "
+            />
+            <div class="portfolio-card-title">
+              Proyecto Pagina web restaurante
+            </div>
+            <div class="portfolio-card-desc">
+              Versión móvil, adaptada para una experiencia óptima y visual en
+              celulares.
+            </div>
+            <a
+              href="#"
+              class="portfolio-card-link"
+              data-carrusel="celular-pagina-web"
+              data-titulo="Versión Teléfono"
+              data-desc="Versión móvil responsiva y optimizad con menú, galería, contacto, ubicaciones y reservaciones adaptables a cualquier dispositivo. Incluye integración con WhatsApp, redes sociales, eventos y sistema de atención al cliente y reservacion.<br><br>Ideal para clientes que desean consultar el menú y reservar facilmente desde su celular."
+              >Versión Teléfono</a
+            >
+          </div>
+        </div>
+      </section>
+      <h2
+        class="portfolio-section-title page-anim-text"
+        style="
+          text-align: center;
+          font-size: 2.3rem;
+          font-weight: 900;
+          margin: 3.7rem 0 2.2rem 0;
+          letter-spacing: 0.05em;
+          color: #111;
+        "
+      >
+        Apps y Herramientas
+      </h2>
+      <section class="portfolio-section-bg">
+        <div
+          class="portfolio-cards"
+          style="
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2.5rem;
+            justify-content: center;
+            margin-bottom: 3.7rem;
+          "
+        >
+          <div class="portfolio-card">
+            <img
+              src="Fotos_Gas/menu-digital/3d-completa.webp"
+              alt="App de Notas"
+            />
+            <div class="portfolio-card-title">Modelos 3D</div>
+            <div class="portfolio-card-desc">
+              Inlcuimos Modelos 3D en platillos especiales garantizando una
+              experiencia visual.
+            </div>
+            <a href="#" class="portfolio-card-link">Modelos</a>
+          </div>
+          <div class="portfolio-card">
+            <img src="Fotos_Gas/QrGas.webp" alt="Generador de QR" />
+            <div class="portfolio-card-title">Códigos QR</div>
+            <div class="portfolio-card-desc">
+              Herramienta online para crear códigos QR personalizados.
+            </div>
+            <a href="#" class="portfolio-card-link">Generador QR</a>
+          </div>
+          <div class="portfolio-card">
+            <img
+              src="Fotos_Gas/pagina-web/Reservaciones.webp"
+              alt="Módulo de Reservaciones"
+            />
+            <div class="portfolio-card-title">Reservaciones</div>
+            <div class="portfolio-card-desc">
+              Permite a tus clientes reservar mesa en línea de forma rápida y
+              sencilla.
+            </div>
+            <a
+              href="#"
+              class="portfolio-card-link"
+              data-carrusel="reservaciones"
+              >Reservaciones</a
+            >
+          </div>
+          <div class="portfolio-card">
+            <img
+              src="Fotos_Gas/pagina-web/Eventos.webp"
+              alt="Cambio de eventos"
+            />
+            <div class="portfolio-card-title">Cambio de eventos</div>
+            <div class="portfolio-card-desc">
+              Actualiza los eventos de tu restaurante fácilmente, mostrando
+              fechas especiales.
+            </div>
+            <a href="#" class="portfolio-card-link" data-carrusel="eventos"
+              >Eventos</a
+            >
+          </div>
+        </div>
+      </section>
+      <div
+        id="modalProyecto"
+        style="
+          display: none;
+          position: fixed;
+          z-index: 9999;
+          left: 0;
+          top: 0;
+          width: 100vw;
+          height: 100vh;
+          background: rgba(20, 20, 20, 0.85);
+          align-items: center;
+          justify-content: center;
+        "
+      >
+        <div
+          class="modal-content-info"
+          style="
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 4px 32px #0005;
+            padding: 3.5rem 2.5rem;
+            max-width: 900px;
+            min-width: 320px;
+            max-height: 95vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            overflow-y: auto;
+          "
+        >
+          <button
+            id="cerrarModalProyecto"
+            style="
+              position: absolute;
+              top: 18px;
+              right: 18px;
+              background: #111;
+              color: #fff;
+              border: none;
+              border-radius: 50%;
+              width: 40px;
+              height: 40px;
+              font-size: 2rem;
+              font-weight: 700;
+              cursor: pointer;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            "
+          >
+            &times;
+          </button>
+          <div
+            id="infoModalTitulo"
+            style="
+              font-size: 2.5rem;
+              font-weight: 900;
+              color: #111;
+              margin-bottom: 1.2rem;
+              text-align: center;
+            "
+          ></div>
+          <div
+            id="infoModalCarrusel"
+            style="width: 100%; max-width: 700px; margin: 0 auto 1.5rem auto"
+          ></div>
+          <div
+            id="infoModalDesc"
+            style="
+              font-size: 1.18rem;
+              color: #222;
+              text-align: justify;
+              margin-bottom: 1.2rem;
+              line-height: 1.7;
+            "
+          ></div>
+          <div
+            id="infoModalTags"
+            style="
+              display: flex;
+              flex-wrap: wrap;
+              gap: 0.5rem;
+              justify-content: center;
+              margin-bottom: 0.7rem;
+            "
+          ></div>
+        </div>
+      </div>
+      <div
+        id="modalImgAmpliada"
+        style="
+          display: none;
+          position: fixed;
+          z-index: 10000;
+          left: 0;
+          top: 0;
+          width: 100vw;
+          height: 100vh;
+          background: rgba(20, 20, 20, 0.92);
+          align-items: center;
+          justify-content: center;
+        "
+      >
+        <img
+          id="imgAmpliada"
+          src=""
+          alt="Imagen ampliada"
+          style="
+            max-width: 90vw;
+            max-height: 90vh;
+            border-radius: 18px;
+            box-shadow: 0 8px 32px #01a54b99;
+            background: #fff;
+            padding: 8px;
+            display: block;
+            border: 4px solid #01a54b;
+          "
+        />
+        <button
+          id="cerrarImgAmpliada"
+          style="
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            font-size: 2.5rem;
+            color: #fff;
+            cursor: pointer;
+            font-weight: bold;
+            z-index: 10001;
+            background: none;
+            border: none;
+            text-shadow: 0 2px 8px #000a;
+          "
+        >
+          &times;
+        </button>
+      </div>
+    </main>
+    <button id="scrollTopBtn" title="Volver arriba" aria-label="Volver arriba">
+      <svg
+        width="38"
+        height="38"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="#01a54b"
+        stroke-width="3.2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <polyline points="6 14 12 8 18 14" />
+      </svg>
+    </button>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    ></script>
+    <script>
+      // Carrusel de imágenes para cada artículo
+      const carruselImgs = {
+        "Proyecto 1": [
+          "Fotos_Gas/pagina-inicio.webp",
+          "Fotos_Gas/menu-inicio.webp",
+          "Fotos_Gas/pagina-completa.webp",
+          "Fotos_Gas/platillos-especiales.webp",
+          "Fotos_Gas/Mockup_2.webp",
+          "Fotos_Gas/Mockup.webp",
+        ],
+        "Menu Digital": [
+          "Fotos_Gas/menu-digital/entrada-menu.webp",
+          "Fotos_Gas/menu-digital/especiales-menu.webp",
+          "Fotos_Gas/menu-digital/3d-menu.webp",
+          "Fotos_Gas/menu-digital/entrada-menu.webp",
+          "Fotos_Gas/menu-digital/bebidas-completa.webp",
+          "Fotos_Gas/menu-digital/platofuerte-completa.webp",
+          "Fotos_Gas/menu-digital/sush-completa.webp",
+          "Fotos_Gas/menu-digital/promociones-completa.webp",
+        ],
+        "Proyecto 3": [
+          "Fotos_Gas/pagina-web.webp",
+          "Fotos_Gas/Programando_1.webp",
+          "Fotos_Gas/Programando_3.webp",
+          "Fotos_Gas/Mockup_2.webp",
+          "Fotos_Gas/platillos-especiales.webp",
+          "Fotos_Gas/menu-inicio.webp",
+        ],
+        "Landing Page HTML": [
+          "Fotos_Gas/menu-inicio.webp",
+          "Fotos_Gas/Mockup_2.webp",
+          "Fotos_Gas/Mockup.webp",
+          "Fotos_Gas/pagina-completa.webp",
+          "Fotos_Gas/pagina-inicio.webp",
+          "Fotos_Gas/platillos-especiales.webp",
+        ],
+        "Dashboard Interactivo": [
+          "Fotos_Gas/Programando_1.webp",
+          "Fotos_Gas/Programando_6.webp",
+          "Fotos_Gas/Programsndo_7.webp",
+          "Fotos_Gas/pagina-web.webp",
+          "Fotos_Gas/Mockup_2.webp",
+          "Fotos_Gas/platillos-especiales.webp",
+        ],
+        "Blog para Desarrolladores": [
+          "Fotos_Gas/Programando_3.webp",
+          "Fotos_Gas/pagina-web.webp",
+          "Fotos_Gas/platillos-especiales.webp",
+          "Fotos_Gas/Mockup.webp",
+          "Fotos_Gas/Mockup_2.webp",
+          "Fotos_Gas/menu-inicio.webp",
+        ],
+        "App de Notas Minimalista": [
+          "Fotos_Gas/Teclado_1.webp",
+          "Fotos_Gas/Teclado_2.webp",
+          "Fotos_Gas/Programando_1.webp",
+          "Fotos_Gas/pagina-inicio.webp",
+          "Fotos_Gas/platillos-especiales.webp",
+          "Fotos_Gas/menu-inicio.webp",
+        ],
+        "Códigos QR": ["Fotos_Gas/QrGas.webp"],
+        "Proyecto Pagina web restaurante": [
+          "Fotos_Gas/pagina-web/Gourmette_celular.webp",
+          "Fotos_Gas/pagina-web/Menu_calular.webp",
+          "Fotos_Gas/pagina-web/Eventos celular.webp",
+          "Fotos_Gas/pagina-menu.webp",
+        ],
+        "Página web Restaurant": [
+          "Fotos_Gas/pagina-web/Comidas.webp",
+          "Fotos_Gas/pagina-web/Especiales.webp",
+          "Fotos_Gas/pagina-web/Galeria.webp",
+          "Fotos_Gas/pagina-web/Menu.webp",
+          "Fotos_Gas/pagina-web/Reservaciones.webp",
+          "Fotos_Gas/pagina-web/Ubicaciones.webp",
+          "Fotos_Gas/pagina-web/Redes.webp",
+          "Fotos_Gas/pagina-web/Contacto.webp",
+          "Fotos_Gas/pagina-web/Foto.webp",
+          "Fotos_Gas/pagina-web/Nosotros.webp",
+        ],
+        "Módulo de Reservaciones": [
+          "Fotos_Gas/pagina-web/Reservaciones.webp",
+          "Fotos_Gas/pagina-web/Reservaciones copy(1).webp",
+        ],
+        "Cambio de eventos": [
+          "Fotos_Gas/pagina-web/Eventos.webp",
+          "Fotos_Gas/pagina-web/Eventos celular.webp",
+        ],
+        "Modelos 3D": [
+          "Fotos_Gas/modelo3d.webp",
+          "Fotos_Gas/menu-digital/3d-menu.webp",
+          "Fotos_Gas/menu-digital/3d2-menu.webp",
+        ],
+      };
+      // Descripciones largas para los artículos
+      const infoProyectos = {
+        "Proyecto 1": {
+          titulo: "Proyecto 1",
+          desc: "Sitio web de ejemplo para restaurante, con menú digital, galería de platillos, contacto y diseño responsivo. Incluye integración con WhatsApp y panel de administración para actualizar el menú fácilmente. Ideal para negocios que buscan digitalizar su carta y mejorar la experiencia del cliente. <br><br>El proyecto destaca por su velocidad, accesibilidad y facilidad de uso tanto para el usuario final como para el administrador.",
+          tags: ["HTML", "CSS", "JavaScript"],
+        },
+        "Menu Digital": {
+          titulo: "Menu Digital",
+          desc: "Sistema digital para mostrar el menú de tu restaurante de forma interactiva y moderna. Permite a los clientes ver el menú en sus dispositivos móviles, con imágenes, descripciones y precios. Ademas de incluir modelos 3D en platillos especiales. Ideal para restaurantes que buscan modernizar su presentación de menú y facilitar la gestión de cambios.",
+          tags: ["HTML", "CSS", "JavaScript"],
+        },
+        "Proyecto 3": {
+          titulo: "Proyecto 3",
+          desc: "Web corporativa con blog, panel de administración y sistema de publicación de artículos. Permite a los dueños del restaurante compartir novedades, recetas y eventos. <br><br>Incluye buscador, categorías y un sistema de comentarios para fomentar la interacción con los usuarios.",
+          tags: ["HTML", "CSS", "JavaScript"],
+        },
+        "Landing Page HTML": {
+          titulo: "Landing Page HTML",
+          desc: "Sitio web minimalista y responsivo para presentación de servicios. Incluye animaciones, sección de contacto y galería de imágenes. <br><br>Perfecto para negocios que buscan una presencia digital elegante y efectiva.",
+          tags: ["HTML", "CSS", "Responsive"],
+        },
+        "Dashboard Interactivo": {
+          titulo: "Dashboard Interactivo",
+          desc: "Panel de control con gráficos, widgets y reportes para gestión de datos de ventas y clientes. <br><br>Incluye integración con APIs externas y exportación de reportes en PDF y Excel.",
+          tags: ["JavaScript", "APIs", "UI/UX"],
+        },
+        "Blog para Desarrolladores": {
+          titulo: "Blog para Desarrolladores",
+          desc: "Blog técnico con buscador, categorías, sistema de comentarios y diseño limpio. <br><br>Ideal para compartir artículos, tutoriales y novedades del sector gastronómico y tecnológico.",
+          tags: ["HTML", "CSS", "Blog"],
+        },
+        "App de Notas Minimalista": {
+          titulo: "App de Notas Minimalista",
+          desc: "Aplicación web para tomar notas rápidas, organizarlas por etiquetas y sincronizarlas en la nube. <br><br>Incluye modo oscuro, búsqueda instantánea y exportación de notas.",
+          tags: ["JavaScript", "Productividad"],
+        },
+        "Generador de Códigos QR": {
+          titulo: "Códigos QR",
+          desc: "Herramienta online para crear códigos QR personalizados para menús, promociones y redes sociales. <br><br>Permite descargar los QR en alta resolución y personalizar colores y logos.",
+          tags: ["Web Tool", "QR"],
+        },
+        "Proyecto Pagina web restaurante": {
+          titulo: "Proyecto Pagina web restaurante",
+          desc: "Sitio web completo para restaurante, con menú digital, galería, contacto y blog. Incluye integración con redes sociales y formulario de reservas. <br><br>Optimizado para SEO y con diseño responsivo para una experiencia de usuario fluida en todos los dispositivos.",
+          tags: ["HTML", "CSS", "JavaScript"],
+        },
+        "Página web Restaurant": {
+          titulo: "Página web Restaurant",
+          desc: `Sitio web completo para restaurante, con menú digital dividido en 5 tiempos, sección especial y apartado "Sobre nosotros". Incluye galería de fotos, sistema de ubicaciones, integración con redes sociales responsivas e integración con WhatsApp. Cuenta con sistema de reservación y atención al cliente. Se podrán realizar cambios en el menú, eventos, imágenes y platillos bajo solicitud. Todo el diseño es completamente responsivo y adaptado para ofrecer una experiencia fluida en cualquier dispositivo.<br><br>El proyecto destaca por su velocidad, accesibilidad y facilidad de uso tanto para el usuario final como para el propietario del negocio.`,
+          tags: ["HTML", "CSS", "JavaScript"],
+        },
+        "Módulo de Reservaciones": {
+          titulo: "Módulo de Reservaciones",
+          desc: "Permite a tus clientes reservar mesa en línea de forma rápida y sencilla, con confirmación automática y gestión desde el panel de administración. Ideal para restaurantes que buscan optimizar su sistema de reservas y mejorar la experiencia del cliente.",
+          tags: ["HTML", "CSS", "JavaScript"],
+        },
+        "Cambio de eventos": {
+          titulo: "Cambio de eventos",
+          desc: "Administra y actualiza los eventos de tu restaurante fácilmente, mostrando promociones, fechas especiales y novedades en tu sitio web o menú digital.",
+          tags: ["HTML", "CSS", "JavaScript"],
+        },
+        "Modelos 3D": {
+          titulo: "Modelos 3D",
+          desc: "Visualiza platillos y productos en 3D interactivo para una experiencia innovadora y atractiva en tu menú digital o página web. Permite a los clientes explorar los detalles de cada platillo de manera interactiva y atractiva. Ideal para restaurantes que buscan ofrecer una experiencia única y moderna.",
+          tags: ["HTML", "CSS", "JavaScript"],
+        },
+      };
+      // Carrusel dinámico
+      function renderCarrusel(imgs, isCelularMenu) {
+        if (!imgs || !imgs.length) return "";
+        let id = "articuloCarrusel_" + Math.floor(Math.random() * 1000000);
+        let html = `<div id="${id}" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="3000" style="width:100%; max-width:700px; margin:0 auto;">`;
+        html += '<div class="carousel-indicators">';
+        imgs.forEach(function (_, idx) {
+          html += `<button type="button" data-bs-target="#${id}" data-bs-slide-to="${idx}"${
+            idx === 0 ? ' class="active" aria-current="true"' : ""
+          } aria-label="Slide ${idx + 1}"></button>`;
+        });
+        html += "</div>";
+        html += '<div class="carousel-inner">';
+        imgs.forEach(function (src, idx) {
+          html += `<div class="carousel-item${
+            idx === 0 ? " active" : ""
+          }" style="min-height:380px; display:flex; align-items:center; justify-content:center;"><img src="${src}" class="d-block img-carrusel-articulo${
+            isCelularMenu ? " menu-digital-celular" : ""
+          }" style="width:100%; max-width:${
+            isCelularMenu ? "320px" : "700px"
+          }; height:${
+            isCelularMenu ? "500px" : "380px"
+          }; object-fit:contain; border-radius:14px; margin:0 auto; cursor:pointer;"></div>`;
+        });
+        html += "</div>";
+        html += "</div>";
+        return { html, id };
+      }
+      // Agrego más imágenes a cada artículo
+      carruselImgs["Proyecto 1"].push(
+        "Fotos_Gas/entradas.webp",
+        "Fotos_Gas/logo.webp"
+      );
+
+      carruselImgs["Proyecto 3"].push(
+        "Fotos_Gas/menu-digital.webp",
+        "Fotos_Gas/Mockup.webp"
+      );
+      carruselImgs["Landing Page HTML"].push(
+        "Fotos_Gas/entradas.webp",
+        "Fotos_Gas/modelo3d.webp"
+      );
+      carruselImgs["Dashboard Interactivo"].push(
+        "Fotos_Gas/Mockup.webp",
+        "Fotos_Gas/Mockup_2.webp"
+      );
+      carruselImgs["Blog para Desarrolladores"].push(
+        "Fotos_Gas/entradas.webp",
+        "Fotos_Gas/contactanos.webp"
+      );
+      carruselImgs["App de Notas Minimalista"].push(
+        "Fotos_Gas/modelo3d.webp",
+        "Fotos_Gas/Mockup_2.webp"
+      );
+
+      carruselImgs["Proyecto Pagina web restaurante"].push(
+        "Fotos_Gas/pagina-inicio.webp"
+      );
+      document.querySelectorAll(".portfolio-card-link").forEach(function (btn) {
+        btn.addEventListener("click", function (e) {
+          e.preventDefault();
+          let card = btn.closest(".portfolio-card");
+          let titulo = card
+            .querySelector(".portfolio-card-title")
+            .textContent.trim();
+          let desc =
+            card.querySelector(".portfolio-card-desc")?.innerHTML.trim() || "";
+          let tags = Array.from(
+            card.querySelectorAll(".portfolio-card-tag")
+          ).map((t) => t.textContent.trim());
+          // Personalización para "Proyecto Pagina web restaurante"
+          if (btn.dataset.carrusel === "pc-pagina-web") {
+            titulo = btn.dataset.titulo;
+            desc = btn.dataset.desc;
+            tags = ["Pagina Web", "Menu"];
+            var imgs = [
+              "Fotos_Gas/pagina-web/Comidas.webp",
+              "Fotos_Gas/pagina-web/Especiales.webp",
+              "Fotos_Gas/pagina-web/Galeria.webp",
+              "Fotos_Gas/pagina-web/Menu.webp",
+              "Fotos_Gas/pagina-web/Reservaciones.webp",
+              "Fotos_Gas/pagina-web/Ubicaciones.webp",
+              "Fotos_Gas/pagina-web/Redes.webp",
+              "Fotos_Gas/pagina-web/Contacto.webp",
+              "Fotos_Gas/pagina-web/Foto.webp",
+              "Fotos_Gas/pagina-web/Nosotros.webp",
+            ];
+            const carrusel = renderCarrusel(imgs);
+            document.getElementById("infoModalTitulo").textContent = titulo;
+            document.getElementById("infoModalCarrusel").innerHTML =
+              carrusel.html;
+            document.getElementById("infoModalDesc").innerHTML = desc;
+            const tagsDiv = document.getElementById("infoModalTags");
+            tagsDiv.innerHTML = "";
+            tags.forEach(function (tag) {
+              const span = document.createElement("span");
+              span.textContent = tag;
+              span.style.background = tag === "Pagina Web" ? "#01a54b" : "#111";
+              span.style.color = "#fff";
+              span.style.borderRadius = "12px";
+              span.style.padding = "0.18rem 0.9rem";
+              span.style.fontSize = "0.92rem";
+              span.style.fontWeight = "600";
+              span.style.letterSpacing = "0.03em";
+              span.style.margin = "0 0.2rem";
+              tagsDiv.appendChild(span);
+            });
+            function startCarouselWhenReady() {
+              if (window.bootstrap && window.bootstrap.Carousel) {
+                var el = document.getElementById(carrusel.id);
+                if (el) {
+                  var carouselInstance =
+                    window.bootstrap.Carousel.getOrCreateInstance(el, {
+                      interval: 3000,
+                      ride: "carousel",
+                      pause: false,
+                      wrap: true,
+                    });
+                  carouselInstance.cycle();
+                }
+                var imgsCarrusel = document.querySelectorAll(
+                  `#${carrusel.id} .img-carrusel-articulo`
+                );
+                imgsCarrusel.forEach(function (img) {
+                  img.onclick = function () {
+                    document.getElementById("imgAmpliada").src = img.src;
+                    document.getElementById("modalImgAmpliada").style.display =
+                      "flex";
+                  };
+                });
+              } else {
+                setTimeout(startCarouselWhenReady, 100);
+              }
+            }
+            startCarouselWhenReady();
+            document.getElementById("modalProyecto").style.display = "flex";
+            animateModalText();
+            return;
+          }
+          // Personalización para "Reservaciones" en Apps y Herramientas
+          if (btn.dataset.carrusel === "reservaciones") {
+            const imgs = ["Fotos_Gas/pagina-web/Reservaciones.webp"];
+            const carrusel = renderCarrusel(imgs);
+            document.getElementById("infoModalTitulo").textContent =
+              "Reservaciones";
+            document.getElementById("infoModalCarrusel").innerHTML =
+              carrusel.html;
+            document.getElementById("infoModalDesc").innerHTML =
+              card.querySelector(".portfolio-card-desc").innerHTML;
+            document.getElementById("infoModalTags").innerHTML = "";
+            function startCarouselWhenReadyReservaciones() {
+              if (window.bootstrap && window.bootstrap.Carousel) {
+                var el = document.getElementById(carrusel.id);
+                if (el) {
+                  var carouselInstance =
+                    window.bootstrap.Carousel.getOrCreateInstance(el, {
+                      interval: 3000,
+                      ride: "carousel",
+                      pause: false,
+                      wrap: true,
+                    });
+                  carouselInstance.cycle();
+                }
+                var imgsCarrusel = document.querySelectorAll(
+                  `#${carrusel.id} .img-carrusel-articulo`
+                );
+                imgsCarrusel.forEach(function (img) {
+                  img.onclick = function () {
+                    document.getElementById("imgAmpliada").src = img.src;
+                    document.getElementById("modalImgAmpliada").style.display =
+                      "flex";
+                  };
+                });
+              } else {
+                setTimeout(startCarouselWhenReadyReservaciones, 100);
+              }
+            }
+            startCarouselWhenReadyReservaciones();
+            document.getElementById("modalProyecto").style.display = "flex";
+            animateModalText();
+            return;
+          }
+          // Mostrar modelo 3D pizza-napolitana en vez de carrusel para el módulo "Incluye modelos 3D"
+          if (
+            card.querySelector(".portfolio-card-title")?.textContent.trim() ===
+            "Incluye modelos 3D"
+          ) {
+            e.preventDefault();
+            e.stopImmediatePropagation();
+            const titulo = "Modelo 3D";
+            const desc =
+              card.querySelector(".portfolio-card-desc")?.innerHTML.trim() ||
+              "";
+            let modelosHtml = `<div style="display:flex; justify-content:center; align-items:center; margin-bottom:2rem; min-height:340px;">
+  <model-viewer src="modelos/pizza-napolitana.glb" alt="Pizza Napolitana 3D" camera-controls auto-rotate ar ar-modes='webxr scene-viewer quick-look' style="width:340px; height:340px; background:#fff; border-radius:14px; box-shadow:0 2px 12px #0001; border:2px solid #eee; margin:0 auto; display:block;" poster="Fotos_Gas/modelo3d.webp">
+    <div slot="fallback" style='color:#111; text-align:center; font-size:1.1rem; margin-top:1.2rem;'>Tu navegador no soporta la visualización 3D.<br>Prueba en Chrome, Edge, Safari o Firefox.</div>
+  </model-viewer>
+</div>`;
+            document.getElementById("infoModalTitulo").textContent = titulo;
+            document.getElementById("infoModalCarrusel").innerHTML =
+              modelosHtml;
+            document.getElementById("infoModalDesc").innerHTML = desc;
+            document.getElementById("infoModalTags").innerHTML = "";
+            document.getElementById("modalProyecto").style.display = "flex";
+            animateModalText && animateModalText();
+            // Cargar model-viewer 1.12.0 solo si no está presente
+            if (!window.customElements.get("model-viewer")) {
+              var script = document.createElement("script");
+              script.type = "module";
+              script.src =
+                "https://unpkg.com/@google/model-viewer@1.12.0/dist/model-viewer.min.js";
+              document.head.appendChild(script);
+            }
+            return;
+          }
+          // Mostrar ambos modelos 3D (sample.glb y pizza-napolitana.glb) en vez de carrusel para el módulo "Modelos 3D" en Apps y Herramientas
+          if (
+            card.querySelector(".portfolio-card-title")?.textContent.trim() ===
+              "Modelos 3D" &&
+            btn.textContent.trim().toLowerCase() === "modelos"
+          ) {
+            e.preventDefault();
+            e.stopImmediatePropagation();
+            const titulo = "Modelos 3D";
+            const desc =
+              card.querySelector(".portfolio-card-desc")?.innerHTML.trim() ||
+              "";
+            let modelosHtml = `
+    <div style="display:flex; flex-wrap:wrap; justify-content:center; align-items:stretch; gap:2.2rem; margin-bottom:2rem; min-height:340px;">
+      <div style='flex:1 1 320px; min-width:260px; max-width:360px; display:flex; flex-direction:column; align-items:center;'>
+        <div style='font-weight:700; font-size:1.18rem; margin-bottom:0.5rem; text-align:center;'>Arroz Blanco</div>
+        <model-viewer src="modelos/sample.glb" alt="Sample 3D" camera-controls auto-rotate ar ar-modes='webxr scene-viewer quick-look' style="width:100%; min-width:220px; max-width:340px; height:340px; background:#fff; border-radius:14px; box-shadow:0 2px 12px #0001; border:2px solid #eee; margin:0 auto; display:block;" poster="Fotos_Gas/modelo3d.webp">
+          <div slot="fallback" style='color:#111; text-align:center; font-size:1.1rem; margin-top:1.2rem;'>Tu navegador no soporta la visualización 3D.<br>Prueba en Chrome, Edge, Safari o Firefox.</div>
+        </model-viewer>
+      </div>
+      <div style='flex:1 1 320px; min-width:260px; max-width:360px; display:flex; flex-direction:column; align-items:center;'>
+        <div style='font-weight:700; font-size:1.18rem; margin-bottom:0.5rem; text-align:center;'>Pizza Napolitana</div>
+        <model-viewer src="modelos/pizza-napolitana.glb" alt="Pizza Napolitana 3D" camera-controls auto-rotate ar ar-modes='webxr scene-viewer quick-look' style="width:100%; min-width:220px; max-width:340px; height:340px; background:#fff; border-radius:14px; box-shadow:0 2px 12px #0001; border:2px solid #eee; margin:0 auto; display:block;" poster="Fotos_Gas/modelo3d.webp">
+          <div slot="fallback" style='color:#111; text-align:center; font-size:1.1rem; margin-top:1.2rem;'>Tu navegador no soporta la visualización 3D.<br>Prueba en Chrome, Edge, Safari o Firefox.</div>
+        </model-viewer>
+      </div>
+    </div>`;
+            document.getElementById("infoModalTitulo").textContent = titulo;
+            document.getElementById("infoModalCarrusel").innerHTML =
+              modelosHtml;
+            document.getElementById("infoModalDesc").innerHTML = desc;
+            document.getElementById("infoModalTags").innerHTML = "";
+            document.getElementById("modalProyecto").style.display = "flex";
+            animateModalText && animateModalText();
+            // Cargar model-viewer 1.12.0 solo si no está presente
+            if (!window.customElements.get("model-viewer")) {
+              var script = document.createElement("script");
+              script.type = "module";
+              script.src =
+                "https://unpkg.com/@google/model-viewer@1.12.0/dist/model-viewer.min.js";
+              document.head.appendChild(script);
+            }
+            return;
+          }
+          if (btn.dataset.carrusel === "eventos") {
+            const titulo = "Cambio de eventos";
+            const card = btn.closest(".portfolio-card");
+            const desc =
+              card.querySelector(".portfolio-card-desc")?.innerHTML.trim() ||
+              "";
+            const carrusel = renderCarrusel(carruselImgs[titulo]);
+            document.getElementById("infoModalTitulo").textContent = titulo;
+            document.getElementById("infoModalCarrusel").innerHTML =
+              carrusel.html;
+            document.getElementById("infoModalDesc").innerHTML = desc;
+            document.getElementById("infoModalTags").innerHTML = "";
+            document.getElementById("modalProyecto").style.display = "flex";
+            animateModalText && animateModalText();
+            function startCarouselWhenReadyEventos() {
+              if (window.bootstrap && window.bootstrap.Carousel) {
+                var el = document.getElementById(carrusel.id);
+                if (el) {
+                  var carouselInstance =
+                    window.bootstrap.Carousel.getOrCreateInstance(el, {
+                      interval: 3000,
+                      ride: "carousel",
+                      pause: false,
+                      wrap: true,
+                    });
+                  carouselInstance.cycle();
+                }
+                var imgsCarrusel = document.querySelectorAll(
+                  `#${carrusel.id} .img-carrusel-articulo`
+                );
+                imgsCarrusel.forEach(function (img2) {
+                  img2.onclick = function () {
+                    document.getElementById("imgAmpliada").src = img2.src;
+                    document.getElementById("modalImgAmpliada").style.display =
+                      "flex";
+                  };
+                });
+              } else {
+                setTimeout(startCarouselWhenReadyEventos, 100);
+              }
+            }
+            startCarouselWhenReadyEventos();
+            e.preventDefault();
+            return;
+          }
+          document.getElementById("infoModalTitulo").textContent = titulo;
+          document.getElementById("infoModalDesc").innerHTML = desc;
+          const tagsDiv = document.getElementById("infoModalTags");
+          tagsDiv.innerHTML = "";
+          tags.forEach(function (tag) {
+            const span = document.createElement("span");
+            span.textContent = tag;
+            span.style.background = tag === "Pagina Web" ? "#01a54b" : "#111";
+            span.style.color = "#fff";
+            span.style.borderRadius = "12px";
+            span.style.padding = "0.18rem 0.9rem";
+            span.style.fontSize = "0.92rem";
+            span.style.fontWeight = "600";
+            span.style.letterSpacing = "0.03em";
+            span.style.margin = "0 0.2rem";
+            tagsDiv.appendChild(span);
+          });
+          // Carrusel con id único
+          const carrusel = renderCarrusel(carruselImgs[titulo] || []);
+          document.getElementById("infoModalCarrusel").innerHTML =
+            carrusel.html;
+          // Espera a que Bootstrap JS esté disponible
+          function startCarouselWhenReady() {
+            if (window.bootstrap && window.bootstrap.Carousel) {
+              var el = document.getElementById(carrusel.id);
+              if (el) {
+                var carouselInstance =
+                  window.bootstrap.Carousel.getOrCreateInstance(el, {
+                    interval: 3000,
+                    ride: "carousel",
+                    pause: false,
+                    wrap: true,
+                  });
+                carouselInstance.cycle();
+              }
+              var imgsCarrusel = document.querySelectorAll(
+                `#${carrusel.id} .img-carrusel-articulo`
+              );
+              imgsCarrusel.forEach(function (img) {
+                img.onclick = function () {
+                  document.getElementById("imgAmpliada").src = img.src;
+                  document.getElementById("modalImgAmpliada").style.display =
+                    "flex";
+                };
+              });
+            } else {
+              setTimeout(startCarouselWhenReady, 100);
+            }
+          }
+          startCarouselWhenReady();
+          document.getElementById("modalProyecto").style.display = "flex";
+          animateModalText();
+        });
+      });
+      document.getElementById("cerrarModalProyecto").onclick = function () {
+        document.getElementById("modalProyecto").style.display = "none";
+        document.getElementById("infoModalDesc").style.display = "";
+        document.getElementById("infoModalTags").style.display = "";
+      };
+      document.getElementById("modalProyecto").onclick = function (e) {
+        if (e.target === this) this.style.display = "none";
+      };
+      document.getElementById("cerrarImgAmpliada").onclick = function () {
+        document.getElementById("modalImgAmpliada").style.display = "none";
+        document.getElementById("imgAmpliada").src = "";
+      };
+      document.getElementById("modalImgAmpliada").onclick = function (e) {
+        if (e.target === this) this.style.display = "none";
+      };
+      document
+        .querySelectorAll(".portfolio-img, .portfolio-card img")
+        .forEach(function (img) {
+          img.onclick = function () {
+            document.getElementById("imgAmpliada").src = img.src;
+            document.getElementById("modalImgAmpliada").style.display = "flex";
+          };
+        });
+      document
+        .querySelectorAll(".preview-carrusel-trigger")
+        .forEach(function (img) {
+          img.onclick = function () {
+            // Show the modalProyecto with the image directly (no carousel/card)
+            document.getElementById("infoModalTitulo").textContent =
+              "Proyectos Recientes";
+            document.getElementById("infoModalTitulo").style.display = "";
+            document.getElementById("infoModalCarrusel").innerHTML =
+              '<img src="' +
+              img.src +
+              '" alt="Proyecto Reciente" style="max-width:98vw; max-height:70vh; width:auto; height:auto; display:block; margin:0 auto; border-radius:18px; box-shadow:0 4px 24px #01a54b44; background:#fff;">';
+            document.getElementById("infoModalCarrusel").style.display = "";
+            document.getElementById("infoModalDesc").style.display = "none";
+            document.getElementById("infoModalTags").style.display = "none";
+            document.getElementById("modalProyecto").style.display = "flex";
+            animateModalText && animateModalText();
+          };
+        });
+      // --- Al abrir el modal de proyectos recientes o cualquier módulo ---
+      function animateModalText() {
+        const titulo = document.getElementById("infoModalTitulo");
+        const desc = document.getElementById("infoModalDesc");
+        const tags = document.getElementById("infoModalTags");
+        if (titulo) {
+          titulo.classList.remove("modal-anim-text", "delay-1");
+          void titulo.offsetWidth;
+          titulo.classList.add("modal-anim-text", "delay-1");
+        }
+        if (desc) {
+          desc.classList.remove("modal-anim-text", "delay-2");
+          void desc.offsetWidth;
+          desc.classList.add("modal-anim-text", "delay-2");
+        }
+        if (tags) {
+          tags.classList.remove("modal-anim-text", "delay-3");
+          void tags.offsetWidth;
+          tags.classList.add("modal-anim-text", "delay-3");
+        }
+      }
+      // Mostrar/Ocultar botón de volver arriba
+      const scrollBtn = document.getElementById("scrollTopBtn");
+      window.addEventListener("scroll", function () {
+        if (window.scrollY > 180) scrollBtn.style.display = "flex";
+        else scrollBtn.style.display = "none";
+      });
+      scrollBtn.onclick = function () {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      };
+      // Corregir navbar activa en Portafolio
+      (function () {
+        var path = window.location.pathname.toLowerCase();
+        if (path.includes("index.html"))
+          document.querySelector(".HOME_ACTIVE").classList.add("active");
+        else if (path.includes("nosotros.html"))
+          document.querySelector(".NOSOTROS_ACTIVE").classList.add("active");
+        else if (path.includes("servicios.html"))
+          document.querySelector(".SERVICIOS_ACTIVE").classList.add("active");
+        else if (
+          path.includes("portafoliominimal.html") ||
+          path.includes("portafolio.html")
+        )
+          document.querySelector(".PORTAFOLIO_ACTIVE").classList.add("active");
+        else if (path.includes("contacto.html"))
+          document.querySelector(".CONTACTO_ACTIVE").classList.add("active");
+      })();
+      // Carrusel de imágenes para Proyecto Menu en el modal
+      const menuCarruseles = {
+        "Diseño Responsivo": [
+          "Fotos_Gas/menu-digital/inicio-menu.webp",
+          "Fotos_Gas/menu-digital/inicio-completa.webp",
+        ],
+        "Incluye modelos 3D": [
+          "Fotos_Gas/Programando_1.webp",
+          "Fotos_Gas/menu-digital/3d-menu.webp",
+          "Fotos_Gas/menu-digital/3d2-menu.webp",
+          "Fotos_Gas/modelo3d.webp",
+        ],
+        "Intuitivo y Accesible": [
+          "Fotos_Gas/menu-digital/promociones-menu.webp",
+          "Fotos_Gas/menu-digital/bebidas-menu.webp",
+          "Fotos_Gas/menu-digital/sushi-menu.webp",
+        ],
+      };
+      document
+        .querySelectorAll(".portfolio-card-title")
+        .forEach(function (titleEl) {
+          const card = titleEl.closest(".portfolio-card");
+          // Elimina el evento de click en la imagen para el modal
+          const img = card.querySelector("img");
+          if (img) img.style.cursor = "";
+        });
+      document.querySelectorAll(".portfolio-card-link").forEach(function (btn) {
+        const card = btn.closest(".portfolio-card");
+        const titleEl = card.querySelector(".portfolio-card-title");
+        const titulo = titleEl ? titleEl.textContent.trim() : "";
+        // Solo para Proyecto Menu (los que están en menuCarruseles)
+        if (menuCarruseles[titulo]) {
+          btn.addEventListener("click", function (e) {
+            e.preventDefault();
+            // Usa renderCarrusel para mostrar el carrusel como antes
+            const carrusel = renderCarrusel(menuCarruseles[titulo], true);
+            document.getElementById("infoModalTitulo").textContent = titulo;
+            document.getElementById("infoModalCarrusel").innerHTML =
+              carrusel.html;
+            document.getElementById("infoModalDesc").innerHTML =
+              card.querySelector(".portfolio-card-desc").innerHTML;
+            document.getElementById("infoModalDesc").style.display = "";
+            document.getElementById("infoModalTags").style.display = "";
+            document.getElementById("modalProyecto").style.display = "flex";
+            animateModalText && animateModalText();
+            // Permite ampliar imagen
+            function startCarouselWhenReadyMenu() {
+              if (window.bootstrap && window.bootstrap.Carousel) {
+                var el = document.getElementById(carrusel.id);
+                if (el) {
+                  var carouselInstance =
+                    window.bootstrap.Carousel.getOrCreateInstance(el, {
+                      interval: 3000,
+                      ride: "carousel",
+                      pause: false,
+                      wrap: true,
+                    });
+                  carouselInstance.cycle();
+                }
+                var imgsCarrusel = document.querySelectorAll(
+                  `#${carrusel.id} .img-carrusel-articulo`
+                );
+                imgsCarrusel.forEach(function (img2) {
+                  img2.onclick = function () {
+                    document.getElementById("imgAmpliada").src = img2.src;
+                    document.getElementById("modalImgAmpliada").style.display =
+                      "flex";
+                  };
+                });
+              } else {
+                setTimeout(startCarouselWhenReadyMenu, 100);
+              }
+            }
+            startCarouselWhenReadyMenu();
+          });
+        }
+      });
+    </script>
+    <!-- Figuras decorativas para congruencia visual -->
+    <div class="figura-serv figura-1"></div>
+    <div class="figura-serv figura-2"></div>
+    <div class="figura-serv figura-3"></div>
+    <div class="figura-serv figura-4"></div>
+    <div class="figura-serv figura-5"></div>
+    <div class="figura-serv figura-6"></div>
+    <div class="figura-serv figura-7"></div>
+    <div class="figura-serv figura-8"></div>
+    <footer
+      style="
+        background: #111;
+        color: #fff;
+        text-align: center;
+        padding: 2rem 0 1rem 0;
+        font-size: 1.1rem;
+        letter-spacing: 0.04em;
+        margin-top: 0;
+      "
+    >
+      <div style="margin-bottom: 0.5rem">
+        &copy; 2025 Gastronome. Todos los derechos reservados.
+      </div>
+      <div style="font-size: 0.95rem; color: #bbb">
+        Sitio desarrollado por el equipo Gastronome | contacto@gastronome.com
+      </div>
+      <div
+        style="
+          margin-top: 1.2rem;
+          display: flex;
+          justify-content: center;
+          gap: 1.5rem;
+          align-items: center;
+        "
+      >
+        <a
+          href="mailto:gastronome899@gmail.com"
+          target="_blank"
+          aria-label="Email"
+          style="
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+          "
+        >
+          <svg
+            width="28"
+            height="28"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#fff"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <rect x="3" y="5" width="18" height="14" rx="3" />
+            <polyline points="3 7 12 13 21 7" />
+          </svg>
+        </a>
+        <a
+          href="https://wa.me/524491383086"
+          target="_blank"
+          aria-label="WhatsApp"
+          style="
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+          "
+        >
+          <svg
+            width="28"
+            height="28"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#fff"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path
+              d="M21 20.3A16.88 16.88 0 0 1 12 22C6.48 22 2 17.52 2 12.01A9.99 9.99 0 0 1 12 2c5.52 0 10 4.48 10 10.01 0 2.13-.67 4.1-1.81 5.73l.81 3.26-3.26-.7z"
+            />
+            <path
+              d="M16.2 17.2c-1.2.4-2.5.6-3.8.6-4.42 0-8-3.58-8-8 0-4.42 3.58-8 8-8s8 3.58 8 8c0 1.3-.2 2.6-.6 3.8l-1.1-1.1c-.2-.2-.5-.2-.7 0l-2.1 2.1c-.2.2-.2.5 0 .7l1.1 1.1z"
+            />
+          </svg>
+        </a>
+        <a
+          href="https://instagram.com/gastronomeDevs"
+          target="_blank"
+          aria-label="Instagram"
+          style="
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+          "
+        >
+          <svg
+            width="28"
+            height="28"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#fff"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <rect x="3" y="3" width="18" height="18" rx="5" />
+            <circle cx="12" cy="12" r="4" />
+            <circle cx="17" cy="7" r="1" />
+          </svg>
+        </a>
+        <a
+          href="https://facebook.com/"
+          target="_blank"
+          aria-label="Facebook"
+          style="
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+          "
+        >
+          <svg
+            width="28"
+            height="28"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#fff"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path
+              d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+            />
+          </svg>
+        </a>
+      </div>
+    </footer>
+    <!-- --- Animación de aparición progresiva al hacer scroll --- -->
+    <script>
+      // --- Animación de aparición progresiva al hacer scroll (optimizada con IntersectionObserver) ---
+      (function () {
+        function reveal(entries, observer) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        }
+        var observer = new IntersectionObserver(reveal, { threshold: 0.12 });
+        document.addEventListener("DOMContentLoaded", function () {
+          var isMobile = window.innerWidth <= 600;
+          var selector = isMobile
+            ? ".main-title, .subtitle, .portfolio-section-title"
+            : ".main-title, .subtitle, .portfolio-section-title, .portfolio-card, .feature, .portfolio-img, .portfolio-card-title, .portfolio-card-desc, .portfolio-card-link, .portfolio-preview .portfolio-card, .portfolio-cards, .portfolio-section-bg";
+          document.querySelectorAll(selector).forEach(function (el) {
+            el.classList.add("reveal-on-scroll");
+            observer.observe(el);
+          });
+        });
+      })();
+    </script>
+    <style>
+      @media (max-width: 600px) {
+        .portfolio-card-title,
+        .portfolio-card-desc,
+        .portfolio-card-link {
+          opacity: 0;
+          transform: translateY(18px);
+          transition: opacity 0.45s cubic-bezier(0.4, 1.6, 0.6, 1),
+            transform 0.45s cubic-bezier(0.4, 1.6, 0.6, 1);
+        }
+        .portfolio-card.visible .portfolio-card-title {
+          opacity: 1;
+          transform: none;
+          transition-delay: 0.08s;
+        }
+        .portfolio-card.visible .portfolio-card-desc {
+          opacity: 1;
+          transform: none;
+          transition-delay: 0.22s;
+        }
+        .portfolio-card.visible .portfolio-card-link {
+          opacity: 1;
+          transform: none;
+          transition-delay: 0.36s;
+        }
+      }
+    </style>
+    <script>
+      (function () {
+        // Animación de aparición progresiva para móvil: títulos y módulos
+        function reveal(entries, observer) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              // Si es un módulo, animar textos internos con delay
+              if (
+                window.innerWidth <= 600 &&
+                entry.target.classList.contains("portfolio-card")
+              ) {
+                var title = entry.target.querySelector(".portfolio-card-title");
+                var desc = entry.target.querySelector(".portfolio-card-desc");
+                var link = entry.target.querySelector(".portfolio-card-link");
+                if (title) title.style.transitionDelay = "0.08s";
+                if (desc) desc.style.transitionDelay = "0.22s";
+                if (link) link.style.transitionDelay = "0.36s";
+              }
+              observer.unobserve(entry.target);
+            }
+          });
+        }
+        document.addEventListener("DOMContentLoaded", function () {
+          var isMobile = window.innerWidth <= 600;
+          var mobileSelector =
+            ".main-title, .subtitle, .portfolio-section-title, .portfolio-card, .feature";
+          var observerMobile = new IntersectionObserver(reveal, {
+            threshold: 0.13,
+          });
+          if (isMobile) {
+            document.querySelectorAll(mobileSelector).forEach(function (el) {
+              el.classList.add("reveal-on-scroll-mobile");
+              observerMobile.observe(el);
+            });
+          }
+        });
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Específico - Los 3 Cambios</title>
+    
+    <!-- Bootstrap 5.3.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- CSS del proyecto -->
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="navbar-mobile-unified.css">
+    <link rel="stylesheet" href="navbar-mobile-effects.css">
+    
+    <style>
+        /* Copia exacta del CSS que agregué al index.html */
+        @media (max-width: 600px) {
+            /* Texto blanco en móvil para sección "¿Qué hacemos?" */
+            section[style*="¿Qué hacemos?"] > div > div {
+                background: transparent !important;
+                color: #fff !important;
+                border: 2px solid #fff !important;
+            }
+            section[style*="¿Qué hacemos?"] > div > div h3,
+            section[style*="¿Qué hacemos?"] > div > div p {
+                color: #fff !important;
+            }
+            
+            /* Ajustar solo el título principal en resoluciones pequeñas */
+            section[style*="¿Qué hacemos?"] h2 {
+                font-size: 1.5rem !important;
+                line-height: 1.2 !important;
+                margin-bottom: 1.5rem !important;
+                padding: 0 1rem !important;
+            }
+        }
+        
+        /* Indicador visual para verificar que estamos en móvil */
+        @media (max-width: 600px) {
+            .mobile-indicator {
+                background: red !important;
+                color: white !important;
+                padding: 10px !important;
+                text-align: center !important;
+                font-weight: bold !important;
+            }
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- CAMBIO 3: Navbar que debe cerrar correctamente -->
+    <nav class="navbar navbar-expand-lg navbar-light" style="background: #fff; border-bottom: 1px solid #eee;">
+        <div class="container-fluid">
+            <span class="navbar-brand">Gastronome</span>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="mainNavbar">
+                <div class="navbar-nav ms-auto">
+                    <a class="nav-link HOME_ACTIVE" href="#test1">Test 1</a>
+                    <a class="nav-link" href="#test2">Test 2</a>
+                    <a class="nav-link" href="#test3">Test 3</a>
+                    <a class="nav-link" href="index.html">Index Real</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div style="padding-top: 80px;">
+        <!-- Indicador de móvil -->
+        <div class="mobile-indicator">
+            Si estás en móvil (≤600px), este banner será ROJO
+        </div>
+
+        <div style="padding: 20px;">
+            <h1>🎯 Test de los 3 Cambios Específicos</h1>
+            
+            <div style="border: 2px solid #01a54b; border-radius: 8px; padding: 20px; margin: 20px 0;">
+                <h2>📋 Checklist de Cambios</h2>
+                <ol>
+                    <li><strong>Texto blanco en móvil:</strong> Las tarjetas de "¿Qué hacemos?" deben tener texto blanco en móvil</li>
+                    <li><strong>Título ajustado:</strong> El título "¿Qué hacemos?" debe ser más pequeño en móvil</li>
+                    <li><strong>Navbar se cierra:</strong> El menú desplegable debe cerrarse al hacer clic en enlaces</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- CAMBIOS 1 y 2: Sección "¿Qué hacemos?" exacta del index.html -->
+        <section style="background:#111; color:#fff; text-align:center; padding:60px 0;">
+            <h2 class="page-anim-text delay-1" style="font-size:2rem; font-weight:700; margin-bottom:2rem;">¿Qué hacemos?</h2>
+            <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:2.5rem; max-width:900px; margin:0 auto;">
+                <div class="page-anim-text delay-2" style="flex:1 1 220px; min-width:220px; background:#fff; color:#111; border-radius:12px; padding:2rem 1.2rem; margin:0 0.5rem; border:2px solid #111;">
+                    <h3 class="page-anim-text delay-3" style="font-size:1.2rem; font-weight:700;">Páginas Web</h3>
+                    <p class="page-anim-text delay-3" style="font-size:1rem;">Realizamos sitios modernos, rápidos y responsivos para restaurantes.</p>
+                </div>
+                <div class="page-anim-text delay-3" style="flex:1 1 220px; min-width:220px; background:#fff; color:#111; border-radius:12px; padding:2rem 1.2rem; margin:0 0.5rem; border:2px solid #111;">
+                    <h3 class="page-anim-text delay-2" style="font-size:1.2rem; font-weight:700;">Menús Digitales</h3>
+                    <p class="page-anim-text delay-2" style="font-size:1rem;">Elaboramos menús interactivos QR fáciles de actualizar y compartir.</p>
+                </div>
+            </div>
+        </section>
+
+        <div style="padding: 40px 20px; text-align: center;">
+            <h2>🧪 Instrucciones de Prueba</h2>
+            
+            <div style="border: 1px solid #ddd; border-radius: 8px; padding: 20px; margin: 20px 0; text-align: left;">
+                <h3>📱 Para probar en móvil:</h3>
+                <ol>
+                    <li>Abre las herramientas de desarrollador (F12)</li>
+                    <li>Activa la vista móvil (icono de teléfono)</li>
+                    <li>Establece el ancho a 400px o menos</li>
+                    <li>Recarga la página</li>
+                    <li>Verifica:
+                        <ul>
+                            <li>El banner superior es ROJO (confirma modo móvil)</li>
+                            <li>El título "¿Qué hacemos?" es más pequeño</li>
+                            <li>El texto de las tarjetas es BLANCO (no negro)</li>
+                            <li>Las tarjetas tienen fondo transparente con borde blanco</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+
+            <div style="border: 1px solid #ddd; border-radius: 8px; padding: 20px; margin: 20px 0; text-align: left;">
+                <h3>🍔 Para probar la navbar:</h3>
+                <ol>
+                    <li>En modo móvil, haz clic en el botón hamburguesa (☰)</li>
+                    <li>Se debe abrir el menú</li>
+                    <li>Haz clic en cualquier enlace del menú</li>
+                    <li>El menú se debe cerrar automáticamente</li>
+                    <li>Repite: abre el menú y haz clic fuera de él</li>
+                    <li>También se debe cerrar</li>
+                </ol>
+            </div>
+
+            <a href="index.html" style="display: inline-block; background: #01a54b; color: white; padding: 15px 30px; text-decoration: none; border-radius: 8px; font-weight: bold; margin: 20px;">
+                🏠 Probar en Index.html Real
+            </a>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5.3.3 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- JavaScript de navbar -->
+    <script src="navbar-mobile-unified.js"></script>
+    
+    <script>
+        // Log para debug
+        console.log('🔍 Test específico cargado');
+        console.log('📱 Ancho de pantalla:', window.innerWidth);
+        console.log('🎯 ¿Es móvil?', window.innerWidth <= 600);
+    </script>
+</body>
+</html>
