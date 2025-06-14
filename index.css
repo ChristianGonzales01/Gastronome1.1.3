@@ -1121,75 +1121,84 @@ section {
   }
 }
 
-@media (max-width: 768px) {
-  .hero-title,
-  h1[style*="clamp"] {
-    font-size: clamp(40rem, 85vw, 65rem) !important;
-    line-height: 0.75 !important;
-    text-shadow: 0 8px 16px rgba(0, 0, 0, 0.5) !important;
-  }
-
-  .hero-title span,
-  h1 span[style*="color: #01a54b"] {
-    text-align: center !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    width: 100% !important;
-    display: block !important;
-    position: relative !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-  }
-}
-
-@media (max-width: 480px) {
-  .hero-title,
-  h1[style*="clamp"] {
-    font-size: clamp(50rem, 95vw, 80rem) !important;
-    line-height: 0.7 !important;
-    text-shadow: 0 10px 20px rgba(0, 0, 0, 0.6) !important;
-  }
-}
+/* Estilos móvil actualizados arriba - estos eliminados para evitar conflictos */
 
 /* Navbar estilos eliminados - ahora se usan los de navbar-shared.css */
 
-/* TÍTULO GIGANTE EN MÓVIL - SIN INTERFERENCIAS */
+/* TÍTULO GRANDE EN MÓVIL - SIN CORTES DE PALABRAS */
 @media (max-width: 768px) {
-  .hero-section h1,
-  section h1,
-  h1.hero-title,
-  .page-anim-text.hero-title {
-    font-size: clamp(40rem, 85vw, 65rem) !important;
-    line-height: 0.75 !important;
-    text-shadow: 0 8px 16px rgba(0, 0, 0, 0.5) !important;
+  .hero-section h1.hero-title,
+  section h1.page-anim-text,
+  h1.hero-title.page-anim-text,
+  .page-anim-text.hero-title.delay-1,
+  h1[class*="hero-title"] {
+    font-size: clamp(2rem, 10vw, 3.2rem) !important;
+    line-height: 1.2 !important;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3) !important;
     font-weight: 900 !important;
     color: #ffffff !important;
-    margin-bottom: 2rem !important;
+    margin-bottom: 1.5rem !important;
     text-align: center !important;
-    letter-spacing: -0.02em !important;
-    word-break: break-word !important;
-    overflow-wrap: break-word !important;
+    letter-spacing: 0.02em !important;
+    word-break: keep-all !important;
+    overflow-wrap: normal !important;
+    white-space: nowrap !important;
+    padding: 0 1rem !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
   }
 }
 
 @media (max-width: 480px) {
-  .hero-section h1,
-  section h1,
-  h1.hero-title,
-  .page-anim-text.hero-title {
-    font-size: clamp(50rem, 95vw, 80rem) !important;
-    line-height: 0.7 !important;
-    text-shadow: 0 10px 20px rgba(0, 0, 0, 0.6) !important;
-    letter-spacing: -0.03em !important;
+  .hero-section h1.hero-title,
+  section h1.page-anim-text,
+  h1.hero-title.page-anim-text,
+  .page-anim-text.hero-title.delay-1,
+  h1[class*="hero-title"] {
+    font-size: clamp(1.8rem, 9vw, 2.8rem) !important;
+    line-height: 1.1 !important;
+    text-shadow: 0 6px 12px rgba(0, 0, 0, 0.4) !important;
+    letter-spacing: 0.01em !important;
+    padding: 0 0.8rem !important;
   }
 }
 
-/* Asegurar que el navbar-toggler-icon use las líneas estándar */
-.navbar-toggler-icon {
-  width: 24px !important;
-  height: 24px !important;
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%2301a54b' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2.5' d='m4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
-  background-repeat: no-repeat !important;
-  background-position: center !important;
-  background-size: contain !important;
+/* OVERRIDE SIN CORTES PARA CUALQUIER ESTILO INLINE QUE INTERFIERA */
+@media (max-width: 768px) {
+  h1[style] {
+    font-size: clamp(2rem, 10vw, 3.2rem) !important;
+    line-height: 1.2 !important;
+    word-break: keep-all !important;
+    white-space: nowrap !important;
+  }
+}
+
+@media (max-width: 480px) {
+  h1[style] {
+    font-size: clamp(1.8rem, 9vw, 2.8rem) !important;
+    line-height: 1.1 !important;
+    word-break: keep-all !important;
+    white-space: nowrap !important;
+  }
+}
+
+/* FORZAR TAMAÑO SIN CORTES */
+@media (max-width: 768px) {
+  * h1,
+  div h1,
+  section div h1 {
+    font-size: clamp(2rem, 10vw, 3.2rem) !important;
+    word-break: keep-all !important;
+    white-space: nowrap !important;
+  }
+}
+
+@media (max-width: 480px) {
+  * h1,
+  div h1,
+  section div h1 {
+    font-size: clamp(1.8rem, 9vw, 2.8rem) !important;
+    word-break: keep-all !important;
+    white-space: nowrap !important;
+  }
 }
