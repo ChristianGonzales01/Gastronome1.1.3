@@ -181,11 +181,10 @@
         left: 100%;
       }
 
-      .main-about-btn:hover {
-        background: #D6A13B !important;
+      .main-about-btn:hover {        background: #D6A13B !important;
         border-color: #D6A13B !important;
         transform: translateY(-2px);
-        box-shadow: 0 8px 25px rgba(1, 165, 75, 0.4);
+        box-shadow: 0 8px 25px rgba(214, 161, 59, 0.4);
       }
 
       .main-contact-btn:hover {
@@ -346,20 +345,21 @@
       a.btn:hover {
         background: #D6A13B !important;
         color: #F5EFD7 !important;
-        border-color: #D6A13B !important;
-      }
+        border-color: #D6A13B !important;      }
       /* Tarjetas de la sección ¿Qué hacemos? */
       section[style*="¿Qué hacemos?"] > div > div,
       section[style*="background:#111"] > div > div {
         transition: background 0.25s, color 0.25s, box-shadow 0.25s;
       }
-      section[style*="¿Qué hacemos?"] > div > div:hover,
-      section[style*="background:#111"] > div > div:hover {
-        background: #D6A13B !important;
-        color: #F5EFD7 !important;
-        box-shadow: 0 4px 24px #D6A13B33;
-      }
-      /* Hover verde para todos los contornos */
+      
+      /* Hover solo en desktop para secciones específicas */
+      @media (min-width: 769px) {        section[style*="¿Qué hacemos?"] > div > div:hover,
+        section[style*="background:#111"] > div > div:hover {
+          background: #D6A13B !important;
+          color: #F5EFD7 !important;
+          box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+        }
+      }      /* Hover verde para todos los contornos - Solo en desktop */
       [style*="border: 2px solid #111"],
       [style*="border:2px solid #111"],
       [style*="border:2.5px solid #111"],
@@ -373,26 +373,31 @@
           box-shadow 0.38s cubic-bezier(0.4, 1.6, 0.6, 1), background 0.38s,
           color 0.38s;
       }
-      [style*="border: 2px solid #111"]:hover,
-      [style*="border:2px solid #111"]:hover,
-      [style*="border:2.5px solid #111"]:hover,
-      [style*="border: 2.5px solid #111"]:hover,
-      .faq-section:hover,
-      .faq-item:hover,
-      .main-contact-btn:hover,
-      .main-about-btn:hover,
-      .page-anim-border:hover {
-        border-color: #D6A13B !important;
-        box-shadow: 0 0 0 2px #D6A13B55;
+      
+      @media (min-width: 769px) {        [style*="border: 2px solid #111"]:hover,
+        [style*="border:2px solid #111"]:hover,
+        [style*="border:2.5px solid #111"]:hover,
+        [style*="border: 2.5px solid #111"]:hover,
+        .faq-section:hover,
+        .faq-item:hover,
+        .main-contact-btn:hover,
+        .main-about-btn:hover,
+        .page-anim-border:hover {
+          border-color: #D6A13B !important;
+          box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.2);
+        }
       }
+      
       .proyecto-img {
         border: 2px solid #eee;
         transition: border-color 0.35s cubic-bezier(0.4, 1.6, 0.6, 1),
           box-shadow 0.35s cubic-bezier(0.4, 1.6, 0.6, 1);
       }
-      .proyecto-img:hover {
-        border-color: #D6A13B !important;
-        box-shadow: 0 0 0 2px #D6A13B55;
+        @media (min-width: 769px) {
+        .proyecto-img:hover {
+          border-color: #D6A13B !important;
+          box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.2);
+        }
       }
       /* Botón Contacto igual a Sobre Nosotros */
       .main-contact-btn {
@@ -668,10 +673,9 @@
         padding: 1.2rem 0.7rem !important;
         margin: 0.5rem 0 !important;
         transition: box-shadow 0.25s, border-color 0.25s;
-      }
-      section[style*="¿Cómo trabajamos?"] > div > div:hover {
+      }      section[style*="¿Cómo trabajamos?"] > div > div:hover {
         border-color: #D6A13B !important;
-        box-shadow: 0 4px 24px #D6A13B33 !important;
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3) !important;
       }
       @media (max-width: 600px) {
         section[style*="¿Cómo trabajamos?"],
@@ -697,11 +701,10 @@
           margin: 0 !important;
           box-sizing: border-box !important;
           position: relative;
-        }
-        section[style*="¿Cómo trabajamos?"] > div > div,
+        }        section[style*="¿Cómo trabajamos?"] > div > div,
         .como-trabajamos-card {
           border-radius: 28px 28px 18px 18px/38px 38px 18px 18px !important;
-          box-shadow: 0 12px 48px #D6A13B33, 0 2px 8px #0001 !important;
+          box-shadow: 0 12px 48px rgba(0, 0, 0, 0.3), 0 2px 8px #0001 !important;
           border: none !important;
           background: #F5EFD7 !important;
           margin: 0 !important;
@@ -715,8 +718,7 @@
           overflow: visible;
           animation: cardPopIn 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
           z-index: 2;
-          border-left: 7px solid #D6A13B;
-          border-bottom: 3px solid #D6A13B22;
+          border-left: 7px solid #D6A13B;          border-bottom: 3px solid rgba(0, 0, 0, 0.1);
           transform: rotate(-1.5deg);
         }
         section[style*="¿Cómo trabajamos?"] > div > div::before {
@@ -727,7 +729,7 @@
           right: -32px;
           width: 90px;
           height: 90px;
-          background: linear-gradient(135deg, #D6A13B22 60%, #F5EFD7 100%);
+          background: linear-gradient(135deg, rgba(0, 0, 0, 0.1) 60%, #F5EFD7 100%);
           border-radius: 50%;
           z-index: 0;
           filter: blur(2px);
@@ -741,12 +743,12 @@
           bottom: -22px;
           width: 48px;
           height: 48px;
-          background: linear-gradient(135deg, #D6A13B33 60%, #D6A13B11 100%);
+          background: linear-gradient(135deg, rgba(0, 0, 0, 0.1) 60%, rgba(0, 0, 0, 0.05) 100%);
           border-radius: 50%;
           z-index: 0;
           filter: blur(1.5px);
           opacity: 0.5;
-        }        section[style*="¿Cómo trabajamos?"] > div > div p,
+        }section[style*="¿Cómo trabajamos?"] > div > div p,
         section[style*="¿Cómo trabajamos?"] > div > div h4,
         .como-trabajamos-card p,
         .como-trabajamos-card h4 {
@@ -761,34 +763,28 @@
           background: none !important;
           box-shadow: none !important;
           padding: 0 !important;
-          line-height: 1.28 !important;
-          text-shadow: 0 2px 8px #D6A13B11, 0 1px 2px #fff8;
+          line-height: 1.28 !important;          text-shadow: 0 2px 8px rgba(0, 0, 0, 0.1), 0 1px 2px #fff8;
           border-left: 6px solid #D6A13B;
           padding-left: 0.9em !important;
           border-radius: 0 16px 16px 0;
-          background: linear-gradient(90deg, #D6A13B11 0 60%, #fff0 100%);
+          background: linear-gradient(90deg, rgba(0, 0, 0, 0.05) 0 60%, #fff0 100%);
         }
         section[style*="¿Cómo trabajamos?"] > div > div .icono-ct {
           width: 2.5em;
           height: 2.5em;
           margin-bottom: 0.7em;
           color: #D6A13B;
-          filter: drop-shadow(0 2px 8px #D6A13B33);
+          filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
           display: inline-block;
           vertical-align: middle;
           z-index: 2;
         }
         section[style*="¿Cómo trabajamos?"] > div > div:last-child {
           margin-bottom: 2.2rem !important;
-        }
-        section[style*="¿Cómo trabajamos?"] > div > div {
+        }        section[style*="¿Cómo trabajamos?"] > div > div {
           cursor: pointer;
           transition: transform 0.18s cubic-bezier(0.4, 1.6, 0.6, 1),
             box-shadow 0.18s;
-        }
-        section[style*="¿Cómo trabajamos?"] > div > div:active {
-          transform: scale(0.97) rotate(-2.5deg);
-          box-shadow: 0 2px 8px #D6A13B33;
         }
         @keyframes cardPopIn {
           0% {
@@ -861,8 +857,7 @@
           padding: 0 !important;
           box-sizing: border-box !important;
           justify-items: center !important;
-        }
-        section[style*="Galeria de Proyectos"] .gallery-img {
+        }        section[style*="Galeria de Proyectos"] .gallery-img {
           width: 30vw !important;
           height: 30vw !important;
           max-width: 32vw !important;
@@ -878,10 +873,6 @@
           display: block !important;
           position: relative;
           z-index: 1;
-          transition: transform 0.18s;
-        }
-        section[style*="Galeria de Proyectos"] .gallery-img:active {
-          transform: scale(0.97) rotate(-2deg);
         }
         /* Título y slogan debajo de la galería, centrados */
         section[style*="Galeria de Proyectos"] .gallery-heading {
@@ -949,8 +940,7 @@
           padding: 0 !important;
           box-sizing: border-box !important;
           justify-items: center !important;
-        }
-        .galeria-proyectos-minimal .gallery-img {
+        }        .galeria-proyectos-minimal .gallery-img {
           width: 44vw !important;
           height: 44vw !important;
           max-width: 48vw !important;
@@ -966,10 +956,6 @@
           display: block !important;
           position: relative;
           z-index: 1;
-          transition: transform 0.18s;
-        }
-        .galeria-proyectos-minimal .gallery-img:active {
-          transform: scale(0.97) rotate(-2deg);
         }
         .galeria-proyectos-minimal .gallery-heading {
           font-family: "Inter", "Arial", sans-serif !important;
@@ -1155,10 +1141,71 @@
           margin-bottom: 20px;
           animation: pulseSlideStats 2s infinite;
         }
-        
-        @keyframes pulseSlideStats {
+          @keyframes pulseSlideStats {
           0%, 100% { opacity: 0.6; }
           50% { opacity: 1; }
+        }
+      }      /* Estilos para tarjetas de servicios y "qué hacemos" */
+      .service-card, .what-we-do-card {
+        border: 2px solid #000 !important;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+        transition: all 0.3s ease !important;
+        border-radius: 12px !important;
+      }
+
+      /* Forzar contornos negros en todas las tarjetas */
+      section[style*="¿Qué hacemos?"] > div > div {
+        border: 3px solid #000 !important;
+      }
+
+      .service-module {
+        border: 2px solid #000 !important;
+      }      /* Hover solo en desktop */
+      @media (min-width: 769px) {
+        .service-card:hover, .what-we-do-card:hover {
+          border-color: #D6A13B !important;
+          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5) !important;
+          transform: translateY(-5px) !important;
+        }
+
+        .service-card h3:hover, .what-we-do-card h3:hover {
+          color: #D6A13B !important;
+        }
+      }      /* Desactivar TODOS los hovers y efectos táctiles en móvil */
+      @media (max-width: 768px) {
+        * {
+          -webkit-touch-callout: none !important;
+          -webkit-tap-highlight-color: transparent !important;
+          touch-action: manipulation !important;
+        }
+        
+        /* Desactivar hovers específicos de tarjetas */
+        .service-card:hover, .what-we-do-card:hover, .service-module:hover,
+        .feature-card:hover, .project-card:hover,
+        section[style*="¿Qué hacemos?"] > div > div:hover,
+        section[style*="background:#111"] > div > div:hover,
+        [style*="border: 2px solid"]:hover, [style*="border:2px solid"]:hover {
+          background: inherit !important;
+          color: inherit !important;
+          border-color: inherit !important;
+          box-shadow: inherit !important;
+          transform: none !important;
+        }
+        
+        img, .gallery-img, .proyecto-img, .service-card, .what-we-do-card {
+          -webkit-touch-callout: none !important;
+          -webkit-tap-highlight-color: transparent !important;
+          touch-action: manipulation !important;
+          transition: none !important;
+        }
+        
+        img:hover, img:active, img:focus,
+        .gallery-img:hover, .gallery-img:active, .gallery-img:focus,
+        .proyecto-img:hover, .proyecto-img:active, .proyecto-img:focus {
+          transform: none !important;
+          scale: none !important;
+          filter: none !important;
+          opacity: 1 !important;
         }
       }
     </style>
@@ -1470,10 +1517,8 @@
     <!-- Sección Servicios -->
     <section class="services-section">
       <div class="section-container">
-        <h2 class="section-title">Nuestros Servicios</h2>
-
-        <div class="services-grid">
-          <div class="service-module">
+        <h2 class="section-title">Nuestros Servicios</h2>        <div class="services-grid">
+          <div class="service-module service-card">
             <div class="service-icon web-design">
               <div class="icon-content"></div>
             </div>
@@ -1482,7 +1527,7 @@
             <a href="Servicios.html" class="service-link">Ver más</a>
           </div>
 
-          <div class="service-module">
+          <div class="service-module service-card">
             <div class="service-icon digital-menu">
               <div class="icon-content"></div>
             </div>
@@ -1491,7 +1536,7 @@
             <a href="Servicios.html" class="service-link">Ver más</a>
           </div>
 
-          <div class="service-module">
+          <div class="service-module service-card">
             <div class="service-icon branding">
               <div class="icon-content"></div>
             </div>
@@ -1500,7 +1545,7 @@
             <a href="Servicios.html" class="service-link">Ver más</a>
           </div>
 
-          <div class="service-module">
+          <div class="service-module service-card">
             <div class="service-icon automation">
               <div class="icon-content"></div>
             </div>
@@ -1518,10 +1563,10 @@
           <p style="font-size: 1.3rem; color: rgba(255,255,255,0.9); margin-bottom: 2rem; line-height: 1.6;">
             Únete a más de 100 restaurantes que han revolucionado su presencia digital con nuestras soluciones innovadoras
           </p>          <div class="cta-buttons-final" style="display: flex; gap: 1rem; flex-wrap: wrap;">
-            <a href="Contacto.html" class="cta-primary-final" style="background: #000000; color: #F5EFD7; padding: 15px 30px; border-radius: 10px; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 10px; transition: all 0.3s ease; border: 2px solid #000000;">
+            <a href="Contacto.html" class="cta-primary-final" style="background: #D6A13B; color: #F5EFD7; padding: 15px 30px; border-radius: 10px; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 10px; transition: all 0.3s ease; border: 2px solid #D6A13B;">
               <span>Comenzar ahora</span>
-              <div class="button-arrow-final" style="width: 20px; height: 20px; background: #000000; mask: url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22currentColor%22 stroke-width=%222%22%3E%3Cpath d=%22M5 12h14M12 5l7 7-7 7%22/%3E%3C/svg%3E') no-repeat center; mask-size: contain;"></div>
-            </a>            <a href="PortafolioMinimal.html" class="cta-secondary-final" style="background: #000000; color: #F5EFD7; padding: 15px 30px; border: 2px solid #000000; border-radius: 10px; text-decoration: none; font-weight: 600; transition: all 0.3s ease;">
+              <div class="button-arrow-final" style="width: 20px; height: 20px; background: #D6A13B; mask: url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22currentColor%22 stroke-width=%222%22%3E%3Cpath d=%22M5 12h14M12 5l7 7-7 7%22/%3E%3C/svg%3E') no-repeat center; mask-size: contain;"></div>
+            </a>            <a href="PortafolioMinimal.html" class="cta-secondary-final" style="background: #D6A13B; color: #F5EFD7; padding: 15px 30px; border: 2px solid #D6A13B; border-radius: 10px; text-decoration: none; font-weight: 600; transition: all 0.3s ease;">
               <span>Ver portafolio</span>
             </a>
           </div>
@@ -1537,7 +1582,7 @@
               <img src="Fotos_Gas/modelo3d.webp" alt="Modelo 3D" class="carousel-image">
               <img src="Fotos_Gas/platillos-especiales.webp" alt="Platillos especiales" class="carousel-image">
             </div>
-            <div style="position: absolute; inset: 0; background: linear-gradient(45deg, rgba(1,165,75,0.2) 0%, rgba(255,255,255,0.1) 100%); z-index: 3; pointer-events: none;"></div>
+            <div style="position: absolute; inset: 0; background: linear-gradient(45deg, rgba(214,161,59,0.2) 0%, rgba(255,255,255,0.1) 100%); z-index: 3; pointer-events: none;"></div>
           </div>
         </div>
       </div>
@@ -1666,10 +1711,10 @@
           font-size: 1.2rem !important;
           font-weight: 700 !important;
           justify-content: center !important;
-          background: #000000 !important;
+          background: #D6A13B !important;
           color: #F5EFD7 !important;
           border-radius: 50px !important;
-          border: 2px solid #000000 !important;
+          border: 2px solid #D6A13B !important;
           box-shadow: 
             0 8px 25px rgba(0,0,0,0.15),
             0 3px 10px rgba(0,0,0,0.1) !important;
@@ -1688,9 +1733,9 @@
           font-size: 1.1rem !important;
           font-weight: 600 !important;
           justify-content: center !important;
-          background: #000000 !important;
+          background: #D6A13B !important;
           color: #F5EFD7 !important;
-          border: 2px solid #000000 !important;
+          border: 2px solid #D6A13B !important;
           border-radius: 50px !important;
           backdrop-filter: blur(10px) !important;
           transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
@@ -1831,93 +1876,6 @@
         }
       }
     </style>
-    <!-- SCRIPT AVANZADO PARA DETECCIÓN DE COLOR EN DISEÑO DIAGONAL -->
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const textElements = document.querySelectorAll(".auto-color"); // Función para determinar si una coordenada está en la zona negra (triángulo)
-        const isInBlackTriangle = (x, y) => {
-          const windowWidth = window.innerWidth;
-          const windowHeight = window.innerHeight;
-
-          // El triángulo va desde (0,0) hasta (windowWidth, windowHeight)
-          // La línea diagonal tiene pendiente = windowHeight / windowWidth
-          // Ecuación de la línea: y = (windowHeight / windowWidth) * x
-          const diagonalYAtX = (windowHeight / windowWidth) * x;
-
-          // Si el punto está POR ENCIMA de la línea diagonal, está en la zona negra
-          return y <= diagonalYAtX;
-        };
-        const updateTextColor = (element) => {
-          const rect = element.getBoundingClientRect();
-          const centerX = rect.left + rect.width / 2;
-          const centerY = rect.top + rect.height / 2;
-
-          const inBlackZone = isInBlackTriangle(centerX, centerY);
-
-          console.log(
-            `Texto: "${element.textContent.substring(0, 10)}", X: ${Math.round(
-              centerX
-            )}, Y: ${Math.round(centerY)}, En zona negra: ${inBlackZone}`
-          );
-
-          if (inBlackZone) {
-            element.style.setProperty("color", "#F5EFD7", "important");
-            element.style.setProperty(
-              "-webkit-text-fill-color",
-              "#F5EFD7",
-              "important"
-            );
-            console.log("→ Aplicando color BLANCO");
-          } else {
-            element.style.setProperty("color", "black", "important");
-            element.style.setProperty(
-              "-webkit-text-fill-color",
-              "black",
-              "important"
-            );
-            console.log("→ Aplicando color NEGRO");
-          }
-        };
-
-        const updateAllTextColors = () => {
-          textElements.forEach(updateTextColor);
-        };
-
-        // Ejecutar inmediatamente y en eventos
-        updateAllTextColors();
-
-        // Usar IntersectionObserver para detectar cuando el texto está visible
-        const observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                updateTextColor(entry.target);
-              }
-            });
-          },
-          {
-            threshold: 0.1,
-            rootMargin: "50px",
-          }
-        );
-
-        // Observar todos los elementos de texto
-        textElements.forEach((el) => observer.observe(el));
-
-        // También actualizar en resize y scroll
-        window.addEventListener("resize", () => {
-          setTimeout(updateAllTextColors, 100);
-        });
-
-        window.addEventListener("scroll", () => {
-          setTimeout(updateAllTextColors, 10);
-        }); // Forzar actualización múltiples veces al inicio
-        setTimeout(updateAllTextColors, 10);
-        setTimeout(updateAllTextColors, 50);
-        setTimeout(updateAllTextColors, 100);
-        setTimeout(updateAllTextColors, 200);
-      }); // <-- Cierra el event listener de DOMContentLoaded
-    </script>
 
     <!-- Bootstrap JavaScript -->    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     
@@ -1931,7 +1889,7 @@
       
       <div style="position: relative; z-index: 2;">        <h2
           class="page-anim-text delay-1 services-title"
-          style="font-size: 3rem; font-weight: 800; margin-bottom: 1rem; color: #000000 !important; -webkit-text-fill-color: #000000 !important; letter-spacing: -0.02em;"
+          style="font-size: 3rem; font-weight: 800; margin-bottom: 1rem; color: #D6A13B !important; -webkit-text-fill-color: #D6A13B !important; letter-spacing: -0.02em;"
         >
           ¿Qué hacemos?
         </h2>
@@ -1947,8 +1905,8 @@
             max-width: 1200px;
             margin: 0 auto;
           "
-        ><div
-            class="page-anim-text delay-2"
+        >          <div
+            class="page-anim-text delay-2 what-we-do-card"
             style="
               background: #F5EFD7;
               color: #111;
@@ -1961,14 +1919,13 @@
               overflow: hidden;
             "
           >
-            <div style="background: #D6A13B; color: #F5EFD7; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem auto; font-size: 1.5rem; font-weight: bold;">🌐</div>            <h3 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 1rem; color: #000;">
-              Páginas Web
-            </h3>            <p style="line-height: 1.6; margin-bottom: 1.5rem; color: #555;">
+            <div style="background: #D6A13B; color: #F5EFD7; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem auto; font-size: 1.5rem; font-weight: bold;">🌐</div>            <h3 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 1rem; color: #000;">              Páginas Web
+            </h3>            <p style="line-height: 1.6; margin-bottom: 1.5rem; color: #000;">
               Sitios web modernos y responsivos que reflejan la esencia de tu restaurante
             </p>
-            <a href="Servicios.html" style="background: #D6A13B; color: #F5EFD7; padding: 12px 24px; border-radius: 25px; text-decoration: none; font-weight: 600; display: inline-block; text-align: center; box-shadow: 0 4px 12px rgba(1, 165, 75, 0.3); transition: all 0.3s ease; border: none;">Ver más →</a>
+            <a href="Servicios.html" style="background: #D6A13B; color: #F5EFD7; padding: 12px 24px; border-radius: 25px; text-decoration: none; font-weight: 600; display: inline-block; text-align: center; box-shadow: 0 4px 12px rgba(214, 161, 59, 0.3); transition: all 0.3s ease; border: none;">Ver más →</a>
           </div>          <div
-            class="page-anim-text delay-3"
+            class="page-anim-text delay-3 what-we-do-card"
             style="
               background: #F5EFD7;
               color: #111;
@@ -1981,14 +1938,13 @@
               overflow: hidden;
             "
           >
-            <div style="background: #D6A13B; color: #F5EFD7; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem auto; font-size: 1.5rem; font-weight: bold;">📱</div>            <h3 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 1rem; color: #000;">
-              Menús Digitales
-            </h3>            <p style="line-height: 1.6; margin-bottom: 1.5rem; color: #555;">
+            <div style="background: #D6A13B; color: #F5EFD7; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem auto; font-size: 1.5rem; font-weight: bold;">📱</div>            <h3 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 1rem; color: #000;">              Menús Digitales
+            </h3>            <p style="line-height: 1.6; margin-bottom: 1.5rem; color: #000;">
               Menús interactivos con códigos QR para una experiencia gastronómica única
             </p>
-            <a href="Servicios.html" style="background: #D6A13B; color: #F5EFD7; padding: 12px 24px; border-radius: 25px; text-decoration: none; font-weight: 600; display: inline-block; text-align: center; box-shadow: 0 4px 12px rgba(1, 165, 75, 0.3); transition: all 0.3s ease; border: none;">Ver más →</a>
+            <a href="Servicios.html" style="background: #D6A13B; color: #F5EFD7; padding: 12px 24px; border-radius: 25px; text-decoration: none; font-weight: 600; display: inline-block; text-align: center; box-shadow: 0 4px 12px rgba(214, 161, 59, 0.3); transition: all 0.3s ease; border: none;">Ver más →</a>
           </div>          <div
-            class="page-anim-text delay-4"
+            class="page-anim-text delay-4 what-we-do-card"
             style="
               background: #F5EFD7;
               color: #111;
@@ -2001,12 +1957,11 @@
               overflow: hidden;
             "
           >
-            <div style="background: #D6A13B; color: #F5EFD7; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem auto; font-size: 1.5rem; font-weight: bold;">🎨</div>            <h3 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 1rem; color: #000;">
-              Branding Digital
-            </h3>            <p style="line-height: 1.6; margin-bottom: 1.5rem; color: #555;">
+            <div style="background: #D6A13B; color: #F5EFD7; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem auto; font-size: 1.5rem; font-weight: bold;">🎨</div>            <h3 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 1rem; color: #000;">              Branding Digital
+            </h3>            <p style="line-height: 1.6; margin-bottom: 1.5rem; color: #000;">
               Identidad visual completa que haga destacar tu marca en el mercado
             </p>
-            <a href="Servicios.html" style="background: #D6A13B; color: #F5EFD7; padding: 12px 24px; border-radius: 25px; text-decoration: none; font-weight: 600; display: inline-block; text-align: center; box-shadow: 0 4px 12px rgba(1, 165, 75, 0.3); transition: all 0.3s ease; border: none;">Ver más →</a>
+            <a href="Servicios.html" style="background: #D6A13B; color: #F5EFD7; padding: 12px 24px; border-radius: 25px; text-decoration: none; font-weight: 600; display: inline-block; text-align: center; box-shadow: 0 4px 12px rgba(214, 161, 59, 0.3); transition: all 0.3s ease; border: none;">Ver más →</a>
           </div>        </div>
       </div>
     </section>
@@ -2025,25 +1980,25 @@
           <div style="background: #F5EFD7; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); border-top: 4px solid #D6A13B;">
             <div style="font-size: 3rem; font-weight: 800; color: #D6A13B; margin-bottom: 0.5rem;">100+</div>
             <h4 style="font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem; color: #111;">Restaurantes Activos</h4>
-            <p style="color: #666; font-size: 0.9rem;">Confiando en nuestras soluciones</p>
+            <p style="color: #000; font-size: 0.9rem;">Confiando en nuestras soluciones</p>
           </div>
           
           <div style="background: #F5EFD7; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); border-top: 4px solid #D6A13B;">
             <div style="font-size: 3rem; font-weight: 800; color: #D6A13B; margin-bottom: 0.5rem;">95%</div>
             <h4 style="font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem; color: #111;">Satisfacción Cliente</h4>
-            <p style="color: #666; font-size: 0.9rem;">Calificación promedio</p>
+            <p style="color: #000; font-size: 0.9rem;">Calificación promedio</p>
           </div>
           
           <div style="background: #F5EFD7; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); border-top: 4px solid #D6A13B;">
             <div style="font-size: 3rem; font-weight: 800; color: #D6A13B; margin-bottom: 0.5rem;">24/7</div>
             <h4 style="font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem; color: #111;">Soporte Técnico</h4>
-            <p style="color: #666; font-size: 0.9rem;">Asistencia continua</p>
+            <p style="color: #000; font-size: 0.9rem;">Asistencia continua</p>
           </div>
           
           <div style="background: #F5EFD7; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); border-top: 4px solid #D6A13B;">
             <div style="font-size: 3rem; font-weight: 800; color: #D6A13B; margin-bottom: 0.5rem;">2025</div>
             <h4 style="font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem; color: #111;">Año de Fundación</h4>
-            <p style="color: #666; font-size: 0.9rem;">Experiencia comprobada</p>
+            <p style="color: #000; font-size: 0.9rem;">Experiencia comprobada</p>
           </div>
         </div>
         
@@ -2051,18 +2006,17 @@
         <div style="background: linear-gradient(135deg, #D6A13B 0%, #D6A13B 100%); color: #F5EFD7; padding: 3rem 2rem; border-radius: 20px; margin-top: 2rem; position: relative; overflow: hidden;">
           <div style="position: absolute; top: -50px; right: -50px; width: 100px; height: 100px; background: rgba(255,255,255,0.1); border-radius: 50%;"></div>
           <div style="position: absolute; bottom: -30px; left: -30px; width: 80px; height: 80px; background: rgba(255,255,255,0.1); clip-path: polygon(50% 0%, 0% 100%, 100% 100%);"></div>
-          
-          <div style="position: relative; z-index: 2;">
-            <p style="font-size: 1.4rem; font-style: italic; margin-bottom: 1.5rem; line-height: 1.6;">
+            <div style="position: relative; z-index: 2;">
+            <p style="font-size: 1.4rem; font-style: italic; margin-bottom: 1.5rem; line-height: 1.6; color: #F5EFD7 !important; -webkit-text-fill-color: #F5EFD7 !important;">
               "Gastronome transformó completamente la experiencia digital de nuestro restaurante. Las ventas online aumentaron un 200% en solo 3 meses."
             </p>
             <div style="display: flex; align-items: center; justify-content: center; gap: 1rem;">
               <div style="width: 50px; height: 50px; background: rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">👨‍🍳</div>
               <div style="text-align: left;">
-                <h4 style="margin: 0; font-weight: 600;">Carlos Mendoza</h4>
-                <p style="margin: 0; opacity: 0.9; font-size: 0.9rem;">Chef Propietario - La Mesa Redonda</p>
+                <h4 style="margin: 0; font-weight: 600; color: #F5EFD7 !important; -webkit-text-fill-color: #F5EFD7 !important;">Carlos Mendoza</h4>
+                <p style="margin: 0; opacity: 0.9; font-size: 0.9rem; color: #F5EFD7 !important; -webkit-text-fill-color: #F5EFD7 !important;">Chef Propietario - La Mesa Redonda</p>
               </div>
-            </div>          </div>
+            </div></div>
         </div>
       </div>
     </section>

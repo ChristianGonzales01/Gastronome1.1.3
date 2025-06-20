@@ -49,7 +49,7 @@
   .navbar-toggler {
     display: block !important;
     margin-left: auto !important;
-    border: 1.5px solid #D6A13B !important;
+    border: 1.5px solid #000 !important;
     background: #F5EFD7 !important;
     width: 54px !important;
     height: 54px !important;
@@ -109,19 +109,19 @@
 
   .navbar-nav .nav-link:hover,
   .navbar-nav .nav-link:focus {
-    color: #D6A13B !important;
+    color: #000 !important;
     background: #e8f5e8 !important;
-    border-color: #D6A13B !important;
+    border-color: #000 !important;
     transform: translateY(-2px) !important;
-    box-shadow: 0 4px 12px rgba(1, 165, 75, 0.2) !important;
+    box-shadow: 0 4px 12px rgba(214, 161, 59, 0.2) !important;
   }
 
   .navbar-nav .nav-link.active {
     color: #F5EFD7 !important;
-    background: #D6A13B !important;
-    border-color: #D6A13B !important;
+    background: #000 !important;
+    border-color: #000 !important;
     font-weight: 700 !important;
-    box-shadow: 0 4px 16px rgba(1, 165, 75, 0.3) !important;
+    box-shadow: 0 4px 16px rgba(214, 161, 59, 0.3) !important;
   }
 
   /* ANIMACIONES PARA EL DESPLEGABLE */
@@ -147,7 +147,7 @@
   .navbar-toggler-icon {
     width: 24px !important;
     height: 24px !important;
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%2301a54b' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2.5' d='m4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23d6a13b' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2.5' d='m4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
     background-repeat: no-repeat !important;
     background-position: center !important;
     background-size: contain !important;
@@ -209,23 +209,23 @@
 
   .navbar-nav .nav-link:hover,
   .navbar-nav .nav-link:focus {
-    color: #D6A13B !important;
-    border: 1.2px solid #D6A13B !important;
-    background: rgba(1, 165, 75, 0.05) !important;
+    color: #000 !important;
+    border: 1.2px solid #000 !important;
+    background: rgba(214, 161, 59, 0.05) !important;
     transform: translateX(5px) !important;
   }
 
   .navbar-nav .nav-link.active {
-    color: #D6A13B !important;
-    border: 1.2px solid #D6A13B !important;
-    background: rgba(1, 165, 75, 0.1) !important;
+    color: #000 !important;
+    border: 1.2px solid #000 !important;
+    background: rgba(214, 161, 59, 0.1) !important;
     font-weight: 800 !important;
-    box-shadow: 0 2px 8px rgba(1, 165, 75, 0.2) !important;
+    box-shadow: 0 2px 8px rgba(214, 161, 59, 0.2) !important;
   }
 
   .navbar-nav .nav-link.active:hover {
     transform: translateX(5px) !important;
-    box-shadow: 0 4px 12px rgba(1, 165, 75, 0.3) !important;
+    box-shadow: 0 4px 12px rgba(214, 161, 59, 0.3) !important;
   }
 
   /* PROTECCIÓN CONTRA INTERFERENCIAS EXTERNAS */
@@ -310,3 +310,5 @@
     height: 32px !important;
   }
 }
+
+

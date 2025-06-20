@@ -1,6 +1,6 @@
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #F5EFD7;
+  background-color: #f5efd7;
   color: #000;
   scroll-behavior: smooth;
   margin: 0 !important;
@@ -11,7 +11,7 @@ h2 {
   font-weight: bold;
 }
 section[style*="background:#f8f9fa"] h2 {
-  color: #D6A13B !important; /* Verde */
+  color: #d6a13b !important; /* Verde */
 }
 
 section img {
@@ -19,17 +19,17 @@ section img {
 }
 
 header {
-  background-color: #000000;
-  color: #F5EFD7;
+  background-color: #d6a13b;
+  color: #f5efd7;
   text-align: center;
   padding: 100px 20px;
 }
 
 header .btn {
-  background-color: #F5EFD7;
-  color: #000000;
+  background-color: #f5efd7;
+  color: #d6a13b;
   padding: 10px 25px;
-  border: 2px solid #F5EFD7;
+  border: 2px solid #f5efd7;
   border-radius: 5px;
   text-decoration: none;
   margin-top: 20px;
@@ -39,9 +39,9 @@ header .btn {
 }
 
 header .btn:hover {
-  background-color: #000000;
-  color: #F5EFD7;
-  border: 2px solid #F5EFD7;
+  background-color: #d6a13b;
+  color: #f5efd7;
+  border: 2px solid #f5efd7;
 }
 
 .container {
@@ -49,14 +49,14 @@ header .btn:hover {
   max-width: 1100px;
   margin: auto;
   padding: 40px 0;
-  background-color: #F5EFD7;
+  background-color: #f5efd7;
 }
 
 section {
   padding: 40px 0;
 }
 h2 {
-  color: #000000;
+  color: #d6a13b;
   margin-bottom: 20px;
   text-align: center;
   font-weight: bold;
@@ -64,17 +64,17 @@ h2 {
 section[style*="background:#111"] h2,
 section[style*="background: #111"] h2,
 .services-title {
-  color: #F5EFD7 !important;
+  color: #f5efd7 !important;
 }
 .services h2 {
-  color: #000000 !important; /* Verde */
+  color: #d6a13b !important; /* Verde */
 }
 /* Específico para PC/desktop */
 @media (min-width: 992px) {
   section[style*="background:#111"] h2,
   section[style*="background: #111"] h2,
   .services-title {
-    color: #F5EFD7 !important;
+    color: #f5efd7 !important;
   }
 }
 
@@ -108,17 +108,17 @@ input,
 textarea {
   padding: 10px;
   font-size: 16px;
-  border: 1px solid #000000;
+  border: 1px solid #d6a13b;
   border-radius: 5px;
   width: 100%;
   box-sizing: border-box;
-  background-color: #F5EFD7;
-  color: #000000;
+  background-color: #f5efd7;
+  color: #d6a13b;
 }
 
 button {
-  background-color: #000000;
-  color: #F5EFD7;
+  background-color: #d6a13b;
+  color: #f5efd7;
   border: none;
   padding: 12px;
   cursor: pointer;
@@ -133,8 +133,8 @@ button:hover {
 
 footer {
   text-align: center;
-  background-color: #000000;
-  color: #F5EFD7;
+  background-color: #d6a13b;
+  color: #f5efd7;
   padding: 20px;
 }
 @media (max-width: 900px) {
@@ -291,13 +291,12 @@ button:hover {
     width: 100% !important;
     padding: 0 !important;
   }
-
   /* Palabra "Gastronome" con espaciado especial - MASIVA Y MENOS SEPARADA */
   .hero-title span,
   h1 span[style*="color: #D6A13B"] {
-    color: #D6A13B !important;
+    color: #d6a13b !important;
     background: none !important;
-    text-shadow: 0 10px 20px rgba(1, 165, 75, 0.6) !important;
+    text-shadow: 0 10px 20px rgba(214, 161, 59, 0.6) !important;
     letter-spacing: 0.1em !important;
     font-size: 1.25em !important;
     display: block !important;
@@ -319,7 +318,7 @@ button:hover {
   section[style*="background:#111"] h2,
   .services-title,
   h2[style*="font-size: 2rem"] {
-    color: #F5EFD7 !important;
+    color: #f5efd7 !important;
     font-size: 4.8rem !important;
     margin-bottom: 2.5rem !important;
     font-weight: 900 !important;
@@ -352,13 +351,12 @@ button:hover {
     letter-spacing: -0.08em !important;
     transform: none !important;
   }
-
   /* Palabra "Gastronome" aún más destacada en móviles pequeños */
   .hero-title span,
   h1 span[style*="color: #D6A13B"] {
-    color: #D6A13B !important;
+    color: #d6a13b !important;
     background: none !important;
-    text-shadow: 0 8px 16px rgba(1, 165, 75, 0.5) !important;
+    text-shadow: 0 8px 16px rgba(214, 161, 59, 0.5) !important;
     letter-spacing: 0.2em !important;
     font-size: 1.15em !important;
     display: block !important;
@@ -405,7 +403,7 @@ button:hover {
   /* Título principal con diseño minimalista y limpio */
   .hero-title,
   h1[style*="clamp(3rem, 4.5rem)"] {
-    color: #F5EFD7 !important;
+    color: #f5efd7 !important;
     background: none !important;
     -webkit-background-clip: initial !important;
     -webkit-text-fill-color: initial !important;
@@ -418,7 +416,7 @@ button:hover {
   /* Mejorar la palabra "Gastronome" con diseño minimalista */
   .hero-title span[style*="color: #D6A13B"],
   h1 span[style*="color: #D6A13B"] {
-    color: #D6A13B !important;
+    color: #d6a13b !important;
     background: none !important;
     -webkit-background-clip: initial !important;
     -webkit-text-fill-color: initial !important;
@@ -512,7 +510,7 @@ section {
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
     margin-bottom: 3rem !important;
     opacity: 0.95 !important;
-    color: #F5EFD7 !important;
+    color: #f5efd7 !important;
     max-width: 90% !important;
     margin-left: auto !important;
     margin-right: auto !important;
@@ -539,7 +537,7 @@ section {
     font-weight: 900 !important;
     letter-spacing: 0.08em !important;
     text-align: center !important;
-    color: #F5EFD7 !important;
+    color: #f5efd7 !important;
     text-shadow: 0 10px 20px rgba(0, 0, 0, 0.6) !important;
     width: 100% !important;
     margin-left: auto !important;
@@ -552,9 +550,9 @@ section {
   /* Palabra "Gastronome" minimalista - MASIVA Y MENOS SEPARADA */
   .hero-title span,
   h1 span[style*="color: #D6A13B"] {
-    color: #D6A13B !important;
+    color: #d6a13b !important;
     background: none !important;
-    text-shadow: 0 10px 20px rgba(1, 165, 75, 0.6) !important;
+    text-shadow: 0 10px 20px rgba(214, 161, 59, 0.6) !important;
     font-size: 1.2em !important;
     letter-spacing: 0.1em !important;
   }
@@ -563,7 +561,7 @@ section {
   .hero-subtitle,
   p[style*="clamp"] {
     font-size: clamp(1.5rem, 4.5vw, 1.9rem) !important;
-    color: #F5EFD7 !important;
+    color: #f5efd7 !important;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
     width: 90% !important;
     margin-left: auto !important;
@@ -617,7 +615,7 @@ section {
 @media (min-width: 769px) {
   .hero-title,
   h1[style*="clamp"] {
-    color: #F5EFD7 !important;
+    color: #f5efd7 !important;
     background: none !important;
     transform: none !important;
   }
@@ -625,7 +623,7 @@ section {
   .hero-title span,
   .hero-title span[style*="color"],
   h1 span[style*="color"] {
-    color: #D6A13B !important;
+    color: #d6a13b !important;
     background: none !important;
     display: block !important;
     text-align: center !important;
@@ -650,7 +648,7 @@ section {
     right: 7%;
     width: 20px;
     height: 20px;
-    border: 1px solid rgba(1, 165, 75, 0.3);
+    border: 1px solid rgba(214, 161, 59, 0.3);
     border-radius: 50%;
     animation: fadeInScale 2s ease-out 0.3s both;
   }
@@ -672,7 +670,7 @@ section {
     left: 10%;
     width: 15px;
     height: 1px;
-    background: rgba(1, 165, 75, 0.4);
+    background: rgba(214, 161, 59, 0.4);
     animation: slideInLeft 1.5s ease-out 0.4s both;
   }
 
@@ -683,7 +681,7 @@ section {
     left: 12%;
     width: 3px;
     height: 3px;
-    background: rgba(1, 165, 75, 0.5);
+    background: rgba(214, 161, 59, 0.5);
     border-radius: 50%;
     animation: floatDot 4s ease-in-out infinite, fadeIn 1s ease-out 0.5s both;
   }
@@ -706,7 +704,7 @@ section {
     right: 8%;
     width: 4px;
     height: 4px;
-    background: rgba(1, 165, 75, 0.3);
+    background: rgba(214, 161, 59, 0.3);
     border-radius: 50%;
     animation: floatDot 6s ease-in-out infinite, fadeIn 1s ease-out 0.7s both;
   }
@@ -755,7 +753,7 @@ section {
     position: absolute;
     width: 60px;
     height: 60px;
-    border: 1px solid rgba(1, 165, 75, 0.2);
+    border: 1px solid rgba(214, 161, 59, 0.2);
     border-radius: 50%;
     animation: fadeInScale 2s ease-out 0.5s both;
   }
@@ -766,7 +764,7 @@ section {
     left: 15px;
     width: 30px;
     height: 30px;
-    border: 1px solid rgba(1, 165, 75, 0.4);
+    border: 1px solid rgba(214, 161, 59, 0.4);
     border-radius: 50%;
     animation: fadeInScale 2s ease-out 2.5s both;
   }
@@ -792,7 +790,7 @@ section {
     top: 10px;
     width: 60px;
     height: 1px;
-    background: rgba(1, 165, 75, 0.3);
+    background: rgba(214, 161, 59, 0.3);
     animation: slideInLeft 1.5s ease-out 3.1s both;
   }
 
@@ -822,7 +820,7 @@ section {
     right: 15%;
     width: 20px;
     height: 1px;
-    background: rgba(1, 165, 75, 0.3);
+    background: rgba(214, 161, 59, 0.3);
     animation: slideInLeft 1.5s ease-out 2.5s both;
   }
 
@@ -832,7 +830,7 @@ section {
     left: 8%;
     width: 4px;
     height: 4px;
-    background: rgba(1, 165, 75, 0.4);
+    background: rgba(214, 161, 59, 0.4);
     border-radius: 50%;
     animation: floatDot 4s ease-in-out infinite, fadeIn 1s ease-out 3s both;
   }
@@ -855,7 +853,7 @@ section {
     right: 5%;
     width: 5px;
     height: 5px;
-    background: rgba(1, 165, 75, 0.2);
+    background: rgba(214, 161, 59, 0.2);
     border-radius: 50%;
     animation: floatDot 6s ease-in-out infinite, fadeIn 1s ease-out 4s both;
   }
@@ -948,7 +946,7 @@ section {
     right: 10%;
     width: 4px;
     height: 4px;
-    background: rgba(1, 165, 75, 0.3);
+    background: rgba(214, 161, 59, 0.3);
     border-radius: 50%;
     animation: floatDot 4s ease-in-out infinite;
   }
@@ -1015,13 +1013,13 @@ section {
   .hero-title span[style*="color"],
   .hero-title span[style*="letter-spacing"],
   h1 span[style*="color"] {
-    color: #D6A13B !important;
+    color: #d6a13b !important;
     letter-spacing: 0.15em !important;
     display: block !important;
     text-align: center !important;
     margin-top: 1rem !important;
     font-size: 1.1em !important;
-    text-shadow: 0 6px 12px rgba(1, 165, 75, 0.4) !important;
+    text-shadow: 0 6px 12px rgba(214, 161, 59, 0.4) !important;
     background: none !important;
     animation: pulse 2s ease-in-out infinite !important;
   }
@@ -1034,7 +1032,7 @@ section {
     letter-spacing: 0.2em !important;
     margin-top: 1.2rem !important;
     font-size: 1.15em !important;
-    text-shadow: 0 8px 16px rgba(1, 165, 75, 0.5) !important;
+    text-shadow: 0 8px 16px rgba(214, 161, 59, 0.5) !important;
   }
 }
 
@@ -1052,7 +1050,7 @@ section {
 /* Igualar estilos de botones */
 .main-about-btn:hover,
 .main-contact-btn:hover {
-  background: #F5EFD7 !important;
+  background: #f5efd7 !important;
   color: #111 !important;
   transform: translateY(-2px) !important;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
@@ -1078,7 +1076,7 @@ section {
     letter-spacing: -0.05em !important;
     text-align: center !important;
     transform: none !important;
-    color: #F5EFD7 !important;
+    color: #f5efd7 !important;
     background: none !important;
     opacity: 1 !important;
     animation: none !important;
@@ -1087,7 +1085,7 @@ section {
   /* Centrar "Gastronome" a la izquierda */
   .hero-title-main span,
   .hero-title span {
-    color: #D6A13B !important;
+    color: #d6a13b !important;
     background: none !important;
     text-shadow: 0 6px 12px rgba(0, 165, 75, 0.4) !important;
     letter-spacing: 0.15em !important;
@@ -1116,7 +1114,7 @@ section {
     letter-spacing: 0.2em !important;
     margin-top: 1.2rem !important;
     font-size: 1.15em !important;
-    text-shadow: 0 8px 16px rgba(1, 165, 75, 0.5) !important;
+    text-shadow: 0 8px 16px rgba(214, 161, 59, 0.5) !important;
     margin-left: -1.5rem !important;
     left: -0.8rem !important;
   }
@@ -1165,7 +1163,7 @@ section {
     line-height: 1.2 !important;
     text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3) !important;
     font-weight: 900 !important;
-    color: #F5EFD7 !important;
+    color: #f5efd7 !important;
     margin-bottom: 1.5rem !important;
     text-align: center !important;
     letter-spacing: 0.02em !important;
@@ -1241,7 +1239,7 @@ section {
 /* HERO SECTION GEOMÉTRICO */
 .geometric-hero {
   min-height: calc(100vh - 60px);
-  background: #F5EFD7;
+  background: #f5efd7;
   position: relative;
   overflow: hidden;
   display: flex;
@@ -1306,7 +1304,7 @@ section {
   letter-spacing: 0.05em;
   position: relative;
   z-index: 3;
-  color: #D6A13B !important;
+  color: #d6a13b !important;
   text-shadow: none !important;
   -webkit-text-stroke: 0 !important;
 }
@@ -1338,17 +1336,17 @@ section {
 .gastronome-title {
   -webkit-background-clip: unset !important;
   background-clip: unset !important;
-  -webkit-text-fill-color: #D6A13B !important;
+  -webkit-text-fill-color: #d6a13b !important;
 }
 
 /* SLOGAN CENTRADO */
 .slogan-module {
-  background: #D6A13B;
-  color: #F5EFD7;
+  background: #d6a13b;
+  color: #f5efd7;
   padding: 20px 40px;
   border-radius: 50px;
   text-align: center;
-  box-shadow: 0 10px 25px rgba(1, 165, 75, 0.3);
+  box-shadow: 0 10px 25px rgba(214, 161, 59, 0.3);
   z-index: 3;
   position: relative;
 }
@@ -1358,7 +1356,7 @@ section {
   font-size: clamp(1.1rem, 3vw, 1.4rem);
   font-weight: 700;
   margin: 0;
-  color: #F5EFD7 !important;
+  color: #f5efd7 !important;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
   opacity: 1;
   letter-spacing: 0.02em;
@@ -1394,13 +1392,13 @@ section {
 
 .cta-primary {
   background: #000;
-  color: #F5EFD7;
+  color: #f5efd7;
 }
 
 .button-arrow {
   width: 12px;
   height: 12px;
-  border: 2px solid #F5EFD7;
+  border: 2px solid #f5efd7;
   border-bottom: none;
   border-left: none;
   transform: rotate(45deg);
@@ -1408,7 +1406,7 @@ section {
 }
 
 .cta-secondary {
-  background: #F5EFD7 !important;
+  background: #f5efd7 !important;
   color: #000 !important;
   border: 2px solid #000 !important;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
@@ -1417,9 +1415,9 @@ section {
 /* HOVER NEGRO PARA AMBOS BOTONES */
 .cta-primary:hover,
 .cta-secondary:hover {
-  background: #000000 !important;
-  color: #F5EFD7 !important;
-  border: 2px solid #000000 !important;
+  background: #d6a13b !important;
+  color: #f5efd7 !important;
+  border: 2px solid #d6a13b !important;
   transform: translateY(-2px) !important;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3) !important;
   transition: all 0.3s ease !important;
@@ -1427,15 +1425,15 @@ section {
 
 /* ESTADO NORMAL - BOTONES DIFERENCIADOS */
 .cta-primary {
-  background: #000000 !important;
-  color: #F5EFD7 !important;
-  border: 2px solid #000000 !important;
+  background: #d6a13b !important;
+  color: #f5efd7 !important;
+  border: 2px solid #d6a13b !important;
 }
 
 .cta-secondary {
-  background: #F5EFD7 !important;
-  color: #000000 !important;
-  border: 2px solid #000000 !important;
+  background: #f5efd7 !important;
+  color: #d6a13b !important;
+  border: 2px solid #d6a13b !important;
 }
 
 /* RESTAURAR BOTONES VERDES "VER MÁS" */
@@ -1446,16 +1444,16 @@ a[style*="Ver más"],
 .ver-mas-btn,
 button:contains("Ver más"),
 a:contains("Ver más") {
-  background-color: #D6A13B !important;
-  color: #F5EFD7 !important;
-  border: 2px solid #D6A13B !important;
+  background-color: #d6a13b !important;
+  color: #f5efd7 !important;
+  border: 2px solid #d6a13b !important;
   border-radius: 8px !important;
   padding: 12px 24px !important;
   font-weight: 600 !important;
   text-decoration: none !important;
   display: inline-block !important;
   transition: all 0.3s ease !important;
-  box-shadow: 0 4px 12px rgba(1, 165, 75, 0.3) !important;
+  box-shadow: 0 4px 12px rgba(214, 161, 59, 0.3) !important;
 }
 
 .btn-outline-primary:hover,
@@ -1463,36 +1461,36 @@ a:contains("Ver más") {
 button[style*="Ver más"]:hover,
 a[style*="Ver más"]:hover,
 .ver-mas-btn:hover {
-  background-color: #D6A13B !important;
-  border-color: #D6A13B !important;
-  color: #F5EFD7 !important;
+  background-color: #d6a13b !important;
+  border-color: #d6a13b !important;
+  color: #f5efd7 !important;
   transform: translateY(-2px) !important;
-  box-shadow: 0 6px 16px rgba(1, 165, 75, 0.4) !important;
+  box-shadow: 0 6px 16px rgba(214, 161, 59, 0.4) !important;
 }
 
 /* ESTILOS ESPECÍFICOS PARA BOTONES "VER MÁS" */
 .service-link,
 a[href*="Servicios.html"] {
-  background-color: #D6A13B !important;
-  color: #F5EFD7 !important;
-  border: 2px solid #D6A13B !important;
+  background-color: #d6a13b !important;
+  color: #f5efd7 !important;
+  border: 2px solid #d6a13b !important;
   border-radius: 8px !important;
   padding: 12px 24px !important;
   font-weight: 600 !important;
   text-decoration: none !important;
   display: inline-block !important;
   transition: all 0.3s ease !important;
-  box-shadow: 0 4px 12px rgba(1, 165, 75, 0.3) !important;
+  box-shadow: 0 4px 12px rgba(214, 161, 59, 0.3) !important;
   text-align: center !important;
 }
 
 .service-link:hover,
 a[href*="Servicios.html"]:hover {
-  background-color: #D6A13B !important;
-  border-color: #D6A13B !important;
-  color: #F5EFD7 !important;
+  background-color: #d6a13b !important;
+  border-color: #d6a13b !important;
+  color: #f5efd7 !important;
   transform: translateY(-2px) !important;
-  box-shadow: 0 6px 16px rgba(1, 165, 75, 0.4) !important;
+  box-shadow: 0 6px 16px rgba(214, 161, 59, 0.4) !important;
   text-decoration: none !important;
 }
 
@@ -1502,16 +1500,16 @@ a[href*="Servicios.html"]:hover {
   .btn-outline-primary,
   .btn-primary,
   a[href*="Servicios.html"] {
-    background-color: #D6A13B !important;
-    color: #F5EFD7 !important;
-    border: 2px solid #D6A13B !important;
+    background-color: #d6a13b !important;
+    color: #f5efd7 !important;
+    border: 2px solid #d6a13b !important;
     border-radius: 8px !important;
     padding: 14px 28px !important;
     font-weight: 600 !important;
     text-decoration: none !important;
     display: inline-block !important;
     transition: all 0.3s ease !important;
-    box-shadow: 0 4px 12px rgba(1, 165, 75, 0.3) !important;
+    box-shadow: 0 4px 12px rgba(214, 161, 59, 0.3) !important;
     text-align: center !important;
     font-size: 1.1rem !important;
   }
@@ -1520,11 +1518,11 @@ a[href*="Servicios.html"]:hover {
   .btn-outline-primary:hover,
   .btn-primary:hover,
   a[href*="Servicios.html"]:hover {
-    background-color: #D6A13B !important;
-    border-color: #D6A13B !important;
-    color: #F5EFD7 !important;
+    background-color: #d6a13b !important;
+    border-color: #d6a13b !important;
+    color: #f5efd7 !important;
     transform: translateY(-2px) !important;
-    box-shadow: 0 6px 16px rgba(1, 165, 75, 0.4) !important;
+    box-shadow: 0 6px 16px rgba(214, 161, 59, 0.4) !important;
     text-decoration: none !important;
   }
 }
@@ -1575,7 +1573,7 @@ a[href*="Servicios.html"]:hover {
     font-weight: 700 !important;
     margin: 0;
     text-align: center;
-    color: #F5EFD7 !important;
+    color: #f5efd7 !important;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
     white-space: normal !important;
     line-height: 1.3 !important;
@@ -1612,7 +1610,7 @@ a[href*="Servicios.html"]:hover {
 
 .slogan-text {
   font-size: clamp(0.9rem, 4vw, 1.1rem);
-  color: #F5EFD7 !important;
+  color: #f5efd7 !important;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
 }
 
@@ -1713,7 +1711,7 @@ a[href*="Servicios.html"]:hover {
 }
 
 .mobbin-section {
-  background: #F5EFD7;
+  background: #f5efd7;
 }
 
 .projects-section {
@@ -1721,12 +1719,12 @@ a[href*="Servicios.html"]:hover {
 }
 
 .services-section {
-  background: #F5EFD7;
+  background: #f5efd7;
 }
 
 .cta-section {
-  background: linear-gradient(135deg, #D6A13B 0%, #D6A13B 100%) !important;
-  color: #F5EFD7;
+  background: linear-gradient(135deg, #d6a13b 0%, #d6a13b 100%) !important;
+  color: #f5efd7;
 }
 
 /* Container común */
@@ -1748,7 +1746,7 @@ a[href*="Servicios.html"]:hover {
 }
 
 .cta-section .section-title {
-  color: #F5EFD7;
+  color: #f5efd7;
 }
 
 /* ========================================
@@ -1762,7 +1760,7 @@ a[href*="Servicios.html"]:hover {
 }
 
 .feature-card {
-  background: #F5EFD7;
+  background: #f5efd7;
   border-radius: 20px;
   padding: 40px 30px;
   text-align: center;
@@ -1780,7 +1778,7 @@ a[href*="Servicios.html"]:hover {
 .feature-icon {
   width: 60px;
   height: 60px;
-  background: #D6A13B;
+  background: #d6a13b;
   border-radius: 15px;
   display: flex;
   align-items: center;
@@ -1792,7 +1790,7 @@ a[href*="Servicios.html"]:hover {
 .arrow-right {
   width: 20px;
   height: 20px;
-  border: 2px solid #F5EFD7;
+  border: 2px solid #f5efd7;
   border-bottom: none;
   border-left: none;
   transform: rotate(45deg);
@@ -1803,7 +1801,7 @@ a[href*="Servicios.html"]:hover {
   position: absolute;
   width: 14px;
   height: 14px;
-  background: #F5EFD7;
+  background: #f5efd7;
   border-radius: 50%;
   top: 8px;
   left: 8px;
@@ -1814,7 +1812,7 @@ a[href*="Servicios.html"]:hover {
   position: absolute;
   width: 14px;
   height: 14px;
-  background: #F5EFD7;
+  background: #f5efd7;
   bottom: 8px;
   right: 8px;
 }
@@ -1822,10 +1820,10 @@ a[href*="Servicios.html"]:hover {
 .integration-box {
   width: 26px;
   height: 18px;
-  border: 2px solid #F5EFD7;
+  border: 2px solid #f5efd7;
   border-radius: 4px;
   position: relative;
-  background-color: #F5EFD7;
+  background-color: #f5efd7;
 }
 
 .integration-box::before {
@@ -1833,13 +1831,13 @@ a[href*="Servicios.html"]:hover {
   position: absolute;
   width: 10px;
   height: 10px;
-  background: #F5EFD7;
+  background: #f5efd7;
   border-radius: 2px;
   top: 2px;
   left: 2px;
 }
 .feature-card {
-  background-color: #F5EFD7;
+  background-color: #f5efd7;
 }
 /* Texto de features */
 .feature-card h3 {
@@ -1852,7 +1850,7 @@ a[href*="Servicios.html"]:hover {
 
 .feature-card p {
   font-size: 1rem;
-  color: #666;
+  color: #000;
   margin: 0;
   line-height: 1.5;
 }
@@ -1868,7 +1866,7 @@ a[href*="Servicios.html"]:hover {
 }
 
 .project-card {
-  background: #F5EFD7;
+  background: #f5efd7;
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
@@ -1911,15 +1909,15 @@ a[href*="Servicios.html"]:hover {
 
 .project-info p {
   font-size: 0.95rem;
-  color: #666;
+  color: #000;
   margin: 0 0 15px 0;
   line-height: 1.4;
 }
 
 .project-tag {
   display: inline-block;
-  background: #D6A13B;
-  color: #F5EFD7;
+  background: #d6a13b;
+  color: #f5efd7;
   padding: 6px 12px;
   border-radius: 20px;
   font-size: 0.8rem;
@@ -1937,7 +1935,7 @@ a[href*="Servicios.html"]:hover {
 }
 
 .service-module {
-  background-color: #F5EFD7;
+  background-color: #f5efd7;
   border-radius: 20px;
   padding: 35px 25px;
   text-align: center;
@@ -1955,7 +1953,7 @@ a[href*="Servicios.html"]:hover {
 .service-icon {
   width: 70px;
   height: 70px;
-  background: #D6A13B;
+  background: #d6a13b;
   border-radius: 20px;
   display: flex;
   align-items: center;
@@ -1967,14 +1965,14 @@ a[href*="Servicios.html"]:hover {
 .service-icon .icon-content {
   width: 30px;
   height: 30px;
-  background-color: #F5EFD7;
+  background-color: #f5efd7;
   border-radius: 8px;
 }
 
 .web-design .icon-content {
   border-radius: 4px;
   position: relative;
-  background-color: #F5EFD7;
+  background-color: #f5efd7;
 }
 
 .web-design .icon-content::before {
@@ -1984,7 +1982,7 @@ a[href*="Servicios.html"]:hover {
   left: 4px;
   right: 4px;
   height: 8px;
-  background: #D6A13B;
+  background: #d6a13b;
   border-radius: 2px;
 }
 
@@ -1993,12 +1991,12 @@ a[href*="Servicios.html"]:hover {
 }
 
 .branding .icon-content {
-  background: linear-gradient(45deg, #F5EFD7 50%, #D6A13B 50%);
+  background: linear-gradient(45deg, #f5efd7 50%, #d6a13b 50%);
 }
 
 .automation .icon-content {
-  background: #F5EFD7;
-  border: 2px solid #D6A13B;
+  background: #f5efd7;
+  border: 2px solid #d6a13b;
   border-radius: 6px;
 }
 
@@ -2017,29 +2015,29 @@ a[href*="Servicios.html"]:hover {
 
 .service-module p {
   font-size: 0.95rem;
-  color: #666;
+  color: #000;
   margin: 0 0 20px 0;
   line-height: 1.5;
 }
 
 .service-link {
-  background: #D6A13B !important;
-  color: #F5EFD7 !important;
+  background: #d6a13b !important;
+  color: #f5efd7 !important;
   padding: 12px 24px !important;
   border-radius: 25px !important;
   text-decoration: none !important;
   font-weight: 600 !important;
   display: inline-block !important;
   text-align: center !important;
-  box-shadow: 0 4px 12px rgba(1, 165, 75, 0.3) !important;
+  box-shadow: 0 4px 12px rgba(214, 161, 59, 0.3) !important;
   transition: all 0.3s ease !important;
 }
 
 .service-link:hover {
-  background: #D6A13B !important;
-  color: #F5EFD7 !important;
+  background: #d6a13b !important;
+  color: #f5efd7 !important;
   transform: translateY(-2px) !important;
-  box-shadow: 0 6px 16px rgba(1, 165, 75, 0.4) !important;
+  box-shadow: 0 6px 16px rgba(214, 161, 59, 0.4) !important;
   text-decoration: none !important;
   outline: none !important;
 }
@@ -2049,15 +2047,15 @@ a.service-link,
 a.service-link:link,
 a.service-link:visited,
 a.service-link:active {
-  background: #D6A13B !important;
-  color: #F5EFD7 !important;
+  background: #d6a13b !important;
+  color: #f5efd7 !important;
   padding: 12px 24px !important;
   border-radius: 25px !important;
   text-decoration: none !important;
   font-weight: 600 !important;
   display: inline-block !important;
   text-align: center !important;
-  box-shadow: 0 4px 12px rgba(1, 165, 75, 0.3) !important;
+  box-shadow: 0 4px 12px rgba(214, 161, 59, 0.3) !important;
   transition: all 0.3s ease !important;
   border: none !important;
   font-size: 0.95rem !important;
@@ -2066,10 +2064,10 @@ a.service-link:active {
 
 a.service-link:hover,
 a.service-link:focus {
-  background: #D6A13B !important;
-  color: #F5EFD7 !important;
+  background: #d6a13b !important;
+  color: #f5efd7 !important;
   transform: translateY(-2px) !important;
-  box-shadow: 0 6px 16px rgba(1, 165, 75, 0.4) !important;
+  box-shadow: 0 6px 16px rgba(214, 161, 59, 0.4) !important;
   text-decoration: none !important;
   outline: none !important;
 }
@@ -2134,7 +2132,7 @@ a.service-link:focus {
     box-sizing: border-box !important;
   }
   .service-module {
-    background-color: #F5EFD7;
+    background-color: #f5efd7;
     border-radius: 15px !important;
     padding: 25px 25px !important;
     margin: 0 !important;
@@ -2161,7 +2159,7 @@ a.service-link:focus {
   .service-icon .icon-content {
     width: 25px !important;
     height: 25px !important;
-    background-color: #F5EFD7;
+    background-color: #f5efd7;
   }
   .service-module h3 {
     font-size: 1.3rem !important;
@@ -2227,8 +2225,8 @@ section:not(.cta-section),
 .container:not(.cta-container),
 .card,
 .servicio {
-  background: #F5EFD7 !important;
-  color: #000000 !important;
+  background: #f5efd7 !important;
+  color: #d6a13b !important;
 }
 
 /* Texto que debe ser negro para buena legibilidad */
@@ -2259,7 +2257,7 @@ section div,
 .servicio p,
 .servicio span,
 .servicio div {
-  color: #000000 !important;
+  color: #d6a13b !important;
 }
 
 /* Excepciones para elementos que deben mantener su color específico */
@@ -2270,7 +2268,7 @@ section[style*="background: #111"] *,
 section[style*="background: #000"] *,
 .bg-dark *,
 .navbar * {
-  color: #F5EFD7 !important;
+  color: #f5efd7 !important;
 }
 
 /* CONTORNOS NEGROS PARA CARDS SOBRE FONDO AMARILLO */
@@ -2283,8 +2281,8 @@ section[style*="background: #000"] *,
 .service-card,
 div[style*="background: #F5EFD7"] .card,
 div[style*="background-color: #F5EFD7"] .card {
-  border: 2px solid #000000 !important;
-  box-shadow: 0 4px 12px rgba(0, 0, 0.1) !important;
+  border: 2px solid #d6a13b !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
   border-radius: 12px !important;
 }
 
@@ -2293,7 +2291,7 @@ div[style*="background-color: #F5EFD7"] .card {
 .feature-card:hover,
 .portfolio-card:hover,
 .testimonial-card:hover {
-  border: 2px solid #D6A13B !important;
+  border: 2px solid #d6a13b !important;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15) !important;
   transform: translateY(-8px) scale(1.03) !important;
 }
@@ -2305,7 +2303,7 @@ div[style*="background-color: #F5EFD7"] .card {
   .feature-card,
   .portfolio-card,
   .testimonial-card {
-    border: 2px solid #000000 !important;
+    border: 2px solid #d6a13b !important;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1) !important;
     border-radius: 10px !important;
     margin-bottom: 1rem !important;
@@ -2313,7 +2311,7 @@ div[style*="background-color: #F5EFD7"] .card {
 
   .card:active,
   .servicio:active {
-    border: 2px solid #D6A13B !important;
+    border: 2px solid #d6a13b !important;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2) !important;
   }
 }
@@ -2334,7 +2332,7 @@ div[style*="background-color: #F5EFD7"] .card {
 
 .cta-secondary-final:hover {
   background-color: #333333 !important;
-  color: #F5EFD7 !important;
+  color: #f5efd7 !important;
   transform: translateY(-2px) !important;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2) !important;
   text-decoration: none !important;
@@ -2343,32 +2341,32 @@ div[style*="background-color: #F5EFD7"] .card {
 /* Asegurar que los botones se vean bien en PC y móvil */
 @media (min-width: 769px) {
   .cta-primary-final {
-    background: #000000 !important;
-    color: #F5EFD7 !important;
-    border: 2px solid #000000 !important;
+    background: #d6a13b !important;
+    color: #f5efd7 !important;
+    border: 2px solid #d6a13b !important;
   }
   .cta-secondary-final {
-    background: #000000 !important;
-    color: #F5EFD7 !important;
-    border: 2px solid #000000 !important;
+    background: #d6a13b !important;
+    color: #f5efd7 !important;
+    border: 2px solid #d6a13b !important;
   }
 }
 
 /* FORZAR FONDO VERDE PARA SECCIÓN CTA */
 .cta-section {
-  background: linear-gradient(135deg, #D6A13B 0%, #D6A13B 100%) !important;
-  color: #F5EFD7 !important;
+  background: linear-gradient(135deg, #d6a13b 0%, #d6a13b 100%) !important;
+  color: #f5efd7 !important;
 }
 
 .cta-section *:not(.cta-primary-final):not(.cta-secondary-final) {
-  color: #F5EFD7 !important;
+  color: #f5efd7 !important;
 }
 
 .cta-section h2,
 .cta-section p,
 .cta-section span,
 .cta-section div {
-  color: #F5EFD7 !important;
+  color: #f5efd7 !important;
 }
 
 /* En móvil también */
@@ -2376,14 +2374,98 @@ div[style*="background-color: #F5EFD7"] .card {
   .cta-section {
     background: linear-gradient(
       135deg,
-      #D6A13B 0%,
-      #D6A13B 35%,
-      #D6A13B 100%
+      #d6a13b 0%,
+      #d6a13b 35%,
+      #d6a13b 100%
     ) !important;
-    color: #F5EFD7 !important;
+    color: #f5efd7 !important;
   }
 
   .cta-section *:not(.cta-primary-final):not(.cta-secondary-final) {
-    color: #F5EFD7 !important;
+    color: #f5efd7 !important;
   }
 }
+
+/* ========================================
+   REGLAS ESPECÍFICAS PARA PÁRRAFOS NEGROS EN TARJETAS
+   ======================================== */
+
+/* Párrafos de todas las tarjetas - MÁXIMA PRIORIDAD */
+.feature-card p,
+.project-info p,
+.service-module p,
+.what-we-do-card p,
+.stats-carousel p,
+section[style*="¿Qué hacemos?"] div[style*="display: grid"] > div > p,
+section[style*="background: #F5EFD7"] div[style*="display: grid"] > div > p,
+.mobbin-section p,
+.projects-section p,
+.services-section p {
+  color: #000 !important;
+  -webkit-text-fill-color: #000 !important;
+}
+
+/* Párrafos específicos por sección */
+section .feature-card p,
+section .project-card p,
+section .service-card p,
+section .what-we-do-card p {
+  color: #000 !important;
+  -webkit-text-fill-color: #000 !important;
+}
+
+/* Para móvil también */
+@media (max-width: 768px) {
+  .feature-card p,
+  .project-info p,
+  .service-module p,
+  .what-we-do-card p,
+  .stats-carousel p,
+  section[style*="¿Qué hacemos?"] div > p,
+  section[style*="background: #F5EFD7"] div > p,
+  .mobbin-section p,
+  .projects-section p,
+  .services-section p {
+    color: #000 !important;
+    -webkit-text-fill-color: #000 !important;
+  }
+}
+
+/* ========================================
+   MÓDULO TESTIMONIAL - TEXTO BLANCO
+   ======================================== */
+
+/* Testimonial del restaurantero - fondo dorado con texto blanco */
+section[style*="background: linear-gradient(135deg, #D6A13B"] p,
+section[style*="background: linear-gradient(135deg, #D6A13B"] h4 {
+  color: #f5efd7 !important;
+  -webkit-text-fill-color: #f5efd7 !important;
+}
+
+/* Texto específico del testimonio */
+section[style*="background: linear-gradient(135deg, #D6A13B"]
+  div[style*="position: relative"]
+  p {
+  color: #f5efd7 !important;
+  -webkit-text-fill-color: #f5efd7 !important;
+}
+
+/* Nombre y título del chef */
+section[style*="background: linear-gradient(135deg, #D6A13B"] h4,
+section[style*="background: linear-gradient(135deg, #D6A13B"]
+  p[style*="opacity: 0.9"] {
+  color: #f5efd7 !important;
+  -webkit-text-fill-color: #f5efd7 !important;
+}
+
+/* Para móvil */
+@media (max-width: 768px) {
+  section[style*="background: #f8f9fa"]
+    div[style*="background: linear-gradient(135deg, #D6A13B"]
+    * {
+    color: #f5efd7 !important;
+    -webkit-text-fill-color: #f5efd7 !important;
+  }
+}
+
+/* ======================================== */

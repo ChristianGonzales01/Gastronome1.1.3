@@ -6,7 +6,7 @@
 
 /* ESTILOS GLOBALES NAVBAR */
 .navbar {
-  background: #F5EFD7 !important;
+  background: #f5efd7 !important;
   border-bottom: 1px solid #eee !important;
   position: sticky !important;
   top: 0 !important;
@@ -25,7 +25,7 @@
 }
 
 .navbar-brand:hover {
-  color: #D6A13B !important;
+  color: #000 !important;
 }
 
 /* NAVBAR TOGGLE BUTTON */
@@ -52,11 +52,11 @@
 }
 
 .navbar-nav .nav-link:hover {
-  color: #D6A13B !important;
+  color: #000 !important;
 }
 
 .navbar-nav .nav-link.active {
-  color: #D6A13B !important;
+  color: #000 !important;
   font-weight: 600 !important;
 }
 
@@ -71,7 +71,7 @@
   }
 
   .navbar-collapse {
-    background: #F5EFD7 !important;
+    background: #f5efd7 !important;
     border-radius: 0 0 18px 18px !important;
     margin-top: 0.3rem !important;
     padding: 1rem 0.8rem !important;
@@ -101,7 +101,7 @@
     padding: 0.2rem 1vw !important;
     min-height: 40px !important;
     height: auto !important;
-    background: #F5EFD7 !important;
+    background: #f5efd7 !important;
     border-bottom: 1px solid #eee !important;
   }
 
@@ -131,7 +131,7 @@
 
   .navbar-nav .nav-link:hover.nav-link,
   nav.navbar .navbar-nav .nav-link:hover.nav-link {
-    background-color: rgba(1, 165, 75, 0.1) !important;
+    background-color: rgba(214, 161, 59, 0.1) !important;
   }
 
   .container-fluid.container-fluid,
@@ -149,3 +149,4 @@
 .navbar * {
   box-sizing: border-box !important;
 }
+
