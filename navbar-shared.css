@@ -6,7 +6,7 @@
 
 /* ESTILOS GLOBALES NAVBAR */
 .navbar {
-  background: #fff !important;
+  background: #F5EFD7 !important;
   border-bottom: 1px solid #eee !important;
   position: sticky !important;
   top: 0 !important;
@@ -25,7 +25,7 @@
 }
 
 .navbar-brand:hover {
-  color: #01a54b !important;
+  color: #D6A13B !important;
 }
 
 /* NAVBAR TOGGLE BUTTON */
@@ -52,11 +52,11 @@
 }
 
 .navbar-nav .nav-link:hover {
-  color: #01a54b !important;
+  color: #D6A13B !important;
 }
 
 .navbar-nav .nav-link.active {
-  color: #01a54b !important;
+  color: #D6A13B !important;
   font-weight: 600 !important;
 }
 
@@ -71,7 +71,7 @@
   }
 
   .navbar-collapse {
-    background: #fff !important;
+    background: #F5EFD7 !important;
     border-radius: 0 0 18px 18px !important;
     margin-top: 0.3rem !important;
     padding: 1rem 0.8rem !important;
@@ -101,7 +101,7 @@
     padding: 0.2rem 1vw !important;
     min-height: 40px !important;
     height: auto !important;
-    background: #fff !important;
+    background: #F5EFD7 !important;
     border-bottom: 1px solid #eee !important;
   }
 

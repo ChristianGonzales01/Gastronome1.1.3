@@ -1,6 +1,6 @@
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #ffffcc;
+  background-color: #F5EFD7;
   color: #000;
   scroll-behavior: smooth;
   margin: 0 !important;
@@ -11,7 +11,7 @@ h2 {
   font-weight: bold;
 }
 section[style*="background:#f8f9fa"] h2 {
-  color: #01a54b !important; /* Verde */
+  color: #D6A13B !important; /* Verde */
 }
 
 section img {
@@ -20,16 +20,16 @@ section img {
 
 header {
   background-color: #000000;
-  color: #ffffff;
+  color: #F5EFD7;
   text-align: center;
   padding: 100px 20px;
 }
 
 header .btn {
-  background-color: #ffffcc;
+  background-color: #F5EFD7;
   color: #000000;
   padding: 10px 25px;
-  border: 2px solid #ffffff;
+  border: 2px solid #F5EFD7;
   border-radius: 5px;
   text-decoration: none;
   margin-top: 20px;
@@ -40,8 +40,8 @@ header .btn {
 
 header .btn:hover {
   background-color: #000000;
-  color: #ffffff;
-  border: 2px solid #ffffff;
+  color: #F5EFD7;
+  border: 2px solid #F5EFD7;
 }
 
 .container {
@@ -49,7 +49,7 @@ header .btn:hover {
   max-width: 1100px;
   margin: auto;
   padding: 40px 0;
-  background-color: #ffffcc;
+  background-color: #F5EFD7;
 }
 
 section {
@@ -64,7 +64,7 @@ h2 {
 section[style*="background:#111"] h2,
 section[style*="background: #111"] h2,
 .services-title {
-  color: #ffffff !important;
+  color: #F5EFD7 !important;
 }
 .services h2 {
   color: #000000 !important; /* Verde */
@@ -74,7 +74,7 @@ section[style*="background: #111"] h2,
   section[style*="background:#111"] h2,
   section[style*="background: #111"] h2,
   .services-title {
-    color: #ffffff !important;
+    color: #F5EFD7 !important;
   }
 }
 
@@ -112,13 +112,13 @@ textarea {
   border-radius: 5px;
   width: 100%;
   box-sizing: border-box;
-  background-color: #ffffcc;
+  background-color: #F5EFD7;
   color: #000000;
 }
 
 button {
   background-color: #000000;
-  color: #ffffff;
+  color: #F5EFD7;
   border: none;
   padding: 12px;
   cursor: pointer;
@@ -134,7 +134,7 @@ button:hover {
 footer {
   text-align: center;
   background-color: #000000;
-  color: white;
+  color: #F5EFD7;
   padding: 20px;
 }
 @media (max-width: 900px) {
@@ -294,8 +294,8 @@ button:hover {
 
   /* Palabra "Gastronome" con espaciado especial - MASIVA Y MENOS SEPARADA */
   .hero-title span,
-  h1 span[style*="color: #01a54b"] {
-    color: #01a54b !important;
+  h1 span[style*="color: #D6A13B"] {
+    color: #D6A13B !important;
     background: none !important;
     text-shadow: 0 10px 20px rgba(1, 165, 75, 0.6) !important;
     letter-spacing: 0.1em !important;
@@ -314,12 +314,12 @@ button:hover {
     margin-bottom: 2rem !important;
     font-weight: 400 !important;
     opacity: 0.9 !important;
-  } /* Ensure "¿Qué hacemos?" title is white on mobile - Y GIGANTE */
+  } /* Ensure "¿Qué hacemos?" title is #F5EFD7 on mobile - Y GIGANTE */
   section[style*="background: #111"] h2,
   section[style*="background:#111"] h2,
   .services-title,
   h2[style*="font-size: 2rem"] {
-    color: #ffffff !important;
+    color: #F5EFD7 !important;
     font-size: 4.8rem !important;
     margin-bottom: 2.5rem !important;
     font-weight: 900 !important;
@@ -355,8 +355,8 @@ button:hover {
 
   /* Palabra "Gastronome" aún más destacada en móviles pequeños */
   .hero-title span,
-  h1 span[style*="color: #01a54b"] {
-    color: #01a54b !important;
+  h1 span[style*="color: #D6A13B"] {
+    color: #D6A13B !important;
     background: none !important;
     text-shadow: 0 8px 16px rgba(1, 165, 75, 0.5) !important;
     letter-spacing: 0.2em !important;
@@ -405,7 +405,7 @@ button:hover {
   /* Título principal con diseño minimalista y limpio */
   .hero-title,
   h1[style*="clamp(3rem, 4.5rem)"] {
-    color: #ffffff !important;
+    color: #F5EFD7 !important;
     background: none !important;
     -webkit-background-clip: initial !important;
     -webkit-text-fill-color: initial !important;
@@ -416,9 +416,9 @@ button:hover {
   }
 
   /* Mejorar la palabra "Gastronome" con diseño minimalista */
-  .hero-title span[style*="color: #01a54b"],
-  h1 span[style*="color: #01a54b"] {
-    color: #01a54b !important;
+  .hero-title span[style*="color: #D6A13B"],
+  h1 span[style*="color: #D6A13B"] {
+    color: #D6A13B !important;
     background: none !important;
     -webkit-background-clip: initial !important;
     -webkit-text-fill-color: initial !important;
@@ -512,7 +512,7 @@ section {
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
     margin-bottom: 3rem !important;
     opacity: 0.95 !important;
-    color: #ffffff !important;
+    color: #F5EFD7 !important;
     max-width: 90% !important;
     margin-left: auto !important;
     margin-right: auto !important;
@@ -539,7 +539,7 @@ section {
     font-weight: 900 !important;
     letter-spacing: 0.08em !important;
     text-align: center !important;
-    color: #ffffff !important;
+    color: #F5EFD7 !important;
     text-shadow: 0 10px 20px rgba(0, 0, 0, 0.6) !important;
     width: 100% !important;
     margin-left: auto !important;
@@ -551,8 +551,8 @@ section {
 
   /* Palabra "Gastronome" minimalista - MASIVA Y MENOS SEPARADA */
   .hero-title span,
-  h1 span[style*="color: #01a54b"] {
-    color: #01a54b !important;
+  h1 span[style*="color: #D6A13B"] {
+    color: #D6A13B !important;
     background: none !important;
     text-shadow: 0 10px 20px rgba(1, 165, 75, 0.6) !important;
     font-size: 1.2em !important;
@@ -563,7 +563,7 @@ section {
   .hero-subtitle,
   p[style*="clamp"] {
     font-size: clamp(1.5rem, 4.5vw, 1.9rem) !important;
-    color: #ffffff !important;
+    color: #F5EFD7 !important;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
     width: 90% !important;
     margin-left: auto !important;
@@ -617,7 +617,7 @@ section {
 @media (min-width: 769px) {
   .hero-title,
   h1[style*="clamp"] {
-    color: #ffffff !important;
+    color: #F5EFD7 !important;
     background: none !important;
     transform: none !important;
   }
@@ -625,7 +625,7 @@ section {
   .hero-title span,
   .hero-title span[style*="color"],
   h1 span[style*="color"] {
-    color: #01a54b !important;
+    color: #D6A13B !important;
     background: none !important;
     display: block !important;
     text-align: center !important;
@@ -1015,7 +1015,7 @@ section {
   .hero-title span[style*="color"],
   .hero-title span[style*="letter-spacing"],
   h1 span[style*="color"] {
-    color: #01a54b !important;
+    color: #D6A13B !important;
     letter-spacing: 0.15em !important;
     display: block !important;
     text-align: center !important;
@@ -1052,7 +1052,7 @@ section {
 /* Igualar estilos de botones */
 .main-about-btn:hover,
 .main-contact-btn:hover {
-  background: #ffffcc !important;
+  background: #F5EFD7 !important;
   color: #111 !important;
   transform: translateY(-2px) !important;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
@@ -1078,7 +1078,7 @@ section {
     letter-spacing: -0.05em !important;
     text-align: center !important;
     transform: none !important;
-    color: #ffffff !important;
+    color: #F5EFD7 !important;
     background: none !important;
     opacity: 1 !important;
     animation: none !important;
@@ -1087,7 +1087,7 @@ section {
   /* Centrar "Gastronome" a la izquierda */
   .hero-title-main span,
   .hero-title span {
-    color: #01a54b !important;
+    color: #D6A13B !important;
     background: none !important;
     text-shadow: 0 6px 12px rgba(0, 165, 75, 0.4) !important;
     letter-spacing: 0.15em !important;
@@ -1125,7 +1125,7 @@ section {
 /* Para PC también centrar mejor */
 @media (min-width: 769px) {
   .hero-title span,
-  h1 span[style*="color: #01a54b"] {
+  h1 span[style*="color: #D6A13B"] {
     text-align: center !important;
     margin-left: auto !important;
     margin-right: auto !important;
@@ -1136,7 +1136,7 @@ section {
 /* Solo centrar Gastronome en PC y hacer título más grande en móvil */
 @media (min-width: 769px) {
   .hero-title span,
-  h1 span[style*="color: #01a54b"] {
+  h1 span[style*="color: #D6A13B"] {
     text-align: center !important;
     margin-left: auto !important;
     margin-right: auto !important;
@@ -1165,7 +1165,7 @@ section {
     line-height: 1.2 !important;
     text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3) !important;
     font-weight: 900 !important;
-    color: #ffffff !important;
+    color: #F5EFD7 !important;
     margin-bottom: 1.5rem !important;
     text-align: center !important;
     letter-spacing: 0.02em !important;
@@ -1241,7 +1241,7 @@ section {
 /* HERO SECTION GEOMÉTRICO */
 .geometric-hero {
   min-height: calc(100vh - 60px);
-  background: #ffffcc;
+  background: #F5EFD7;
   position: relative;
   overflow: hidden;
   display: flex;
@@ -1306,7 +1306,7 @@ section {
   letter-spacing: 0.05em;
   position: relative;
   z-index: 3;
-  color: #01a54b !important;
+  color: #D6A13B !important;
   text-shadow: none !important;
   -webkit-text-stroke: 0 !important;
 }
@@ -1338,13 +1338,13 @@ section {
 .gastronome-title {
   -webkit-background-clip: unset !important;
   background-clip: unset !important;
-  -webkit-text-fill-color: #01a54b !important;
+  -webkit-text-fill-color: #D6A13B !important;
 }
 
 /* SLOGAN CENTRADO */
 .slogan-module {
-  background: #01a54b;
-  color: white;
+  background: #D6A13B;
+  color: #F5EFD7;
   padding: 20px 40px;
   border-radius: 50px;
   text-align: center;
@@ -1358,7 +1358,7 @@ section {
   font-size: clamp(1.1rem, 3vw, 1.4rem);
   font-weight: 700;
   margin: 0;
-  color: #ffffff !important;
+  color: #F5EFD7 !important;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
   opacity: 1;
   letter-spacing: 0.02em;
@@ -1394,13 +1394,13 @@ section {
 
 .cta-primary {
   background: #000;
-  color: #fff;
+  color: #F5EFD7;
 }
 
 .button-arrow {
   width: 12px;
   height: 12px;
-  border: 2px solid #fff;
+  border: 2px solid #F5EFD7;
   border-bottom: none;
   border-left: none;
   transform: rotate(45deg);
@@ -1408,7 +1408,7 @@ section {
 }
 
 .cta-secondary {
-  background: #ffffcc !important;
+  background: #F5EFD7 !important;
   color: #000 !important;
   border: 2px solid #000 !important;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
@@ -1418,7 +1418,7 @@ section {
 .cta-primary:hover,
 .cta-secondary:hover {
   background: #000000 !important;
-  color: #ffffff !important;
+  color: #F5EFD7 !important;
   border: 2px solid #000000 !important;
   transform: translateY(-2px) !important;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3) !important;
@@ -1428,12 +1428,12 @@ section {
 /* ESTADO NORMAL - BOTONES DIFERENCIADOS */
 .cta-primary {
   background: #000000 !important;
-  color: #ffffff !important;
+  color: #F5EFD7 !important;
   border: 2px solid #000000 !important;
 }
 
 .cta-secondary {
-  background: #ffffcc !important;
+  background: #F5EFD7 !important;
   color: #000000 !important;
   border: 2px solid #000000 !important;
 }
@@ -1446,9 +1446,9 @@ a[style*="Ver más"],
 .ver-mas-btn,
 button:contains("Ver más"),
 a:contains("Ver más") {
-  background-color: #01a54b !important;
-  color: #ffffff !important;
-  border: 2px solid #01a54b !important;
+  background-color: #D6A13B !important;
+  color: #F5EFD7 !important;
+  border: 2px solid #D6A13B !important;
   border-radius: 8px !important;
   padding: 12px 24px !important;
   font-weight: 600 !important;
@@ -1463,9 +1463,9 @@ a:contains("Ver más") {
 button[style*="Ver más"]:hover,
 a[style*="Ver más"]:hover,
 .ver-mas-btn:hover {
-  background-color: #00832f !important;
-  border-color: #00832f !important;
-  color: #ffffff !important;
+  background-color: #D6A13B !important;
+  border-color: #D6A13B !important;
+  color: #F5EFD7 !important;
   transform: translateY(-2px) !important;
   box-shadow: 0 6px 16px rgba(1, 165, 75, 0.4) !important;
 }
@@ -1473,9 +1473,9 @@ a[style*="Ver más"]:hover,
 /* ESTILOS ESPECÍFICOS PARA BOTONES "VER MÁS" */
 .service-link,
 a[href*="Servicios.html"] {
-  background-color: #01a54b !important;
-  color: #ffffff !important;
-  border: 2px solid #01a54b !important;
+  background-color: #D6A13B !important;
+  color: #F5EFD7 !important;
+  border: 2px solid #D6A13B !important;
   border-radius: 8px !important;
   padding: 12px 24px !important;
   font-weight: 600 !important;
@@ -1488,9 +1488,9 @@ a[href*="Servicios.html"] {
 
 .service-link:hover,
 a[href*="Servicios.html"]:hover {
-  background-color: #00832f !important;
-  border-color: #00832f !important;
-  color: #ffffff !important;
+  background-color: #D6A13B !important;
+  border-color: #D6A13B !important;
+  color: #F5EFD7 !important;
   transform: translateY(-2px) !important;
   box-shadow: 0 6px 16px rgba(1, 165, 75, 0.4) !important;
   text-decoration: none !important;
@@ -1502,9 +1502,9 @@ a[href*="Servicios.html"]:hover {
   .btn-outline-primary,
   .btn-primary,
   a[href*="Servicios.html"] {
-    background-color: #01a54b !important;
-    color: #ffffff !important;
-    border: 2px solid #01a54b !important;
+    background-color: #D6A13B !important;
+    color: #F5EFD7 !important;
+    border: 2px solid #D6A13B !important;
     border-radius: 8px !important;
     padding: 14px 28px !important;
     font-weight: 600 !important;
@@ -1520,9 +1520,9 @@ a[href*="Servicios.html"]:hover {
   .btn-outline-primary:hover,
   .btn-primary:hover,
   a[href*="Servicios.html"]:hover {
-    background-color: #00832f !important;
-    border-color: #00832f !important;
-    color: #ffffff !important;
+    background-color: #D6A13B !important;
+    border-color: #D6A13B !important;
+    color: #F5EFD7 !important;
     transform: translateY(-2px) !important;
     box-shadow: 0 6px 16px rgba(1, 165, 75, 0.4) !important;
     text-decoration: none !important;
@@ -1575,7 +1575,7 @@ a[href*="Servicios.html"]:hover {
     font-weight: 700 !important;
     margin: 0;
     text-align: center;
-    color: #ffffff !important;
+    color: #F5EFD7 !important;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
     white-space: normal !important;
     line-height: 1.3 !important;
@@ -1612,7 +1612,7 @@ a[href*="Servicios.html"]:hover {
 
 .slogan-text {
   font-size: clamp(0.9rem, 4vw, 1.1rem);
-  color: #ffffff !important;
+  color: #F5EFD7 !important;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
 }
 
@@ -1713,7 +1713,7 @@ a[href*="Servicios.html"]:hover {
 }
 
 .mobbin-section {
-  background: #ffffcc;
+  background: #F5EFD7;
 }
 
 .projects-section {
@@ -1721,12 +1721,12 @@ a[href*="Servicios.html"]:hover {
 }
 
 .services-section {
-  background: #ffffcc;
+  background: #F5EFD7;
 }
 
 .cta-section {
-  background: linear-gradient(135deg, #01a54b 0%, #00cc5a 100%) !important;
-  color: #fff;
+  background: linear-gradient(135deg, #D6A13B 0%, #D6A13B 100%) !important;
+  color: #F5EFD7;
 }
 
 /* Container común */
@@ -1748,7 +1748,7 @@ a[href*="Servicios.html"]:hover {
 }
 
 .cta-section .section-title {
-  color: #fff;
+  color: #F5EFD7;
 }
 
 /* ========================================
@@ -1762,7 +1762,7 @@ a[href*="Servicios.html"]:hover {
 }
 
 .feature-card {
-  background: #ffffcc;
+  background: #F5EFD7;
   border-radius: 20px;
   padding: 40px 30px;
   text-align: center;
@@ -1780,7 +1780,7 @@ a[href*="Servicios.html"]:hover {
 .feature-icon {
   width: 60px;
   height: 60px;
-  background: #01a54b;
+  background: #D6A13B;
   border-radius: 15px;
   display: flex;
   align-items: center;
@@ -1792,7 +1792,7 @@ a[href*="Servicios.html"]:hover {
 .arrow-right {
   width: 20px;
   height: 20px;
-  border: 2px solid #fff;
+  border: 2px solid #F5EFD7;
   border-bottom: none;
   border-left: none;
   transform: rotate(45deg);
@@ -1803,7 +1803,7 @@ a[href*="Servicios.html"]:hover {
   position: absolute;
   width: 14px;
   height: 14px;
-  background: #ffffcc;
+  background: #F5EFD7;
   border-radius: 50%;
   top: 8px;
   left: 8px;
@@ -1814,7 +1814,7 @@ a[href*="Servicios.html"]:hover {
   position: absolute;
   width: 14px;
   height: 14px;
-  background: #ffffcc;
+  background: #F5EFD7;
   bottom: 8px;
   right: 8px;
 }
@@ -1822,10 +1822,10 @@ a[href*="Servicios.html"]:hover {
 .integration-box {
   width: 26px;
   height: 18px;
-  border: 2px solid #fff;
+  border: 2px solid #F5EFD7;
   border-radius: 4px;
   position: relative;
-  background-color: #ffffcc;
+  background-color: #F5EFD7;
 }
 
 .integration-box::before {
@@ -1833,13 +1833,13 @@ a[href*="Servicios.html"]:hover {
   position: absolute;
   width: 10px;
   height: 10px;
-  background: #ffffcc;
+  background: #F5EFD7;
   border-radius: 2px;
   top: 2px;
   left: 2px;
 }
 .feature-card {
-  background-color: #ffffcc;
+  background-color: #F5EFD7;
 }
 /* Texto de features */
 .feature-card h3 {
@@ -1868,7 +1868,7 @@ a[href*="Servicios.html"]:hover {
 }
 
 .project-card {
-  background: #ffffcc;
+  background: #F5EFD7;
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
@@ -1918,8 +1918,8 @@ a[href*="Servicios.html"]:hover {
 
 .project-tag {
   display: inline-block;
-  background: #01a54b;
-  color: #fff;
+  background: #D6A13B;
+  color: #F5EFD7;
   padding: 6px 12px;
   border-radius: 20px;
   font-size: 0.8rem;
@@ -1937,7 +1937,7 @@ a[href*="Servicios.html"]:hover {
 }
 
 .service-module {
-  background-color: #ffffcc;
+  background-color: #F5EFD7;
   border-radius: 20px;
   padding: 35px 25px;
   text-align: center;
@@ -1955,7 +1955,7 @@ a[href*="Servicios.html"]:hover {
 .service-icon {
   width: 70px;
   height: 70px;
-  background: #01a54b;
+  background: #D6A13B;
   border-radius: 20px;
   display: flex;
   align-items: center;
@@ -1967,14 +1967,14 @@ a[href*="Servicios.html"]:hover {
 .service-icon .icon-content {
   width: 30px;
   height: 30px;
-  background-color: #ffffcc;
+  background-color: #F5EFD7;
   border-radius: 8px;
 }
 
 .web-design .icon-content {
   border-radius: 4px;
   position: relative;
-  background-color: #ffffcc;
+  background-color: #F5EFD7;
 }
 
 .web-design .icon-content::before {
@@ -1984,7 +1984,7 @@ a[href*="Servicios.html"]:hover {
   left: 4px;
   right: 4px;
   height: 8px;
-  background: #01a54b;
+  background: #D6A13B;
   border-radius: 2px;
 }
 
@@ -1993,12 +1993,12 @@ a[href*="Servicios.html"]:hover {
 }
 
 .branding .icon-content {
-  background: linear-gradient(45deg, #fff 50%, #01a54b 50%);
+  background: linear-gradient(45deg, #F5EFD7 50%, #D6A13B 50%);
 }
 
 .automation .icon-content {
-  background: #ffffcc;
-  border: 2px solid #01a54b;
+  background: #F5EFD7;
+  border: 2px solid #D6A13B;
   border-radius: 6px;
 }
 
@@ -2023,8 +2023,8 @@ a[href*="Servicios.html"]:hover {
 }
 
 .service-link {
-  background: #01a54b !important;
-  color: #ffffff !important;
+  background: #D6A13B !important;
+  color: #F5EFD7 !important;
   padding: 12px 24px !important;
   border-radius: 25px !important;
   text-decoration: none !important;
@@ -2036,8 +2036,8 @@ a[href*="Servicios.html"]:hover {
 }
 
 .service-link:hover {
-  background: #028a3f !important;
-  color: #ffffff !important;
+  background: #D6A13B !important;
+  color: #F5EFD7 !important;
   transform: translateY(-2px) !important;
   box-shadow: 0 6px 16px rgba(1, 165, 75, 0.4) !important;
   text-decoration: none !important;
@@ -2049,8 +2049,8 @@ a.service-link,
 a.service-link:link,
 a.service-link:visited,
 a.service-link:active {
-  background: #01a54b !important;
-  color: #ffffff !important;
+  background: #D6A13B !important;
+  color: #F5EFD7 !important;
   padding: 12px 24px !important;
   border-radius: 25px !important;
   text-decoration: none !important;
@@ -2066,8 +2066,8 @@ a.service-link:active {
 
 a.service-link:hover,
 a.service-link:focus {
-  background: #028a3f !important;
-  color: #ffffff !important;
+  background: #D6A13B !important;
+  color: #F5EFD7 !important;
   transform: translateY(-2px) !important;
   box-shadow: 0 6px 16px rgba(1, 165, 75, 0.4) !important;
   text-decoration: none !important;
@@ -2134,7 +2134,7 @@ a.service-link:focus {
     box-sizing: border-box !important;
   }
   .service-module {
-    background-color: #ffffcc;
+    background-color: #F5EFD7;
     border-radius: 15px !important;
     padding: 25px 25px !important;
     margin: 0 !important;
@@ -2161,7 +2161,7 @@ a.service-link:focus {
   .service-icon .icon-content {
     width: 25px !important;
     height: 25px !important;
-    background-color: #ffffcc;
+    background-color: #F5EFD7;
   }
   .service-module h3 {
     font-size: 1.3rem !important;
@@ -2227,7 +2227,7 @@ section:not(.cta-section),
 .container:not(.cta-container),
 .card,
 .servicio {
-  background: #ffffcc !important;
+  background: #F5EFD7 !important;
   color: #000000 !important;
 }
 
@@ -2270,7 +2270,7 @@ section[style*="background: #111"] *,
 section[style*="background: #000"] *,
 .bg-dark *,
 .navbar * {
-  color: #ffffff !important;
+  color: #F5EFD7 !important;
 }
 
 /* CONTORNOS NEGROS PARA CARDS SOBRE FONDO AMARILLO */
@@ -2281,8 +2281,8 @@ section[style*="background: #000"] *,
 .testimonial-card,
 .mobbin-section .card,
 .service-card,
-div[style*="background: #ffffcc"] .card,
-div[style*="background-color: #ffffcc"] .card {
+div[style*="background: #F5EFD7"] .card,
+div[style*="background-color: #F5EFD7"] .card {
   border: 2px solid #000000 !important;
   box-shadow: 0 4px 12px rgba(0, 0, 0.1) !important;
   border-radius: 12px !important;
@@ -2293,7 +2293,7 @@ div[style*="background-color: #ffffcc"] .card {
 .feature-card:hover,
 .portfolio-card:hover,
 .testimonial-card:hover {
-  border: 2px solid #01a54b !important;
+  border: 2px solid #D6A13B !important;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15) !important;
   transform: translateY(-8px) scale(1.03) !important;
 }
@@ -2313,7 +2313,7 @@ div[style*="background-color: #ffffcc"] .card {
 
   .card:active,
   .servicio:active {
-    border: 2px solid #01a54b !important;
+    border: 2px solid #D6A13B !important;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2) !important;
   }
 }
@@ -2334,7 +2334,7 @@ div[style*="background-color: #ffffcc"] .card {
 
 .cta-secondary-final:hover {
   background-color: #333333 !important;
-  color: #ffffff !important;
+  color: #F5EFD7 !important;
   transform: translateY(-2px) !important;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2) !important;
   text-decoration: none !important;
@@ -2344,31 +2344,31 @@ div[style*="background-color: #ffffcc"] .card {
 @media (min-width: 769px) {
   .cta-primary-final {
     background: #000000 !important;
-    color: #ffffff !important;
+    color: #F5EFD7 !important;
     border: 2px solid #000000 !important;
   }
   .cta-secondary-final {
     background: #000000 !important;
-    color: #ffffff !important;
+    color: #F5EFD7 !important;
     border: 2px solid #000000 !important;
   }
 }
 
 /* FORZAR FONDO VERDE PARA SECCIÓN CTA */
 .cta-section {
-  background: linear-gradient(135deg, #01a54b 0%, #00cc5a 100%) !important;
-  color: #ffffff !important;
+  background: linear-gradient(135deg, #D6A13B 0%, #D6A13B 100%) !important;
+  color: #F5EFD7 !important;
 }
 
 .cta-section *:not(.cta-primary-final):not(.cta-secondary-final) {
-  color: #ffffff !important;
+  color: #F5EFD7 !important;
 }
 
 .cta-section h2,
 .cta-section p,
 .cta-section span,
 .cta-section div {
-  color: #ffffff !important;
+  color: #F5EFD7 !important;
 }
 
 /* En móvil también */
@@ -2376,14 +2376,14 @@ div[style*="background-color: #ffffcc"] .card {
   .cta-section {
     background: linear-gradient(
       135deg,
-      #00b354 0%,
-      #01a54b 35%,
-      #00d65c 100%
+      #D6A13B 0%,
+      #D6A13B 35%,
+      #D6A13B 100%
     ) !important;
-    color: #ffffff !important;
+    color: #F5EFD7 !important;
   }
 
   .cta-section *:not(.cta-primary-final):not(.cta-secondary-final) {
-    color: #ffffff !important;
+    color: #F5EFD7 !important;
   }
 }

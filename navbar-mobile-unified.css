@@ -22,7 +22,7 @@
 
   /* ESTILOS BASE MÓVIL UNIFICADOS */
   .navbar {
-    background: #fff !important;
+    background: #F5EFD7 !important;
     border-bottom: 1px solid #eee !important;
     padding: 0.7rem 4vw !important;
     width: 100% !important;
@@ -49,8 +49,8 @@
   .navbar-toggler {
     display: block !important;
     margin-left: auto !important;
-    border: 1.5px solid #01a54b !important;
-    background: #fff !important;
+    border: 1.5px solid #D6A13B !important;
+    background: #F5EFD7 !important;
     width: 54px !important;
     height: 54px !important;
     border-radius: 8px !important;
@@ -63,7 +63,7 @@
     justify-content: center !important;
   } /* DROPDOWN/COLLAPSE MÓVIL */
   .navbar-collapse {
-    background: #fff !important;
+    background: #F5EFD7 !important;
     border-radius: 0 0 18px 18px !important;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1) !important;
     margin-top: 0.5rem !important;
@@ -109,17 +109,17 @@
 
   .navbar-nav .nav-link:hover,
   .navbar-nav .nav-link:focus {
-    color: #01a54b !important;
+    color: #D6A13B !important;
     background: #e8f5e8 !important;
-    border-color: #01a54b !important;
+    border-color: #D6A13B !important;
     transform: translateY(-2px) !important;
     box-shadow: 0 4px 12px rgba(1, 165, 75, 0.2) !important;
   }
 
   .navbar-nav .nav-link.active {
-    color: #fff !important;
-    background: #01a54b !important;
-    border-color: #01a54b !important;
+    color: #F5EFD7 !important;
+    background: #D6A13B !important;
+    border-color: #D6A13B !important;
     font-weight: 700 !important;
     box-shadow: 0 4px 16px rgba(1, 165, 75, 0.3) !important;
   }
@@ -155,7 +155,7 @@
 
   /* DROPDOWN MÓVIL - POSICIONAMIENTO CORRECTO */
   .navbar-collapse {
-    background: #fff !important;
+    background: #F5EFD7 !important;
     border-radius: 0 0 18px 18px !important;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15) !important;
     margin-top: 0.5rem !important;
@@ -209,15 +209,15 @@
 
   .navbar-nav .nav-link:hover,
   .navbar-nav .nav-link:focus {
-    color: #01a54b !important;
-    border: 1.2px solid #01a54b !important;
+    color: #D6A13B !important;
+    border: 1.2px solid #D6A13B !important;
     background: rgba(1, 165, 75, 0.05) !important;
     transform: translateX(5px) !important;
   }
 
   .navbar-nav .nav-link.active {
-    color: #01a54b !important;
-    border: 1.2px solid #01a54b !important;
+    color: #D6A13B !important;
+    border: 1.2px solid #D6A13B !important;
     background: rgba(1, 165, 75, 0.1) !important;
     font-weight: 800 !important;
     box-shadow: 0 2px 8px rgba(1, 165, 75, 0.2) !important;
