@@ -1817,12 +1817,30 @@
                 object-fit: cover;
                 border-radius: 8px;
                 margin-bottom: 0.5rem;
+                cursor: pointer;
               "
+              onclick="abrirModal3D()"
             />
-            <p>
+            <p style="margin-bottom: 0.8rem">
               Incorporamos elementos 3D innovadores para crear experiencias
               visuales únicas que impresionan a tus clientes.
             </p>
+            <button
+              onclick="abrirModal3D()"
+              style="
+                background: #d6a13b;
+                color: #000;
+                border: none;
+                border-radius: 8px;
+                padding: 8px 16px;
+                font-weight: 600;
+                cursor: pointer;
+                width: 100%;
+                transition: all 0.3s ease;
+              "
+            >
+              Ver Modelo 3D
+            </button>
           </div>
         </div>
         <div class="carousel-indicators" id="proyectos-indicators">
@@ -1863,19 +1881,317 @@
 
           <div class="card-clean animate-element" style="--delay: 0.3s">
             <h3 style="color: #d6a13b; margin-bottom: 1rem">Diseño 3D</h3>
-            <img
-              src="./Fotos_Gas/modelo3d.webp"
-              alt="Modelos 3D para restaurantes"
-              style="width: 100%; border-radius: 12px; margin-bottom: 1rem"
-            />
+
+            <!-- Modelo 3D integrado directamente -->
+            <div style="text-align: center; margin-bottom: 1rem">
+              <model-viewer
+                src="modelos/pizza-napolitana.glb"
+                alt="Pizza Napolitana 3D"
+                camera-controls
+                auto-rotate
+                ar
+                ar-modes="webxr scene-viewer quick-look"
+                style="
+                  width: 100%;
+                  max-width: 280px;
+                  height: 200px;
+                  background: #f5efd7;
+                  border-radius: 12px;
+                  box-shadow: 0 4px 15px rgba(214, 161, 59, 0.3);
+                  border: 2px solid rgba(214, 161, 59, 0.5);
+                  display: block;
+                  margin: 0 auto;
+                "
+                poster="Fotos_Gas/modelo3d.webp"
+              >
+                <div
+                  slot="fallback"
+                  style="
+                    color: #f5efd7;
+                    text-align: center;
+                    padding: 1rem;
+                    font-size: 0.9rem;
+                  "
+                >
+                  <img
+                    src="./Fotos_Gas/modelo3d.webp"
+                    alt="Vista previa modelo 3D"
+                    style="width: 100%; border-radius: 8px; cursor: pointer"
+                    onclick="abrirModal3D()"
+                  />
+                  <p style="margin-top: 0.5rem">Click para ver en 3D</p>
+                </div>
+              </model-viewer>
+            </div>
+
             <p>
               Incorporamos elementos 3D innovadores para crear experiencias
-              visuales únicas que impresionan a tus clientes.
+              visuales únicas que impresionan a tus clientes. Perfectos para
+              menús digitales interactivos.
             </p>
+
+            <button
+              onclick="abrirModal3D()"
+              style="
+                background: linear-gradient(135deg, #d6a13b, #b8941f);
+                color: #000;
+                border: none;
+                border-radius: 8px;
+                padding: 10px 20px;
+                font-weight: 600;
+                cursor: pointer;
+                width: 100%;
+                margin-top: 1rem;
+                transition: all 0.3s ease;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+              "
+            >
+              Ver Más Modelos 3D
+            </button>
           </div>
         </div>
       </div>
     </section>
+
+    <!-- Modal para Modelo 3D mejorado -->
+    <div
+      id="modal3D"
+      style="
+        display: none;
+        position: fixed;
+        z-index: 9999;
+        left: 0;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.9);
+        overflow-y: auto;
+        padding: 20px 10px;
+      "
+    >
+      <div
+        style="
+          background: #f5efd7;
+          border-radius: 20px;
+          padding: 1.5rem;
+          max-width: 95vw;
+          width: 100%;
+          max-width: 800px;
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.7);
+          margin: auto;
+          min-height: auto;
+        "
+      >
+        <button
+          id="cerrarModal3D"
+          style="
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            background: #111;
+            color: #f5efd7;
+            border: none;
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10001;
+          "
+        >
+          &times;
+        </button>
+
+        <h3
+          style="
+            color: #d6a13b;
+            margin-bottom: 1rem;
+            text-align: center;
+            font-size: clamp(1.3rem, 4vw, 1.8rem);
+            font-weight: 800;
+            padding-right: 40px;
+          "
+        >
+          Modelos 3D Interactivos
+        </h3>
+
+        <!-- Sección con imágenes siempre visibles -->
+        <div
+          style="
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            width: 100%;
+            margin-bottom: 1rem;
+          "
+        >
+          <div
+            style="
+              text-align: center;
+              min-width: 250px;
+              max-width: 350px;
+              flex: 1;
+            "
+          >
+            <h4
+              style="
+                color: #111;
+                margin-bottom: 0.8rem;
+                font-size: 1.1rem;
+                font-weight: 700;
+              "
+            >
+              Pizza Napolitana
+            </h4>
+
+            <div style="position: relative; margin-bottom: 0.5rem">
+              <img
+                src="Fotos_Gas/modelo3d.webp"
+                alt="Pizza Napolitana 3D Preview"
+                style="
+                  width: 100%;
+                  height: 200px;
+                  object-fit: cover;
+                  background: #f5efd7;
+                  border-radius: 15px;
+                  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+                  border: 2px solid #d6a13b;
+                  cursor: pointer;
+                "
+                onclick="cargarModelo3D('pizza')"
+              />
+
+              <div
+                style="
+                  position: absolute;
+                  top: 50%;
+                  left: 50%;
+                  transform: translate(-50%, -50%);
+                  background: rgba(214, 161, 59, 0.95);
+                  color: #000;
+                  padding: 10px 20px;
+                  border-radius: 25px;
+                  font-weight: 700;
+                  font-size: 1rem;
+                  cursor: pointer;
+                  transition: all 0.3s ease;
+                  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+                "
+                onclick="cargarModelo3D('pizza')"
+              >
+                🍕 Ver en 3D
+              </div>
+            </div>
+
+            <div id="modelo-pizza" style="display: none"></div>
+          </div>
+
+          <div
+            style="
+              text-align: center;
+              min-width: 250px;
+              max-width: 350px;
+              flex: 1;
+            "
+          >
+            <h4
+              style="
+                color: #111;
+                margin-bottom: 0.8rem;
+                font-size: 1.1rem;
+                font-weight: 700;
+              "
+            >
+              Arroz Blanco
+            </h4>
+
+            <div style="position: relative; margin-bottom: 0.5rem">
+              <img
+                src="Fotos_Gas/modelo3d.webp"
+                alt="Arroz Blanco 3D Preview"
+                style="
+                  width: 100%;
+                  height: 200px;
+                  object-fit: cover;
+                  background: #f5efd7;
+                  border-radius: 15px;
+                  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+                  border: 2px solid #d6a13b;
+                  cursor: pointer;
+                "
+                onclick="cargarModelo3D('arroz')"
+              />
+
+              <div
+                style="
+                  position: absolute;
+                  top: 50%;
+                  left: 50%;
+                  transform: translate(-50%, -50%);
+                  background: rgba(214, 161, 59, 0.95);
+                  color: #000;
+                  padding: 10px 20px;
+                  border-radius: 25px;
+                  font-weight: 700;
+                  font-size: 1rem;
+                  cursor: pointer;
+                  transition: all 0.3s ease;
+                  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+                "
+                onclick="cargarModelo3D('arroz')"
+              >
+                🍚 Ver en 3D
+              </div>
+            </div>
+
+            <div id="modelo-arroz" style="display: none"></div>
+          </div>
+        </div>
+
+        <p
+          style="
+            color: #111;
+            text-align: center;
+            margin-top: 1rem;
+            max-width: 100%;
+            line-height: 1.6;
+            font-size: clamp(0.9rem, 2.5vw, 1rem);
+            padding: 0 10px;
+          "
+        >
+          Nuestros modelos 3D interactivos permiten a los clientes explorar los
+          platillos desde todos los ángulos, creando una experiencia única y
+          atractiva que aumenta el interés y las ventas.
+        </p>
+
+        <div
+          style="
+            margin-top: 1rem;
+            padding: 15px;
+            background: rgba(214, 161, 59, 0.1);
+            border-radius: 10px;
+            width: 100%;
+            text-align: center;
+            border: 1px solid rgba(214, 161, 59, 0.3);
+          "
+        >
+          <p
+            style="color: #111; font-size: 0.9rem; margin: 0; font-weight: 600"
+          >
+            💡 Haz clic en las imágenes para cargar los modelos 3D interactivos
+          </p>
+        </div>
+      </div>
+    </div>
 
     <!-- Footer -->
     <footer
@@ -2019,7 +2335,190 @@
 
     <!-- Scripts para animaciones -->
     <script>
+      // Cargar model-viewer para los modelos 3D
+      if (!window.customElements.get("model-viewer")) {
+        var script = document.createElement("script");
+        script.type = "module";
+        script.src =
+          "https://unpkg.com/@google/model-viewer@1.12.0/dist/model-viewer.min.js";
+        document.head.appendChild(script);
+      }
+
+      // Función para abrir el modal 3D
+      function abrirModal3D() {
+        const modal = document.getElementById("modal3D");
+        modal.style.display = "flex";
+
+        // Agregar animación de entrada
+        modal.style.opacity = "0";
+        modal.style.transform = "scale(0.9)";
+        setTimeout(() => {
+          modal.style.transition = "all 0.3s ease";
+          modal.style.opacity = "1";
+          modal.style.transform = "scale(1)";
+        }, 10);
+      }
+
+      // Función para cerrar el modal 3D
+      function cerrarModal3D() {
+        const modal = document.getElementById("modal3D");
+        modal.style.transition = "all 0.3s ease";
+        modal.style.opacity = "0";
+        modal.style.transform = "scale(0.9)";
+        setTimeout(() => {
+          modal.style.display = "none";
+        }, 300);
+      }
+
+      // Función para cargar modelo 3D
+      function cargarModelo3D(tipo) {
+        const modeloElementId = `modelo-${tipo}`;
+        const modeloElement = document.getElementById(modeloElementId);
+
+        if (!modeloElement) return;
+
+        // Si ya está cargado, solo mostrarlo
+        if (modeloElement.style.display === "block") {
+          return;
+        }
+
+        // Ocultar todos los modelos activos
+        document.querySelectorAll('[id^="modelo-"]').forEach((el) => {
+          el.style.display = "none";
+        });
+
+        // Mostrar el modelo seleccionado
+        modeloElement.style.display = "block";
+
+        // Verificar si ya tiene contenido
+        if (modeloElement.innerHTML.trim() === "") {
+          let modelSrc, alt, fallbackImage;
+
+          switch (tipo) {
+            case "pizza":
+              modelSrc = "modelos/pizza-napolitana.glb";
+              alt = "Pizza Napolitana 3D";
+              fallbackImage = "Fotos_Gas/modelo3d.webp";
+              break;
+            case "arroz":
+              modelSrc = "modelos/sample.glb";
+              alt = "Arroz Blanco 3D";
+              fallbackImage = "Fotos_Gas/modelo3d.webp";
+              break;
+            default:
+              modelSrc = "modelos/sample.glb";
+              alt = "Modelo 3D";
+              fallbackImage = "Fotos_Gas/modelo3d.webp";
+          }
+
+          // Crear el contenido del modelo
+          modeloElement.innerHTML = `
+            <div style="width: 100%; max-width: 400px; margin: 0 auto;">
+              <div style="position: relative; background: #f5efd7; border-radius: 15px; padding: 20px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);">
+                <div id="modelo-${tipo}-viewer" style="width: 100%; height: 300px; border-radius: 10px; overflow: hidden; position: relative;">
+                  <img 
+                    src="${fallbackImage}" 
+                    alt="${alt} Preview"
+                    style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;"
+                    id="imagen-${tipo}"
+                  />
+                  <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(214, 161, 59, 0.95); color: #000; padding: 12px 24px; border-radius: 25px; font-weight: 700; cursor: pointer;" onclick="iniciarModelo3D('${tipo}')">
+                    🔄 Cargar Modelo 3D
+                  </div>
+                </div>
+                <p style="text-align: center; color: #111; margin-top: 15px; font-size: 0.9rem; line-height: 1.5;">
+                  Modelo 3D interactivo de <strong>${
+                    tipo === "pizza" ? "Pizza Napolitana" : "Arroz Blanco"
+                  }</strong><br>
+                  <span style="color: #666; font-size: 0.8rem;">Haz clic en "Cargar Modelo 3D" para ver la versión interactiva</span>
+                </p>
+              </div>
+            </div>
+          `;
+        }
+      }
+
+      // Función para iniciar el modelo 3D real
+      function iniciarModelo3D(tipo) {
+        const viewerContainer = document.getElementById(
+          `modelo-${tipo}-viewer`
+        );
+        if (!viewerContainer) return;
+
+        let modelSrc;
+        switch (tipo) {
+          case "pizza":
+            modelSrc = "modelos/pizza-napolitana.glb";
+            break;
+          case "arroz":
+            modelSrc = "modelos/sample.glb";
+            break;
+          default:
+            modelSrc = "modelos/sample.glb";
+        }
+
+        // Verificar si model-viewer está disponible
+        if (window.customElements.get("model-viewer")) {
+          // Reemplazar contenido con model-viewer
+          viewerContainer.innerHTML = `
+            <model-viewer 
+              src="${modelSrc}"
+              alt="Modelo 3D interactivo"
+              auto-rotate 
+              camera-controls 
+              touch-action="pan-y"
+              style="width: 100%; height: 100%; background-color: #f5efd7; border-radius: 10px;"
+              loading="eager"
+              reveal="interaction"
+            >
+              <div slot="progress-bar" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #d6a13b; font-weight: 600;">
+                Cargando modelo 3D...
+              </div>
+            </model-viewer>
+          `;
+        } else {
+          // Fallback si no se puede cargar model-viewer
+          viewerContainer.innerHTML = `
+            <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; background: #f5efd7; border-radius: 10px; padding: 20px; text-align: center;">
+              <div style="font-size: 3rem; margin-bottom: 1rem;">🔧</div>
+              <p style="color: #111; font-weight: 600; margin-bottom: 0.5rem;">Modelo 3D no disponible</p>
+              <p style="color: #666; font-size: 0.9rem; line-height: 1.4;">
+                Tu navegador no soporta la visualización de modelos 3D interactivos.<br>
+                Prueba con Chrome, Firefox o Safari más recientes.
+              </p>
+            </div>
+          `;
+        }
+      }
+
       document.addEventListener("DOMContentLoaded", function () {
+        // Event listeners para el modal 3D
+        const modal3D = document.getElementById("modal3D");
+        const cerrarBtn = document.getElementById("cerrarModal3D");
+
+        if (modal3D && cerrarBtn) {
+          // Cerrar modal con botón X
+          cerrarBtn.onclick = cerrarModal3D;
+
+          // Cerrar modal al hacer clic fuera
+          modal3D.onclick = function (e) {
+            if (e.target === this) {
+              cerrarModal3D();
+            }
+          };
+        }
+
+        // Cerrar modal con tecla Escape
+        document.addEventListener("keydown", function (e) {
+          if (
+            e.key === "Escape" &&
+            modal3D &&
+            modal3D.style.display === "flex"
+          ) {
+            cerrarModal3D();
+          }
+        });
+
         // Cerrar menú móvil al hacer click en un link
         document
           .querySelectorAll(".navbar-nav .nav-link")

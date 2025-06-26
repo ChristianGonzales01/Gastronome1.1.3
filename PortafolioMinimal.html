@@ -1007,12 +1007,12 @@
         }
 
         .carousel-hint::before {
-          content: "👈" !important;
+          content: "‹" !important;
           animation: swipeLeft 2s ease-in-out infinite !important;
         }
 
         .carousel-hint::after {
-          content: "👉" !important;
+          content: "›" !important;
           animation: swipeRight 2s ease-in-out infinite !important;
         }
 
@@ -1831,10 +1831,12 @@
             />
             <div class="portfolio-card-title">Modelos 3D</div>
             <div class="portfolio-card-desc">
-              Inlcuimos Modelos 3D en platillos especiales garantizando una
+              Incluimos Modelos 3D en platillos especiales garantizando una
               experiencia visual.
             </div>
-            <a href="#" class="portfolio-card-link">Modelos</a>
+            <a href="#" class="portfolio-card-link" data-3d-models="true"
+              >Modelos</a
+            >
           </div>
           <div class="portfolio-card">
             <img src="Fotos_Gas/QrGas.webp" alt="Generador de QR" />
@@ -1842,7 +1844,9 @@
             <div class="portfolio-card-desc">
               Herramienta online para crear códigos QR personalizados.
             </div>
-            <a href="#" class="portfolio-card-link">Generador QR</a>
+            <a href="#" class="portfolio-card-link" data-qr-generator="true"
+              >Generador QR</a
+            >
           </div>
           <div class="portfolio-card">
             <img
@@ -1892,7 +1896,9 @@
               Incluimos Modelos 3D en platillos especiales garantizando una
               experiencia visual.
             </div>
-            <a href="#" class="portfolio-card-link">Modelos</a>
+            <a href="#" class="portfolio-card-link" data-3d-models="true"
+              >Modelos</a
+            >
           </div>
           <div class="carousel-item-mobile">
             <img src="Fotos_Gas/QrGas.webp" alt="Códigos QR" />
@@ -1900,7 +1906,9 @@
             <div class="portfolio-card-desc">
               Herramienta online para crear códigos QR personalizados.
             </div>
-            <a href="#" class="portfolio-card-link">Generador QR</a>
+            <a href="#" class="portfolio-card-link" data-qr-generator="true"
+              >Generador QR</a
+            >
           </div>
           <div class="carousel-item-mobile">
             <img
@@ -1941,7 +1949,9 @@
               Incluimos Modelos 3D en platillos especiales garantizando una
               experiencia visual.
             </div>
-            <a href="#" class="portfolio-card-link">Modelos</a>
+            <a href="#" class="portfolio-card-link" data-3d-models="true"
+              >Modelos</a
+            >
           </div>
           <div class="carousel-item-mobile">
             <img src="Fotos_Gas/QrGas.webp" alt="Códigos QR" />
@@ -1949,7 +1959,37 @@
             <div class="portfolio-card-desc">
               Herramienta online para crear códigos QR personalizados.
             </div>
-            <a href="#" class="portfolio-card-link">Generador QR</a>
+            <a href="#" class="portfolio-card-link" data-qr-generator="true"
+              >Generador QR</a
+            >
+          </div>
+          <div class="carousel-item-mobile">
+            <img
+              src="Fotos_Gas/pagina-web/Reservaciones.webp"
+              alt="Reservaciones"
+            />
+            <div class="portfolio-card-title">Reservaciones</div>
+            <div class="portfolio-card-desc">
+              Permite a tus clientes reservar mesa en línea de forma rápida y
+              sencilla.
+            </div>
+            <a
+              href="#"
+              class="portfolio-card-link"
+              data-carrusel="reservaciones"
+              >Reservaciones</a
+            >
+          </div>
+          <div class="carousel-item-mobile">
+            <img src="Fotos_Gas/pagina-web/Eventos.webp" alt="Eventos" />
+            <div class="portfolio-card-title">Cambio de eventos</div>
+            <div class="portfolio-card-desc">
+              Actualiza los eventos de tu restaurante fácilmente, mostrando
+              fechas especiales.
+            </div>
+            <a href="#" class="portfolio-card-link" data-carrusel="eventos"
+              >Eventos</a
+            >
           </div>
         </div>
       </div>
@@ -2334,7 +2374,103 @@
       document.querySelectorAll(".portfolio-card-link").forEach(function (btn) {
         btn.addEventListener("click", function (e) {
           e.preventDefault();
-          let card = btn.closest(".portfolio-card");
+
+          // Manejar botón de Generador QR
+          if (btn.dataset.qrGenerator === "true") {
+            const card =
+              btn.closest(".portfolio-card") ||
+              btn.closest(".carousel-item-mobile");
+            const titulo = "Generador QR";
+            const desc =
+              card.querySelector(".portfolio-card-desc")?.innerHTML.trim() ||
+              "Herramienta online para crear códigos QR personalizados.";
+
+            const qrHtml = `
+              <div style="text-align: center; margin: 2rem 0;">
+                <div style="background: #fff; padding: 2rem; border-radius: 15px; box-shadow: 0 4px 16px rgba(0,0,0,0.1); margin-bottom: 2rem;">
+                  <img src="Fotos_Gas/QrGas.webp" alt="Código QR" style="max-width: 100%; height: auto; border-radius: 10px;" />
+                </div>
+                <div style="font-size: 1.1rem; color: #333; line-height: 1.6;">
+                  <p><strong>Funcionalidades del Generador QR:</strong></p>
+                  <ul style="text-align: left; max-width: 400px; margin: 0 auto; color: #555;">
+                    <li>Generación de códigos QR personalizados</li>
+                    <li>Múltiples formatos de salida</li>
+                    <li>Descarga en alta resolución</li>
+                    <li>Códigos para URLs, texto, contactos</li>
+                    <li>Personalización de colores y logos</li>
+                  </ul>
+                </div>
+              </div>
+            `;
+
+            document.getElementById("infoModalTitulo").textContent = titulo;
+            document.getElementById("infoModalCarrusel").innerHTML = qrHtml;
+            document.getElementById("infoModalDesc").innerHTML = desc;
+            document.getElementById("infoModalTags").innerHTML = "";
+            document.getElementById("modalProyecto").style.display = "flex";
+
+            if (typeof animateModalText === "function") {
+              animateModalText();
+            }
+            return;
+          }
+
+          // Manejar botón de Modelos 3D
+          if (btn.dataset["3dModels"] === "true") {
+            const card =
+              btn.closest(".portfolio-card") ||
+              btn.closest(".carousel-item-mobile");
+            const titulo = "Modelos 3D";
+            const desc =
+              card.querySelector(".portfolio-card-desc")?.innerHTML.trim() ||
+              "Incluimos Modelos 3D en platillos especiales garantizando una experiencia visual.";
+
+            const modelosHtml = `
+              <div style="display:flex; flex-wrap:wrap; justify-content:center; align-items:stretch; gap:2.2rem; margin-bottom:2rem; min-height:340px;">
+                <div style='flex:1 1 320px; min-width:260px; max-width:360px; display:flex; flex-direction:column; align-items:center;'>
+                  <div style='font-weight:700; font-size:1.18rem; margin-bottom:0.5rem; text-align:center;'>Arroz Blanco</div>
+                  <model-viewer src="modelos/sample.glb" alt="Sample 3D" camera-controls auto-rotate ar ar-modes='webxr scene-viewer quick-look' style="width:100%; min-width:220px; max-width:340px; height:340px; background:#F5EFD7; border-radius:14px; box-shadow:0 2px 12px #0001; border:2px solid #eee; margin:0 auto; display:block;" poster="Fotos_Gas/modelo3d.webp">
+                    <div slot="fallback" style='color:#111; text-align:center; font-size:1.1rem; margin-top:1.2rem;'>Tu navegador no soporta la visualización 3D.<br>Prueba en Chrome, Edge, Safari o Firefox.</div>
+                  </model-viewer>
+                </div>
+                <div style='flex:1 1 320px; min-width:260px; max-width:360px; display:flex; flex-direction:column; align-items:center;'>
+                  <div style='font-weight:700; font-size:1.18rem; margin-bottom:0.5rem; text-align:center;'>Pizza Napolitana</div>
+                  <model-viewer src="modelos/pizza-napolitana.glb" alt="Pizza Napolitana 3D" camera-controls auto-rotate ar ar-modes='webxr scene-viewer quick-look' style="width:100%; min-width:220px; max-width:340px; height:340px; background:#F5EFD7; border-radius:14px; box-shadow:0 2px 12px #0001; border:2px solid #eee; margin:0 auto; display:block;" poster="Fotos_Gas/modelo3d.webp">
+                    <div slot="fallback" style='color:#111; text-align:center; font-size:1.1rem; margin-top:1.2rem;'>Tu navegador no soporta la visualización 3D.<br>Prueba en Chrome, Edge, Safari o Firefox.</div>
+                  </model-viewer>
+                </div>
+              </div>
+            `;
+
+            document.getElementById("infoModalTitulo").textContent = titulo;
+            document.getElementById("infoModalCarrusel").innerHTML =
+              modelosHtml;
+            document.getElementById("infoModalDesc").innerHTML = desc;
+            document.getElementById("infoModalTags").innerHTML = "";
+            document.getElementById("modalProyecto").style.display = "flex";
+
+            // Cargar model-viewer si no está presente
+            if (!window.customElements.get("model-viewer")) {
+              var script = document.createElement("script");
+              script.type = "module";
+              script.src =
+                "https://unpkg.com/@google/model-viewer@1.12.0/dist/model-viewer.min.js";
+              document.head.appendChild(script);
+            }
+
+            if (typeof animateModalText === "function") {
+              animateModalText();
+            }
+            return;
+          }
+
+          let card =
+            btn.closest(".portfolio-card") ||
+            btn.closest(".carousel-item-mobile");
+          if (!card) {
+            // Fallback para carruseles móviles sin clase específica
+            card = btn.closest("div");
+          }
           let titulo = card
             .querySelector(".portfolio-card-title")
             .textContent.trim();
@@ -2471,50 +2607,6 @@
     <div slot="fallback" style='color:#111; text-align:center; font-size:1.1rem; margin-top:1.2rem;'>Tu navegador no soporta la visualización 3D.<br>Prueba en Chrome, Edge, Safari o Firefox.</div>
   </model-viewer>
 </div>`;
-            document.getElementById("infoModalTitulo").textContent = titulo;
-            document.getElementById("infoModalCarrusel").innerHTML =
-              modelosHtml;
-            document.getElementById("infoModalDesc").innerHTML = desc;
-            document.getElementById("infoModalTags").innerHTML = "";
-            document.getElementById("modalProyecto").style.display = "flex";
-            animateModalText && animateModalText();
-            // Cargar model-viewer 1.12.0 solo si no está presente
-            if (!window.customElements.get("model-viewer")) {
-              var script = document.createElement("script");
-              script.type = "module";
-              script.src =
-                "https://unpkg.com/@google/model-viewer@1.12.0/dist/model-viewer.min.js";
-              document.head.appendChild(script);
-            }
-            return;
-          }
-          // Mostrar ambos modelos 3D (sample.glb y pizza-napolitana.glb) en vez de carrusel para el módulo "Modelos 3D" en Apps y Herramientas
-          if (
-            card.querySelector(".portfolio-card-title")?.textContent.trim() ===
-              "Modelos 3D" &&
-            btn.textContent.trim().toLowerCase() === "modelos"
-          ) {
-            e.preventDefault();
-            e.stopImmediatePropagation();
-            const titulo = "Modelos 3D";
-            const desc =
-              card.querySelector(".portfolio-card-desc")?.innerHTML.trim() ||
-              "";
-            let modelosHtml = `
-    <div style="display:flex; flex-wrap:wrap; justify-content:center; align-items:stretch; gap:2.2rem; margin-bottom:2rem; min-height:340px;">
-      <div style='flex:1 1 320px; min-width:260px; max-width:360px; display:flex; flex-direction:column; align-items:center;'>
-        <div style='font-weight:700; font-size:1.18rem; margin-bottom:0.5rem; text-align:center;'>Arroz Blanco</div>
-        <model-viewer src="modelos/sample.glb" alt="Sample 3D" camera-controls auto-rotate ar ar-modes='webxr scene-viewer quick-look' style="width:100%; min-width:220px; max-width:340px; height:340px; background:#F5EFD7; border-radius:14px; box-shadow:0 2px 12px #0001; border:2px solid #eee; margin:0 auto; display:block;" poster="Fotos_Gas/modelo3d.webp">
-          <div slot="fallback" style='color:#111; text-align:center; font-size:1.1rem; margin-top:1.2rem;'>Tu navegador no soporta la visualización 3D.<br>Prueba en Chrome, Edge, Safari o Firefox.</div>
-        </model-viewer>
-      </div>
-      <div style='flex:1 1 320px; min-width:260px; max-width:360px; display:flex; flex-direction:column; align-items:center;'>
-        <div style='font-weight:700; font-size:1.18rem; margin-bottom:0.5rem; text-align:center;'>Pizza Napolitana</div>
-        <model-viewer src="modelos/pizza-napolitana.glb" alt="Pizza Napolitana 3D" camera-controls auto-rotate ar ar-modes='webxr scene-viewer quick-look' style="width:100%; min-width:220px; max-width:340px; height:340px; background:#F5EFD7; border-radius:14px; box-shadow:0 2px 12px #0001; border:2px solid #eee; margin:0 auto; display:block;" poster="Fotos_Gas/modelo3d.webp">
-          <div slot="fallback" style='color:#111; text-align:center; font-size:1.1rem; margin-top:1.2rem;'>Tu navegador no soporta la visualización 3D.<br>Prueba en Chrome, Edge, Safari o Firefox.</div>
-        </model-viewer>
-      </div>
-    </div>`;
             document.getElementById("infoModalTitulo").textContent = titulo;
             document.getElementById("infoModalCarrusel").innerHTML =
               modelosHtml;
@@ -2981,93 +3073,11 @@
               : ".main-title, .subtitle, .portfolio-section-title, .portfolio-card, .feature, .portfolio-img, .portfolio-card-title, .portfolio-card-desc, .portfolio-card-link, .portfolio-preview .portfolio-card, .portfolio-cards, .portfolio-section-bg";
 
             document.querySelectorAll(selector).forEach(function (el) {
-              el.classList.add("reveal-on-scroll");
-              observer.observe(el);
-            });
-          });
-        }, initDelay);
-      })();
-    </script>
-    <style>
-      @media (max-width: 600px) {
-        /* Simplificar animaciones en móvil para mejor rendimiento */
-        .portfolio-card-title,
-        .portfolio-card-desc,
-        .portfolio-card-link {
-          opacity: 1; /* Mostrar inmediatamente en móvil */
-          transform: none;
-          transition: none; /* Eliminar transiciones complejas */
-        }
-
-        /* Solo animar la aparición del contenedor, no elementos internos */
-        .portfolio-card {
-          opacity: 0;
-          transition: opacity 0.3s ease-out;
-        }
-
-        .portfolio-card.visible {
-          opacity: 1;
-        }
-
-        /* Títulos siempre visibles en móvil */
-        .main-title,
-        .subtitle,
-        .portfolio-section-title {
-          opacity: 1 !important;
-          transform: none !important;
-        }
-      }
-    </style>
-    <script>
-      (function () {
-        // Simplificar animaciones en móvil para mejor rendimiento
-        if (window.innerWidth > 600) {
-          // Solo ejecutar animaciones complejas en desktop
-          function reveal(entries, observer) {
-            entries.forEach(function (entry) {
-              if (entry.isIntersecting) {
-                entry.target.classList.add("visible");
-                if (entry.target.classList.contains("portfolio-card")) {
-                  var title = entry.target.querySelector(
-                    ".portfolio-card-title"
-                  );
-                  var desc = entry.target.querySelector(".portfolio-card-desc");
-                  var link = entry.target.querySelector(".portfolio-card-link");
-                  if (title) title.style.transitionDelay = "0.08s";
-                  if (desc) desc.style.transitionDelay = "0.22s";
-                  if (link) link.style.transitionDelay = "0.36s";
-                }
-                observer.unobserve(entry.target);
-              }
-            });
-          }
-
-          document.addEventListener("DOMContentLoaded", function () {
-            var selector =
-              ".main-title, .subtitle, .portfolio-section-title, .portfolio-card, .feature";
-            var observer = new IntersectionObserver(reveal, {
-              threshold: 0.13,
-            });
-
-            document.querySelectorAll(selector).forEach(function (el) {
               el.classList.add("reveal-on-scroll-mobile");
               observer.observe(el);
             });
           });
-        } else {
-          // En móvil, mostrar todo inmediatamente
-          document.addEventListener("DOMContentLoaded", function () {
-            document
-              .querySelectorAll(
-                ".portfolio-card, .main-title, .subtitle, .portfolio-section-title"
-              )
-              .forEach(function (el) {
-                el.classList.add("visible");
-                el.style.opacity = "1";
-                el.style.transform = "none";
-              });
-          });
-        }
+        }, initDelay);
       })();
 
       // JavaScript para carruseles automáticos en móvil - Optimizado
