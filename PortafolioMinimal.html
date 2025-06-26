@@ -2781,6 +2781,33 @@
           });
         }
       });
+      // Fallback para asegurar que los textos se muestren en móvil
+      document.addEventListener("DOMContentLoaded", function () {
+        if (window.innerWidth <= 768) {
+          // Mostrar todos los textos inmediatamente en móvil
+          setTimeout(function () {
+            document
+              .querySelectorAll(
+                ".portfolio-card-title, .portfolio-card-desc, .portfolio-card-link, .main-title, .subtitle, .portfolio-section-title"
+              )
+              .forEach(function (el) {
+                el.style.opacity = "1";
+                el.style.transform = "none";
+                el.style.visibility = "visible";
+              });
+          }, 100);
+
+          // Asegurar que los carruseles no interfieran con el contenido
+          setTimeout(function () {
+            document
+              .querySelectorAll(".mobile-auto-carousel")
+              .forEach(function (carousel) {
+                carousel.style.opacity = "1";
+                carousel.style.visibility = "visible";
+              });
+          }, 200);
+        }
+      });
     </script>
     <!-- Figuras decorativas para congruencia visual -->
     <div class="figura-serv figura-1"></div>
@@ -2931,7 +2958,7 @@
     </footer>
     <!-- --- Animación de aparición progresiva al hacer scroll --- -->
     <script>
-      // --- Animación de aparición progresiva al hacer scroll (optimizada con IntersectionObserver) ---
+      // --- Animación de aparición progresiva al hacer scroll (optimizada y más rápida para móvil) ---
       (function () {
         function reveal(entries, observer) {
           entries.forEach(function (entry) {
@@ -2941,129 +2968,186 @@
             }
           });
         }
-        var observer = new IntersectionObserver(reveal, { threshold: 0.12 });
-        document.addEventListener("DOMContentLoaded", function () {
-          var isMobile = window.innerWidth <= 600;
-          var selector = isMobile
-            ? ".main-title, .subtitle, .portfolio-section-title"
-            : ".main-title, .subtitle, .portfolio-section-title, .portfolio-card, .feature, .portfolio-img, .portfolio-card-title, .portfolio-card-desc, .portfolio-card-link, .portfolio-preview .portfolio-card, .portfolio-cards, .portfolio-section-bg";
-          document.querySelectorAll(selector).forEach(function (el) {
-            el.classList.add("reveal-on-scroll");
-            observer.observe(el);
+        var observer = new IntersectionObserver(reveal, { threshold: 0.1 }); // Threshold más bajo para activar antes
+
+        // Retrasar la inicialización de animaciones en móvil
+        var initDelay = window.innerWidth <= 600 ? 200 : 0;
+
+        setTimeout(function () {
+          document.addEventListener("DOMContentLoaded", function () {
+            var isMobile = window.innerWidth <= 600;
+            var selector = isMobile
+              ? ".main-title, .subtitle, .portfolio-section-title"
+              : ".main-title, .subtitle, .portfolio-section-title, .portfolio-card, .feature, .portfolio-img, .portfolio-card-title, .portfolio-card-desc, .portfolio-card-link, .portfolio-preview .portfolio-card, .portfolio-cards, .portfolio-section-bg";
+
+            document.querySelectorAll(selector).forEach(function (el) {
+              el.classList.add("reveal-on-scroll");
+              observer.observe(el);
+            });
           });
-        });
+        }, initDelay);
       })();
     </script>
     <style>
       @media (max-width: 600px) {
+        /* Simplificar animaciones en móvil para mejor rendimiento */
         .portfolio-card-title,
         .portfolio-card-desc,
         .portfolio-card-link {
+          opacity: 1; /* Mostrar inmediatamente en móvil */
+          transform: none;
+          transition: none; /* Eliminar transiciones complejas */
+        }
+
+        /* Solo animar la aparición del contenedor, no elementos internos */
+        .portfolio-card {
           opacity: 0;
-          transform: translateY(18px);
-          transition: opacity 0.45s cubic-bezier(0.4, 1.6, 0.6, 1),
-            transform 0.45s cubic-bezier(0.4, 1.6, 0.6, 1);
+          transition: opacity 0.3s ease-out;
         }
-        .portfolio-card.visible .portfolio-card-title {
+
+        .portfolio-card.visible {
           opacity: 1;
-          transform: none;
-          transition-delay: 0.08s;
         }
-        .portfolio-card.visible .portfolio-card-desc {
-          opacity: 1;
-          transform: none;
-          transition-delay: 0.22s;
-        }
-        .portfolio-card.visible .portfolio-card-link {
-          opacity: 1;
-          transform: none;
-          transition-delay: 0.36s;
+
+        /* Títulos siempre visibles en móvil */
+        .main-title,
+        .subtitle,
+        .portfolio-section-title {
+          opacity: 1 !important;
+          transform: none !important;
         }
       }
     </style>
     <script>
       (function () {
-        // Animación de aparición progresiva para móvil: títulos y módulos
-        function reveal(entries, observer) {
-          entries.forEach(function (entry) {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("visible");
-              // Si es un módulo, animar textos internos con delay
-              if (
-                window.innerWidth <= 600 &&
-                entry.target.classList.contains("portfolio-card")
-              ) {
-                var title = entry.target.querySelector(".portfolio-card-title");
-                var desc = entry.target.querySelector(".portfolio-card-desc");
-                var link = entry.target.querySelector(".portfolio-card-link");
-                if (title) title.style.transitionDelay = "0.08s";
-                if (desc) desc.style.transitionDelay = "0.22s";
-                if (link) link.style.transitionDelay = "0.36s";
+        // Simplificar animaciones en móvil para mejor rendimiento
+        if (window.innerWidth > 600) {
+          // Solo ejecutar animaciones complejas en desktop
+          function reveal(entries, observer) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+                if (entry.target.classList.contains("portfolio-card")) {
+                  var title = entry.target.querySelector(
+                    ".portfolio-card-title"
+                  );
+                  var desc = entry.target.querySelector(".portfolio-card-desc");
+                  var link = entry.target.querySelector(".portfolio-card-link");
+                  if (title) title.style.transitionDelay = "0.08s";
+                  if (desc) desc.style.transitionDelay = "0.22s";
+                  if (link) link.style.transitionDelay = "0.36s";
+                }
+                observer.unobserve(entry.target);
               }
-              observer.unobserve(entry.target);
-            }
-          });
-        }
-        document.addEventListener("DOMContentLoaded", function () {
-          var isMobile = window.innerWidth <= 600;
-          var mobileSelector =
-            ".main-title, .subtitle, .portfolio-section-title, .portfolio-card, .feature";
-          var observerMobile = new IntersectionObserver(reveal, {
-            threshold: 0.13,
-          });
-          if (isMobile) {
-            document.querySelectorAll(mobileSelector).forEach(function (el) {
-              el.classList.add("reveal-on-scroll-mobile");
-              observerMobile.observe(el);
             });
           }
-        });
-      })();
 
-      // JavaScript para carruseles automáticos en móvil
-      if (window.innerWidth <= 768) {
-        document.addEventListener("DOMContentLoaded", function () {
-          const carousels = document.querySelectorAll(".mobile-auto-carousel");
+          document.addEventListener("DOMContentLoaded", function () {
+            var selector =
+              ".main-title, .subtitle, .portfolio-section-title, .portfolio-card, .feature";
+            var observer = new IntersectionObserver(reveal, {
+              threshold: 0.13,
+            });
 
-          carousels.forEach((carousel) => {
-            let scrollPosition = 0;
-            const scrollStep = 1;
-            const scrollSpeed = 50; // ms
-            let scrollInterval;
-
-            function autoScroll() {
-              if (carousel.scrollLeft >= carousel.scrollWidth / 2) {
-                carousel.scrollLeft = 0;
-                scrollPosition = 0;
-              } else {
-                scrollPosition += scrollStep;
-                carousel.scrollLeft = scrollPosition;
-              }
-            }
-
-            // Iniciar scroll automático
-            function startAutoScroll() {
-              scrollInterval = setInterval(autoScroll, scrollSpeed);
-            }
-
-            function stopAutoScroll() {
-              clearInterval(scrollInterval);
-            }
-
-            // Iniciar
-            startAutoScroll();
-
-            // Pausar en hover
-            carousel.addEventListener("mouseenter", stopAutoScroll);
-            carousel.addEventListener("mouseleave", startAutoScroll);
-
-            // Pausar en touch
-            carousel.addEventListener("touchstart", stopAutoScroll);
-            carousel.addEventListener("touchend", () => {
-              setTimeout(startAutoScroll, 3000); // Reanudar después de 3 segundos
+            document.querySelectorAll(selector).forEach(function (el) {
+              el.classList.add("reveal-on-scroll-mobile");
+              observer.observe(el);
             });
           });
-        });
+        } else {
+          // En móvil, mostrar todo inmediatamente
+          document.addEventListener("DOMContentLoaded", function () {
+            document
+              .querySelectorAll(
+                ".portfolio-card, .main-title, .subtitle, .portfolio-section-title"
+              )
+              .forEach(function (el) {
+                el.classList.add("visible");
+                el.style.opacity = "1";
+                el.style.transform = "none";
+              });
+          });
+        }
+      })();
+
+      // JavaScript para carruseles automáticos en móvil - Optimizado
+      if (window.innerWidth <= 768) {
+        // Retrasar la inicialización de carruseles para no interferir con la carga
+        setTimeout(function () {
+          document.addEventListener("DOMContentLoaded", function () {
+            const carousels = document.querySelectorAll(
+              ".mobile-auto-carousel"
+            );
+
+            carousels.forEach((carousel, index) => {
+              // Retrasar cada carrusel para evitar problemas de rendimiento
+              setTimeout(() => {
+                let scrollPosition = 0;
+                const scrollStep = 1;
+                const scrollSpeed = 80; // ms - más lento para mejor rendimiento
+                let scrollInterval;
+                let isScrolling = false;
+
+                function autoScroll() {
+                  if (isScrolling) return; // Evitar múltiples ejecuciones
+
+                  isScrolling = true;
+
+                  requestAnimationFrame(() => {
+                    if (carousel.scrollLeft >= carousel.scrollWidth / 2) {
+                      carousel.scrollLeft = 0;
+                      scrollPosition = 0;
+                    } else {
+                      scrollPosition += scrollStep;
+                      carousel.scrollLeft = scrollPosition;
+                    }
+                    isScrolling = false;
+                  });
+                }
+
+                // Iniciar scroll automático
+                function startAutoScroll() {
+                  if (scrollInterval) clearInterval(scrollInterval);
+                  scrollInterval = setInterval(autoScroll, scrollSpeed);
+                }
+
+                function stopAutoScroll() {
+                  if (scrollInterval) {
+                    clearInterval(scrollInterval);
+                    scrollInterval = null;
+                  }
+                }
+
+                // Iniciar con delay para mejor rendimiento
+                setTimeout(startAutoScroll, 1000 + index * 200);
+
+                // Pausar en hover
+                carousel.addEventListener("mouseenter", stopAutoScroll);
+                carousel.addEventListener("mouseleave", () => {
+                  setTimeout(startAutoScroll, 500);
+                });
+
+                // Pausar en touch
+                carousel.addEventListener("touchstart", stopAutoScroll);
+                carousel.addEventListener("touchend", () => {
+                  setTimeout(startAutoScroll, 2000);
+                });
+
+                // Parar carrusel cuando no está visible (mejor rendimiento)
+                const observer = new IntersectionObserver((entries) => {
+                  entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                      startAutoScroll();
+                    } else {
+                      stopAutoScroll();
+                    }
+                  });
+                });
+                observer.observe(carousel);
+              }, index * 100); // Retrasar inicialización de cada carrusel
+            });
+          });
+        }, 500); // Retrasar todo el sistema de carruseles
       }
     </script>
   </body>
