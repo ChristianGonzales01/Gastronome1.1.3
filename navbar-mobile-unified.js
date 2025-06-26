@@ -36,50 +36,8 @@
       console.log("✅ Bootstrap 5 attributes configurados");
     }
   }
-  // Función para detectar página activa y marcar nav link
-  function activateCurrentPage() {
-    const path = window.location.pathname.toLowerCase();
-    console.log("Path actual:", path); // Para debugging
-    const pageMap = {
-      "index.html": ".HOME_ACTIVE",
-      "nosotros.html": ".NOSOTROS_ACTIVE",
-      "servicios.html": ".SERVICIOS_ACTIVE",
-      "portafoliominimal.html": ".PORTAFOLIO_ACTIVE",
-      "contacto.html": ".CONTACTO_ACTIVE",
-    };
+  // Función para detectar página activa y marcar nav link  // Función de activación de página eliminada - sin marcado automático
 
-    // Remover todas las clases active previas
-    Object.values(pageMap).forEach((selector) => {
-      const element = document.querySelector(selector);
-      if (element) element.classList.remove("active");
-    });
-
-    // Activar la página actual
-    let pageFound = false;
-    for (const [page, selector] of Object.entries(pageMap)) {
-      if (
-        path.includes(page) ||
-        (page === "index.html" &&
-          (path === "/" || path === "" || path.endsWith("/")))
-      ) {
-        const activeLink = document.querySelector(selector);
-        if (activeLink) {
-          activeLink.classList.add("active");
-          console.log(`✨ Página activa marcada: ${page}`);
-          pageFound = true;
-        }
-        break;
-      }
-    }
-    // Si no se encontró ninguna página específica, activar HOME por defecto
-    if (!pageFound) {
-      const homeLink = document.querySelector(".HOME_ACTIVE");
-      if (homeLink) {
-        homeLink.classList.add("active");
-        console.log("✨ Página activa marcada por defecto: index.html");
-      }
-    }
-  }
   // Función para abrir la navbar
   function openNavbar() {
     if (navbarCollapse && !isNavbarOpen) {
@@ -239,20 +197,38 @@
     });
 
     console.log("🚀 Navbar móvil configurada correctamente");
-  }
-
-  // Función de inicialización principal
+  } // Función de inicialización principal
   function init() {
     console.log("🔄 Iniciando configuración de navbar...");
 
-    // Activar página actual
-    activateCurrentPage();
+    // Forzar limpieza de clases active
+    forceCleanActiveClasses();
 
     // Configurar navbar móvil
     setupMobileNavbar();
 
     console.log("✅ Navbar móvil unificado inicializado");
   }
+
+  // Forzar limpieza de clases active al cargar
+  function forceCleanActiveClasses() {
+    console.log("🧹 Forzando limpieza de clases active del navbar...");
+    const activeClasses = [
+      ".HOME_ACTIVE",
+      ".NOSOTROS_ACTIVE",
+      ".SERVICIOS_ACTIVE",
+      ".PORTAFOLIO_ACTIVE",
+      ".CONTACTO_ACTIVE",
+    ];
+    activeClasses.forEach((selector) => {
+      const element = document.querySelector(selector);
+      if (element && element.classList.contains("active")) {
+        element.classList.remove("active");
+        console.log(`🗑️ Removida clase active de ${selector}`);
+      }
+    });
+  }
+
   // INICIALIZACIÓN - Múltiples puntos de entrada para máxima compatibilidad
 
   // 1. Si el DOM ya está cargado

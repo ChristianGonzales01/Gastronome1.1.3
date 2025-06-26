@@ -14,8 +14,24 @@
     <link rel="stylesheet" href="navbar-mobile-effects.css" />
     <script src="navbar-mobile-unified.js" defer></script>
     <style>
+      /* Forzar sobrescritura de Bootstrap con máxima especificidad */
+      html body .container h1.page-anim-text.delay-1,
+      html body h1.page-anim-text.delay-1,
+      body h1.page-anim-text,
+      .container h1.page-anim-text,
+      h1.page-anim-text.delay-1 {
+        font-size: 1.8rem !important;
+        font-weight: 700 !important;
+        margin-bottom: 1rem !important;
+        letter-spacing: -1px !important;
+        text-align: center !important;
+        line-height: 1.3 !important;
+        display: block !important;
+        width: 100% !important;
+      }
+
       body {
-        background: #F5EFD7;
+        background: #f5efd7;
         color: #111;
         font-family: "Segoe UI", Arial, sans-serif;
         margin: 0;
@@ -30,12 +46,13 @@
         overflow: visible; /* Permite que las animaciones se vean completas */
         position: relative;
       }
-      h1 {
-        font-size: 2.5rem;
-        font-weight: 700;
-        margin-bottom: 1rem;
-        letter-spacing: -2px;
-        text-align: center;
+      h1,
+      h1.page-anim-text {
+        font-size: 1.8rem !important;
+        font-weight: 700 !important;
+        margin-bottom: 1rem !important;
+        letter-spacing: -1px !important;
+        text-align: center !important;
       }
       .servicios-lista {
         display: flex;
@@ -50,7 +67,7 @@
         border: 2px solid #111;
         border-radius: 20px;
         padding: 1.5rem 1rem 1.5rem 1rem;
-        background: #F5EFD7;
+        background: #f5efd7;
         transition: box-shadow 0.25s, border 0.25s, transform 0.25s,
           background 0.25s, color 0.25s;
         box-shadow: 0 2px 16px #0001;
@@ -61,16 +78,16 @@
         z-index: 1;
       }
       .servicio:hover {
-        box-shadow: 0 8px 32px #D6A13B55;
-        border-color: #D6A13B;
-        background: #D6A13B;
-        color: #D6A13B;
+        box-shadow: 0 8px 32px #d6a13b55;
+        border-color: #d6a13b;
+        background: #d6a13b;
+        color: #d6a13b;
         transform: translateY(-8px) scale(1.04) rotate(-1deg);
         z-index: 10; /* Z-index alto para que aparezca por encima */
       }
       .servicio:hover .servicio-icon svg {
-        stroke: #D6A13B;
-        filter: drop-shadow(0 2px 8px #D6A13B44);
+        stroke: #d6a13b;
+        filter: drop-shadow(0 2px 8px #d6a13b44);
       }
       .servicio h2 {
         font-size: 1.18rem;
@@ -81,7 +98,7 @@
         transition: color 0.25s;
       }
       .servicio:hover h2 {
-        color: #D6A13B;
+        color: #d6a13b;
       }
       .servicio p {
         font-size: 1.05rem;
@@ -121,14 +138,14 @@
         left: -40px;
         width: 110px;
         height: 110px;
-        background: linear-gradient(135deg, #111 80%, #F5EFD7 100%);
+        background: linear-gradient(135deg, #111 80%, #f5efd7 100%);
       }
       .figura-2 {
         bottom: -30px;
         right: -30px;
         width: 70px;
         height: 70px;
-        background: linear-gradient(135deg, #F5EFD7 60%, #111 100%);
+        background: linear-gradient(135deg, #f5efd7 60%, #111 100%);
       }
       .figura-3 {
         top: 60%;
@@ -143,7 +160,7 @@
         left: 8%;
         width: 22px;
         height: 22px;
-        background: #F5EFD7;
+        background: #f5efd7;
         border: 2px solid #111;
       }
       .figura-5 {
@@ -151,7 +168,7 @@
         left: 60%;
         width: 60px;
         height: 14px;
-        background: linear-gradient(90deg, #111 0%, #F5EFD7 100%);
+        background: linear-gradient(90deg, #111 0%, #f5efd7 100%);
         border-radius: 8px;
       }
       .figura-6 {
@@ -170,7 +187,7 @@
         left: 25%;
         width: 30px;
         height: 30px;
-        background: #F5EFD7;
+        background: #f5efd7;
         border: 2px solid #111;
         opacity: 0.12;
         border-radius: 50%;
@@ -188,6 +205,24 @@
         position: absolute;
         z-index: 0;
       }
+
+      /* Sección idea especial */
+      .idea-especial {
+        margin-top: 2.5rem;
+        text-align: center;
+      }
+      .idea-especial h2 {
+        font-size: 1.3rem;
+        font-weight: 800;
+        margin-bottom: 1rem;
+        color: #111;
+      }
+      .idea-especial p {
+        font-size: 1.08rem;
+        color: #222;
+        margin-bottom: 1.2rem;
+      }
+
       .nueva-seccion {
         margin: 3.5rem auto 0 auto;
         max-width: 700px;
@@ -218,16 +253,16 @@
         padding: 0.7rem 2.2rem;
         font-weight: 700;
         text-decoration: none;
-        border: 2px solid #D6A13B;
+        border: 2px solid #d6a13b;
         transition: background 0.2s, color 0.2s, border 0.2s, box-shadow 0.2s,
           transform 0.2s;
-        box-shadow: 0 2px 8px #D6A13B22;
+        box-shadow: 0 2px 8px #d6a13b22;
       }
       .nueva-seccion a:hover {
-        background: #F5EFD7;
+        background: #f5efd7;
         color: #111;
-        border-color: #D6A13B !important;
-        box-shadow: 0 0 0 2px #D6A13B55;
+        border-color: #d6a13b !important;
+        box-shadow: 0 0 0 2px #d6a13b55;
       }
 
       footer {
@@ -236,7 +271,7 @@
         bottom: unset;
         width: 100%;
         background: #111;
-        color: #F5EFD7;
+        color: #f5efd7;
         text-align: center;
         padding: 2rem 0 1rem 0;
         font-size: 1.1rem;
@@ -256,26 +291,50 @@
         .container {
           padding: 20px 10px !important;
         }
-        h1 {
+        html body .container h1.page-anim-text.delay-1,
+        html body h1.page-anim-text.delay-1,
+        body h1.page-anim-text,
+        .container h1.page-anim-text,
+        h1.page-anim-text.delay-1 {
           font-size: 2rem !important;
         }
         .servicio {
           margin: 0.8rem auto; /* Centrar y reducir margen */
+        }
+        .idea-especial h2 {
+          font-size: 1.15rem !important;
+          margin-bottom: 0.9rem !important;
+        }
+        .idea-especial p {
+          font-size: 1rem !important;
+          margin-bottom: 1rem !important;
         }
       }
       @media (max-width: 600px) {
         .container {
           padding: 10px 2vw !important;
         }
-        h1 {
+        html body .container h1.page-anim-text.delay-1,
+        html body h1.page-anim-text.delay-1,
+        body h1.page-anim-text,
+        .container h1.page-anim-text,
+        h1.page-anim-text.delay-1 {
           text-align: center !important;
-          width: 100%;
-          display: block;
+          width: 100% !important;
+          display: block !important;
+          font-size: 2.2rem !important;
+          margin-bottom: 0.8rem !important;
+          letter-spacing: -0.5px !important;
+          line-height: 1.2 !important;
         }
         h2 {
           text-align: center !important;
           width: 100%;
           display: block;
+          font-size: 1rem !important;
+          margin-bottom: 0.7rem !important;
+          letter-spacing: 0px !important;
+          line-height: 1.2 !important;
         }
         .servicios-lista {
           flex-wrap: wrap !important;
@@ -336,10 +395,35 @@
           padding: 0.4rem 1.1rem !important;
           border-radius: 5px !important;
         }
+        .idea-especial h2 {
+          font-size: 1.4rem !important;
+          margin-bottom: 0.7rem !important;
+          line-height: 1.2 !important;
+        }
+        .idea-especial p {
+          font-size: 1.1rem !important;
+          margin-bottom: 0.7rem !important;
+        }
       }
       @media (max-width: 400px) {
         .container {
           padding: 4px 0.5vw !important;
+        }
+        html body .container h1.page-anim-text.delay-1,
+        html body h1.page-anim-text.delay-1,
+        body h1.page-anim-text,
+        .container h1.page-anim-text,
+        h1.page-anim-text.delay-1 {
+          font-size: 1.8rem !important;
+          margin-bottom: 0.6rem !important;
+          letter-spacing: -0.3px !important;
+          line-height: 1.1 !important;
+        }
+        h2 {
+          font-size: 0.9rem !important;
+          margin-bottom: 0.5rem !important;
+          letter-spacing: 0px !important;
+          line-height: 1.1 !important;
         }
         .servicio {
           min-width: 90px !important;
@@ -367,8 +451,54 @@
           margin-left: auto !important;
           margin-right: auto !important;
         }
+        .idea-especial h2 {
+          font-size: 1.2rem !important;
+          margin-bottom: 0.5rem !important;
+          line-height: 1.1 !important;
+        }
+        .idea-especial p {
+          font-size: 1rem !important;
+          margin-bottom: 0.6rem !important;
+        }
       }
+
+      /* Pantallas ultra pequeñas */
+      @media (max-width: 350px) {
+        html body .container h1.page-anim-text.delay-1,
+        html body h1.page-anim-text.delay-1,
+        body h1.page-anim-text,
+        .container h1.page-anim-text,
+        h1.page-anim-text.delay-1 {
+          font-size: 1.5rem !important;
+          margin-bottom: 0.5rem !important;
+          letter-spacing: 0px !important;
+          line-height: 1 !important;
+        }
+        h2 {
+          font-size: 0.8rem !important;
+          margin-bottom: 0.4rem !important;
+          line-height: 1 !important;
+        }
+        .idea-especial h2 {
+          font-size: 1.1rem !important;
+          margin-bottom: 0.4rem !important;
+          line-height: 1 !important;
+        }
+        .idea-especial p {
+          font-size: 0.9rem !important;
+          margin-bottom: 0.5rem !important;
+        }
+      }
+
       @media (min-width: 901px) {
+        html body .container h1.page-anim-text.delay-1,
+        html body h1.page-anim-text.delay-1,
+        body h1.page-anim-text,
+        .container h1.page-anim-text,
+        h1.page-anim-text.delay-1 {
+          font-size: 2.3rem !important;
+          letter-spacing: -1.5px !important;
+        }
         /* Asegurar espacio suficiente para animaciones en pantallas grandes */
         .servicios-lista {
           padding: 3rem 1.5rem; /* Más espaciado en desktop */
@@ -431,29 +561,25 @@
       }
 
       @media (max-width: 600px) {
-        /* Critical mobile scroll fix - Enhanced */
+        /* Critical mobile scroll fix - Simplified */
         html {
-          overflow-y: scroll !important;
+          overflow-y: auto !important;
           overflow-x: hidden !important;
           -webkit-overflow-scrolling: touch !important;
-          scroll-behavior: smooth !important;
-          height: 100% !important;
-          position: relative !important;
+          height: auto !important;
           max-width: 100vw !important;
         }
         body {
-          overflow-y: scroll !important;
+          overflow-y: auto !important;
           overflow-x: hidden !important;
           -webkit-overflow-scrolling: touch !important;
-          touch-action: pan-y !important;
-          position: relative !important;
+          touch-action: manipulation !important;
           height: auto !important;
           min-height: 100vh !important;
           transform: none !important;
-          backface-visibility: visible !important;
           padding: 0 !important;
           margin: 0 !important;
-          background: #F5EFD7 !important;
+          background: #f5efd7 !important;
           color: #111 !important;
           font-family: "Segoe UI", Arial, sans-serif !important;
           max-width: 100vw !important;
@@ -473,9 +599,8 @@
         /* Reveal animations optimized for mobile */
         .reveal-element {
           opacity: 0;
-          transform: translateY(15px);
-          transition: opacity 0.4s ease-out, transform 0.4s ease-out;
-          will-change: opacity, transform;
+          transform: translateY(10px);
+          transition: opacity 0.3s ease-out, transform 0.3s ease-out;
         }
         .reveal-element.revealed {
           opacity: 1;
@@ -529,10 +654,10 @@
         will-change: transform, box-shadow, border-color, background, color;
       }
       .servicio:hover {
-        box-shadow: 0 8px 32px #D6A13B55;
-        border-color: #D6A13B;
-        background: #D6A13B;
-        color: #D6A13B;
+        box-shadow: 0 8px 32px #d6a13b55;
+        border-color: #d6a13b;
+        background: #d6a13b;
+        color: #d6a13b;
         transform: translateY(-8px) scale(1.04) rotate(-1deg);
         z-index: 10; /* Z-index alto para que aparezca por encima */
       }
@@ -541,7 +666,7 @@
       .nueva-seccion a {
         margin-top: 0.7rem;
         background: #111;
-        color: #F5EFD7;
+        color: #f5efd7;
         border-radius: 6px;
         padding: 0.5rem 1.5rem;
         font-weight: 700;
@@ -552,10 +677,10 @@
         display: inline-block;
       }
       .nueva-seccion a:hover {
-        background: #F5EFD7;
+        background: #f5efd7;
         color: #111;
-        border-color: #D6A13B !important;
-        box-shadow: 0 0 0 2px #D6A13B55;
+        border-color: #d6a13b !important;
+        box-shadow: 0 0 0 2px #d6a13b55;
       }
 
       /* Elimina cualquier transición, will-change o backface-visibility previa en .servicio * para evitar conflicto */
@@ -568,8 +693,8 @@
       /* Quitar movimiento en hover de .nueva-seccion y footer */
       .nueva-seccion:hover,
       footer:hover {
-        border-color: #D6A13B !important;
-        box-shadow: 0 8px 32px #D6A13B55 !important;
+        border-color: #d6a13b !important;
+        box-shadow: 0 8px 32px #d6a13b55 !important;
         transform: none !important;
       }
 
@@ -594,7 +719,7 @@
         right: 32px;
         z-index: 9999;
         background: transparent;
-        color: #D6A13B;
+        color: #d6a13b;
         border: none;
         border-radius: 50%;
         width: 68px;
@@ -615,8 +740,8 @@
         height: 38px;
       }
       #scrollTopBtn:hover {
-        background: #D6A13B22;
-        color: #D6A13B;
+        background: #d6a13b22;
+        color: #d6a13b;
       }
 
       /* --- Eliminar scroll horizontal solo en pantallas grandes (min-width: 992px) sin afectar diseño de módulos --- */
@@ -739,14 +864,9 @@
           </ul>
         </div>
       </div>
-      <div
-        style="margin-top: 2.5rem; text-align: center"
-        class="reveal-element"
-      >
-        <h2 style="font-size: 1.3rem; font-weight: 800">
-          ¿Tienes una idea especial?
-        </h2>
-        <p style="font-size: 1.08rem; color: #222">
+      <div class="idea-especial reveal-element">
+        <h2>¿Tienes una idea especial?</h2>
+        <p>
           ¡Cuéntanos tu proyecto y lo hacemos realidad! Ofrecemos asesoría
           gratuita y propuestas personalizadas.
         </p>
@@ -777,7 +897,7 @@
       class="reveal-element"
       style="
         background: #111;
-        color: #F5EFD7;
+        color: #f5efd7;
         text-align: center;
         padding: 2rem 0 1rem 0;
         font-size: 1.1rem;
@@ -931,20 +1051,7 @@
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     ></script>
     <script>
-      // Detecta la página y activa la clase 'active' en el link correspondiente
-      (function () {
-        var path = window.location.pathname.toLowerCase();
-        if (path.includes("index.html"))
-          document.querySelector(".HOME_ACTIVE").classList.add("active");
-        else if (path.includes("nosotros.html"))
-          document.querySelector(".NOSOTROS_ACTIVE").classList.add("active");
-        else if (path.includes("servicios.html"))
-          document.querySelector(".SERVICIOS_ACTIVE").classList.add("active");
-        else if (path.includes("portafoliominimal.html"))
-          document.querySelector(".PORTAFOLIO_ACTIVE").classList.add("active");
-        else if (path.includes("contacto.html"))
-          document.querySelector(".CONTACTO_ACTIVE").classList.add("active");
-      })();
+      // La activación del link se maneja en navbar-mobile-unified.js
       // Refuerzo: cerrar menú móvil al hacer click en un link (mejor UX móvil)
       document
         .querySelectorAll(".navbar-nav .nav-link")
@@ -997,17 +1104,19 @@
 
         revealElements();
 
-        // En móvil, usar throttling más agresivo
+        // En móvil, usar throttling más simple y menos agresivo
         if (window.innerWidth <= 600) {
-          var throttleTimer = false;
-          window.addEventListener("scroll", function () {
-            if (throttleTimer) return;
-            throttleTimer = true;
-            setTimeout(function () {
-              revealElements();
-              throttleTimer = false;
-            }, 32); // ~30fps en lugar de 60fps
-          });
+          var scrollTimer = null;
+          window.addEventListener(
+            "scroll",
+            function () {
+              if (scrollTimer) clearTimeout(scrollTimer);
+              scrollTimer = setTimeout(function () {
+                revealElements();
+              }, 50); // Throttle más suave
+            },
+            { passive: true }
+          );
         } else {
           // Desktop: scroll normal
           window.addEventListener("scroll", revealElements);
@@ -1029,20 +1138,15 @@
         });
       };
 
-      // CRITICAL: Force proper scroll behavior on mobile
+      // CRITICAL: Simplified mobile scroll behavior
       if (window.innerWidth <= 600) {
-        // Permitir smooth scrolling en móvil para mejor experiencia
-        document.documentElement.style.scrollBehavior = "smooth";
-        document.body.style.scrollBehavior = "smooth";
+        // Remove any scroll behavior conflicts
+        document.documentElement.style.scrollBehavior = "auto";
+        document.body.style.scrollBehavior = "auto";
 
-        // Asegurar que no haya elementos fixed que interfieran
-        var fixedElements = document.querySelectorAll("*");
-        fixedElements.forEach(function (el) {
-          var computedStyle = window.getComputedStyle(el);
-          if (computedStyle.position === "fixed" && el.id !== "scrollTopBtn") {
-            el.style.transform = "none";
-          }
-        });
+        // Ensure smooth native scrolling
+        document.documentElement.style.overflowY = "auto";
+        document.body.style.overflowY = "auto";
       }
 
       // Animación fluida page-anim-text en móvil (sistema separado)

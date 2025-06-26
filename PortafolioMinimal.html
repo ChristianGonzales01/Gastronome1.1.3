@@ -35,9 +35,26 @@
           overflow-x: hidden !important;
           box-sizing: border-box !important;
         }
+
+        /* Asegurar que todos los contenedores respeten el ancho de pantalla */
+        .container,
+        .container-fluid,
+        .row,
+        .col {
+          max-width: 100vw !important;
+          padding-left: 10px !important;
+          padding-right: 10px !important;
+        }
+
+        /* Prevenir desbordamiento en textos y elementos */
+        * {
+          word-wrap: break-word !important;
+          word-break: break-word !important;
+          hyphens: auto !important;
+        }
       }
       body {
-        background: #F5EFD7;
+        background: #f5efd7;
         color: #111;
         font-family: "Segoe UI", Arial, sans-serif;
       }
@@ -52,11 +69,114 @@
         letter-spacing: 0.04em;
         line-height: 1.1;
       }
+
+      /* Corrección de títulos principales para móvil - Más grandes */
+      @media (max-width: 768px) {
+        .main-title,
+        h1.main-title {
+          font-size: 2.8rem !important;
+          line-height: 1.2 !important;
+          padding: 0 15px !important;
+          margin-bottom: 1.5rem !important;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .main-title,
+        h1.main-title {
+          font-size: 2.4rem !important;
+          line-height: 1.2 !important;
+          padding: 0 15px !important;
+          margin-bottom: 1rem !important;
+        }
+      }
+
+      @media (max-width: 360px) {
+        .main-title,
+        h1.main-title {
+          font-size: 2.1rem !important;
+          line-height: 1.1 !important;
+          padding: 0 10px !important;
+        }
+      }
+
+      @media (max-width: 320px) {
+        .main-title,
+        h1.main-title {
+          font-size: 1.9rem !important;
+          line-height: 1.1 !important;
+          padding: 0 5px !important;
+        }
+      }
       .subtitle {
         text-align: center;
         color: #888;
         font-size: 1.2rem;
         margin-bottom: 2.5rem;
+      }
+
+      /* Corrección de subtítulos para móvil - Más grandes */
+      @media (max-width: 768px) {
+        .subtitle,
+        div.subtitle {
+          font-size: 1.8rem !important;
+          margin-bottom: 2rem !important;
+          padding: 0 15px !important;
+          line-height: 1.2 !important;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .subtitle,
+        div.subtitle {
+          font-size: 1.5rem !important;
+          margin-bottom: 1.5rem !important;
+          padding: 0 15px !important;
+          line-height: 1.2 !important;
+        }
+      }
+
+      @media (max-width: 360px) {
+        .subtitle,
+        div.subtitle {
+          font-size: 1.3rem !important;
+          margin-bottom: 1.2rem !important;
+          padding: 0 10px !important;
+        }
+      }
+
+      @media (max-width: 320px) {
+        .subtitle,
+        div.subtitle {
+          font-size: 1.1rem !important;
+          margin-bottom: 1rem !important;
+          padding: 0 5px !important;
+        }
+      }
+
+      /* Corrección específica para el subtítulo "Nuestro Trabajo" que tiene estilos inline */
+      @media (max-width: 768px) {
+        .subtitle[style*="font-size: 2.3rem"] {
+          font-size: 1.8rem !important;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .subtitle[style*="font-size: 2.3rem"] {
+          font-size: 1.5rem !important;
+        }
+      }
+
+      @media (max-width: 360px) {
+        .subtitle[style*="font-size: 2.3rem"] {
+          font-size: 1.3rem !important;
+        }
+      }
+
+      @media (max-width: 320px) {
+        .subtitle[style*="font-size: 2.3rem"] {
+          font-size: 1.1rem !important;
+        }
       }
       .features-list {
         display: flex;
@@ -72,6 +192,18 @@
         display: flex;
         align-items: center;
         gap: 0.7rem;
+      }
+
+      /* Corrección para pantallas muy pequeñas */
+      @media (max-width: 320px) {
+        .feature {
+          min-width: auto;
+          font-size: 1rem;
+        }
+        .features-list {
+          gap: 1rem;
+          margin: 1.5rem 0;
+        }
       }
       .feature:before {
         content: "\2714";
@@ -101,13 +233,13 @@
       }
       .portfolio-img:hover,
       .portfolio-card img:hover {
-        border-color: #D6A13B;
-        box-shadow: 0 8px 32px #D6A13B55;
-        background: #D6A13B;
+        border-color: #d6a13b;
+        box-shadow: 0 8px 32px #d6a13b55;
+        background: #d6a13b;
         transform: translateY(-8px) scale(1.04) rotate(-1deg);
       }
       .portfolio-card {
-        background: #F5EFD7;
+        background: #f5efd7;
         border: 2px solid #111;
         border-radius: 16px;
         box-shadow: 0 2px 16px #0001;
@@ -124,11 +256,21 @@
           color 0.35s;
         position: relative;
       }
+
+      /* Corrección para pantallas muy pequeñas */
+      @media (max-width: 320px) {
+        .portfolio-card {
+          min-width: calc(100vw - 40px);
+          max-width: calc(100vw - 40px);
+          margin: 0 10px;
+          padding: 1.5rem 1rem 1rem 1rem;
+        }
+      }
       .portfolio-card:hover {
-        box-shadow: 0 8px 32px #D6A13B55;
-        border-color: #D6A13B;
-        background: #D6A13B;
-        color: #D6A13B;
+        box-shadow: 0 8px 32px #d6a13b55;
+        border-color: #d6a13b;
+        background: #d6a13b;
+        color: #d6a13b;
         transform: translateY(-8px) scale(1.04) rotate(-1deg);
       }
       .portfolio-card-title {
@@ -153,7 +295,7 @@
       }
       .portfolio-card-tag {
         background: #111;
-        color: #F5EFD7;
+        color: #f5efd7;
         border-radius: 6px;
         padding: 0.2rem 0.8rem;
         font-size: 0.92rem;
@@ -163,7 +305,7 @@
       .portfolio-card-link {
         margin-top: 0.7rem;
         background: #111;
-        color: #F5EFD7;
+        color: #f5efd7;
         border-radius: 6px;
         padding: 0.5rem 1.5rem;
         font-weight: 700;
@@ -173,10 +315,10 @@
         display: inline-block;
       }
       .portfolio-card-link:hover {
-        background: #F5EFD7;
+        background: #f5efd7;
         color: #111;
-        border-color: #D6A13B !important;
-        box-shadow: 0 0 0 2px #D6A13B55;
+        border-color: #d6a13b !important;
+        box-shadow: 0 0 0 2px #d6a13b55;
       }
       #modalProyecto {
         display: none;
@@ -194,7 +336,7 @@
         display: flex;
       }
       #modalProyecto .modal-content-img {
-        background: #F5EFD7;
+        background: #f5efd7;
         border-radius: 18px;
         box-shadow: 0 4px 32px #0005;
         padding: 2rem;
@@ -218,7 +360,7 @@
         top: 8px;
         right: 8px;
         background: #111;
-        color: #F5EFD7;
+        color: #f5efd7;
         border: none;
         border-radius: 50%;
         width: 36px;
@@ -232,7 +374,7 @@
       }
       footer {
         background: #111;
-        color: #F5EFD7;
+        color: #f5efd7;
         text-align: center;
         padding: 2rem 0 1rem 0;
         font-size: 1.1rem;
@@ -294,8 +436,20 @@
         border-radius: 14px;
         margin: 0 auto;
         cursor: pointer;
-        background: #F5EFD7;
+        background: #f5efd7;
         display: block;
+      }
+
+      /* Corrección para pantallas muy pequeñas */
+      @media (max-width: 340px) {
+        .carousel-inner .img-carrusel-articulo.menu-digital-celular {
+          max-width: calc(100vw - 20px);
+          height: 400px;
+        }
+        .carousel-inner .img-carrusel-articulo {
+          max-width: calc(100vw - 20px);
+          height: 180px;
+        }
       }
       @media (max-width: 600px) {
         .carousel-inner .img-carrusel-articulo.menu-digital-celular {
@@ -311,7 +465,7 @@
         right: 32px;
         z-index: 9999;
         background: transparent;
-        color: #D6A13B;
+        color: #d6a13b;
         border: none;
         border-radius: 50%;
         width: 68px;
@@ -332,8 +486,8 @@
         height: 38px;
       }
       #scrollTopBtn:hover {
-        background: #D6A13B22;
-        color: #D6A13B;
+        background: #d6a13b22;
+        color: #d6a13b;
       }
       /* Figuras decorativas congruentes con Servicios.html */
       .figura-serv {
@@ -347,14 +501,14 @@
         left: -40px;
         width: 110px;
         height: 110px;
-        background: linear-gradient(135deg, #111 80%, #F5EFD7 100%);
+        background: linear-gradient(135deg, #111 80%, #f5efd7 100%);
       }
       .figura-2 {
         bottom: -30px;
         right: -30px;
         width: 70px;
         height: 70px;
-        background: linear-gradient(135deg, #F5EFD7 60%, #111 100%);
+        background: linear-gradient(135deg, #f5efd7 60%, #111 100%);
       }
       .figura-3 {
         top: 60%;
@@ -369,7 +523,7 @@
         left: 8%;
         width: 22px;
         height: 22px;
-        background: #F5EFD7;
+        background: #f5efd7;
         border: 2px solid #111;
       }
       .figura-5 {
@@ -377,7 +531,7 @@
         left: 60%;
         width: 60px;
         height: 14px;
-        background: linear-gradient(90deg, #111 0%, #F5EFD7 100%);
+        background: linear-gradient(90deg, #111 0%, #f5efd7 100%);
         border-radius: 8px;
       }
       .figura-6 {
@@ -396,7 +550,7 @@
         left: 25%;
         width: 30px;
         height: 30px;
-        background: #F5EFD7;
+        background: #f5efd7;
         border: 2px solid #111;
         opacity: 0.12;
         border-radius: 50%;
@@ -423,7 +577,7 @@
         border-radius: 14px;
         margin: 0 auto;
         cursor: pointer;
-        background: #F5EFD7;
+        background: #f5efd7;
         display: block;
       }
       @media (max-width: 600px) {
@@ -602,7 +756,7 @@
         border-radius: 12px !important;
         box-shadow: 0 2px 12px #0001 !important;
         border: 2px solid #eee !important;
-        background: #F5EFD7 !important;
+        background: #f5efd7 !important;
       }
       .proyecto-menu-cards .portfolio-card-title {
         font-size: 1.15rem !important;
@@ -664,8 +818,8 @@
           margin: 0 auto 0.7rem auto !important;
           display: block !important;
           border-radius: 14px !important;
-          box-shadow: 0 2px 8px #D6A13B22 !important;
-          background: #F5EFD7 !important;
+          box-shadow: 0 2px 8px #d6a13b22 !important;
+          background: #f5efd7 !important;
           padding: 0 !important;
           object-fit: contain !important;
         }
@@ -763,6 +917,145 @@
         }
       }
       /* --- Fin: sin fondo oscuro modal en móvil pequeño --- */
+
+      /* Carruseles automáticos para móvil */
+      @media (max-width: 768px) {
+        .mobile-auto-carousel {
+          display: flex !important;
+          overflow-x: auto !important;
+          scroll-snap-type: x mandatory !important;
+          gap: 15px !important;
+          padding: 15px 5px 25px 5px !important;
+          scrollbar-width: none !important;
+          -webkit-overflow-scrolling: touch !important;
+        }
+
+        .mobile-auto-carousel::-webkit-scrollbar {
+          display: none !important;
+        }
+
+        .carousel-item-mobile {
+          flex: 0 0 85% !important;
+          scroll-snap-align: center !important;
+          background: #f5efd7 !important;
+          border: 2px solid #d6a13b !important;
+          border-radius: 20px !important;
+          padding: 20px !important;
+          position: relative !important;
+          box-shadow: 0 8px 25px rgba(214, 161, 59, 0.3) !important;
+          min-height: 280px !important;
+          transition: all 0.3s ease !important;
+        }
+
+        .carousel-item-mobile:hover {
+          transform: scale(1.02) !important;
+          box-shadow: 0 12px 35px rgba(214, 161, 59, 0.4) !important;
+        }
+
+        .carousel-item-mobile img {
+          width: 100% !important;
+          height: 150px !important;
+          object-fit: cover !important;
+          border-radius: 12px !important;
+          margin-bottom: 15px !important;
+        }
+
+        .carousel-item-mobile .portfolio-card-title {
+          font-size: 1.1rem !important;
+          font-weight: 700 !important;
+          color: #111 !important;
+          margin-bottom: 10px !important;
+          text-align: center !important;
+        }
+
+        .carousel-item-mobile .portfolio-card-desc {
+          font-size: 0.9rem !important;
+          color: #444 !important;
+          text-align: center !important;
+          line-height: 1.4 !important;
+          margin-bottom: 15px !important;
+          display: -webkit-box !important;
+          -webkit-line-clamp: 3 !important;
+          line-clamp: 3 !important;
+          -webkit-box-orient: vertical !important;
+          overflow: hidden !important;
+        }
+
+        .carousel-item-mobile .portfolio-card-link {
+          background: #111 !important;
+          color: #f5efd7 !important;
+          border-radius: 8px !important;
+          padding: 8px 16px !important;
+          font-size: 0.85rem !important;
+          font-weight: 600 !important;
+          text-decoration: none !important;
+          display: block !important;
+          text-align: center !important;
+          width: fit-content !important;
+          margin: 0 auto !important;
+        }
+
+        .carousel-hint {
+          display: flex !important;
+          align-items: center !important;
+          justify-content: center !important;
+          gap: 8px !important;
+          margin-bottom: 15px !important;
+          font-size: 0.9rem !important;
+          color: #d6a13b !important;
+          font-weight: 600 !important;
+        }
+
+        .carousel-hint::before {
+          content: "👈" !important;
+          animation: swipeLeft 2s ease-in-out infinite !important;
+        }
+
+        .carousel-hint::after {
+          content: "👉" !important;
+          animation: swipeRight 2s ease-in-out infinite !important;
+        }
+
+        @keyframes swipeLeft {
+          0%,
+          50%,
+          100% {
+            transform: translateX(0);
+          }
+          25% {
+            transform: translateX(-3px);
+          }
+        }
+
+        @keyframes swipeRight {
+          0%,
+          50%,
+          100% {
+            transform: translateX(0);
+          }
+          75% {
+            transform: translateX(3px);
+          }
+        }
+
+        /* Ocultar secciones originales en móvil */
+        .portfolio-preview,
+        .portfolio-cards,
+        .proyecto-menu-cards {
+          display: none !important;
+        }
+
+        /* Mostrar carruseles automáticos */
+        .mobile-carousel-section {
+          display: block !important;
+        }
+      }
+
+      @media (min-width: 769px) {
+        .mobile-carousel-section {
+          display: none !important;
+        }
+      }
     </style>
     <style>
       /* --- Cambios ultra-agresivos para modal y carrusel en móvil --- */
@@ -778,7 +1071,7 @@
         #infoModalDesc {
           padding: 1.1rem 0.9rem 1.1rem 0.9rem !important;
           margin: 0.5rem 0 0.5rem 0 !important;
-          background: #F5EFD7 !important;
+          background: #f5efd7 !important;
           border-radius: 12px !important;
           box-sizing: border-box !important;
           font-size: 1rem !important;
@@ -800,7 +1093,7 @@
           object-fit: contain !important;
           border-radius: 10px !important;
           margin: 0 auto !important;
-          background: #F5EFD7 !important;
+          background: #f5efd7 !important;
           display: block !important;
         }
         #modalProyecto {
@@ -935,7 +1228,7 @@
         padding: 40px 24px 0 24px;
       "
     >
-      <h1 class="main-title page-anim-text delay-1">Nuestro Portafolio</h1>
+      <h1 class="main-title page-anim-text delay-1">Portafolio</h1>
       <div
         class="subtitle page-anim-text delay-2"
         style="
@@ -947,7 +1240,7 @@
           letter-spacing: 0.04em;
         "
       >
-        Explora un poco sobre nuestro trabajo
+        Nuestro Trabajo
       </div>
       <section
         class="features-list page-anim-text delay-3"
@@ -974,12 +1267,64 @@
           font-weight: 900;
           margin: 2.2rem 0 1.2rem 0;
           letter-spacing: 0.04em;
-          color: #D6A13B;
-          text-shadow: 0 2px 8px #D6A13B22;
+          color: #d6a13b;
+          text-shadow: 0 2px 8px #d6a13b22;
         "
       >
         Proyectos Recientes
       </h2>
+
+      <style>
+        /* Títulos más grandes para móvil - Mejorado */
+        @media (max-width: 768px) {
+          .portfolio-section-title,
+          h1.portfolio-section-title,
+          h2.portfolio-section-title,
+          h3.portfolio-section-title {
+            font-size: 2.5rem !important;
+            margin: 2rem 15px 1.5rem 15px !important;
+            line-height: 1.2 !important;
+            word-wrap: break-word !important;
+            hyphens: auto !important;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .portfolio-section-title,
+          h1.portfolio-section-title,
+          h2.portfolio-section-title,
+          h3.portfolio-section-title {
+            font-size: 2.2rem !important;
+            margin: 1.8rem 15px 1.2rem 15px !important;
+            line-height: 1.2 !important;
+            word-wrap: break-word !important;
+            hyphens: auto !important;
+          }
+        }
+
+        @media (max-width: 360px) {
+          .portfolio-section-title,
+          h1.portfolio-section-title,
+          h2.portfolio-section-title,
+          h3.portfolio-section-title {
+            font-size: 2rem !important;
+            margin: 1.5rem 10px 1rem 10px !important;
+            line-height: 1.2 !important;
+          }
+        }
+
+        @media (max-width: 320px) {
+          .portfolio-section-title,
+          h1.portfolio-section-title,
+          h2.portfolio-section-title,
+          h3.portfolio-section-title {
+            font-size: 1.8rem !important;
+            margin: 1.2rem 10px 0.8rem 10px !important;
+            line-height: 1.2 !important;
+            padding: 0 5px !important;
+          }
+        }
+      </style>
       <section
         class="portfolio-preview"
         style="
@@ -1027,6 +1372,51 @@
           data-imgs='["Fotos_Gas/pagina-completa.webp","Fotos_Gas/pagina-inicio.webp","Fotos_Gas/menu-inicio.webp"]'
         />
       </section>
+
+      <!-- Carrusel móvil para Proyectos Recientes -->
+      <div class="mobile-carousel-section">
+        <div class="carousel-hint">Desliza para ver más proyectos</div>
+        <div class="mobile-auto-carousel" id="proyectos-recientes-carousel">
+          <div class="carousel-item-mobile">
+            <img src="Fotos_Gas/pagina-inicio.webp" alt="Preview 1" />
+            <div class="portfolio-card-title">Página Principal</div>
+            <div class="portfolio-card-desc">
+              Diseño moderno y responsivo para la página de inicio del
+              restaurante
+            </div>
+          </div>
+          <div class="carousel-item-mobile">
+            <img src="Fotos_Gas/menu-inicio.webp" alt="Preview 2" />
+            <div class="portfolio-card-title">Menú Digital</div>
+            <div class="portfolio-card-desc">
+              Sistema interactivo para mostrar el menú del restaurante
+            </div>
+          </div>
+          <div class="carousel-item-mobile">
+            <img src="Fotos_Gas/pagina-completa.webp" alt="Preview 3" />
+            <div class="portfolio-card-title">Vista Completa</div>
+            <div class="portfolio-card-desc">
+              Página completa con todas las secciones integradas
+            </div>
+          </div>
+          <!-- Duplicar elementos para efecto infinito -->
+          <div class="carousel-item-mobile">
+            <img src="Fotos_Gas/pagina-inicio.webp" alt="Preview 1" />
+            <div class="portfolio-card-title">Página Principal</div>
+            <div class="portfolio-card-desc">
+              Diseño moderno y responsivo para la página de inicio del
+              restaurante
+            </div>
+          </div>
+          <div class="carousel-item-mobile">
+            <img src="Fotos_Gas/menu-inicio.webp" alt="Preview 2" />
+            <div class="portfolio-card-title">Menú Digital</div>
+            <div class="portfolio-card-desc">
+              Sistema interactivo para mostrar el menú del restaurante
+            </div>
+          </div>
+        </div>
+      </div>
       <h2
         class="portfolio-section-title page-anim-text"
         style="
@@ -1095,6 +1485,50 @@
           </div>
         </div>
       </section>
+
+      <!-- Carrusel móvil para Nuestros Proyectos -->
+      <div class="mobile-carousel-section">
+        <div class="carousel-hint">Desliza para explorar proyectos</div>
+        <div class="mobile-auto-carousel" id="nuestros-proyectos-carousel">
+          <div class="carousel-item-mobile">
+            <img
+              src="Fotos_Gas/pagina-inicio.webp"
+              alt="Página web Restaurant"
+            />
+            <div class="portfolio-card-title">Página web Restaurant</div>
+            <div class="portfolio-card-desc">
+              Web responsiva para restaurante con menú digital, galería y
+              reservas.
+            </div>
+            <a href="#" class="portfolio-card-link">Ver Proyecto</a>
+          </div>
+          <div class="carousel-item-mobile">
+            <img
+              src="Fotos_Gas/menu-digital/inicio-menu.webp"
+              alt="Menu Digital"
+            />
+            <div class="portfolio-card-title">Menu Digital</div>
+            <div class="portfolio-card-desc">
+              Sistema digital para mostrar el menú de tu restaurante de forma
+              interactiva y moderna.
+            </div>
+            <a href="#" class="portfolio-card-link">Ver Proyecto</a>
+          </div>
+          <!-- Duplicar para efecto infinito -->
+          <div class="carousel-item-mobile">
+            <img
+              src="Fotos_Gas/pagina-inicio.webp"
+              alt="Página web Restaurant"
+            />
+            <div class="portfolio-card-title">Página web Restaurant</div>
+            <div class="portfolio-card-desc">
+              Web responsiva para restaurante con menú digital, galería y
+              reservas.
+            </div>
+            <a href="#" class="portfolio-card-link">Ver Proyecto</a>
+          </div>
+        </div>
+      </div>
       <h2
         class="portfolio-section-title page-anim-text"
         style="
@@ -1128,7 +1562,7 @@
                 width: 100%;
                 max-width: 320px;
                 height: 220px;
-                background: #F5EFD7;
+                background: #f5efd7;
                 display: block;
                 border-radius: 12px;
                 box-shadow: 0 2px 12px #0001;
@@ -1162,7 +1596,7 @@
                 width: 100%;
                 max-width: 320px;
                 height: 220px;
-                background: #F5EFD7;
+                background: #f5efd7;
                 display: block;
                 border-radius: 12px;
                 box-shadow: 0 2px 12px #0001;
@@ -1179,6 +1613,53 @@
           </div>
         </div>
       </section>
+
+      <!-- Carrusel móvil para Proyecto Menu -->
+      <div class="mobile-carousel-section">
+        <div class="carousel-hint">Explora las características del menú</div>
+        <div class="mobile-auto-carousel" id="proyecto-menu-carousel">
+          <div class="carousel-item-mobile">
+            <img src="Fotos_Gas/menu-inicio.webp" alt="Diseño Responsivo" />
+            <div class="portfolio-card-title">Diseño Responsivo</div>
+            <div class="portfolio-card-desc">
+              El menú digital se adapta perfectamente a cualquier dispositivo.
+            </div>
+            <a href="#" class="portfolio-card-link">Ver Imagenes</a>
+          </div>
+          <div class="carousel-item-mobile">
+            <img
+              src="Fotos_Gas/menu-digital/3d-completa.webp"
+              alt="Modelos 3D"
+            />
+            <div class="portfolio-card-title">Incluye modelos 3D</div>
+            <div class="portfolio-card-desc">
+              Presenta platillos especiales con modelos 3D interactivos.
+            </div>
+            <a href="#" class="portfolio-card-link">Ver Modelos</a>
+          </div>
+          <div class="carousel-item-mobile">
+            <img
+              src="Fotos_Gas/menu-digital/entrada-menu.webp"
+              alt="Intuitivo"
+            />
+            <div class="portfolio-card-title">Intuitivo y Accesible</div>
+            <div class="portfolio-card-desc">
+              El menú es intuitivo, con navegación sencilla y opciones
+              interactivas.
+            </div>
+            <a href="#" class="portfolio-card-link">Ver Imagenes</a>
+          </div>
+          <!-- Duplicar para efecto infinito -->
+          <div class="carousel-item-mobile">
+            <img src="Fotos_Gas/menu-inicio.webp" alt="Diseño Responsivo" />
+            <div class="portfolio-card-title">Diseño Responsivo</div>
+            <div class="portfolio-card-desc">
+              El menú digital se adapta perfectamente a cualquier dispositivo.
+            </div>
+            <a href="#" class="portfolio-card-link">Ver Imagenes</a>
+          </div>
+        </div>
+      </div>
       <h2
         class="portfolio-section-title page-anim-text"
         style="
@@ -1212,7 +1693,7 @@
                 max-width: 320px;
                 height: 220px;
                 object-fit: cover;
-                background: #F5EFD7;
+                background: #f5efd7;
                 display: block;
                 border-radius: 12px;
                 box-shadow: 0 2px 12px #0001;
@@ -1244,7 +1725,7 @@
                 max-width: 140px;
                 height: 220px;
                 object-fit: contain;
-                background: #F5EFD7;
+                background: #f5efd7;
                 display: block;
               "
             />
@@ -1266,6 +1747,59 @@
           </div>
         </div>
       </section>
+
+      <!-- Carrusel móvil para Pagina web restaurante -->
+      <div class="mobile-carousel-section">
+        <div class="carousel-hint">Versiones PC y móvil disponibles</div>
+        <div class="mobile-auto-carousel" id="pagina-web-carousel">
+          <div class="carousel-item-mobile">
+            <img src="Fotos_Gas/pagina-web/Comidas.webp" alt="Versión PC" />
+            <div class="portfolio-card-title">Versión PC</div>
+            <div class="portfolio-card-desc">
+              Versión de escritorio, ideal para mostrar el contenido en pantalla
+              grande.
+            </div>
+            <a
+              href="#"
+              class="portfolio-card-link"
+              data-carrusel="pc-pagina-web"
+              >Versión PC</a
+            >
+          </div>
+          <div class="carousel-item-mobile">
+            <img
+              src="Fotos_Gas/pagina-web/Menu_calular.webp"
+              alt="Versión Móvil"
+            />
+            <div class="portfolio-card-title">Versión Teléfono</div>
+            <div class="portfolio-card-desc">
+              Versión móvil, adaptada para una experiencia óptima y visual en
+              celulares.
+            </div>
+            <a
+              href="#"
+              class="portfolio-card-link"
+              data-carrusel="celular-pagina-web"
+              >Versión Teléfono</a
+            >
+          </div>
+          <!-- Duplicar para efecto infinito -->
+          <div class="carousel-item-mobile">
+            <img src="Fotos_Gas/pagina-web/Comidas.webp" alt="Versión PC" />
+            <div class="portfolio-card-title">Versión PC</div>
+            <div class="portfolio-card-desc">
+              Versión de escritorio, ideal para mostrar el contenido en pantalla
+              grande.
+            </div>
+            <a
+              href="#"
+              class="portfolio-card-link"
+              data-carrusel="pc-pagina-web"
+              >Versión PC</a
+            >
+          </div>
+        </div>
+      </div>
       <h2
         class="portfolio-section-title page-anim-text"
         style="
@@ -1343,6 +1877,82 @@
           </div>
         </div>
       </section>
+
+      <!-- Carrusel móvil para Apps y Herramientas -->
+      <div class="mobile-carousel-section">
+        <div class="carousel-hint">Herramientas y aplicaciones adicionales</div>
+        <div class="mobile-auto-carousel" id="apps-herramientas-carousel">
+          <div class="carousel-item-mobile">
+            <img
+              src="Fotos_Gas/menu-digital/3d-completa.webp"
+              alt="Modelos 3D"
+            />
+            <div class="portfolio-card-title">Modelos 3D</div>
+            <div class="portfolio-card-desc">
+              Incluimos Modelos 3D en platillos especiales garantizando una
+              experiencia visual.
+            </div>
+            <a href="#" class="portfolio-card-link">Modelos</a>
+          </div>
+          <div class="carousel-item-mobile">
+            <img src="Fotos_Gas/QrGas.webp" alt="Códigos QR" />
+            <div class="portfolio-card-title">Códigos QR</div>
+            <div class="portfolio-card-desc">
+              Herramienta online para crear códigos QR personalizados.
+            </div>
+            <a href="#" class="portfolio-card-link">Generador QR</a>
+          </div>
+          <div class="carousel-item-mobile">
+            <img
+              src="Fotos_Gas/pagina-web/Reservaciones.webp"
+              alt="Reservaciones"
+            />
+            <div class="portfolio-card-title">Reservaciones</div>
+            <div class="portfolio-card-desc">
+              Permite a tus clientes reservar mesa en línea de forma rápida y
+              sencilla.
+            </div>
+            <a
+              href="#"
+              class="portfolio-card-link"
+              data-carrusel="reservaciones"
+              >Reservaciones</a
+            >
+          </div>
+          <div class="carousel-item-mobile">
+            <img src="Fotos_Gas/pagina-web/Eventos.webp" alt="Eventos" />
+            <div class="portfolio-card-title">Cambio de eventos</div>
+            <div class="portfolio-card-desc">
+              Actualiza los eventos de tu restaurante fácilmente, mostrando
+              fechas especiales.
+            </div>
+            <a href="#" class="portfolio-card-link" data-carrusel="eventos"
+              >Eventos</a
+            >
+          </div>
+          <!-- Duplicar para efecto infinito -->
+          <div class="carousel-item-mobile">
+            <img
+              src="Fotos_Gas/menu-digital/3d-completa.webp"
+              alt="Modelos 3D"
+            />
+            <div class="portfolio-card-title">Modelos 3D</div>
+            <div class="portfolio-card-desc">
+              Incluimos Modelos 3D en platillos especiales garantizando una
+              experiencia visual.
+            </div>
+            <a href="#" class="portfolio-card-link">Modelos</a>
+          </div>
+          <div class="carousel-item-mobile">
+            <img src="Fotos_Gas/QrGas.webp" alt="Códigos QR" />
+            <div class="portfolio-card-title">Códigos QR</div>
+            <div class="portfolio-card-desc">
+              Herramienta online para crear códigos QR personalizados.
+            </div>
+            <a href="#" class="portfolio-card-link">Generador QR</a>
+          </div>
+        </div>
+      </div>
       <div
         id="modalProyecto"
         style="
@@ -1361,7 +1971,7 @@
         <div
           class="modal-content-info"
           style="
-            background: #F5EFD7;
+            background: #f5efd7;
             border-radius: 18px;
             box-shadow: 0 4px 32px #0005;
             padding: 3.5rem 2.5rem;
@@ -1382,7 +1992,7 @@
               top: 18px;
               right: 18px;
               background: #111;
-              color: #F5EFD7;
+              color: #f5efd7;
               border: none;
               border-radius: 50%;
               width: 40px;
@@ -1456,11 +2066,11 @@
             max-width: 90vw;
             max-height: 90vh;
             border-radius: 18px;
-            box-shadow: 0 8px 32px #D6A13B99;
-            background: #F5EFD7;
+            box-shadow: 0 8px 32px #d6a13b99;
+            background: #f5efd7;
             padding: 8px;
             display: block;
-            border: 4px solid #D6A13B;
+            border: 4px solid #d6a13b;
           "
         />
         <button
@@ -1470,7 +2080,7 @@
             top: 30px;
             right: 40px;
             font-size: 2.5rem;
-            color: #F5EFD7;
+            color: #f5efd7;
             cursor: pointer;
             font-weight: bold;
             z-index: 10001;
@@ -2093,23 +2703,7 @@
       scrollBtn.onclick = function () {
         window.scrollTo({ top: 0, behavior: "smooth" });
       };
-      // Corregir navbar activa en Portafolio
-      (function () {
-        var path = window.location.pathname.toLowerCase();
-        if (path.includes("index.html"))
-          document.querySelector(".HOME_ACTIVE").classList.add("active");
-        else if (path.includes("nosotros.html"))
-          document.querySelector(".NOSOTROS_ACTIVE").classList.add("active");
-        else if (path.includes("servicios.html"))
-          document.querySelector(".SERVICIOS_ACTIVE").classList.add("active");
-        else if (
-          path.includes("portafoliominimal.html") ||
-          path.includes("portafolio.html")
-        )
-          document.querySelector(".PORTAFOLIO_ACTIVE").classList.add("active");
-        else if (path.includes("contacto.html"))
-          document.querySelector(".CONTACTO_ACTIVE").classList.add("active");
-      })();
+      // La activación del navbar se maneja en navbar-mobile-unified.js
       // Carrusel de imágenes para Proyecto Menu en el modal
       const menuCarruseles = {
         "Diseño Responsivo": [
@@ -2200,7 +2794,7 @@
     <footer
       style="
         background: #111;
-        color: #F5EFD7;
+        color: #f5efd7;
         text-align: center;
         padding: 2rem 0 1rem 0;
         font-size: 1.1rem;
@@ -2425,6 +3019,52 @@
           }
         });
       })();
+
+      // JavaScript para carruseles automáticos en móvil
+      if (window.innerWidth <= 768) {
+        document.addEventListener("DOMContentLoaded", function () {
+          const carousels = document.querySelectorAll(".mobile-auto-carousel");
+
+          carousels.forEach((carousel) => {
+            let scrollPosition = 0;
+            const scrollStep = 1;
+            const scrollSpeed = 50; // ms
+            let scrollInterval;
+
+            function autoScroll() {
+              if (carousel.scrollLeft >= carousel.scrollWidth / 2) {
+                carousel.scrollLeft = 0;
+                scrollPosition = 0;
+              } else {
+                scrollPosition += scrollStep;
+                carousel.scrollLeft = scrollPosition;
+              }
+            }
+
+            // Iniciar scroll automático
+            function startAutoScroll() {
+              scrollInterval = setInterval(autoScroll, scrollSpeed);
+            }
+
+            function stopAutoScroll() {
+              clearInterval(scrollInterval);
+            }
+
+            // Iniciar
+            startAutoScroll();
+
+            // Pausar en hover
+            carousel.addEventListener("mouseenter", stopAutoScroll);
+            carousel.addEventListener("mouseleave", startAutoScroll);
+
+            // Pausar en touch
+            carousel.addEventListener("touchstart", stopAutoScroll);
+            carousel.addEventListener("touchend", () => {
+              setTimeout(startAutoScroll, 3000); // Reanudar después de 3 segundos
+            });
+          });
+        });
+      }
     </script>
   </body>
 </html>

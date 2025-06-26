@@ -1207,8 +1207,64 @@
           filter: none !important;
           opacity: 1 !important;
         }
+      }      /* Mejorar visibilidad de text en project-tags */
+      .project-tag {
+        background: #d6a13b !important;
+        color: #ffffff !important;
+        font-weight: 700 !important;
+        font-size: 0.9rem !important;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.3) !important;
+        border: 2px solid #ffffff !important;
+        padding: 8px 16px !important;
       }
+
+      /* ASEGURAR QUE LA NAVBAR SEA VISIBLE AL CARGAR LA PÁGINA */
+html {
+  scroll-padding-top: 0 !important;
+}
+
+body {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+/* Forzar que la navbar esté siempre visible */
+.navbar {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  z-index: 9999 !important;
+  background: #f5efd7 !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* Ajustar el contenido para que no se oculte detrás de la navbar fija */
+.geometric-hero {
+  margin-top: 60px !important;
+  padding-top: 0 !important;
+}
+
+/* Asegurar que la página inicie desde arriba */
+html, body {
+  scroll-behavior: auto !important;
+}
     </style>
+    
+    <!-- Script para asegurar que la página cargue desde arriba -->
+    <script>
+      window.addEventListener('load', function() {
+        window.scrollTo(0, 0);
+      });
+      
+      // También al cambiar hash o navegar
+      window.addEventListener('beforeunload', function() {
+        window.scrollTo(0, 0);
+      });
+    </script>
   </head>
   <body>
     <!-- Navbar Unificado -->
@@ -1226,9 +1282,7 @@
           aria-label="Toggle navigation"
         >
           <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="mainNavbar">
+        </button>        <div class="collapse navbar-collapse" id="mainNavbar">
           <div class="navbar-nav ms-auto">
             <a class="nav-link HOME_ACTIVE" href="index.html">Inicio</a>
             <a class="nav-link NOSOTROS_ACTIVE" href="Nosotros.html"
@@ -1317,12 +1371,12 @@
             }
           });
         }        // === PÁGINA ACTIVA === 
-        // Esta funcionalidad se maneja en navbar-mobile-unified.js// === ANIMACIONES DE SCROLL ===
+        // Esta funcionalidad se maneja en navbar-mobile-unified.js        // === ANIMACIONES DE SCROLL ===
         function initScrollAnimations() {
           // Configurar Intersection Observer para que los elementos aparezcan MUCHO antes
           const observerOptions = {
-            threshold: 0.01,
-            rootMargin: "0px 0px 400px 0px", // Aumentado para que aparezcan antes
+            threshold: 0.01, // Muy bajo para detectar apenas visible
+            rootMargin: "0px 0px 800px 0px", // Aumentado masivamente para que aparezcan antes
           };
 
           const observer = new IntersectionObserver((entries) => {
@@ -1333,15 +1387,15 @@
             });
           }, observerOptions);
 
-          // Observar todos los elementos animables
+          // Observar todos los elementos animables INCLUYENDO todas las tarjetas
           const animatableElements = document.querySelectorAll(
-            "section, .portfolio-card, .proyecto-img, h1, h2, h3, p, .btn, .main-contact-btn, .main-about-btn"
+            "section, .portfolio-card, .proyecto-img, h1, h2, h3, p, .btn, .main-contact-btn, .main-about-btn, .service-card, .feature-card, .project-card, .what-we-do-card, .page-anim-text, .service-module, .stats-carousel > div"
           );
 
           animatableElements.forEach((el, index) => {
-            // Agregar clase inicial y delay
+            // Agregar clase inicial y delay más corto
             el.classList.add("animate-element");
-            el.style.setProperty("--delay", `${index * 0.1}s`);
+            el.style.setProperty("--delay", `${index * 0.05}s`); // Reducido de 0.1s a 0.05s
             observer.observe(el);
           });
         }
@@ -1357,9 +1411,9 @@
           document.querySelectorAll(".page-anim-text").forEach((el, i) => {
             setTimeout(() => {
               el.classList.add("animated");
-            }, i * 200);
+            }, i * 100); // Reducido de 200ms a 100ms para más rapidez
           });
-        }, 50); // Reducido de 300ms a 50ms para que aparezcan antes
+        }, 10); // Reducido de 50ms a 10ms para que aparezcan casi inmediatamente
       });
     </script>
     <!-- HERO SECTION GEOMÉTRICO - LIMPIO -->
@@ -1563,10 +1617,10 @@
           <p style="font-size: 1.3rem; color: rgba(255,255,255,0.9); margin-bottom: 2rem; line-height: 1.6;">
             Únete a más de 100 restaurantes que han revolucionado su presencia digital con nuestras soluciones innovadoras
           </p>          <div class="cta-buttons-final" style="display: flex; gap: 1rem; flex-wrap: wrap;">
-            <a href="Contacto.html" class="cta-primary-final" style="background: #D6A13B; color: #F5EFD7; padding: 15px 30px; border-radius: 10px; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 10px; transition: all 0.3s ease; border: 2px solid #D6A13B;">
+            <a href="Contacto.html" class="cta-primary-final" style="background: #F5EFD7; color: #111; padding: 15px 30px; border-radius: 10px; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 10px; transition: all 0.3s ease; border: 3px solid #F5EFD7; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
               <span>Comenzar ahora</span>
-              <div class="button-arrow-final" style="width: 20px; height: 20px; background: #D6A13B; mask: url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22currentColor%22 stroke-width=%222%22%3E%3Cpath d=%22M5 12h14M12 5l7 7-7 7%22/%3E%3C/svg%3E') no-repeat center; mask-size: contain;"></div>
-            </a>            <a href="PortafolioMinimal.html" class="cta-secondary-final" style="background: #D6A13B; color: #F5EFD7; padding: 15px 30px; border: 2px solid #D6A13B; border-radius: 10px; text-decoration: none; font-weight: 600; transition: all 0.3s ease;">
+              <div class="button-arrow-final" style="width: 20px; height: 20px; background: #111; mask: url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22currentColor%22 stroke-width=%222%22%3E%3Cpath d=%22M5 12h14M12 5l7 7-7 7%22/%3E%3C/svg%3E') no-repeat center; mask-size: contain;"></div>
+            </a>            <a href="PortafolioMinimal.html" class="cta-secondary-final" style="background: transparent; color: #F5EFD7; padding: 15px 30px; border: 3px solid #F5EFD7; border-radius: 10px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
               <span>Ver portafolio</span>
             </a>
           </div>
@@ -1788,12 +1842,27 @@
     </style>
         </div>
       </div>
-    </section>
-
-    <!-- CSS adicional para carruseles móviles -->
+    </section>    <!-- CSS adicional para carruseles móviles -->
     <style>
+      /* Eliminar scroll horizontal en toda la página */
+      html, body {
+        overflow-x: hidden !important;
+        max-width: 100vw !important;
+      }
+      
+      /* Sección de proyectos - sin scroll horizontal */
+      .projects-section {
+        overflow-x: hidden !important;
+      }
+      
+      .projects-carousel {
+        overflow-x: hidden !important;
+        width: 100% !important;
+        max-width: 100% !important;
+      }
+      
       /* Carruseles móviles para evitar scroll infinito */
-      @media (max-width: 768px) {        .projects-carousel,
+      @media (max-width: 768px) {.projects-carousel,
         .features-grid,
         .services-grid,
         .services-carousel,
@@ -1919,7 +1988,7 @@
               overflow: hidden;
             "
           >
-            <div style="background: #D6A13B; color: #F5EFD7; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem auto; font-size: 1.5rem; font-weight: bold;">🌐</div>            <h3 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 1rem; color: #000;">              Páginas Web
+            <div style="background: #D6A13B; color: #F5EFD7; width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem auto; font-size: 2rem; font-weight: bold; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); border: 3px solid #ffffff;">🌐</div>            <h3 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 1rem; color: #000;">              Páginas Web
             </h3>            <p style="line-height: 1.6; margin-bottom: 1.5rem; color: #000;">
               Sitios web modernos y responsivos que reflejan la esencia de tu restaurante
             </p>
@@ -1938,7 +2007,7 @@
               overflow: hidden;
             "
           >
-            <div style="background: #D6A13B; color: #F5EFD7; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem auto; font-size: 1.5rem; font-weight: bold;">📱</div>            <h3 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 1rem; color: #000;">              Menús Digitales
+            <div style="background: #D6A13B; color: #F5EFD7; width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem auto; font-size: 2rem; font-weight: bold; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); border: 3px solid #ffffff;">📱</div>            <h3 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 1rem; color: #000;">              Menús Digitales
             </h3>            <p style="line-height: 1.6; margin-bottom: 1.5rem; color: #000;">
               Menús interactivos con códigos QR para una experiencia gastronómica única
             </p>
@@ -1957,7 +2026,7 @@
               overflow: hidden;
             "
           >
-            <div style="background: #D6A13B; color: #F5EFD7; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem auto; font-size: 1.5rem; font-weight: bold;">🎨</div>            <h3 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 1rem; color: #000;">              Branding Digital
+            <div style="background: #D6A13B; color: #F5EFD7; width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem auto; font-size: 2rem; font-weight: bold; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); border: 3px solid #ffffff;">🎨</div>            <h3 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 1rem; color: #000;">              Branding Digital
             </h3>            <p style="line-height: 1.6; margin-bottom: 1.5rem; color: #000;">
               Identidad visual completa que haga destacar tu marca en el mercado
             </p>

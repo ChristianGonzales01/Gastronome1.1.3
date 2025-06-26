@@ -1245,8 +1245,8 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 60px 0 0 0;
-  margin-top: 0;
+  padding: 80px 0 0 0;
+  margin-top: 60px;
 }
 
 .hero-container {
@@ -1470,7 +1470,9 @@ a[style*="Ver más"]:hover,
 
 /* ESTILOS ESPECÍFICOS PARA BOTONES "VER MÁS" */
 .service-link,
-a[href*="Servicios.html"] {
+.what-we-do-card a[href*="Servicios.html"],
+.services-carousel a[href*="Servicios.html"],
+section:not(.navbar) a[href*="Servicios.html"]:not(.nav-link) {
   background-color: #d6a13b !important;
   color: #f5efd7 !important;
   border: 2px solid #d6a13b !important;
@@ -1485,7 +1487,9 @@ a[href*="Servicios.html"] {
 }
 
 .service-link:hover,
-a[href*="Servicios.html"]:hover {
+.what-we-do-card a[href*="Servicios.html"]:hover,
+.services-carousel a[href*="Servicios.html"]:hover,
+section:not(.navbar) a[href*="Servicios.html"]:not(.nav-link):hover {
   background-color: #d6a13b !important;
   border-color: #d6a13b !important;
   color: #f5efd7 !important;
@@ -1716,6 +1720,7 @@ a[href*="Servicios.html"]:hover {
 
 .projects-section {
   background: #f8f9fa;
+  overflow-x: hidden;
 }
 
 .services-section {
@@ -1863,6 +1868,7 @@ a[href*="Servicios.html"]:hover {
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 30px;
   margin-bottom: 40px;
+  overflow-x: hidden;
 }
 
 .project-card {
@@ -1917,11 +1923,13 @@ a[href*="Servicios.html"]:hover {
 .project-tag {
   display: inline-block;
   background: #d6a13b;
-  color: #f5efd7;
-  padding: 6px 12px;
+  color: #ffffff;
+  padding: 8px 16px;
   border-radius: 20px;
-  font-size: 0.8rem;
-  font-weight: 600;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  border: 2px solid #ffffff;
 }
 
 /* ========================================

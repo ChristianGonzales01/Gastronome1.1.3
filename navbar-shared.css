@@ -55,10 +55,11 @@
   color: #000 !important;
 }
 
-.navbar-nav .nav-link.active {
+/* Estilos de navegación activa deshabilitados */
+/* .navbar-nav .nav-link.active {
   color: #000 !important;
   font-weight: 600 !important;
-}
+} */
 
 /* ESTILOS MÓVIL */
 @media (max-width: 991px) {
@@ -149,4 +150,3 @@
 .navbar * {
   box-sizing: border-box !important;
 }
-
