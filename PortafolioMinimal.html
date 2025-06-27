@@ -444,16 +444,20 @@
       @media (max-width: 340px) {
         .carousel-inner .img-carrusel-articulo.menu-digital-celular {
           max-width: calc(100vw - 20px);
-          height: 400px;
+          height: 500px;
         }
         .carousel-inner .img-carrusel-articulo {
           max-width: calc(100vw - 20px);
-          height: 180px;
+          height: 280px;
         }
       }
       @media (max-width: 600px) {
         .carousel-inner .img-carrusel-articulo.menu-digital-celular {
-          height: 340px;
+          height: 450px;
+          max-width: 98vw;
+        }
+        .carousel-inner .img-carrusel-articulo {
+          height: 320px;
           max-width: 98vw;
         }
       }
@@ -1049,6 +1053,101 @@
         .mobile-carousel-section {
           display: block !important;
         }
+        
+        /* Miniaturas navegables en modales para móvil */
+        .mobile-thumbnails {
+          display: flex !important;
+          gap: 8px !important;
+          justify-content: center !important;
+          flex-wrap: wrap !important;
+          margin: -25px auto 0 auto !important;
+          padding: 12px 15px !important;
+          max-width: 100% !important;
+          width: 100% !important;
+          box-sizing: border-box !important;
+          background: rgba(214, 161, 59, 0.15) !important;
+          border-radius: 12px !important;
+          border: 2px solid rgba(214, 161, 59, 0.4) !important;
+          box-shadow: 0 4px 15px rgba(214, 161, 59, 0.2) !important;
+          position: relative !important;
+          top: -25px !important;
+        }
+
+        .mobile-thumbnail {
+          width: 50px !important;
+          height: 40px !important;
+          object-fit: cover !important;
+          border-radius: 8px !important;
+          cursor: pointer !important;
+          border: 2px solid rgba(214, 161, 59, 0.5) !important;
+          margin: 0 !important;
+          transition: all 0.3s ease !important;
+          flex-shrink: 0 !important;
+          box-sizing: border-box !important;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+          background: #f5efd7 !important;
+        }
+
+        .mobile-thumbnail:hover {
+          border-color: #D6A13B !important;
+          transform: scale(1.08) translateY(-2px) !important;
+          box-shadow: 0 4px 12px rgba(214, 161, 59, 0.4) !important;
+        }
+
+        .mobile-thumbnail.active {
+          border-color: #D6A13B !important;
+          box-shadow: 0 0 0 1px #D6A13B, 0 3px 10px rgba(214, 161, 59, 0.3) !important;
+        }
+
+        /* Ajustes para pantallas muy pequeñas */
+        @media (max-width: 400px) {
+          .mobile-thumbnails {
+            gap: 6px !important;
+            margin: -20px auto 0 auto !important;
+            padding: 8px 12px !important;
+            border-radius: 10px !important;
+            top: -20px !important;
+          }
+
+          .mobile-thumbnail {
+            width: 42px !important;
+            height: 32px !important;
+            border-radius: 6px !important;
+          }
+        }
+
+        @media (max-width: 340px) {
+          .mobile-thumbnails {
+            gap: 5px !important;
+            margin: -15px auto 0 auto !important;
+            padding: 6px 8px !important;
+            border-radius: 8px !important;
+            top: -15px !important;
+          }
+
+          .mobile-thumbnail {
+            width: 36px !important;
+            height: 28px !important;
+            border-radius: 4px !important;
+          }
+        }
+
+        /* Animación de bounce para el indicador de desplazamiento */
+        @keyframes bounce {
+          0%, 20%, 50%, 80%, 100% {
+            transform: translateY(0);
+          }
+          40% {
+            transform: translateY(-5px);
+          }
+          60% {
+            transform: translateY(-3px);
+          }
+        }
+
+        .scroll-indicator {
+          animation: bounce 2s infinite !important;
+        }
       }
 
       @media (min-width: 769px) {
@@ -1139,8 +1238,8 @@
           max-width: 99vw !important;
         }
         #modalProyecto .carousel-inner .img-carrusel-articulo {
-          max-width: 220px !important;
-          height: 120px !important;
+          max-width: 280px !important;
+          height: 180px !important;
           border-radius: 8px !important;
         }
       }
@@ -1160,8 +1259,8 @@
           max-width: 100vw !important;
         }
         #modalProyecto .carousel-inner .img-carrusel-articulo {
-          max-width: 160px !important;
-          height: 90px !important;
+          max-width: 240px !important;
+          height: 140px !important;
           border-radius: 6px !important;
         }
       }
@@ -1399,22 +1498,6 @@
               Página completa con todas las secciones integradas
             </div>
           </div>
-          <!-- Duplicar elementos para efecto infinito -->
-          <div class="carousel-item-mobile">
-            <img src="Fotos_Gas/pagina-inicio.webp" alt="Preview 1" />
-            <div class="portfolio-card-title">Página Principal</div>
-            <div class="portfolio-card-desc">
-              Diseño moderno y responsivo para la página de inicio del
-              restaurante
-            </div>
-          </div>
-          <div class="carousel-item-mobile">
-            <img src="Fotos_Gas/menu-inicio.webp" alt="Preview 2" />
-            <div class="portfolio-card-title">Menú Digital</div>
-            <div class="portfolio-card-desc">
-              Sistema interactivo para mostrar el menú del restaurante
-            </div>
-          </div>
         </div>
       </div>
       <h2
@@ -1511,19 +1594,6 @@
             <div class="portfolio-card-desc">
               Sistema digital para mostrar el menú de tu restaurante de forma
               interactiva y moderna.
-            </div>
-            <a href="#" class="portfolio-card-link">Ver Proyecto</a>
-          </div>
-          <!-- Duplicar para efecto infinito -->
-          <div class="carousel-item-mobile">
-            <img
-              src="Fotos_Gas/pagina-inicio.webp"
-              alt="Página web Restaurant"
-            />
-            <div class="portfolio-card-title">Página web Restaurant</div>
-            <div class="portfolio-card-desc">
-              Web responsiva para restaurante con menú digital, galería y
-              reservas.
             </div>
             <a href="#" class="portfolio-card-link">Ver Proyecto</a>
           </div>
@@ -1646,15 +1716,6 @@
             <div class="portfolio-card-desc">
               El menú es intuitivo, con navegación sencilla y opciones
               interactivas.
-            </div>
-            <a href="#" class="portfolio-card-link">Ver Imagenes</a>
-          </div>
-          <!-- Duplicar para efecto infinito -->
-          <div class="carousel-item-mobile">
-            <img src="Fotos_Gas/menu-inicio.webp" alt="Diseño Responsivo" />
-            <div class="portfolio-card-title">Diseño Responsivo</div>
-            <div class="portfolio-card-desc">
-              El menú digital se adapta perfectamente a cualquier dispositivo.
             </div>
             <a href="#" class="portfolio-card-link">Ver Imagenes</a>
           </div>
@@ -1781,21 +1842,6 @@
               class="portfolio-card-link"
               data-carrusel="celular-pagina-web"
               >Versión Teléfono</a
-            >
-          </div>
-          <!-- Duplicar para efecto infinito -->
-          <div class="carousel-item-mobile">
-            <img src="Fotos_Gas/pagina-web/Comidas.webp" alt="Versión PC" />
-            <div class="portfolio-card-title">Versión PC</div>
-            <div class="portfolio-card-desc">
-              Versión de escritorio, ideal para mostrar el contenido en pantalla
-              grande.
-            </div>
-            <a
-              href="#"
-              class="portfolio-card-link"
-              data-carrusel="pc-pagina-web"
-              >Versión PC</a
             >
           </div>
         </div>
@@ -1938,56 +1984,6 @@
               >Eventos</a
             >
           </div>
-          <!-- Duplicar para efecto infinito -->
-          <div class="carousel-item-mobile">
-            <img
-              src="Fotos_Gas/menu-digital/3d-completa.webp"
-              alt="Modelos 3D"
-            />
-            <div class="portfolio-card-title">Modelos 3D</div>
-            <div class="portfolio-card-desc">
-              Incluimos Modelos 3D en platillos especiales garantizando una
-              experiencia visual.
-            </div>
-            <a href="#" class="portfolio-card-link" data-3d-models="true"
-              >Modelos</a
-            >
-          </div>
-          <div class="carousel-item-mobile">
-            <img src="Fotos_Gas/QrGas.webp" alt="Códigos QR" />
-            <div class="portfolio-card-title">Códigos QR</div>
-            <div class="portfolio-card-desc">
-              Herramienta online para crear códigos QR personalizados.
-            </div>
-            <a href="#" class="portfolio-card-link" data-qr-generator="true"
-              >Generador QR</a
-            >
-          </div>
-          <div class="carousel-item-mobile">
-            <img
-              src="Fotos_Gas/pagina-web/Reservaciones.webp"
-              alt="Reservaciones"
-            />
-            <div class="portfolio-card-title">Reservaciones</div>
-            <div class="portfolio-card-desc">
-              Permite a tus clientes reservar mesa en línea de forma rápida y
-              sencilla.
-            </div>
-            <a
-              href="#"
-              class="portfolio-card-link"
-              data-carrusel="reservaciones"
-              >Reservaciones</a
-            >
-          </div>
-          <div class="carousel-item-mobile">
-            <img src="Fotos_Gas/pagina-web/Eventos.webp" alt="Eventos" />
-            <div class="portfolio-card-title">Cambio de eventos</div>
-            <div class="portfolio-card-desc">
-              Actualiza los eventos de tu restaurante fácilmente, mostrando
-              fechas especiales.
-            </div>
-            <a href="#" class="portfolio-card-link" data-carrusel="eventos"
               >Eventos</a
             >
           </div>
@@ -2244,6 +2240,64 @@
           "Fotos_Gas/menu-digital/3d-menu.webp",
           "Fotos_Gas/menu-digital/3d2-menu.webp",
         ],
+        // Añadir nuevos carruseles para botones faltantes
+        "Página web Restaurant": [
+          "Fotos_Gas/pagina-inicio.webp",
+          "Fotos_Gas/menu-inicio.webp",
+          "Fotos_Gas/pagina-completa.webp",
+          "Fotos_Gas/platillos-especiales.webp",
+        ],
+        "Menu Digital": [
+          "Fotos_Gas/menu-digital/inicio-menu.webp",
+          "Fotos_Gas/menu-digital/entrada-menu.webp",
+          "Fotos_Gas/menu-digital/especiales-menu.webp",
+          "Fotos_Gas/menu-digital/bebidas-menu.webp",
+          "Fotos_Gas/menu-digital/platofuerte-menu.webp",
+        ],
+        "Diseño Responsivo": [
+          "Fotos_Gas/menu-inicio.webp",
+          "Fotos_Gas/menu-digital/inicio-menu.webp",
+          "Fotos_Gas/menu-digital/inicio-completa.webp",
+        ],
+        "Intuitivo y Accesible": [
+          "Fotos_Gas/menu-digital/entrada-menu.webp",
+          "Fotos_Gas/menu-digital/bebidas-menu.webp",
+          "Fotos_Gas/menu-digital/promociones-menu.webp",
+        ],
+        "Versión Teléfono": [
+          "Fotos_Gas/pagina-web/Gourmette_celular.webp",
+          "Fotos_Gas/pagina-web/Menu_calular.webp",
+          "Fotos_Gas/pagina-web/Eventos celular.webp",
+          "Fotos_Gas/pagina-web/Gourmette_celular copy(1).webp",
+          "Fotos_Gas/pagina-web/Menu_calular copy(1).webp",
+          "Fotos_Gas/pagina-web/Eventos celular copy(1).webp",
+        ],
+        "Versión PC": [
+          "Fotos_Gas/pagina-web/Comidas.webp",
+          "Fotos_Gas/pagina-web/Especiales.webp",
+          "Fotos_Gas/pagina-web/Galeria.webp",
+          "Fotos_Gas/pagina-web/Menu.webp",
+          "Fotos_Gas/pagina-web/Reservaciones.webp",
+          "Fotos_Gas/pagina-web/Ubicaciones.webp",
+          "Fotos_Gas/pagina-web/Redes.webp",
+          "Fotos_Gas/pagina-web/Contacto.webp",
+        ],
+        "Página Principal": [
+          "Fotos_Gas/pagina-inicio.webp",
+          "Fotos_Gas/pagina-completa.webp",
+          "Fotos_Gas/platillos-especiales.webp",
+        ],
+        "Vista Completa": [
+          "Fotos_Gas/pagina-completa.webp",
+          "Fotos_Gas/pagina-inicio.webp",
+          "Fotos_Gas/menu-inicio.webp",
+        ],
+        "Incluye modelos 3D": [
+          "Fotos_Gas/menu-digital/3d-completa.webp",
+          "Fotos_Gas/menu-digital/3d-menu.webp",
+          "Fotos_Gas/menu-digital/3d2-menu.webp",
+          "Fotos_Gas/modelo3d.webp",
+        ],
       };
       // Descripciones largas para los artículos
       const infoProyectos = {
@@ -2312,6 +2366,42 @@
           desc: "Visualiza platillos y productos en 3D interactivo para una experiencia innovadora y atractiva en tu menú digital o página web. Permite a los clientes explorar los detalles de cada platillo de manera interactiva y atractiva. Ideal para restaurantes que buscan ofrecer una experiencia única y moderna.",
           tags: ["HTML", "CSS", "JavaScript"],
         },
+        // Añadir información para proyectos faltantes
+        "Diseño Responsivo": {
+          titulo: "Diseño Responsivo",
+          desc: "El menú digital se adapta perfectamente a cualquier dispositivo, desde smartphones hasta tablets y computadoras de escritorio. Utiliza tecnologías modernas para garantizar una experiencia fluida en todas las resoluciones de pantalla. <br><br>Incluye optimizaciones específicas para touch y navegación tradicional.",
+          tags: ["Responsive", "CSS", "Mobile-First"],
+        },
+        "Intuitivo y Accesible": {
+          titulo: "Intuitivo y Accesible",
+          desc: "Diseño centrado en el usuario con navegación intuitiva y accesibilidad mejorada. Facilita la consulta de información con iconografía clara, tipografía legible y estructura organizativa lógica. <br><br>Cumple con estándares de accesibilidad web para usuarios con diferentes capacidades.",
+          tags: ["UX/UI", "Accesibilidad", "Usabilidad"],
+        },
+        "Versión Teléfono": {
+          titulo: "Versión Teléfono",
+          desc: "Versión móvil optimizada de la página web del restaurante, diseñada específicamente para dispositivos móviles. Ofrece una experiencia de navegación fluida en smartphones con menú adaptado, interfaz táctil intuitiva y carga rápida. <br><br>Incluye características específicas para móvil como botones de llamada directa, integración con WhatsApp y navegación por gestos.",
+          tags: ["Mobile", "Responsive", "UX Móvil"],
+        },
+        "Versión PC": {
+          titulo: "Versión PC",
+          desc: "Versión completa de la página web del restaurante optimizada para computadoras de escritorio y laptops. Aprovecha el espacio de pantalla disponible para mostrar información detallada, imágenes de alta resolución y navegación avanzada. <br><br>Incluye funcionalidades específicas para desktop como hover effects, menús desplegables y diseño de múltiples columnas para una experiencia rica y completa.",
+          tags: ["Desktop", "Full-Featured", "Rich UI"],
+        },
+        "Página Principal": {
+          titulo: "Página Principal",
+          desc: "Diseño moderno y responsivo para la página de inicio del restaurante. Incluye hero section atractivo, navegación intuitiva y presentación clara de los servicios principales. <br><br>Optimizada para conversión con llamadas a la acción estratégicamente ubicadas y diseño que refleja la identidad visual del restaurante.",
+          tags: ["Landing", "Hero Section", "UI/UX"],
+        },
+        "Vista Completa": {
+          titulo: "Vista Completa",
+          desc: "Página completa con todas las secciones integradas de manera cohesiva. Muestra el flujo completo de navegación del usuario desde el inicio hasta la conversión. <br><br>Incluye todas las funcionalidades: menú, galería, contacto, reservas y redes sociales en una experiencia unificada.",
+          tags: ["Full Site", "Complete Experience", "Integration"],
+        },
+        "Incluye modelos 3D": {
+          titulo: "Incluye modelos 3D",
+          desc: "Presenta platillos especiales con modelos 3D interactivos para una experiencia inmersiva única. Los clientes pueden explorar los platillos desde todos los ángulos antes de ordenar. <br><br>Tecnología WebGL para renderizado 3D optimizado que funciona en todos los dispositivos modernos sin necesidad de plugins adicionales.",
+          tags: ["3D", "WebGL", "Interactive"],
+        },
       };
       // Carrusel dinámico
       function renderCarrusel(imgs, isCelularMenu) {
@@ -2329,15 +2419,30 @@
         imgs.forEach(function (src, idx) {
           html += `<div class="carousel-item${
             idx === 0 ? " active" : ""
-          }" style="min-height:380px; display:flex; align-items:center; justify-content:center;"><img src="${src}" class="d-block img-carrusel-articulo${
+          }" style="min-height:420px; display:flex; align-items:center; justify-content:center;"><img src="${src}" class="d-block img-carrusel-articulo${
             isCelularMenu ? " menu-digital-celular" : ""
           }" style="width:100%; max-width:${
-            isCelularMenu ? "320px" : "700px"
+            isCelularMenu ? "380px" : "700px"
           }; height:${
-            isCelularMenu ? "500px" : "380px"
+            isCelularMenu ? "600px" : "420px"
           }; object-fit:contain; border-radius:14px; margin:0 auto; cursor:pointer;"></div>`;
         });
         html += "</div>";
+        
+        // Añadir miniaturas navegables para móvil
+        if (imgs.length > 1) {
+          html += '<div class="mobile-thumbnails" style="display:none;">';
+          imgs.forEach(function (src, idx) {
+            html += `<img src="${src}" class="mobile-thumbnail ${idx === 0 ? 'active' : ''}" data-bs-target="#${id}" data-bs-slide-to="${idx}" style="width:50px; height:40px; object-fit:cover; border-radius:8px; cursor:pointer; border:2px solid ${idx === 0 ? '#D6A13B' : 'rgba(214, 161, 59, 0.5)'}; transition:all 0.3s ease; flex-shrink:0; box-sizing:border-box; box-shadow:0 2px 8px rgba(0,0,0,0.15); background:#f5efd7;">`;
+          });
+          html += '</div>';
+          
+          // Añadir indicio visual de desplazamiento
+          html += '<div class="scroll-indicator" style="text-align:center; margin:10px 0; color:#D6A13B; font-size:12px; opacity:0.8; animation:bounce 2s infinite;">';
+          html += '<div style="display:inline-block;">Desliza hacia abajo ↓</div>';
+          html += '</div>';
+        }
+        
         html += "</div>";
         return { html, id };
       }
@@ -2626,16 +2731,35 @@
           }
           if (btn.dataset.carrusel === "eventos") {
             const titulo = "Cambio de eventos";
-            const card = btn.closest(".portfolio-card");
-            const desc =
-              card.querySelector(".portfolio-card-desc")?.innerHTML.trim() ||
-              "";
-            const carrusel = renderCarrusel(carruselImgs[titulo]);
-            document.getElementById("infoModalTitulo").textContent = titulo;
-            document.getElementById("infoModalCarrusel").innerHTML =
-              carrusel.html;
-            document.getElementById("infoModalDesc").innerHTML = desc;
-            document.getElementById("infoModalTags").innerHTML = "";
+            const imgs = carruselImgs[titulo] || [];
+            const info = infoProyectos[titulo] || { 
+              titulo: titulo, 
+              desc: "Administra y actualiza los eventos de tu restaurante fácilmente, mostrando promociones, fechas especiales y novedades en tu sitio web o menú digital.",
+              tags: ["HTML", "CSS", "JavaScript"]
+            };
+            
+            const carrusel = renderCarrusel(imgs);
+            document.getElementById("infoModalTitulo").textContent = info.titulo;
+            document.getElementById("infoModalCarrusel").innerHTML = carrusel.html;
+            document.getElementById("infoModalDesc").innerHTML = info.desc;
+            
+            // Mostrar tags
+            const tagsDiv = document.getElementById("infoModalTags");
+            tagsDiv.innerHTML = "";
+            info.tags.forEach(function (tag) {
+              const span = document.createElement("span");
+              span.textContent = tag;
+              span.style.background = "#111";
+              span.style.color = "#F5EFD7";
+              span.style.borderRadius = "12px";
+              span.style.padding = "0.18rem 0.9rem";
+              span.style.fontSize = "0.92rem";
+              span.style.fontWeight = "600";
+              span.style.letterSpacing = "0.03em";
+              span.style.margin = "0 0.2rem";
+              tagsDiv.appendChild(span);
+            });
+            
             document.getElementById("modalProyecto").style.display = "flex";
             animateModalText && animateModalText();
             function startCarouselWhenReadyEventos() {
@@ -2650,6 +2774,42 @@
                       wrap: true,
                     });
                   carouselInstance.cycle();
+                  
+                  // Manejar miniaturas en móvil
+                  if (window.innerWidth <= 768) {
+                    const thumbnails = el.querySelectorAll('.mobile-thumbnail');
+                    if (thumbnails.length > 0) {
+                      el.querySelector('.mobile-thumbnails').style.display = 'flex';
+                      
+                      // Mostrar indicador de desplazamiento
+                      const scrollIndicator = el.querySelector('.scroll-indicator');
+                      if (scrollIndicator) {
+                        scrollIndicator.style.display = 'block';
+                      }
+                      
+                      // Añadir eventos de click a las miniaturas
+                      thumbnails.forEach((thumb, idx) => {
+                        thumb.addEventListener('click', function() {
+                          carouselInstance.to(idx);
+                        });
+                      });
+                      
+                      // Actualizar miniatura activa cuando cambia el slide
+                      el.addEventListener('slide.bs.carousel', function (event) {
+                        thumbnails.forEach((thumb, idx) => {
+                          if (idx === event.to) {
+                            thumb.style.border = '2px solid #D6A13B';
+                            thumb.style.boxShadow = '0 0 0 1px #D6A13B, 0 3px 10px rgba(214, 161, 59, 0.3)';
+                            thumb.classList.add('active');
+                          } else {
+                            thumb.style.border = '2px solid rgba(214, 161, 59, 0.5)';
+                            thumb.style.boxShadow = '0 2px 8px rgba(0, 0, 0, 0.15)';
+                            thumb.classList.remove('active');
+                          }
+                        });
+                      });
+                    }
+                  }
                 }
                 var imgsCarrusel = document.querySelectorAll(
                   `#${carrusel.id} .img-carrusel-articulo`
@@ -2668,6 +2828,108 @@
             startCarouselWhenReadyEventos();
             e.preventDefault();
             return;
+          }
+          
+          // Manejar botones genéricos "Ver Proyecto" y "Ver Imagenes"
+          const btnText = btn.textContent.trim();
+          if (btnText === "Ver Proyecto" || btnText === "Ver Imagenes") {
+            const projectInfo = infoProyectos[titulo];
+            if (projectInfo) {
+              document.getElementById("infoModalTitulo").textContent = projectInfo.titulo;
+              document.getElementById("infoModalDesc").innerHTML = projectInfo.desc;
+              
+              // Añadir tags si existen
+              const tagsDiv = document.getElementById("infoModalTags");
+              tagsDiv.innerHTML = "";
+              if (projectInfo.tags) {
+                projectInfo.tags.forEach(function (tag) {
+                  const span = document.createElement("span");
+                  span.textContent = tag;
+                  span.style.background = "#111";
+                  span.style.color = "#F5EFD7";
+                  span.style.borderRadius = "12px";
+                  span.style.padding = "0.18rem 0.9rem";
+                  span.style.fontSize = "0.92rem";
+                  span.style.fontWeight = "600";
+                  span.style.letterSpacing = "0.03em";
+                  span.style.margin = "0 0.2rem";
+                  tagsDiv.appendChild(span);
+                });
+              }
+              
+              // Crear carrusel si hay imágenes
+              const carrusel = renderCarrusel(carruselImgs[titulo] || []);
+              document.getElementById("infoModalCarrusel").innerHTML = carrusel.html;
+              
+              function startCarouselWhenReadyGeneric() {
+                if (window.bootstrap && window.bootstrap.Carousel) {
+                  var el = document.getElementById(carrusel.id);
+                  if (el) {
+                    var carouselInstance =
+                      window.bootstrap.Carousel.getOrCreateInstance(el, {
+                        interval: 3000,
+                        ride: "carousel",
+                        pause: false,
+                        wrap: true,
+                      });
+                    carouselInstance.cycle();
+                    
+                    // Manejar miniaturas en móvil
+                    if (window.innerWidth <= 768) {
+                      const thumbnails = el.querySelectorAll('.mobile-thumbnail');
+                      if (thumbnails.length > 0) {
+                        el.querySelector('.mobile-thumbnails').style.display = 'flex';
+                        
+                        // Mostrar indicador de desplazamiento
+                        const scrollIndicator = el.querySelector('.scroll-indicator');
+                        if (scrollIndicator) {
+                          scrollIndicator.style.display = 'block';
+                        }
+                        
+                        // Añadir eventos de click a las miniaturas
+                        thumbnails.forEach((thumb, idx) => {
+                          thumb.addEventListener('click', function() {
+                            carouselInstance.to(idx);
+                          });
+                        });
+                        
+                        // Actualizar miniatura activa cuando cambia el slide
+                        el.addEventListener('slide.bs.carousel', function (event) {
+                          thumbnails.forEach((thumb, idx) => {
+                            if (idx === event.to) {
+                              thumb.style.border = '2px solid #D6A13B';
+                              thumb.style.boxShadow = '0 0 0 1px #D6A13B, 0 3px 10px rgba(214, 161, 59, 0.3)';
+                              thumb.classList.add('active');
+                            } else {
+                              thumb.style.border = '2px solid rgba(214, 161, 59, 0.5)';
+                              thumb.style.boxShadow = '0 2px 8px rgba(0, 0, 0, 0.15)';
+                              thumb.classList.remove('active');
+                            }
+                          });
+                        });
+                      }
+                    }
+                  }
+                  var imgsCarrusel = document.querySelectorAll(
+                    `#${carrusel.id} .img-carrusel-articulo`
+                  );
+                  imgsCarrusel.forEach(function (img) {
+                    img.onclick = function () {
+                      document.getElementById("imgAmpliada").src = img.src;
+                      document.getElementById("modalImgAmpliada").style.display =
+                        "flex";
+                    };
+                  });
+                } else {
+                  setTimeout(startCarouselWhenReadyGeneric, 100);
+                }
+              }
+              startCarouselWhenReadyGeneric();
+              
+              document.getElementById("modalProyecto").style.display = "flex";
+              animateModalText();
+              return;
+            }
           }
           document.getElementById("infoModalTitulo").textContent = titulo;
           document.getElementById("infoModalDesc").innerHTML = desc;
@@ -2703,6 +2965,42 @@
                     wrap: true,
                   });
                 carouselInstance.cycle();
+                
+                // Manejar miniaturas en móvil
+                if (window.innerWidth <= 768) {
+                  const thumbnails = el.querySelectorAll('.mobile-thumbnail');
+                  if (thumbnails.length > 0) {
+                    el.querySelector('.mobile-thumbnails').style.display = 'flex';
+                    
+                    // Mostrar indicador de desplazamiento
+                    const scrollIndicator = el.querySelector('.scroll-indicator');
+                    if (scrollIndicator) {
+                      scrollIndicator.style.display = 'block';
+                    }
+                    
+                    // Añadir eventos de click a las miniaturas
+                    thumbnails.forEach((thumb, idx) => {
+                      thumb.addEventListener('click', function() {
+                        carouselInstance.to(idx);
+                      });
+                    });
+                    
+                    // Actualizar miniatura activa cuando cambia el slide
+                    el.addEventListener('slide.bs.carousel', function (event) {
+                      thumbnails.forEach((thumb, idx) => {
+                        if (idx === event.to) {
+                          thumb.style.border = '2px solid #D6A13B';
+                          thumb.style.boxShadow = '0 0 0 1px #D6A13B, 0 3px 10px rgba(214, 161, 59, 0.3)';
+                          thumb.classList.add('active');
+                        } else {
+                          thumb.style.border = '2px solid rgba(214, 161, 59, 0.5)';
+                          thumb.style.boxShadow = '0 2px 8px rgba(0, 0, 0, 0.15)';
+                          thumb.classList.remove('active');
+                        }
+                      });
+                    });
+                  }
+                }
               }
               var imgsCarrusel = document.querySelectorAll(
                 `#${carrusel.id} .img-carrusel-articulo`
