@@ -4248,6 +4248,131 @@
         font-weight: 700 !important;
       }
 
+      /* ULTRA ESPECÍFICO PARA MÓVILES - GARANTIZAR VISIBILIDAD */
+      @media (max-width: 767px) {
+        html body a.btn-dark[href="Contacto.html"],
+        .btn-dark[href="Contacto.html"],
+        a[href="Contacto.html"].btn-dark,
+        html body .btn.btn-dark[href="Contacto.html"] {
+          background: linear-gradient(
+            135deg,
+            #d6a13b 0%,
+            #f4c55c 100%
+          ) !important;
+          color: #000000 !important;
+          border: 2px solid #d6a13b !important;
+          border-radius: 25px !important;
+          padding: 15px 25px !important;
+          font-weight: 700 !important;
+          text-decoration: none !important;
+          display: inline-block !important;
+          text-align: center !important;
+          font-size: 16px !important;
+          min-width: 200px !important;
+          width: auto !important;
+          box-shadow: 0 4px 15px rgba(214, 161, 59, 0.4) !important;
+          -webkit-appearance: none !important;
+          -moz-appearance: none !important;
+          appearance: none !important;
+        }
+      }
+
+      /* ULTRA ESPECÍFICO PARA TABLETS */
+      @media (min-width: 768px) and (max-width: 1024px) {
+        html body a.btn-dark[href="Contacto.html"],
+        .btn-dark[href="Contacto.html"],
+        a[href="Contacto.html"].btn-dark,
+        html body .btn.btn-dark[href="Contacto.html"] {
+          background: linear-gradient(
+            135deg,
+            #d6a13b 0%,
+            #f4c55c 100%
+          ) !important;
+          color: #000000 !important;
+          border: 2px solid #d6a13b !important;
+          border-radius: 25px !important;
+          padding: 12px 20px !important;
+          font-weight: 700 !important;
+          text-decoration: none !important;
+          display: inline-block !important;
+          text-align: center !important;
+          min-width: 140px !important;
+        }
+      }
+
+      /* ULTRA ESPECÍFICO PARA DESKTOP */
+      @media (min-width: 1025px) {
+        html body a.btn-dark[href="Contacto.html"],
+        .btn-dark[href="Contacto.html"],
+        a[href="Contacto.html"].btn-dark,
+        html body .btn.btn-dark[href="Contacto.html"] {
+          background: linear-gradient(
+            135deg,
+            #d6a13b 0%,
+            #f4c55c 100%
+          ) !important;
+          color: #000000 !important;
+          border: 2px solid #d6a13b !important;
+          border-radius: 25px !important;
+          padding: 12px 20px !important;
+          font-weight: 700 !important;
+          text-decoration: none !important;
+          display: inline-block !important;
+          text-align: center !important;
+          min-width: 140px !important;
+        }
+      }
+
+      /* CONTRARRESTAR CUALQUIER ESTILO DE BOOTSTRAP EN TIEMPO DE CARGA */
+      html body div a.btn-dark[href="Contacto.html"],
+      html body section a.btn-dark[href="Contacto.html"],
+      html body .container a.btn-dark[href="Contacto.html"],
+      html body .container-fluid a.btn-dark[href="Contacto.html"] {
+        background: linear-gradient(
+          135deg,
+          #d6a13b 0%,
+          #f4c55c 100%
+        ) !important;
+        color: #000000 !important;
+        border: 2px solid #d6a13b !important;
+        font-size: inherit !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+      }
+
+      /* CORREGIR ALINEACIÓN Y ESPACIADO DEL BOTÓN */
+      html body a.btn-dark[href="Contacto.html"] {
+        margin: 0 auto !important;
+        vertical-align: middle !important;
+        line-height: 1.4 !important;
+        white-space: nowrap !important;
+        box-sizing: border-box !important;
+      }
+
+      /* CORREGIR ALINEACIÓN EN CARRUSEL MÓVIL */
+      .carousel-item-mobile a.btn-dark[href="Contacto.html"] {
+        display: block !important;
+        width: 100% !important;
+        text-align: center !important;
+        margin-top: 1rem !important;
+        margin-bottom: 0.5rem !important;
+        padding: 15px 20px !important;
+        border-radius: 25px !important;
+        font-size: 16px !important;
+        font-weight: 700 !important;
+        line-height: 1.2 !important;
+      }
+
+      /* CORREGIR ALINEACIÓN EN DESKTOP */
+      .desktop-only a.btn-dark[href="Contacto.html"] {
+        display: inline-block !important;
+        margin-top: 1.5rem !important;
+        margin-bottom: 0 !important;
+        padding: 12px 24px !important;
+        text-align: center !important;
+        vertical-align: top !important;
+      }
+
       /* ESTILOS ESPECÍFICOS PARA MODAL 3D - CONTRARRESTAR BOOTSTRAP */
       #modal3D h3,
       #modal3D h4,

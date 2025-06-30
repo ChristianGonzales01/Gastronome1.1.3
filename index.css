@@ -1390,17 +1390,9 @@ section {
   position: relative;
 }
 
-/* ESTADO NORMAL - BOTONES DIFERENCIADOS */
 .cta-primary {
-  background: #d6a13b !important;
-  color: #f5efd7 !important;
-  border: 2px solid #d6a13b !important;
-}
-
-.cta-secondary {
-  background: #f5efd7 !important;
-  color: #d6a13b !important;
-  border: 2px solid #d6a13b !important;
+  background: #000;
+  color: #f5efd7;
 }
 
 .button-arrow {
@@ -1413,7 +1405,14 @@ section {
   margin-left: 10px;
 }
 
-/* HOVER PARA AMBOS BOTONES - TEXTO BLANCO GARANTIZADO */
+.cta-secondary {
+  background: #f5efd7 !important;
+  color: #000 !important;
+  border: 2px solid #000 !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* HOVER NEGRO PARA AMBOS BOTONES */
 .cta-primary:hover,
 .cta-secondary:hover {
   background: #d6a13b !important;
@@ -1422,15 +1421,19 @@ section {
   transform: translateY(-2px) !important;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3) !important;
   transition: all 0.3s ease !important;
-  -webkit-text-fill-color: #f5efd7 !important;
 }
 
-.cta-primary:hover *,
-.cta-secondary:hover *,
-.cta-primary:hover span,
-.cta-secondary:hover span {
+/* ESTADO NORMAL - BOTONES DIFERENCIADOS */
+.cta-primary {
+  background: #d6a13b !important;
   color: #f5efd7 !important;
-  -webkit-text-fill-color: #f5efd7 !important;
+  border: 2px solid #d6a13b !important;
+}
+
+.cta-secondary {
+  background: #f5efd7 !important;
+  color: #d6a13b !important;
+  border: 2px solid #d6a13b !important;
 }
 
 /* RESTAURAR BOTONES VERDES "VER MÁS" */
