@@ -720,28 +720,60 @@
         z-index: 9999;
         background: transparent;
         color: #d6a13b;
-        border: none;
+        border: 2px solid #d6a13b;
         border-radius: 50%;
-        width: 68px;
-        height: 68px;
-        box-shadow: none;
+        width: 72px;
+        height: 72px;
+        box-shadow: 0 4px 15px rgba(214, 161, 59, 0.3);
         font-size: 2.1rem;
         font-weight: bold;
         cursor: pointer;
         align-items: center;
         justify-content: center;
-        transition: background 0.2s, color 0.2s;
+        transition: all 0.3s ease;
         outline: none;
+        backdrop-filter: blur(5px);
       }
       #scrollTopBtn svg {
         display: block;
         margin: auto;
-        width: 38px;
-        height: 38px;
+        width: 48px;
+        height: 48px;
+        stroke: #d6a13b;
+        stroke-width: 3;
       }
       #scrollTopBtn:hover {
-        background: #d6a13b22;
-        color: #d6a13b;
+        background: rgba(214, 161, 59, 0.1);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(214, 161, 59, 0.4);
+        border-color: #d6a13b;
+      }
+
+      /* Estilos específicos para móvil - Botón más grande y circular */
+      @media (max-width: 768px) {
+        #scrollTopBtn {
+          width: 85px !important;
+          height: 85px !important;
+          bottom: 20px !important;
+          right: 20px !important;
+          border-radius: 50% !important;
+          background: transparent !important;
+          border: 3px solid #d6a13b !important;
+          box-shadow: 0 6px 20px rgba(214, 161, 59, 0.3) !important;
+        }
+
+        #scrollTopBtn svg {
+          width: 58px !important;
+          height: 58px !important;
+          stroke-width: 3.5 !important;
+          stroke: #d6a13b !important;
+        }
+
+        #scrollTopBtn:hover {
+          transform: translateY(-3px) !important;
+          box-shadow: 0 10px 30px rgba(214, 161, 59, 0.4) !important;
+          background: rgba(214, 161, 59, 0.1) !important;
+        }
       }
 
       /* --- Eliminar scroll horizontal solo en pantallas grandes (min-width: 992px) sin afectar diseño de módulos --- */
@@ -909,7 +941,7 @@
         &copy; 2025 Gastronome. Todos los derechos reservados.
       </div>
       <div style="font-size: 0.95rem; color: #bbb">
-        Sitio desarrollado por el equipo Gastronome | contacto@gastronome.com
+        Sitio desarrollado por el equipo Gastronome | gastronome899@gmail.com
       </div>
       <div
         style="
@@ -958,23 +990,11 @@
             height: 36px;
           "
         >
-          <svg
-            width="28"
-            height="28"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="#F5EFD7"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <path
-              d="M21 20.3A16.88 16.88 0 0 1 12 22C6.48 22 2 17.52 2 12.01A9.99 9.99 0 0 1 12 2c5.52 0 10 4.48 10 10.01 0 2.13-.67 4.1-1.81 5.73l.81 3.26-3.26-.7z"
-            />
-            <path
-              d="M16.2 17.2c-1.2.4-2.5.6-3.8.6-4.42 0-8-3.58-8-8 0-4.42 3.58-8 8-8s8 3.58 8 8c0 1.3-.2 2.6-.6 3.8l-1.1-1.1c-.2-.2-.5-.2-.7 0l-2.1 2.1c-.2.2-.2.5 0 .7l1.1 1.1z"
-            />
-          </svg>
+          <img
+            src="Fotos_Gas/wats logo.png"
+            alt="WhatsApp"
+            style="width: 28px; height: 28px; filter: brightness(0) invert(1)"
+          />
         </a>
         <a
           href="https://instagram.com/gastronomeDevs"
@@ -1004,7 +1024,7 @@
           </svg>
         </a>
         <a
-          href="https://facebook.com/"
+          href="https://www.facebook.com/share/16byg27MCE/"
           target="_blank"
           aria-label="Facebook"
           style="
@@ -1034,8 +1054,8 @@
     </footer>
     <button id="scrollTopBtn" title="Volver arriba" aria-label="Volver arriba">
       <svg
-        width="38"
-        height="38"
+        width="48"
+        height="48"
         viewBox="0 0 24 24"
         fill="none"
         stroke="#D6A13B"
@@ -1125,18 +1145,93 @@
 
       // Mostrar/ocultar botón de volver arriba
       const scrollBtn = document.getElementById("scrollTopBtn");
-      window.addEventListener("scroll", function () {
-        if (window.scrollY > 180) scrollBtn.style.display = "flex";
-        else scrollBtn.style.display = "none";
-      });
+      if (scrollBtn) {
+        window.addEventListener("scroll", function () {
+          if (window.scrollY > 300) {
+            scrollBtn.style.display = "flex";
+          } else {
+            scrollBtn.style.display = "none";
+          }
 
-      // En móvil, usar scroll con animación suave para mejor UX
-      scrollBtn.onclick = function () {
-        window.scrollTo({
-          top: 0,
-          behavior: "smooth",
+          // Solo en móvil: reducir tamaño cuando estemos cerca del footer
+          if (window.innerWidth <= 768) {
+            const footer = document.querySelector("footer");
+            if (footer) {
+              const footerTop = footer.offsetTop;
+              const scrollPosition = window.scrollY + window.innerHeight;
+              const distanceToFooter = footerTop - scrollPosition;
+
+              // Si estamos a 200px o menos del footer, hacer el botón más pequeño pero mantener proporciones
+              if (distanceToFooter <= 200) {
+                scrollBtn.style.setProperty("width", "65px", "important");
+                scrollBtn.style.setProperty("height", "65px", "important");
+                scrollBtn.style.setProperty("min-width", "65px", "important");
+                scrollBtn.style.setProperty("min-height", "65px", "important");
+                scrollBtn.style.setProperty("bottom", "15px", "important");
+                scrollBtn.style.setProperty("right", "15px", "important");
+                scrollBtn.style.setProperty(
+                  "border-radius",
+                  "50%",
+                  "important"
+                );
+                scrollBtn.style.setProperty("display", "flex", "important");
+                scrollBtn.style.setProperty(
+                  "align-items",
+                  "center",
+                  "important"
+                );
+                scrollBtn.style.setProperty(
+                  "justify-content",
+                  "center",
+                  "important"
+                );
+                const svg = scrollBtn.querySelector("svg");
+                if (svg) {
+                  svg.style.setProperty("width", "45px", "important");
+                  svg.style.setProperty("height", "45px", "important");
+                  svg.style.setProperty("stroke-width", "4", "important");
+                  svg.style.setProperty("stroke", "#D6A13B", "important");
+                }
+              } else {
+                // Restaurar tamaño normal en móvil
+                scrollBtn.style.setProperty("width", "85px", "important");
+                scrollBtn.style.setProperty("height", "85px", "important");
+                scrollBtn.style.setProperty("min-width", "85px", "important");
+                scrollBtn.style.setProperty("min-height", "85px", "important");
+                scrollBtn.style.setProperty("bottom", "20px", "important");
+                scrollBtn.style.setProperty("right", "20px", "important");
+                scrollBtn.style.setProperty(
+                  "border-radius",
+                  "50%",
+                  "important"
+                );
+                scrollBtn.style.setProperty("display", "flex", "important");
+                scrollBtn.style.setProperty(
+                  "align-items",
+                  "center",
+                  "important"
+                );
+                scrollBtn.style.setProperty(
+                  "justify-content",
+                  "center",
+                  "important"
+                );
+                const svg = scrollBtn.querySelector("svg");
+                if (svg) {
+                  svg.style.setProperty("width", "58px", "important");
+                  svg.style.setProperty("height", "58px", "important");
+                  svg.style.setProperty("stroke-width", "3.5", "important");
+                  svg.style.setProperty("stroke", "#D6A13B", "important");
+                }
+              }
+            }
+          }
         });
-      };
+
+        scrollBtn.onclick = function () {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        };
+      }
 
       // CRITICAL: Simplified mobile scroll behavior
       if (window.innerWidth <= 600) {

@@ -1529,7 +1529,7 @@
         }
 
         .carousel-item-mobile {
-          flex: 0 0 85%;
+          flex: 0 0 90%;
           scroll-snap-align: center;
           background: linear-gradient(135deg, #000 0%, #0a0a0a 100%);
           border: 2px solid rgba(214, 161, 59, 0.4);
@@ -1543,7 +1543,7 @@
 
         /* Cards de proyectos más cortas */
         .carousel-item-mobile.proyecto-card {
-          min-height: 180px;
+          min-height: 300px;
           padding: 15px;
         }
 
@@ -1577,19 +1577,63 @@
         }
 
         .carousel-item-mobile.proyecto-card h3 {
-          font-size: 1.1rem;
+          font-size: 1.9rem !important;
           margin-bottom: 0.5rem;
+          font-weight: 700 !important;
+          color: #d6a13b !important;
+          line-height: 1.2 !important;
         }
 
         .carousel-item-mobile.proyecto-card p {
-          font-size: 0.9rem;
-          line-height: 1.4;
+          font-size: 1.15rem;
+          line-height: 1.5;
           margin: 0;
-          display: -webkit-box;
-          -webkit-line-clamp: 3;
-          line-clamp: 3;
-          -webkit-box-orient: vertical;
-          overflow: hidden;
+          font-weight: 500;
+        }
+
+        /* Estilos específicos para el botón de Modelos 3D */
+        .carousel-item-mobile.proyecto-card
+          div[onclick="abrirModalImagenMovil()"]
+          p {
+          color: #000000 !important;
+          font-weight: 700 !important;
+        }
+
+        /* Forzar texto negro en botones de modelos 3D - máxima especificidad */
+        .mobile-carousel .carousel-item-mobile.proyecto-card div[onclick] p,
+        .carousel-item-mobile div[style*="background: linear-gradient"] p {
+          color: #000000 !important;
+          font-weight: 700 !important;
+          text-shadow: none !important;
+        }
+
+        /* Estilos específicos para los primeros dos módulos de proyectos - asegurar que el texto no se corte */
+        #proyecto-paginas-web,
+        #proyecto-menus-digitales {
+          min-height: auto !important;
+          height: auto !important;
+        }
+
+        #proyecto-paginas-web p,
+        #proyecto-menus-digitales p {
+          overflow: visible !important;
+          text-overflow: unset !important;
+          -webkit-line-clamp: unset !important;
+          line-clamp: unset !important;
+          display: block !important;
+          white-space: normal !important;
+          height: auto !important;
+          max-height: none !important;
+        }
+
+        /* Ajuste específico para el módulo de Páginas Web que tiene texto más largo */
+        #proyecto-paginas-web {
+          min-height: 450px !important;
+        }
+
+        /* Ajuste específico para el módulo de Menús Digitales */
+        #proyecto-menus-digitales {
+          min-height: 380px !important;
         }
 
         /* Indicadores de carrusel */
@@ -1797,11 +1841,105 @@
         }
       }
 
+      /* Ajustes para pantallas móviles medianas */
+      @media (max-width: 480px) and (min-width: 321px) {
+        .carousel-item-mobile.proyecto-card {
+          min-height: 310px;
+          padding: 14px;
+        }
+
+        /* Overrides específicos para los primeros dos módulos en pantallas medianas */
+        #proyecto-paginas-web {
+          min-height: 420px !important;
+        }
+
+        #proyecto-menus-digitales {
+          min-height: 360px !important;
+        }
+
+        #proyecto-paginas-web p,
+        #proyecto-menus-digitales p {
+          overflow: visible !important;
+          text-overflow: unset !important;
+          -webkit-line-clamp: unset !important;
+          line-clamp: unset !important;
+          display: block !important;
+          white-space: normal !important;
+          height: auto !important;
+          max-height: none !important;
+        }
+
+        .carousel-item-mobile.proyecto-card h3 {
+          font-size: 1.8rem !important;
+          margin-bottom: 0.45rem;
+          line-height: 1.2;
+          font-weight: 700 !important;
+          color: #d6a13b !important;
+        }
+
+        .carousel-item-mobile.proyecto-card img {
+          height: 78px;
+          margin-bottom: 0.45rem;
+        }
+
+        .carousel-item-mobile.proyecto-card p {
+          font-size: 1.1rem;
+          line-height: 1.4;
+          font-weight: 500;
+        }
+      }
+
       /* Ajustes para resoluciones extremadamente bajas */
       @media (max-width: 320px) {
         .carousel-item-mobile {
           flex: 0 0 95%;
           padding: 12px;
+        }
+
+        /* Ajustes específicos para módulos de proyecto en pantallas muy pequeñas */
+        .carousel-item-mobile.proyecto-card {
+          min-height: 320px;
+          padding: 12px;
+        }
+
+        /* Overrides específicos para los primeros dos módulos en pantallas muy pequeñas */
+        #proyecto-paginas-web {
+          min-height: 420px !important;
+        }
+
+        #proyecto-menus-digitales {
+          min-height: 360px !important;
+        }
+
+        #proyecto-paginas-web p,
+        #proyecto-menus-digitales p {
+          overflow: visible !important;
+          text-overflow: unset !important;
+          -webkit-line-clamp: unset !important;
+          line-clamp: unset !important;
+          display: block !important;
+          white-space: normal !important;
+          height: auto !important;
+          max-height: none !important;
+        }
+
+        .carousel-item-mobile.proyecto-card h3 {
+          font-size: 1.7rem !important;
+          margin-bottom: 0.4rem;
+          line-height: 1.2;
+          font-weight: 700 !important;
+          color: #d6a13b !important;
+        }
+
+        .carousel-item-mobile.proyecto-card img {
+          height: 75px;
+          margin-bottom: 0.4rem;
+        }
+
+        .carousel-item-mobile.proyecto-card p {
+          font-size: 1.05rem;
+          line-height: 1.4;
+          font-weight: 500;
         }
 
         .mobile-carousel {
@@ -2438,7 +2576,7 @@
           <div class="carousel-item-mobile">
             <h3>Nuestra Imagen</h3>
             <img
-              src="./Fotos_Gas/nuestra-filosofia.webp"
+              src="./Fotos_Gas/logo.webp"
               alt="Filosofía Gastronome"
               style="width: 100%; border-radius: 12px; margin-bottom: 1rem"
             />
@@ -2545,10 +2683,13 @@
       <div class="mobile-only">
         <div class="carousel-hint">Desliza para ver más</div>
         <div class="mobile-carousel" id="proyectos-carousel">
-          <div class="card-clean carousel-item-mobile proyecto-card">
+          <div
+            class="card-clean carousel-item-mobile proyecto-card"
+            id="proyecto-paginas-web"
+          >
             <h3 style="color: #d6a13b; margin-bottom: 0.5rem">Páginas Web</h3>
             <img
-              src="./Fotos_Gas/pagina-web.webp"
+              src="./Fotos_Gas/pagina-completa.webp"
               alt="Desarrollo de páginas web"
               style="
                 width: 100%;
@@ -2559,17 +2700,21 @@
               "
             />
             <p>
-              Diseñamos y desarrollamos páginas web modernas, responsivas y
-              optimizadas para restaurantes.
+              Creamos páginas web modernas y personalizadas para restaurantes,
+              enfocadas en destacar tu marca y facilitar la experiencia del
+              cliente, ayudando a tu negocio a crecer online.
             </p>
           </div>
 
-          <div class="card-clean carousel-item-mobile proyecto-card">
+          <div
+            class="card-clean carousel-item-mobile proyecto-card"
+            id="proyecto-menus-digitales"
+          >
             <h3 style="color: #d6a13b; margin-bottom: 0.5rem">
               Menús Digitales
             </h3>
             <img
-              src="./Fotos_Gas/menu-digital.webp"
+              src="./Fotos_Gas/pagina-inicio.webp"
               alt="Menús digitales interactivos"
               style="
                 width: 100%;
@@ -2580,15 +2725,15 @@
               "
             />
             <p>
-              Creamos menús digitales interactivos con códigos QR, fáciles de
-              actualizar y perfectos para la experiencia del cliente.
+              Creamos menús digitales interactivos con QR, fáciles de actualizar
+              y perfectos para mejorar la experiencia del cliente.
             </p>
           </div>
 
           <div class="card-clean carousel-item-mobile proyecto-card">
             <h3 style="color: #d6a13b; margin-bottom: 0.5rem">Diseño 3D</h3>
             <img
-              src="./Fotos_Gas/modelo3d.webp"
+              src="./Fotos_Gas/Pizza3d.webp"
               alt="Modelos 3D para restaurantes"
               onclick="abrirModalImagenMovil()"
               style="
@@ -3195,7 +3340,7 @@
         &copy; 2025 Gastronome. Todos los derechos reservados.
       </div>
       <div style="font-size: 0.95rem; color: #bbb">
-        Sitio desarrollado por el equipo Gastronome | contacto@gastronome.com
+        Sitio desarrollado por el equipo Gastronome | gastronome899@gmail.com
       </div>
       <div
         style="
@@ -3244,23 +3389,11 @@
             height: 36px;
           "
         >
-          <svg
-            width="28"
-            height="28"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="#F5EFD7"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <path
-              d="M21 20.3A16.88 16.88 0 0 1 12 22C6.48 22 2 17.52 2 12.01A9.99 9.99 0 0 1 12 2c5.52 0 10 4.48 10 10.01 0 2.13-.67 4.1-1.81 5.73l.81 3.26-3.26-.7z"
-            />
-            <path
-              d="M16.2 17.2c-1.2.4-2.5.6-3.8.6-4.42 0-8-3.58-8-8 0-4.42 3.58-8 8-8s8 3.58 8 8c0 1.3-.2 2.6-.6 3.8l-1.1-1.1c-.2-.2-.5-.2-.7 0l-2.1 2.1c-.2.2-.2.5 0 .7l1.1 1.1z"
-            />
-          </svg>
+          <img
+            src="Fotos_Gas/wats logo.png"
+            alt="WhatsApp"
+            style="width: 28px; height: 28px; filter: brightness(0) invert(1)"
+          />
         </a>
         <a
           href="https://instagram.com/gastronomeDevs"
@@ -3290,7 +3423,7 @@
           </svg>
         </a>
         <a
-          href="https://facebook.com/"
+          href="https://www.facebook.com/share/16byg27MCE/"
           target="_blank"
           aria-label="Facebook"
           style="
@@ -4309,6 +4442,179 @@
         transform: translateY(0) !important;
         box-shadow: 0 2px 10px rgba(214, 161, 59, 0.4) !important;
       }
+
+      /* Botón scroll to top */
+      #scrollTopBtn {
+        display: none;
+        position: fixed;
+        bottom: 32px;
+        right: 32px;
+        z-index: 9999;
+        background: transparent;
+        color: #d6a13b;
+        border: 2px solid #d6a13b;
+        border-radius: 50%;
+        width: 72px;
+        height: 72px;
+        box-shadow: 0 4px 15px rgba(214, 161, 59, 0.3);
+        font-size: 2.1rem;
+        font-weight: bold;
+        cursor: pointer;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        outline: none;
+        backdrop-filter: blur(5px);
+      }
+      #scrollTopBtn svg {
+        display: block;
+        margin: auto;
+        width: 48px;
+        height: 48px;
+        stroke: #d6a13b;
+        stroke-width: 3;
+      }
+      #scrollTopBtn:hover {
+        background: rgba(214, 161, 59, 0.1);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(214, 161, 59, 0.4);
+        border-color: #d6a13b;
+      }
+
+      /* Estilos específicos para móvil - Botón más grande y circular */
+      @media (max-width: 768px) {
+        #scrollTopBtn {
+          width: 85px !important;
+          height: 85px !important;
+          bottom: 20px !important;
+          right: 20px !important;
+          border-radius: 50% !important;
+          background: transparent !important;
+          border: 3px solid #d6a13b !important;
+          box-shadow: 0 6px 20px rgba(214, 161, 59, 0.3) !important;
+        }
+
+        #scrollTopBtn svg {
+          width: 58px !important;
+          height: 58px !important;
+          stroke-width: 3.5 !important;
+          stroke: #d6a13b !important;
+        }
+
+        #scrollTopBtn:hover {
+          transform: translateY(-3px) !important;
+          box-shadow: 0 10px 30px rgba(214, 161, 59, 0.4) !important;
+          background: rgba(214, 161, 59, 0.1) !important;
+        }
+      }
     </style>
+
+    <!-- Botón para volver arriba -->
+    <button id="scrollTopBtn" title="Volver arriba" aria-label="Volver arriba">
+      <svg
+        width="48"
+        height="48"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="#D6A13B"
+        stroke-width="3.2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <polyline points="6 14 12 8 18 14" />
+      </svg>
+    </button>
+
+    <script>
+      // Mostrar/Ocultar botón de volver arriba
+      const scrollBtn = document.getElementById("scrollTopBtn");
+      if (scrollBtn) {
+        window.addEventListener("scroll", function () {
+          if (window.scrollY > 300) {
+            scrollBtn.style.display = "flex";
+          } else {
+            scrollBtn.style.display = "none";
+          }
+
+          // Solo en móvil: reducir tamaño cuando estemos cerca del footer
+          if (window.innerWidth <= 768) {
+            const footer = document.querySelector("footer");
+            if (footer) {
+              const footerTop = footer.offsetTop;
+              const scrollPosition = window.scrollY + window.innerHeight;
+              const distanceToFooter = footerTop - scrollPosition;
+
+              // Si estamos a 200px o menos del footer, hacer el botón más pequeño pero mantener proporciones
+              if (distanceToFooter <= 200) {
+                scrollBtn.style.setProperty("width", "65px", "important");
+                scrollBtn.style.setProperty("height", "65px", "important");
+                scrollBtn.style.setProperty("min-width", "65px", "important");
+                scrollBtn.style.setProperty("min-height", "65px", "important");
+                scrollBtn.style.setProperty("bottom", "15px", "important");
+                scrollBtn.style.setProperty("right", "15px", "important");
+                scrollBtn.style.setProperty(
+                  "border-radius",
+                  "50%",
+                  "important"
+                );
+                scrollBtn.style.setProperty("display", "flex", "important");
+                scrollBtn.style.setProperty(
+                  "align-items",
+                  "center",
+                  "important"
+                );
+                scrollBtn.style.setProperty(
+                  "justify-content",
+                  "center",
+                  "important"
+                );
+                const svg = scrollBtn.querySelector("svg");
+                if (svg) {
+                  svg.style.setProperty("width", "45px", "important");
+                  svg.style.setProperty("height", "45px", "important");
+                  svg.style.setProperty("stroke-width", "4", "important");
+                  svg.style.setProperty("stroke", "#D6A13B", "important");
+                }
+              } else {
+                // Restaurar tamaño normal en móvil
+                scrollBtn.style.setProperty("width", "85px", "important");
+                scrollBtn.style.setProperty("height", "85px", "important");
+                scrollBtn.style.setProperty("min-width", "85px", "important");
+                scrollBtn.style.setProperty("min-height", "85px", "important");
+                scrollBtn.style.setProperty("bottom", "20px", "important");
+                scrollBtn.style.setProperty("right", "20px", "important");
+                scrollBtn.style.setProperty(
+                  "border-radius",
+                  "50%",
+                  "important"
+                );
+                scrollBtn.style.setProperty("display", "flex", "important");
+                scrollBtn.style.setProperty(
+                  "align-items",
+                  "center",
+                  "important"
+                );
+                scrollBtn.style.setProperty(
+                  "justify-content",
+                  "center",
+                  "important"
+                );
+                const svg = scrollBtn.querySelector("svg");
+                if (svg) {
+                  svg.style.setProperty("width", "58px", "important");
+                  svg.style.setProperty("height", "58px", "important");
+                  svg.style.setProperty("stroke-width", "3.5", "important");
+                  svg.style.setProperty("stroke", "#D6A13B", "important");
+                }
+              }
+            }
+          }
+        });
+
+        scrollBtn.onclick = function () {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        };
+      }
+    </script>
   </body>
 </html>
